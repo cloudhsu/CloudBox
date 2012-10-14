@@ -21,8 +21,6 @@ class CBiOSEffectManager : public CBEffectBase
 private:
     map<string,ALuint> m_effects;
     vector<ALuint> m_bufferStorageArray;
-    ALCcontext *m_Context;
-    ALCdevice *m_Device;
     void initOpenAL();
     float m_volume;
 public:

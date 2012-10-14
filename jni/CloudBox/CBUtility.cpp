@@ -9,6 +9,7 @@
 
 #include "CBUtility.h"
 #include "CBUtilityBase.h"
+#include <math.h>
 
 CBUtility::CBUtility()
 {
@@ -27,4 +28,18 @@ string CBUtility::getFilePath()
 string CBUtility::getLanguage()
 {
 	return m_utility->getLanguage();
+}
+
+DeviceType CBUtility::getDeviceType()
+{
+    return m_utility->getDeviceType();
+}
+
+int CBUtility::rand()
+{
+#ifdef __CBIOS__
+    return abs((int)arc4random());
+#else
+    return rand();
+#endif
 }

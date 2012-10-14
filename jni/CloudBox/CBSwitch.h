@@ -46,7 +46,7 @@ public:
 	void onClick(float x,float y);
 	
 	inline SwitchStatus getStatus() { return m_status; }
-	inline void setStatus(SwitchStatus status) { m_status = status; }
+    void setStatus(SwitchStatus status) { m_status = status; }
 	
 	template <typename T>
 	void addSwitchEvent(T* instance, void (T::*Func)(CBView*,SwitchStatus))

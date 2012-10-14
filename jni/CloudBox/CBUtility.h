@@ -10,11 +10,11 @@
 #ifndef _CBUTILITY_H_
 #define _CBUTILITY_H_
 
+#include "CBUtilityBase.h"
 #include "CBSingleton.h"
+#include "CBDialog.h"
 #include <string>
 using namespace std;
-
-class CBUtilityBase;
 
 class CBUtility : public CBSingleton<CBUtility>
 {
@@ -25,6 +25,10 @@ public:
 	~CBUtility();
 	string getFilePath();
 	string getLanguage();
+    
+    DeviceType getDeviceType();
+    
+    static int rand();
 };
 
 #define SUtility CBUtility::instance()

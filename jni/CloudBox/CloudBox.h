@@ -8,13 +8,21 @@
  */
 
 #ifndef CBVERSION
-#define CBVERSION "0.99.39"
+#define CBVERSION "0.99.41"
 #endif
 
 /*
- * Cloud Box is cross platform framework.
- * Copyright by Cloud Hsu
- * version 0.99.39
+ *******************************************************************
+ * Cloud Box is cross platform framework.                          *
+ * Copyright by Cloud Hsu                                          *
+ *******************************************************************
+ * 2012/10/14 v0.99.41
+ * 1. Add dialog function.
+ * 2. Implemet dialog function in iOS.
+ * 2012/10/08 v0.99.40
+ * 1. Fix orientation issue in iOS6.
+ * 2. Fix openal release bug in iOS6.
+ * 3. Add rand in CBUtility.
  * 2012/09/09 v0.99.39
  * 1. Fix bug for RingScroll Image.
  * 2. Disable Sleep for iOS and Android.
@@ -139,6 +147,7 @@
  * 2. Improve item model and texture pool.
  * 2011/09/04 v0.99.3
  * 1. Add text for Android
+ *******************************************************************
  */
 
 #include "CBLibrary.h"
@@ -162,6 +171,9 @@
 #include "CBRotateAction.h"
 #include "CBGameApp.h"
 #include "CBAudioEngine.h"
+#include "CBUtility.h"
+#include "CBDialog.h"
+#include "CBSystemDialog.h"
 
 // CloudBox game component
 #ifdef __CBIOS__

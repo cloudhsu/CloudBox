@@ -136,11 +136,23 @@
 }
 */
 
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    NSLog(@"supportedInterfaceOrientationsForWindow");
+    return  UIInterfaceOrientationMaskLandscapeRight;
+}
+
+-(BOOL)shouldAutorotate
+{
+    //return NO;
+    return YES;
+}
+
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == DefaultOrientation());
+    //return (interfaceOrientation == DefaultOrientation());
+    return UIInterfaceOrientationIsLandscape( interfaceOrientation );
 }
 
 

@@ -144,6 +144,12 @@ void CBRingScrollImage::startScroll()
 	action->commit(this);
 }
 
+void CBRingScrollImage::initialScroll()
+{
+    m_image1->moveToAbsolute(getX(), getY());
+    resetImage2();
+}
+
 void CBRingScrollImage::draw()
 {
 	if(!this->getVisible())

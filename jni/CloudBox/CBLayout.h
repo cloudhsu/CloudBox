@@ -18,7 +18,9 @@
 typedef enum {
 	iOS_Normal_320_480,
 	iOS_Retina_640_960,
+    iOS_Retina_640_1136,
 	iOS_iPad1_1024_768,
+    iOS_iPad_Retina_2048_1536,
 	Android_WQVGA_200_400,
 	Android_WVGA_400_800
 }CBLayoutType;
@@ -29,7 +31,8 @@ typedef enum {
 class CBLayout : public CBSingleton<CBLayout>
 {
 private:
-	CBLayoutType m_imgLayout;
+	CBLayoutType m_baseLayout;
+    CBLayoutType m_currentLayout;
 	float m_scaleWidth;
 	float m_scaleHeight;
 	float m_defaultWidth;

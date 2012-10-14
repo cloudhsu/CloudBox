@@ -32,12 +32,7 @@ class CBGameApp : public CBSingleton<CBGameApp>
 {
 private:
 	// --- Add private member --- //
-	void notify(double time); // notify model
-	void draw(); // update and render view
-	
 	bool m_isinitialed;
-	//double m_OldTime;
-	//double m_SpanTime;
 public:
 	// --- Add public member --- //
 	CBGameApp();

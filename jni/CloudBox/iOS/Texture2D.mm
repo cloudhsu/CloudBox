@@ -106,7 +106,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 - (NSString*) description
 {
-	return [NSString stringWithFormat:@"<%@ = %08X | Name = %i | Dimensions = %ix%i | Coordinates = (%.2f, %.2f)>", [self class], self, _name, _width, _height, _maxS, _maxT];
+	return [NSString stringWithFormat:@"<%@ = %8@ | Name = %i | Dimensions = %ix%i | Coordinates = (%.2f, %.2f)>", [self class], self, _name, _width, _height, _maxS, _maxT];
 }
 
 @end

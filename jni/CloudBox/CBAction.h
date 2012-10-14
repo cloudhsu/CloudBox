@@ -57,6 +57,8 @@ public:
 	void notify();
     void stop();
     void finish();
+    
+    void setDuration(double duration) { m_duration = duration; }
 	
 	inline const ActionStatus getStatus() { return m_status; }
 };

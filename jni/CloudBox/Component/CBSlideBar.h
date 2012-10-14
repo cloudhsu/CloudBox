@@ -120,6 +120,7 @@ public:
 	void setOptionBar(const string& imageName);
 	void addButton(const string& imageName);
 	void addSwitchButton(const string& onImageName,const string& offImageName);
+    void addSwitchButton(const string& onImageName,const string& offImageName,bool isOn);
     void setAnimatingDuration(float duration);
     
     void initial();

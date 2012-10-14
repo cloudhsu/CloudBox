@@ -33,7 +33,6 @@ private:
     bool m_isPause;
     
 	void initial();
-	void scrollImage(CBView* target);
 	void resetImage2();
 protected:
 	void draw();
@@ -44,7 +43,9 @@ public:
     CBRingScrollImage(ScrollCoordinate scrollCoordinate, float distance, float duration);
 	~CBRingScrollImage();
 	
+    void scrollImage(CBView* target);
 	void startScroll();
+    void initialScroll();
     
     void pause() { m_isPause = true; }
     void resume() { m_isPause = false; }

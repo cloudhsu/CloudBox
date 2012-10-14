@@ -282,6 +282,14 @@ void CBSlideBar::addSwitchButton(const string& onImageName,const string& offImag
 	m_options.push_back(button);
 }
 
+void CBSlideBar::addSwitchButton(const string& onImageName,const string& offImageName,bool isOn)
+{
+    CBSwitch* button = new CBSwitch(onImageName,offImageName);
+	button->hide();
+    button->setStatus((SwitchStatus)isOn);
+	m_options.push_back(button);
+}
+
 void CBSlideBar::onOptionClick()
 {
 	if(m_status == SlideBarShow)

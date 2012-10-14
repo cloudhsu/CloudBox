@@ -28,10 +28,13 @@ void CBiOSEffectManager::initialEffect()
 
 void CBiOSEffectManager::initOpenAL()
 {
-    m_Device = alcOpenDevice(NULL);
-    if (m_Device) {
-        m_Context = alcCreateContext(m_Device, NULL);
-        alcMakeContextCurrent(m_Context);
+    AudioSessionSetActive(YES);
+    ALCdevice* device = NULL;
+    ALCcontext* currentContext = NULL;
+    device = alcOpenDevice(NULL);
+    if (device) {
+        currentContext = alcCreateContext(device, NULL);
+        alcMakeContextCurrent(currentContext);
     }
 }
 
@@ -142,9 +145,11 @@ void CBiOSEffectManager::releaseAllEffect()
         alDeleteSources(1, &sourceID);
     }
 	m_bufferStorageArray.clear();
-    
-    alcDestroyContext(m_Context);    
-    alcCloseDevice(m_Device);
+    ALCcontext* currentContext = NULL;
+    ALCdevice* device = NULL;
+    alcDestroyContext(currentContext);
+    //Close device
+    alcCloseDevice(device);
 }
 void CBiOSEffectManager::playEffect(const string fileName)
 {

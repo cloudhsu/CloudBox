@@ -13,7 +13,7 @@
 
 CBLayout::CBLayout()
 {
-	m_imgLayout = iOS_Retina_640_960;
+	m_baseLayout = iOS_Retina_640_960;
 	m_defaultWidth = IOS_RETINA_WIDTH;
 	m_defaultHeight = IOS_RETINA_HEIGHT;
 	setOrientation(CBEnvironment::getOrientation());
