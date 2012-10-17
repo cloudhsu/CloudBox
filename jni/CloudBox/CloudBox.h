@@ -16,6 +16,9 @@
  * Cloud Box is cross platform framework.                          *
  * Copyright by Cloud Hsu                                          *
  *******************************************************************
+ * 2012/10/17 v0.99.42
+ * 1. Add CBUserDefault function.
+ * 2. Add libxml implement in CloudBox.
  * 2012/10/14 v0.99.41
  * 1. Add dialog function.
  * 2. Implemet dialog function in iOS.
