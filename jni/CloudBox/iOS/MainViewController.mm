@@ -136,10 +136,13 @@
 }
 */
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_5_1
+// iPhone 6.0 code here
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
     NSLog(@"supportedInterfaceOrientationsForWindow");
     return  UIInterfaceOrientationMaskLandscapeRight;
 }
+#endif
 
 -(BOOL)shouldAutorotate
 {
