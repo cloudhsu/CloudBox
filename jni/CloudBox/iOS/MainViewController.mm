@@ -136,7 +136,7 @@
 }
 */
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_5_1
+#ifdef __IPHONE_6_0
 // iPhone 6.0 code here
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
     NSLog(@"supportedInterfaceOrientationsForWindow");
