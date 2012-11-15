@@ -1,0 +1,53 @@
+/*
+ *  CloudLed.java
+ *  CloudBox Cross-Platform Framework Project
+ *
+ *  Created by Cloud Hsu on 2012/1/17.
+ *  Copyright 2012 Cloud Hsu. All rights reserved.
+ *
+ */
+
+package com.clouddevelop.cloudbox;
+
+import android.hardware.Camera;
+import android.util.Log;
+
+public class CloudLed {
+	Camera m_Camera;
+	
+	public CloudLed()
+	{
+	}
+	
+	public void turnOn()
+	{
+		try
+		{
+			Log.i("cloudbox-app", "CloudLed.turnOn()");
+			m_Camera = Camera.open();
+			Camera.Parameters mParameters;
+			mParameters = m_Camera.getParameters();
+			mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+			m_Camera.setParameters(mParameters);
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+	
+	public void turnOff()
+	{
+		try
+		{
+			Log.i("cloudbox-app", "CloudLed.turnOff()");
+			Camera.Parameters mParameters;
+			mParameters = m_Camera.getParameters();
+			mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+			m_Camera.setParameters(mParameters);
+			m_Camera.release();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+}

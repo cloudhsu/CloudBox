@@ -1,0 +1,37 @@
+/*
+ *  HelloScene.h
+ *  CloudBox Cross-Platform Framework Project
+ *
+ *  Created by Cloud on 2011/7/31.
+ *  Copyright 2011 Cloud Hsu. All rights reserved.
+ *
+ */
+
+#ifndef _HELLOSCENE_H_
+#define _HELLOSCENE_H_
+
+#include "CloudBox.h"
+
+class CBImage;
+
+class HelloScene : public CBScene
+{
+protected:
+	CBImage* bg;
+	CBLabel* label;
+	CBButton* button;
+	void update();
+public:
+	HelloScene();
+	~HelloScene();
+	
+	void initialize();
+	
+	void OnClick(CBView* item,CBEvent* e);
+	
+	void touchBegan(float x, float y);
+	void touchMoved(float x, float y);
+	void touchEnded(float x, float y);
+};
+
+#endif
