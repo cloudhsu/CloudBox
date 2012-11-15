@@ -12,7 +12,7 @@ import android.view.WindowManager;
 
 public class CBMotion implements SensorEventListener {
 	
-	private static final String TAG = "Cocos2dxAccelerometer";
+	private static final String TAG = "CloudBoxAccelerometer";
 	private Context mContext;
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;

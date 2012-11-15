@@ -53,6 +53,8 @@ void CBAudioEngine::loadMusic(const string fileName)
 }
 void CBAudioEngine::releaseMusic()
 {
+	if(m_isMute)
+	    return;
     m_audioManager->stopMusic();
     m_audioManager->releaseMusic();
 }
@@ -64,6 +66,8 @@ void CBAudioEngine::playMusic()
 }
 void CBAudioEngine::stopMusic()
 {
+	if(m_isMute)
+	    return;
     m_audioManager->stopMusic();
 }
 void CBAudioEngine::pauseMusic()
@@ -98,6 +102,8 @@ void CBAudioEngine::playEffect(const string fileName)
 }
 void CBAudioEngine::stopEffect(const string fileName)
 {
+	if(m_isMute)
+	    return;
     m_effectManager->stopEffect(fileName);
 }
 

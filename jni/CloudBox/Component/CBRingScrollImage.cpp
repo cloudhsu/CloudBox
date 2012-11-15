@@ -21,7 +21,7 @@ CBRingScrollImage::CBRingScrollImage()
 
 CBRingScrollImage::CBRingScrollImage(const string& imageName, ScrollCoordinate scrollCoordinate, float distance, float duration)
 :CBView(), m_image1(NULL), m_image2(NULL), m_scrollCoordinate(scrollCoordinate),
-m_distance(distance), m_duration(duration)
+m_distance(distance), m_duration(duration),m_isPause(false)
 {
 	initial();
 	setImage(imageName);
@@ -29,7 +29,7 @@ m_distance(distance), m_duration(duration)
 
 CBRingScrollImage::CBRingScrollImage(CBView* view, ScrollCoordinate scrollCoordinate, float distance, float duration)
 :CBView(), m_image1(NULL), m_image2(NULL), m_scrollCoordinate(scrollCoordinate),
-m_distance(distance), m_duration(duration)
+m_distance(distance), m_duration(duration),m_isPause(false)
 {
     initial();
 	setImage(view);
@@ -37,7 +37,7 @@ m_distance(distance), m_duration(duration)
 
 CBRingScrollImage::CBRingScrollImage(ScrollCoordinate scrollCoordinate, float distance, float duration)
 :CBView(), m_image1(NULL), m_image2(NULL), m_scrollCoordinate(scrollCoordinate),
-m_distance(distance), m_duration(duration)
+m_distance(distance), m_duration(duration),m_isPause(false)
 {
     
 }
@@ -100,19 +100,22 @@ void CBRingScrollImage::resetImage2()
 		else if(m_distance > 0)
 			m_image2->moveToAbsolute(getX(), m_image1->getY() - m_image1->getHeight());
 	}
-//    DebugLog("image1 X:%f,Y:%f\n", m_image1->getX(),m_image1->getY());
-//    DebugLog("image2 X:%f,Y:%f\n", m_image2->getX(),m_image2->getY());
+    //DebugLog("image1 X:%f,Y:%f\n", m_image1->getX(),m_image1->getY());
+    //DebugLog("image2 X:%f,Y:%f\n", m_image2->getX(),m_image2->getY());
 }
 
 void CBRingScrollImage::scrollImage(CBView* target)
 {
+	DebugLog("scrollImage 1\n");
     if(m_isPause)
         return;
+    DebugLog("scrollImage 2\n");
 	bool isSwap = false;
 	if(m_scrollCoordinate == ScrollX)
 	{
 		m_image1->move(m_distance, 0);
 		m_image2->move(m_distance, 0);
+		DebugLog("scrollImage 3\n");
 		if((m_image2->getX() <= 0 && m_distance < 0) ||
 		   (m_image2->getX() + m_image2->getWidth() >= this->getWidth() && m_distance > 0))
 			isSwap = true;
@@ -133,6 +136,8 @@ void CBRingScrollImage::scrollImage(CBView* target)
 		temp = NULL;
 		resetImage2();
 	}
+	DebugLog("image1 X:%f,Y:%f\n", m_image1->getX(),m_image1->getY());
+	DebugLog("image2 X:%f,Y:%f\n", m_image2->getX(),m_image2->getY());
 }
 
 void CBRingScrollImage::startScroll()
@@ -146,6 +151,7 @@ void CBRingScrollImage::startScroll()
 
 void CBRingScrollImage::initialScroll()
 {
+	m_isPause = false;
     m_image1->moveToAbsolute(getX(), getY());
     resetImage2();
 }

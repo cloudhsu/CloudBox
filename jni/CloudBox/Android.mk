@@ -16,15 +16,13 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../libzip/ $(LOCAL_PATH)/../libpng/
-LOCAL_STATIC_LIBRARIES := libzip libpng
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../libzip/ $(LOCAL_PATH)/../libpng/ $(LOCAL_PATH)/../libxml/include/
+LOCAL_STATIC_LIBRARIES := libzip libpng libxml2
 
 #-Wno-psabi to remove warning about GCC 4.4 va_list warning
 LOCAL_CFLAGS := -DANDROID_NDK -Wno-psabi -fno-exceptions -fno-rtti 
 
 LOCAL_MODULE    := cloudbox-app
-#LOCAL_MODULE    := libcloudbox
-# main.cpp
 # CloudBox Common Library
 LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
                    CBButton.cpp CBCmd.cpp CBDirector.cpp \
@@ -37,7 +35,10 @@ LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
                    _CBDefBuilder.cpp _CBBuilder.cpp CBGLImage.cpp \
                    CBTextCallback.cpp CBTextureCallback.cpp CBCallbackDispatcher.cpp \
                    CBOpenGL.cpp CBEnvironment.cpp CBRotateAction.cpp CBPropertyAction.cpp \
-                   CBAudioEngine.cpp CBSwitch.cpp CBProperty.cpp \
+                   CBAudioEngine.cpp CBSwitch.cpp CBProperty.cpp CBEventProcessor.cpp \
+                   CBStoreManager.cpp CBStoreEvent.cpp CBDialog.cpp CBSystemDialog.cpp \
+                   CBUtility.cpp CBXmlUtility.cpp CBUserDefault.cpp CBLibXMLUtility.cpp \
+                   CBFileUtility.cpp CBStoreBase.cpp CBDialogManager.cpp \
                    ../CBAppEvent.cpp
 # CloudBox extends function
 # LOCAL_SRC_FILES += Extends/CBLotto.cpp Extends/CBLed.cpp Extends/CBMotion.cpp
@@ -45,7 +46,8 @@ LOCAL_SRC_FILES += Extends/CBMotion.cpp
 # CloudBox Android Library
 LOCAL_SRC_FILES += Android/CBBuilderAndroid.cpp Android/app-android.cpp Android/utils.cpp \
                    Android/CBJNI.cpp Android/CBTextManager.cpp Android/CBAndroidAudioManager.cpp \
-                   Android/CBAndroidEffectManager.cpp 
+                   Android/CBAndroidEffectManager.cpp Android/CBAndroidUtility.cpp \
+                   Android/CBAndroidDialog.cpp
 # CloudBox Android Extends Library
 # LOCAL_SRC_FILES += Android/CBMotionAndroid.cpp Android/CBLedAndroid.cpp
 # CloudBox Game Component

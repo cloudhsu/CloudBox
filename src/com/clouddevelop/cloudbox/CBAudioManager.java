@@ -35,6 +35,7 @@ public class CBAudioManager
 	{
 		if (mBackgroundMediaPlayer != null){
 			mBackgroundMediaPlayer.release();
+			mBackgroundMediaPlayer = null;
 		}
 		mBackgroundMediaPlayer = createMediaplayerFromAssets(fileName);
 		mBackgroundMediaPlayer.setLooping(true);
@@ -47,8 +48,10 @@ public class CBAudioManager
 	}
 	public void releaseMusic()
     {
-		if (mBackgroundMediaPlayer != null){
+		if (mBackgroundMediaPlayer != null)
+		{
 			mBackgroundMediaPlayer.release();
+			mBackgroundMediaPlayer = null;
 		}
     }
 	public void playMusic()
@@ -71,9 +74,9 @@ public class CBAudioManager
 	public void stopMusic()
     {
 		if (mBackgroundMediaPlayer != null){
-			//mBackgroundMediaPlayer.stop();
-			mBackgroundMediaPlayer.pause();
-			mBackgroundMediaPlayer.seekTo(0);
+			mBackgroundMediaPlayer.stop();
+			//mBackgroundMediaPlayer.pause();
+			//mBackgroundMediaPlayer.seekTo(0);
 			this.mIsPaused = false;
 		}
     }

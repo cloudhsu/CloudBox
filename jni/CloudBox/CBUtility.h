@@ -16,19 +16,28 @@
 #include <string>
 using namespace std;
 
+#define RATE_TAG "RateMe"
+
 class CBUtility : public CBSingleton<CBUtility>
 {
 private:
 	CBUtilityBase* m_utility;
+    string m_appleID;
 public:
 	CBUtility();
 	~CBUtility();
-	string getFilePath();
+
 	string getLanguage();
-    
     DeviceType getDeviceType();
     
-    static int rand();
+    void onRateAlertClick(DialogResult result, int clickIndex);
+    void openUrl(const string& url);
+    void openApp(const string& appleID);
+    void rateApp(const string& appleID);
+    
+    void rankMyGame(const string& appleID);
+    
+    int rand();
 };
 
 #define SUtility CBUtility::instance()

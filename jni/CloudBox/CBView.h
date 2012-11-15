@@ -16,12 +16,21 @@
 #include <iostream>
 using namespace std;
 
+enum RotateAxis
+{
+    RotateAxisX = 0,
+    RotateAxisY = 1,
+    RotateAxisZ = 2,
+    RotateCustom = 3
+};
+
 class CBView : public CBObject, public ITouch, public IClick
 {
 protected:
 	// --- Add private member --- //
 	float m_x;
 	float m_y;
+    float m_z;
 	float m_width;
 	float m_height;
 	
@@ -38,6 +47,8 @@ protected:
 	
 	virtual void draw() = 0;
 	virtual void update(){}
+    
+    RotateAxis m_rotateAxis;
 	
 public:
 	// --- Add public member --- //
@@ -62,6 +73,9 @@ public:
 	
 	inline const float getY() { return m_y; }
 	inline void setY(float y) { m_y = y; }
+    
+    inline const float getZ() { return m_z; }
+	inline void setZ(float z) { m_z = z; }
 	
 	inline const float getWidth() { return m_width; }
 	inline void setWidth(float width) { m_width = width; }
@@ -73,7 +87,10 @@ public:
 	inline void setAngle(float angle) { m_angle = angle; }
 	
 	inline const float getAlpha() { return m_alpha; }
-	inline void setAlpha(float alpha) { m_alpha = alpha; }
+	inline void setAlpha(float alpha) { m_alpha = alpha; m_color.a = alpha; }
+    
+    inline const RotateAxis getRotateAxis() { return m_rotateAxis; }
+	inline void setRotateAxis(RotateAxis rotateAxis) { m_rotateAxis = rotateAxis; }
 	
 	inline CBColor getColor() { return m_color; }
 	

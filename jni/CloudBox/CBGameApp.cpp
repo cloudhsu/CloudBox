@@ -14,6 +14,7 @@
 #include "CBTexturePool.h"
 #include "CBTimerManager.h"
 #include "CBEventProcessor.h"
+#include "CBStoreManager.h"
 #ifdef __CBIOS__
 #include "HelloScene.h"
 #else
@@ -40,6 +41,7 @@ void CBGameApp::setScreen(GLint screenWidth,GLint screenHeight)
 void CBGameApp::initialize()
 {
 	SOpenGL.initialize2D();
+    SStoreManager.initialStore();
 	if(!m_isinitialed)
 	{
 		m_isinitialed = true;
@@ -75,6 +77,7 @@ void CBGameApp::runWithScene(CBScene* scene)
 
 void CBGameApp::destory()
 {
+    SStoreManager.releaseStore();
 }
 
 void CBGameApp::reloadTexture()
@@ -110,6 +113,11 @@ void CBGameApp::onSersorChanged(float x, float y, float z)
     SEventProcessor.onSersorChanged(x, y, z);
 }
 
+void CBGameApp::onAndroidAlertEvent(int dialogType, int dialogResult, int buttonIndex)
+{
+	DebugLog("CBGameApp::onAndroidAlertEvent\n");
+	SEventProcessor.onAlertEvent((DialogResult)dialogResult, buttonIndex);
+}
 void CBGameApp::applicationDidEnterBackground()
 {
     SEventProcessor.onApplicationDidEnterBackground();

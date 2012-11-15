@@ -19,15 +19,20 @@ enum DialogResult
     DialogResultNo = 4,
     DialogResultAbort = 5,
     DialogResultRetry = 6,
-    DialogResultIgnore = 7
+    DialogResultIgnore = 7,
+    DialogResultRateMe = 8,
+    DialogResultRateCancel = 9,
+    DialogResultRateNever = 10
 };
 
 enum DialogType
 {
-    DialogTypeOK = 0,
-    DialogTypeOKCancel = 1,
-    DialogTypeYesNo = 2,
-    DialogTypeRate = 3
+    DialogTypeClose = 0,
+    DialogTypeOK = 1,
+    DialogTypeCancel = 2,
+    DialogTypeOKCancel = 3,
+    DialogTypeYesNo = 4,
+    DialogTypeRate = 5
 };
 
 #endif

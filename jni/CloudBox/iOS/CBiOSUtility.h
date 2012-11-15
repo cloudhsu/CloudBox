@@ -9,16 +9,20 @@
 #ifndef _CBIOSUTILITY_H_
 #define _CBIOSUTILITY_H_
 
+#include "CBUtilityBase.h"
 #include <string>
 using namespace std;
 
-class CBiOSUtility
+class CBiOSUtility : public CBUtilityBase
 {
 public:
     CBiOSUtility();
     ~CBiOSUtility();
     
     static string getSystemPath(const string& fileName);
+	string getLanguage();
+    DeviceType getDeviceType();
+    void openUrl(const string& url);
 };
 
 #endif

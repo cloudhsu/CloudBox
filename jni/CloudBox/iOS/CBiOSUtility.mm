@@ -28,3 +28,17 @@ string CBiOSUtility::getSystemPath(const string& fileName)
     
     return string([path UTF8String]);
 }
+
+string CBiOSUtility::getLanguage()
+{
+    return "en";
+}
+DeviceType CBiOSUtility::getDeviceType()
+{
+    return DeviceiPhone;
+}
+void CBiOSUtility::openUrl(const string& url)
+{
+    NSString *myUrl = [[NSString alloc] initWithUTF8String: url.c_str()];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:myUrl]];
+}

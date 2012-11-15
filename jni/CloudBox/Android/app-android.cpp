@@ -12,12 +12,14 @@
 #include "def.h"
 #include "utils.h"
 #include <time.h>
+#include <string>
 #include "../CloudBox.h"
 #include "../CBLogoScene.h"
 
 zip* APKArchive;
 jobject g_textmgr;
 JNIEnv *g_env;
+string g_apkPath;
 
 //int to fixed point
 #define iX(x) (x<<16)
@@ -85,13 +87,18 @@ static void loadAPK (const char* apkPath)
 }
 
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInit
-  (JNIEnv * env, jclass cls, jstring apkPath)
+  (JNIEnv * env, jclass cls, jstring apkPath, jstring packageName)
 {
 	//LOGI("nativeInit");
-	const char* str;
+	const char* sApkPath;
+	const char* sPackageName;
     jboolean isCopy;
-    str = env->GetStringUTFChars(apkPath, &isCopy);
-    loadAPK(str);
+    sApkPath = env->GetStringUTFChars(apkPath, &isCopy);
+    sPackageName = env->GetStringUTFChars(packageName, &isCopy);
+    g_apkPath = string(sPackageName);
+    LOGI("apk path:%s",sApkPath);
+    LOGI("package name:%s",sPackageName);
+    loadAPK(sApkPath);
 }
 
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInitGL
@@ -100,6 +107,7 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInitGL
 	LOGI("nativeInitGL");
     SGameApp.initialTimer(_getTime());
     SGameApp.initialize();
+    LOGI("End nativeInitGL");
 }
 
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeSetsize
@@ -163,4 +171,11 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeTextIn
 	g_textmgr = textManager;
 	jclass business_class = env->GetObjectClass(g_textmgr);
 	AndroidLog("initial textmanager success!");
+}
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeAlertEvent
+  (JNIEnv *, jclass, jint dialogType, jint dialogResult, jint buttonIndex)
+{
+	LOGI("Alert EVent[ Type:%d Result:%d Index:%d]\n", dialogType, dialogResult, buttonIndex);
+	SGameApp.onAndroidAlertEvent(dialogType, dialogResult, buttonIndex);
 }

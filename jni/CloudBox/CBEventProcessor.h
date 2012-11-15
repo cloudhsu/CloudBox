@@ -11,6 +11,7 @@
 #define __CBEVENTPROCESSOR__
 
 #include "CBSingleton.h"
+#include "CBDialogEnum.h"
 
 class CBEventProcessor : public CBSingleton<CBEventProcessor>
 {
@@ -26,6 +27,7 @@ public:
 	void onTouchMoved(float x, float y);
 	void onTouchEnded(float x, float y);
 	void onSersorChanged(float x, float y, float z);
+	void onAlertEvent(DialogResult dialogResult, int buttonIndex);
 	
 	void onApplicationDidEnterBackground();
 	void onApplicationWillEnterForeground();

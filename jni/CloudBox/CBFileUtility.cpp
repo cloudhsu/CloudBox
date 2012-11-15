@@ -13,7 +13,8 @@
 #include "CBiOSUtility.h"
 #define SystemPath(name) CBiOSUtility::getSystemPath(name)
 #else
-#define SystemPath(name) (name)
+#include "Android/CBAndroidUtility.h"
+#define SystemPath(name) CBAndroidUtility::getSystemPath(name)
 #endif
 
 CBFileUtility::CBFileUtility(void)

@@ -90,12 +90,15 @@ public class CBEffectManager
     {
 		if (mSoundPool != null){
 			mSoundPool.release();
+			mSoundPool = null;
 		}
 		if (mPathSoundIDMap != null){
 			mPathSoundIDMap.clear();
+			mPathSoundIDMap = null;
 		}
 		if (mSoundIdStreamIdMap != null){
 			mSoundIdStreamIdMap.clear();
+			mSoundIdStreamIdMap = null;
 		}
     }
 	public void playEffect(String fileName)

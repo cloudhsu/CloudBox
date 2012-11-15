@@ -45,13 +45,30 @@
                                  cancelButtonTitle:nil
                                  otherButtonTitles: @"OK", @"Cancel", nil];
     }
-    else // DialogTypeOK
+    else if(DialogTypeRate == _type)
     {
         alert = [[UIAlertView alloc] initWithTitle:title
                                            message:msg
                                           delegate: self
                                  cancelButtonTitle:nil
-                                 otherButtonTitles: @"OK", nil];
+                                 otherButtonTitles: @"Rate", @"Cancel", @"Never", nil];
+    }
+    else // DialogTypeOK
+    {
+        NSString* buttonText = @"Close";
+        if(DialogTypeOK == _type)
+        {
+            buttonText = @"Close";
+        }
+        else if(DialogTypeCancel == _type)
+        {
+            buttonText = @"Cancel";
+        }
+        alert = [[UIAlertView alloc] initWithTitle:title
+                                           message:msg
+                                          delegate: self
+                                 cancelButtonTitle:nil
+                                 otherButtonTitles: buttonText, nil];
     }
     [alert show];
     [alert autorelease];
@@ -66,6 +83,10 @@
     else if(DialogTypeOKCancel == _type)
     {
         _result = (DialogResult)(DialogResultOK + buttonIndex);
+    }
+    else if(DialogTypeRate == _type)
+    {
+        _result = (DialogResult)(DialogResultRateMe + buttonIndex);
     }
     else // DialogTypeOK
     {

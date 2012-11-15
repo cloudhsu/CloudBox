@@ -13,6 +13,7 @@
 #include "CBDirector.h"
 #include "CBTimerManager.h"
 #include "CBOpenGL.h"
+#include "CBDialogManager.h"
 #ifdef __CBIOS__
 #include "CBAppEvent.h"
 #include "CBMotion.h"
@@ -61,6 +62,12 @@ void CBEventProcessor::onSersorChanged(float x, float y, float z)
 #ifdef CBMotionEnable
 	SMotion.updateAccelerometer(x,y,z);
 #endif
+}
+
+void CBEventProcessor::onAlertEvent(DialogResult dialogResult, int buttonIndex)
+{
+	DebugLog("CBEventProcessor::onAlertEvent\n");
+	SDialogManager.alertEvent(dialogResult, buttonIndex);
 }
 
 void CBEventProcessor::onApplicationDidEnterBackground()

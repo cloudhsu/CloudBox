@@ -53,6 +53,7 @@ public:
 	void touchMoved(float x, float y);
 	void touchEnded(float x, float y);
 	void onSersorChanged(float x, float y, float z);
+	void onAndroidAlertEvent(int dialogType, int dialogResult, int buttonIndex);
 	
 	void applicationDidEnterBackground();
 	void applicationWillEnterForeground();

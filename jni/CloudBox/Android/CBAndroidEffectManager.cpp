@@ -12,19 +12,27 @@
 
 CBAndroidEffectManager::CBAndroidEffectManager()
 {
-	initialJNIClass("com/clouddevelop/cloudbox/CBEffectManager");
-	m_loadEffect = g_env->GetMethodID(m_mainClass, "loadEffect", "(Ljava/lang/String;)V");
-	m_initialEffect = g_env->GetMethodID(m_mainClass, "initialEffect", "()V");
-	m_releaseAllEffect = g_env->GetMethodID(m_mainClass, "releaseAllEffect", "()V");
-	m_playEffect = g_env->GetMethodID(m_mainClass, "playEffect", "(Ljava/lang/String;)V");
-	m_stopEffect = g_env->GetMethodID(m_mainClass, "stopEffect", "(Ljava/lang/String;)V");
-	m_getVolume = g_env->GetMethodID(m_mainClass, "getVolume", "()F");
-	m_setVolume = g_env->GetMethodID(m_mainClass, "setVolume", "(F)V");
+//	initialJNIClass("com/clouddevelop/cloudbox/CBEffectManager");
+//	m_loadEffect = g_env->GetMethodID(m_mainClass, "loadEffect", "(Ljava/lang/String;)V");
+//	m_initialEffect = g_env->GetMethodID(m_mainClass, "initialEffect", "()V");
+//	m_releaseAllEffect = g_env->GetMethodID(m_mainClass, "releaseAllEffect", "()V");
+//	m_playEffect = g_env->GetMethodID(m_mainClass, "playEffect", "(Ljava/lang/String;)V");
+//	m_stopEffect = g_env->GetMethodID(m_mainClass, "stopEffect", "(Ljava/lang/String;)V");
+//	m_getVolume = g_env->GetMethodID(m_mainClass, "getVolume", "()F");
+//	m_setVolume = g_env->GetMethodID(m_mainClass, "setVolume", "(F)V");
+	initialJNIClass("com/clouddevelop/cloudbox/CBUtility");
+	m_loadEffect = g_env->GetStaticMethodID(m_mainClass, "loadEffect", "(Ljava/lang/String;)V");
+	m_initialEffect = g_env->GetStaticMethodID(m_mainClass, "initialEffect", "()V");
+	m_releaseAllEffect = g_env->GetStaticMethodID(m_mainClass, "releaseAllEffect", "()V");
+	m_playEffect = g_env->GetStaticMethodID(m_mainClass, "playEffect", "(Ljava/lang/String;)V");
+	m_stopEffect = g_env->GetStaticMethodID(m_mainClass, "stopEffect", "(Ljava/lang/String;)V");
+	m_getVolume = g_env->GetStaticMethodID(m_mainClass, "getEffectVolume", "()F");
+	m_setVolume = g_env->GetStaticMethodID(m_mainClass, "setEffectVolume", "(F)V");
 }
 
 CBAndroidEffectManager::~CBAndroidEffectManager()
 {
-    //releaseAllEffect();
+    releaseAllEffect();
 }
 
 void CBAndroidEffectManager::initialEffect()

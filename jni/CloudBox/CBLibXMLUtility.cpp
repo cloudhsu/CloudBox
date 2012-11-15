@@ -12,8 +12,10 @@
 #include <libxml2/libxml/parser.h>
 #include <libxml2/libxml/tree.h>
 #else
+extern "C" {
 #include <libxml/parser.h>
 #include <libxml/tree.h>
+}
 #endif
 #include "CBLibrary.h"
 #include <iostream>
@@ -40,10 +42,11 @@ map<string,string> CBLibXMLUtility::loadFromXML(string fileName)
 
 void CBLibXMLUtility::saveWithLibXML(map<string,string>& data,const string& fileName)
 {
+	DebugLog("CBLibXMLUtility::saveWithLibXML 1\n");
     // create xml document
     xmlDocPtr doc = xmlNewDoc(BAD_CAST"1.0");
     xmlNodePtr root = xmlNewNode(NULL,BAD_CAST"CloudBoxRoot");
-
+    DebugLog("CBLibXMLUtility::saveWithLibXML 2\n");
     //set root
     xmlDocSetRootElement(doc,root);
 
@@ -52,11 +55,11 @@ void CBLibXMLUtility::saveWithLibXML(map<string,string>& data,const string& file
         cout<<"key:"<<iter->first<<"   value:"<<iter->second<<endl;
         xmlNewTextChild(root, NULL, BAD_CAST (*iter).first.c_str(), BAD_CAST (*iter).second.c_str());
     }
-
+    DebugLog("CBLibXMLUtility::saveWithLibXML 3\n");
     //save xml
 
     int nRel = xmlSaveFile(fileName.c_str(),doc);
-
+    DebugLog("CBLibXMLUtility::saveWithLibXML 4\n");
     if (nRel != -1)
     {
         //cout<<"create a xml:"<<nRel<<"bytes"<<endl;
@@ -64,8 +67,8 @@ void CBLibXMLUtility::saveWithLibXML(map<string,string>& data,const string& file
     }
 
     //release
-
     xmlFreeDoc(doc);
+    DebugLog("CBLibXMLUtility::saveWithLibXML 5\n");
 }
 
 map<string,string> CBLibXMLUtility::loadWithLibXML(string fileName)

@@ -8,7 +8,7 @@
  */
 
 #ifndef CBVERSION
-#define CBVERSION "0.99.41"
+#define CBVERSION "0.99.46"
 #endif
 
 /*
@@ -16,6 +16,17 @@
  * Cloud Box is cross platform framework.                          *
  * Copyright by Cloud Hsu                                          *
  *******************************************************************
+ * 2012/11/15 v0.99.46
+ * 1. Fix save bug in android.
+ * 2. Fix some issue in android.
+ * 2012/11/13 v0.99.45
+ * 1. Implement Android Alert Dialog function.
+ * 2. Fix many bug in Android.
+ * 3. Add libxml to android.(but it has bug)
+ * 2012/11/06 v0.99.43
+ * 1. Add Store function in Superpig.
+ * 2. Add Simulate store.
+ * 3. Add Utility Function
  * 2012/10/17 v0.99.42
  * 1. Add CBUserDefault function.
  * 2. Add libxml implement in CloudBox.

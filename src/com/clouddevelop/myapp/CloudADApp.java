@@ -53,10 +53,10 @@ public class CloudADApp extends Activity {
 		// Create the adView
 	    adView = new AdView(this, AdSize.BANNER, adKey);		
 	    FrameLayout.LayoutParams layoutParams1 = new
-	    		FrameLayout.LayoutParams(LayoutParams.FILL_PARENT,
-				                            LayoutParams.FILL_PARENT);
+	    		FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+				                            LayoutParams.MATCH_PARENT);
 	    FrameLayout.LayoutParams layoutParams2 = new
-	    		FrameLayout.LayoutParams(LayoutParams.FILL_PARENT,
+	    		FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
 				                            LayoutParams.WRAP_CONTENT);
 		 
 		m_layout = new FrameLayout(this);

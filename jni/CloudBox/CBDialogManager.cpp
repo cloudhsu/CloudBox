@@ -10,6 +10,7 @@
 #include "CBDialog.h"
 #include "CBDialogManager.h"
 #include "CBLibrary.h"
+#include "CBAudioEngine.h"
 
 bool CBDialogManager::isDialogLockScreen()
 {
@@ -21,10 +22,16 @@ bool CBDialogManager::isDialogLockScreen()
 
 void CBDialogManager::alertEvent(DialogResult result, int clickIndex)
 {
+	DebugLog("CBDialogManager::onAlertEvent 1\n");
     if(m_dialog != NULL)
     {
         m_dialog->alertEvent(result, clickIndex);
-        DELETE(m_dialog);
+        DebugLog("CBDialogManager::onAlertEvent 2\n");
+        DebugLog("CBDialogManager::onAlertEvent 3\n");
+#ifdef __CBIOS__
+#else
+        //SAudioEngine.playMusic();
+#endif
     }
     else
     {
@@ -34,5 +41,6 @@ void CBDialogManager::alertEvent(DialogResult result, int clickIndex)
 
 void CBDialogManager::registerDialog(CBDialog* dialog)
 {
+	DELETE(m_dialog);
     m_dialog = dialog;
 }

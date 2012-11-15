@@ -42,6 +42,17 @@ public:
         T value = CBConvert::toValue<T>(m_data[key]);
         return value;
     }
+    
+    template<class T>
+    T getValue(const string& key,const T defaultValue)
+    {
+        T value = defaultValue;
+        if( !(m_data.find(key) == m_data.end()) )
+        {
+            value = CBConvert::toValue<T>(m_data[key]);
+        }
+        return value;
+    }
 
     void load();
     void save();

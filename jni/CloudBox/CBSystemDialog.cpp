@@ -12,6 +12,7 @@
 #ifdef __CBIOS__
 #include "CBiOSDialog.h"
 #else
+#include "Android/CBAndroidDialog.h"
 #endif
 
 CBSystemDialog::CBSystemDialog()
@@ -20,7 +21,7 @@ CBSystemDialog::CBSystemDialog()
 #ifdef __CBIOS__
     m_dialog = new CBiOSDialog();
 #else
-    m_dialog = new CBDialogNone();
+    m_dialog = new CBAndroidDialog();
 #endif
 }
 
@@ -31,12 +32,12 @@ CBSystemDialog::~CBSystemDialog()
 
 void CBSystemDialog::showDialog()
 {
-    showDialog(DialogTypeOK, "Test", "No message");
+    showDialog(DialogTypeClose, "Test", "No message");
 }
 
 void CBSystemDialog::showDialog(const string& title,const string& msg)
 {
-    showDialog(DialogTypeOK, title, msg);
+    showDialog(DialogTypeClose, title, msg);
 }
 
 void CBSystemDialog::showDialog(DialogType type, const string& title,const string& msg)

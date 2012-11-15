@@ -13,19 +13,29 @@
 CBAndroidAudioManager::CBAndroidAudioManager()
 :CBAudioBase()
 {
-	initialJNIClass("com/clouddevelop/cloudbox/CBAudioManager");
-	m_loadMusic = g_env->GetMethodID(m_mainClass, "loadMusic", "(Ljava/lang/String;)V");
-	m_releaseMusic = g_env->GetMethodID(m_mainClass, "releaseMusic", "()V");
-	m_playMusic = g_env->GetMethodID(m_mainClass, "playMusic", "()V");
-	m_stopMusic = g_env->GetMethodID(m_mainClass, "stopMusic", "()V");
-	m_pauseMusic = g_env->GetMethodID(m_mainClass, "pauseMusic", "()V");
-	m_resumeMusic = g_env->GetMethodID(m_mainClass, "resumeMusic", "()V");
-	m_getVolume = g_env->GetMethodID(m_mainClass, "getVolume", "()F");
-	m_setVolume = g_env->GetMethodID(m_mainClass, "setVolume", "(F)V");
+	//initialJNIClass("com/clouddevelop/cloudbox/CBAudioManager");
+//	m_loadMusic = g_env->GetMethodID(m_mainClass, "loadMusic", "(Ljava/lang/String;)V");
+//	m_releaseMusic = g_env->GetMethodID(m_mainClass, "releaseMusic", "()V");
+//	m_playMusic = g_env->GetMethodID(m_mainClass, "playMusic", "()V");
+//	m_stopMusic = g_env->GetMethodID(m_mainClass, "stopMusic", "()V");
+//	m_pauseMusic = g_env->GetMethodID(m_mainClass, "pauseMusic", "()V");
+//	m_resumeMusic = g_env->GetMethodID(m_mainClass, "resumeMusic", "()V");
+//	m_getVolume = g_env->GetMethodID(m_mainClass, "getVolume", "()F");
+//	m_setVolume = g_env->GetMethodID(m_mainClass, "setVolume", "(F)V");
+	initialJNIClass("com/clouddevelop/cloudbox/CBUtility");
+	m_loadMusic = g_env->GetStaticMethodID(m_mainClass, "loadMusic", "(Ljava/lang/String;)V");
+	m_releaseMusic = g_env->GetStaticMethodID(m_mainClass, "releaseMusic", "()V");
+	m_playMusic = g_env->GetStaticMethodID(m_mainClass, "playMusic", "()V");
+	m_stopMusic = g_env->GetStaticMethodID(m_mainClass, "stopMusic", "()V");
+	m_pauseMusic = g_env->GetStaticMethodID(m_mainClass, "pauseMusic", "()V");
+	m_resumeMusic = g_env->GetStaticMethodID(m_mainClass, "resumeMusic", "()V");
+	m_getVolume = g_env->GetStaticMethodID(m_mainClass, "getMusicVolume", "()F");
+	m_setVolume = g_env->GetStaticMethodID(m_mainClass, "setMusicVolume", "(F)V");
 }
 
 CBAndroidAudioManager::~CBAndroidAudioManager()
 {
+	stopMusic();
     releaseMusic();
 }
 
