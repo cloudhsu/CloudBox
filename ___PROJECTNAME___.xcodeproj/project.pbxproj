@@ -80,8 +80,6 @@
 		04E646EC14559DD600D9F92B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E646EB14559DD600D9F92B /* main.m */; };
 		04E646F914559E5700D9F92B /* HelloScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E646F714559E5700D9F92B /* HelloScene.cpp */; };
 		04F57FC914C5A89C006ADEAD /* CBAppEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F57FC814C5A89C006ADEAD /* CBAppEvent.cpp */; };
-		04F9F48C14E152C200B058D7 /* CBController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F9F48B14E152C200B058D7 /* CBController.cpp */; };
-		04F9F49014E1575B00B058D7 /* CBModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F9F48F14E1575B00B058D7 /* CBModel.cpp */; };
 		04FF514414F0DF3A00EF3624 /* CBCallbackDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF514314F0DF3A00EF3624 /* CBCallbackDispatcher.cpp */; };
 		04FF514714F0E2E400EF3624 /* CBTextureCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF514614F0E2E400EF3624 /* CBTextureCallback.cpp */; };
 		04FF519C14F0E85C00EF3624 /* CBThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF519B14F0E85C00EF3624 /* CBThread.cpp */; };
@@ -295,10 +293,6 @@
 		04F57FC714C5A89C006ADEAD /* CBAppEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAppEvent.h; sourceTree = "<group>"; };
 		04F57FC814C5A89C006ADEAD /* CBAppEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAppEvent.cpp; sourceTree = "<group>"; };
 		04F998EC14E3F21E004DD273 /* CBCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCallback.h; sourceTree = "<group>"; };
-		04F9F48A14E152C200B058D7 /* CBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBController.h; sourceTree = "<group>"; };
-		04F9F48B14E152C200B058D7 /* CBController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBController.cpp; sourceTree = "<group>"; };
-		04F9F48E14E1575B00B058D7 /* CBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBModel.h; sourceTree = "<group>"; };
-		04F9F48F14E1575B00B058D7 /* CBModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBModel.cpp; sourceTree = "<group>"; };
 		04FB42AE14B4AC63002A525B /* CBCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCore.h; sourceTree = "<group>"; };
 		04FF514214F0DF3A00EF3624 /* CBCallbackDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCallbackDispatcher.h; sourceTree = "<group>"; };
 		04FF514314F0DF3A00EF3624 /* CBCallbackDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBCallbackDispatcher.cpp; sourceTree = "<group>"; };
@@ -428,8 +422,6 @@
 				04024282140920090083DC7E /* Event */,
 				04024284140920550083DC7E /* Scene */,
 				04024288140920E20083DC7E /* Sound */,
-				04F9F48D14E1533E00B058D7 /* Model */,
-				04F9F48914E1510A00B058D7 /* Controller */,
 				04024286140920A50083DC7E /* View */,
 				04F998EB14E3F1EE004DD273 /* Threading */,
 				04024285140920820083DC7E /* OpenGL */,
@@ -722,24 +714,6 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		04F9F48914E1510A00B058D7 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				04F9F48A14E152C200B058D7 /* CBController.h */,
-				04F9F48B14E152C200B058D7 /* CBController.cpp */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		04F9F48D14E1533E00B058D7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				04F9F48E14E1575B00B058D7 /* CBModel.h */,
-				04F9F48F14E1575B00B058D7 /* CBModel.cpp */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1010,8 +984,6 @@
 				04F57FC914C5A89C006ADEAD /* CBAppEvent.cpp in Sources */,
 				04B47D5314CDE010001A3C7E /* CBLed.cpp in Sources */,
 				04B47D5414CDE010001A3C7E /* CBLotto.cpp in Sources */,
-				04F9F48C14E152C200B058D7 /* CBController.cpp in Sources */,
-				04F9F49014E1575B00B058D7 /* CBModel.cpp in Sources */,
 				04FF514414F0DF3A00EF3624 /* CBCallbackDispatcher.cpp in Sources */,
 				04FF514714F0E2E400EF3624 /* CBTextureCallback.cpp in Sources */,
 				04FF519C14F0E85C00EF3624 /* CBThread.cpp in Sources */,
