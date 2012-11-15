@@ -8,22 +8,17 @@
 
 #include "CBGameApp.h"
 #include "CBOpenGL.h"
-#include "CBActionManager.h"
-#include "CBDirector.h"
-#include "CBTimerManager.h"
 #include "CBLogoScene.h"
 #include "CBCore.h"
 #include "CBEnvironment.h"
 #include "CBTexturePool.h"
-#include "CBCallbackDispatcher.h"
+#include "CBTimerManager.h"
+#include "CBEventProcessor.h"
+#include "CBStoreManager.h"
 #ifdef __CBIOS__
 #include "HelloScene.h"
-#include "CBAppEvent.h"
-#include "CBMotion.h"
 #else
 #include "../HelloScene.h"
-#include "../CBAppEvent.h"
-#include "Extends/CBMotion.h"
 #endif
 
 CBGameApp::CBGameApp()
@@ -46,6 +41,7 @@ void CBGameApp::setScreen(GLint screenWidth,GLint screenHeight)
 void CBGameApp::initialize()
 {
 	SOpenGL.initialize2D();
+    SStoreManager.initialStore();
 	if(!m_isinitialed)
 	{
 		m_isinitialed = true;
@@ -70,8 +66,8 @@ void CBGameApp::start()
 
 void CBGameApp::mainLoop(double time)
 {
-	notify(time);
-	draw();
+	SEventProcessor.onUpdate(time);
+	SEventProcessor.onDraw();
 }
 
 void CBGameApp::runWithScene(CBScene* scene)
@@ -79,22 +75,9 @@ void CBGameApp::runWithScene(CBScene* scene)
 	SDirector.runNextScene(scene);
 }
 
-void CBGameApp::notify(double time)
-{
-	STimerManager.update(time);
-	SActionManager.update();
-	SDirector.notify();
-	SCallbackDispatcher.notify();
-}
-
-void CBGameApp::draw()
-{
-	SOpenGL.beforeRender();
-	SDirector.visit();
-}
-
 void CBGameApp::destory()
 {
+    SStoreManager.releaseStore();
 }
 
 void CBGameApp::reloadTexture()
@@ -104,7 +87,6 @@ void CBGameApp::reloadTexture()
 
 void CBGameApp::initialTimer(double oldTime)
 {
-	//m_OldTime = oldTime;
 	STimerManager.initialTimer(oldTime);
 }
 
@@ -115,31 +97,32 @@ void CBGameApp::retinaDisplay()
 
 void CBGameApp::touchBegan(float x, float y)
 {
-	SDirector.touchBegan(x, y);
+    SEventProcessor.onTouchBegan(x, y);
 }
 void CBGameApp::touchMoved(float x, float y)
 {
-	SDirector.touchMoved(x, y);
+    SEventProcessor.onTouchMoved(x, y);
 }
 void CBGameApp::touchEnded(float x, float y)
 {
-	SDirector.touchEnded(x, y);
+    SEventProcessor.onTouchEnded(x, y);
 }
 
 void CBGameApp::onSersorChanged(float x, float y, float z)
 {
-#ifdef CBMotionEnable
-	SMotion.updateAccelerometer(x,y,z);
-#endif
+    SEventProcessor.onSersorChanged(x, y, z);
 }
 
+void CBGameApp::onAndroidAlertEvent(int dialogType, int dialogResult, int buttonIndex)
+{
+	DebugLog("CBGameApp::onAndroidAlertEvent\n");
+	SEventProcessor.onAlertEvent((DialogResult)dialogResult, buttonIndex);
+}
 void CBGameApp::applicationDidEnterBackground()
 {
-	SAppEvent.applicationDidEnterBackground();
-	SDirector.applicationDidEnterBackground();
+    SEventProcessor.onApplicationDidEnterBackground();
 }
 void CBGameApp::applicationWillEnterForeground()
 {
-	SAppEvent.applicationWillEnterForeground();
-	SDirector.applicationWillEnterForeground();
+    SEventProcessor.onApplicationWillEnterForeground();
 }

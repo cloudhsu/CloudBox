@@ -16,6 +16,8 @@ class CBMotionBase
 protected:
     CBAcceleration m_accleration;
 public:
+    CBMotionBase() {}
+    virtual ~CBMotionBase() {}
     virtual void startAccelerometer() = 0;
     virtual void updateAccelerometer() = 0;
     virtual void stopAccelerometer() = 0;

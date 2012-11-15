@@ -2,7 +2,7 @@
  *  CBSoundBox.h
  *  CloudBox Cross-Platform Framework Project
  *
- *  Created by Cloud on 2011/7/24.
+ *  Created by Cloud on 2012/7/24.
  *  Copyright 2011 Cloud Hsu. All rights reserved.
  *
  */

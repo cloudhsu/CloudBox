@@ -49,6 +49,8 @@
 	// 2 = 30FPS
     animationFrameInterval = 1;
     displayLink = nil;
+    
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
 	
 	//SGameApp.start();
 	[self startAnimation];
@@ -134,11 +136,26 @@
 }
 */
 
+#ifdef __IPHONE_6_0
+// iPhone 6.0 code here
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    NSLog(@"supportedInterfaceOrientationsForWindow");
+    return  UIInterfaceOrientationMaskLandscapeRight;
+}
+#endif
+
+-(BOOL)shouldAutorotate
+{
+    //return NO;
+    return YES;
+}
+
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == DefaultOrientation());
+    //return (interfaceOrientation == DefaultOrientation());
+    return UIInterfaceOrientationIsLandscape( interfaceOrientation );
 }
 
 

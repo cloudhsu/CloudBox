@@ -27,7 +27,7 @@ public class CBAudioManager
 	{
 		mLeftVolume = 0.5f;
 		mRightVolume = 0.5f;
-		mContext = CBInstance.MainActivity;
+		//mContext = CBUtility.getMainActivity();
 		mIsPaused = false;
 	}
 	
@@ -35,11 +35,12 @@ public class CBAudioManager
 	{
 		if (mBackgroundMediaPlayer != null){
 			mBackgroundMediaPlayer.release();
+			mBackgroundMediaPlayer = null;
 		}
 		mBackgroundMediaPlayer = createMediaplayerFromAssets(fileName);
 		mBackgroundMediaPlayer.setLooping(true);
 		try {
-			mBackgroundMediaPlayer.prepare();
+			//mBackgroundMediaPlayer.prepare();
 			mBackgroundMediaPlayer.seekTo(0);
 		} catch (Exception e){
 			e.printStackTrace();
@@ -47,8 +48,10 @@ public class CBAudioManager
 	}
 	public void releaseMusic()
     {
-		if (mBackgroundMediaPlayer != null){
+		if (mBackgroundMediaPlayer != null)
+		{
 			mBackgroundMediaPlayer.release();
+			mBackgroundMediaPlayer = null;
 		}
     }
 	public void playMusic()
@@ -57,15 +60,23 @@ public class CBAudioManager
 			Log.e(TAG, "playBackgroundMusic: background media player is null");
 		} else {		
 			// if the music is playing or paused, stop it
-			mBackgroundMediaPlayer.stop();			
-			mBackgroundMediaPlayer.start();		
+			if(!mBackgroundMediaPlayer.isPlaying())
+			{
+				try {
+					mBackgroundMediaPlayer.prepare();
+				} catch (Exception e){
+					e.printStackTrace();
+				}
+				mBackgroundMediaPlayer.start();
+			}
 		}
     }
 	public void stopMusic()
     {
 		if (mBackgroundMediaPlayer != null){
 			mBackgroundMediaPlayer.stop();
-			mBackgroundMediaPlayer.seekTo(0);
+			//mBackgroundMediaPlayer.pause();
+			//mBackgroundMediaPlayer.seekTo(0);
 			this.mIsPaused = false;
 		}
     }
@@ -112,7 +123,7 @@ public class CBAudioManager
 		MediaPlayer mediaPlayer = null;
 		
 		try{			
-			AssetFileDescriptor assetFileDescritor = mContext.getAssets().openFd(fileName);
+			AssetFileDescriptor assetFileDescritor = CBUtility.getMainActivity().getAssets().openFd(fileName);
 			
 			mediaPlayer = new MediaPlayer();
 	        mediaPlayer.setDataSource(assetFileDescritor.getFileDescriptor(), 

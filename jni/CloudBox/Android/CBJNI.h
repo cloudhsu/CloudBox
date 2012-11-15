@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _CBJNI_H_
+#define _CBJNI_H_
+
 #include <jni.h>
 #include <string>
 using namespace std;
@@ -17,8 +20,10 @@ protected:
 	jobject m_mainObject;
 	jclass m_mainClass;
 	jobject getInstance(JNIEnv* env, jclass obj_class);
-	void initial(const string& className);
+	void initialJNIClass(const string& className);
 public:
 	CBJNI();
 	virtual ~CBJNI();
 };
+
+#endif

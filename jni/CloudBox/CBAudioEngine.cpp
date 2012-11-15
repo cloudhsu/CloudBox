@@ -2,28 +2,30 @@
  *  CBAudioEngine.cpp
  *  CloudBox Cross-Platform Framework Project
  *
- *  Created by Cloud on 2011/7/24.
+ *  Created by Cloud on 2012/9/9.
  *  Copyright 2011 Cloud Hsu. All rights reserved.
  *
  */
 
 #include "CBAudioEngine.h"
-#include "CBSoundBase.h"
+#include "CBEffectBase.h"
 #include "CBAudioBase.h"
 #ifdef __CBIOS__
 #include "CBiOSAudioManager.h"
-#include "CBiOSSoundManager.h"
+#include "CBiOSEffectManager.h"
 #else
+#include "Android/CBAndroidAudioManager.h"
+#include "Android/CBAndroidEffectManager.h"
 #endif
 
-CBAudioEngine::CBAudioEngine()
+CBAudioEngine::CBAudioEngine():m_isMute(false)
 {
 #ifdef __CBIOS__
     m_audioManager = new CBiOSAudioManager();
-    m_soundManager = new CBiOSSoundManager();
+    m_effectManager = new CBiOSEffectManager();
 #else
-    m_audioManager = new CBNoneAudio();
-    m_soundManager = new CBNoneSound();
+    m_audioManager = new CBAndroidAudioManager();
+    m_effectManager = new CBAndroidEffectManager();
 #endif
 }
 
@@ -31,18 +33,18 @@ CBAudioEngine::~CBAudioEngine()
 {
     releaseEngine();
 	delete m_audioManager;
-    delete m_soundManager;
+    delete m_effectManager;
 }
 
 void CBAudioEngine::initialEngine()
 {
-    m_soundManager->initial();
+    m_effectManager->initialEffect();
 }
 
 void CBAudioEngine::releaseEngine()
 {
     releaseMusic();
-    releaseAllSounds();
+    releaseAllEffects();
 }
 
 void CBAudioEngine::loadMusic(const string fileName)
@@ -51,15 +53,21 @@ void CBAudioEngine::loadMusic(const string fileName)
 }
 void CBAudioEngine::releaseMusic()
 {
+	if(m_isMute)
+	    return;
     m_audioManager->stopMusic();
     m_audioManager->releaseMusic();
 }
-void CBAudioEngine::CBAudioEngine::playMusic()
+void CBAudioEngine::playMusic()
 {
+    if(m_isMute)
+        return;
     m_audioManager->playMusic();
 }
 void CBAudioEngine::stopMusic()
 {
+	if(m_isMute)
+	    return;
     m_audioManager->stopMusic();
 }
 void CBAudioEngine::pauseMusic()
@@ -71,35 +79,41 @@ void CBAudioEngine::resumeMusic()
     m_audioManager->resumeMusic();
 }
 
-// for sound
-void CBAudioEngine::loadSound(const string fileName)
+// for Effect
+void CBAudioEngine::loadEffect(const string fileName)
 {
-    m_soundManager->loadSound(fileName);
-}
-//void CBAudioEngine::releaseSound(const string fileName)
-//{
-//    m_soundManager->releaseSound(fileName);
-//}
-void CBAudioEngine::releaseAllSounds()
-{
-    m_soundManager->releaseAllSound();
-}
-void CBAudioEngine::playSound(const string fileName)
-{
-    m_soundManager->playSound(fileName);
-}
-void CBAudioEngine::stopSound(const string fileName)
-{
-    m_soundManager->stopSound(fileName);
+    m_effectManager->loadEffect(fileName);
 }
 
-float CBAudioEngine::getSoundVolume()
+//void CBAudioEngine::releaseEffect(const string fileName)
+//{
+//    m_effectManager->releaseEffect(fileName);
+//}
+
+void CBAudioEngine::releaseAllEffects()
 {
-    return m_soundManager->getVolume();
+    m_effectManager->releaseAllEffect();
 }
-void CBAudioEngine::setSoundVolume(float volume)
+void CBAudioEngine::playEffect(const string fileName)
 {
-    m_soundManager->setVolume(volume);
+    if(m_isMute)
+        return;
+    m_effectManager->playEffect(fileName);
+}
+void CBAudioEngine::stopEffect(const string fileName)
+{
+	if(m_isMute)
+	    return;
+    m_effectManager->stopEffect(fileName);
+}
+
+float CBAudioEngine::getEffectVolume()
+{
+    return m_effectManager->getVolume();
+}
+void CBAudioEngine::setEffectVolume(float volume)
+{
+    m_effectManager->setVolume(volume);
 }
 float CBAudioEngine::getMusicVolume()
 {
@@ -113,5 +127,23 @@ void CBAudioEngine::setMusicVolume(float volume)
 void CBAudioEngine::setVolume(float volume)
 {
     setMusicVolume(volume);
-    setSoundVolume(volume);
+    setEffectVolume(volume);
+}
+
+bool CBAudioEngine::getMute()
+{
+    return m_isMute;
+}
+
+void CBAudioEngine::setMute(bool isMute)
+{
+    m_isMute = isMute;
+    if(m_isMute)
+    {
+        pauseMusic();
+    }
+    else
+    {
+        playMusic();
+    }
 }

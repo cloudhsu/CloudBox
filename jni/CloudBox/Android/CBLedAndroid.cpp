@@ -13,7 +13,7 @@
 
 CBLedAndroid::CBLedAndroid()
 {
-	initial("com/clouddevelop/cloudbox/CloudLed");
+	initialJNIClass("com/clouddevelop/cloudbox/CloudLed");
 	m_turnOn = g_env->GetMethodID(m_mainClass, "turnOn", "()V");
 	m_turnOff = g_env->GetMethodID(m_mainClass, "turnOff", "()V");
 //	(*g_env)->DeleteLocalRef(g_env, order_class);

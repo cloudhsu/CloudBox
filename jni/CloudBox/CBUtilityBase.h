@@ -10,20 +10,41 @@
 #ifndef _CBUTILITYBASE_H_
 #define _CBUTILITYBASE_H_
 
+#include <string>
+using namespace std;
+
+enum DeviceType
+{
+    DeviceiPhone = 0,
+    DeviceiPad = 1,
+    DeviceAndroidPhone = 2,
+    DeviceAndroidPad = 3,
+    DeviceWP8 = 4,
+    DeviceOther = 5
+};
+
 class CBUtilityBase
 {
 private:
 public:
-	virtual string getFilePath() = 0;
+    CBUtilityBase(){}
+    virtual ~CBUtilityBase() {}
+	//virtual string getFilePath() = 0;
 	virtual string getLanguage() = 0;
+    virtual DeviceType getDeviceType() = 0;
+    virtual void openUrl(const string& url) = 0;
 };
 
 class CBNoneUtility : public CBUtilityBase
 {
 private:
 public:
-	string getFilePath() { return ""; }
-	string getLanguage() { return ""; }
+    CBNoneUtility(){}
+    ~CBNoneUtility(){}
+	//string getFilePath() { return ""; }
+	string getLanguage() { return "en"; }
+    DeviceType getDeviceType() { return DeviceOther; }
+    void openUrl(const string& url) {}
 };
 
 #endif

@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _CBLEDANDROID_H_
+#define _CBLEDANDROID_H_
+
 #include <jni.h>
 #include "../Extends/CBLedBase.h"
 #include "CBJNI.h"
@@ -22,3 +25,5 @@ public:
 	void turnOnLed();
 	void turnOffLed();
 };
+
+#endif

@@ -94,6 +94,8 @@ private:
     class DelegateBase
     {
     public:
+        DelegateBase() {}
+        virtual ~DelegateBase() {}
         virtual RVALUE invoke(PARAMETERS_FUNCTION) = 0;
     };
 
@@ -136,7 +138,7 @@ private:
     DelegateBase* m_delegate;
 public:
     CBDelegate(){}
-    ~CBDelegate(){ delete m_delegate; }
+    virtual ~CBDelegate(){ delete m_delegate; }
 
     void initDelegate(RVALUE (*Func)(PARAMETERS_TEMPLATE_ARGS))
     {

@@ -28,7 +28,7 @@ protected:
     AudioState m_state;
 public:
     CBAudioBase():m_state(AudioNotReady) {}
-    ~CBAudioBase() {}
+    virtual ~CBAudioBase() {}
     virtual void loadMusic(const string fileName) = 0;
 	virtual void releaseMusic() = 0;
 	virtual void playMusic() = 0;

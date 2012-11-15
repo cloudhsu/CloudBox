@@ -11,6 +11,7 @@
 #include "CBAction.h"
 
 CBActionManager::CBActionManager()
+:m_generateID(1)
 {
 }
 CBActionManager::~CBActionManager()

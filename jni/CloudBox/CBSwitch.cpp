@@ -65,6 +65,8 @@ void CBSwitch::draw()
 
 void CBSwitch::onClick(float x,float y)
 {
+    if(!this->getVisible())
+		return;
 	if(m_off->isTrigger(x, y))
 	{
 		turnOn();

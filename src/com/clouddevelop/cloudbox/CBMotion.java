@@ -12,7 +12,7 @@ import android.view.WindowManager;
 
 public class CBMotion implements SensorEventListener {
 	
-	private static final String TAG = "Cocos2dxAccelerometer";
+	private static final String TAG = "CloudBoxAccelerometer";
 	private Context mContext;
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
@@ -20,7 +20,7 @@ public class CBMotion implements SensorEventListener {
 	
 	public CBMotion()
 	{
-		mContext = CBInstance.MainActivity;
+		mContext = CBUtility.getMainActivity();
 
 		//Get an instance of the SensorManager
 	    mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);

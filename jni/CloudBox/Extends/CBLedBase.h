@@ -13,6 +13,8 @@
 class CBLedBase
 {
 public:
+    CBLedBase() {}
+    virtual ~CBLedBase() {}
 	virtual void turnOnLed() = 0;
 	virtual void turnOffLed() = 0;
 };

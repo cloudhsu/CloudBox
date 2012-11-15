@@ -32,12 +32,7 @@ class CBGameApp : public CBSingleton<CBGameApp>
 {
 private:
 	// --- Add private member --- //
-	void notify(double time); // notify model
-	void draw(); // update and render view
-	
 	bool m_isinitialed;
-	//double m_OldTime;
-	//double m_SpanTime;
 public:
 	// --- Add public member --- //
 	CBGameApp();
@@ -58,6 +53,7 @@ public:
 	void touchMoved(float x, float y);
 	void touchEnded(float x, float y);
 	void onSersorChanged(float x, float y, float z);
+	void onAndroidAlertEvent(int dialogType, int dialogResult, int buttonIndex);
 	
 	void applicationDidEnterBackground();
 	void applicationWillEnterForeground();

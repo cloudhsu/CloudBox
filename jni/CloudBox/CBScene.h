@@ -16,13 +16,6 @@
 #include "CBModel.h"
 using namespace std;
 
-#ifdef __CBIOS__
-#define LOGO_NAME "logo.png"
-#else
-#define LOGO_NAME "system/logo.png"
-#endif
-#define LOGO_TIME 2.5
-
 class CBTexture;
 
 class CBScene : public CBView

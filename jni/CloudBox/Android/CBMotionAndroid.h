@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _CBMOTIONANDROID_H_
+#define _CBMOTIONANDROID_H_
+
 #include <jni.h>
 #include "../Extends/CBMotionBase.h"
 #include "CBJNI.h"
@@ -23,3 +26,5 @@ public:
 	void updateAccelerometer();
 	void stopAccelerometer();
 };
+
+#endif

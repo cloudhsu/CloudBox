@@ -14,7 +14,7 @@
 
 CBTextManager::CBTextManager()
 {
-	initial("com/clouddevelop/cloudbox/TextManager");
+	initialJNIClass("com/clouddevelop/cloudbox/TextManager");
 	m_create = g_env->GetMethodID(m_mainClass, "create",
 		                         "(Ljava/lang/String;F)Landroid/graphics/Bitmap;");
 	m_getWidth = g_env->GetMethodID(m_mainClass, "getWidth", "(Landroid/graphics/Bitmap;)I");

@@ -14,10 +14,12 @@
 CBMotionAndroid::CBMotionAndroid()
 {
 	DebugLog("CBMotionAndroid::CBMotionAndroid()\n");
-	initial("com/clouddevelop/cloudbox/CBMotion");
-	m_start = g_env->GetMethodID(m_mainClass, "startAccelerometer", "()V");
-	m_stop = g_env->GetMethodID(m_mainClass, "stopAccelerometer", "()V");
-//	(*g_env)->DeleteLocalRef(g_env, order_class);
+//	initialJNIClass("com/clouddevelop/cloudbox/CBMotion");
+//	m_start = g_env->GetMethodID(m_mainClass, "startAccelerometer", "()V");
+//	m_stop = g_env->GetMethodID(m_mainClass, "stopAccelerometer", "()V");
+	initialJNIClass("com/clouddevelop/cloudbox/CBUtility");
+	m_start = g_env->GetStaticMethodID(m_mainClass, "startAccelerometer", "()V");
+	m_stop = g_env->GetStaticMethodID(m_mainClass, "stopAccelerometer", "()V");
 }
 CBMotionAndroid::~CBMotionAndroid()
 {

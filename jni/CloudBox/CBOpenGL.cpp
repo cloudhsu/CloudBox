@@ -78,7 +78,8 @@ void CBOpenGL::initialize2D()
 	
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrthof(0, (float)m_screenWidth, 0, (float)m_screenHeight, 0, 100);
+	glOrthof(0, (float)m_screenWidth, 0, (float)m_screenHeight, -100, 100);
+	//glOrthof(0, (float)m_screenWidth, 0, (float)m_screenHeight, 0, 100);
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -112,6 +113,7 @@ void CBOpenGL::render(CBView* view, CBTexture* texture)
 	};
 	GLfloat x = view->getX();
 	GLfloat y = view->getY();
+    GLfloat z = view->getZ();
 	GLfloat	width = view->getWidth();
 	GLfloat height = view->getHeight();
 	
@@ -120,18 +122,18 @@ void CBOpenGL::render(CBView* view, CBTexture* texture)
 #ifdef __CBIOS__
 	GLfloat	vertices[] = 
 	{
-		x,		     (y - height),		      0,
-		x + width,	 (y - height),		      0,
-		x,		     y,     0,
-		x + width,	 y,     0
+		x,		     (y - height),		      z,
+		x + width,	 (y - height),		      z,
+		x,		     y,     z,
+		x + width,	 y,     z
 	};
 #else
 	GLfloat	vertices[] =
 	{
-		x,		     y,		      0,
-		x + width,	 y,		      0,
-		x,		     (y - height),     0,
-		x + width,	 (y - height),     0
+		x,		     y,		      z,
+		x + width,	 y,		      z,
+		x,		     (y - height),     z,
+		x + width,	 (y - height),     z
 	};
 #endif
 	//texture->bind();
@@ -192,7 +194,12 @@ void CBOpenGL::render(CBView* view, CBTexture* texture, GLfloat* coordinates,GLf
     setColor(view->getColor());
 	// rotate
 	glTranslatef(view->getCenterX(), (m_screenHeight - view->getCenterY()), 0);
-	glRotatef(-view->getAngle(), 0.0f, 0.0f, 1.0f);
+    if(RotateAxisX == view->getRotateAxis())
+        glRotatef(-view->getAngle(), 1.0f, 0.0f, 0.0f);
+    else if(RotateAxisY == view->getRotateAxis())
+        glRotatef(-view->getAngle(), 0.0f, 1.0f, 0.0f);
+    else if(RotateAxisZ == view->getRotateAxis())
+        glRotatef(-view->getAngle(), 0.0f, 0.0f, 1.0f);
 	glTranslatef(-view->getCenterX(), -(m_screenHeight - view->getCenterY()), 0);
 	// draw
 	glVertexPointer(3, GL_FLOAT, 0, vertices);

@@ -21,6 +21,7 @@ public:
 	CBRotateAction(float angle, double duration);
 	CBRotateAction(float angle, double duration,int repeatTime);
 	//CBRotateAction(float angle, double duration,int repeatTime,ActionLifeType lifeType);
+    ~CBRotateAction() {}
 	
 	inline float getAngle() { return m_angle; }
 	inline void setAngle(float angle) { m_angle = angle; }

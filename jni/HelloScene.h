@@ -21,6 +21,7 @@ class HelloScene : public CBScene
 private:
 	//CBImage* bg1;
 	//CBImage* bg2;
+	CBRingScrollImage* bg;
 	CBLabel* label;
 	CBButton* button;
 	CBAnimation* animation[MAX_ANIMATION];

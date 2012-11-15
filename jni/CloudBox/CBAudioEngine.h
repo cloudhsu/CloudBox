@@ -2,7 +2,7 @@
  *  CBAudioEngine.h
  *  CloudBox Cross-Platform Framework Project
  *
- *  Created by Cloud on 2011/7/24.
+ *  Created by Cloud on 2012/9/9.
  *  Copyright 2011 Cloud Hsu. All rights reserved.
  *
  */
@@ -26,13 +26,14 @@
 using namespace std;
 
 class CBAudioBase;
-class CBSoundBase;
+class CBEffectBase;
 
 class CBAudioEngine : public CBSingleton<CBAudioEngine>
 {
 private:
     CBAudioBase* m_audioManager;
-    CBSoundBase* m_soundManager;
+    CBEffectBase* m_effectManager;
+    bool m_isMute;
 public:
 	CBAudioEngine();
 	~CBAudioEngine();
@@ -45,27 +46,30 @@ public:
     
     void releaseMusic();
 
-	// for sound
-	void loadSound(const string fileName);
-	//void releaseSound(const string fileName);
-	void playSound(const string fileName);
-	void stopSound(const string fileName);
+	// for Effect
+	void loadEffect(const string fileName);
+	//void releaseEffect(const string fileName);
+	void playEffect(const string fileName);
+	void stopEffect(const string fileName);
 
-    float getSoundVolume();
-    void setSoundVolume(float volume);
+    float getEffectVolume();
+    void setEffectVolume(float volume);
     float getMusicVolume();
 	void setMusicVolume(float volume);
     void setVolume(float volume);
     
-    void releaseAllSounds();
+    void releaseAllEffects();
     
     void releaseEngine();
     void initialEngine();
+    
+    void setMute(bool isMute);
+    bool getMute();
 	
 protected:
 
-//	void initSoundSystem();
-//	void destroySoundSystem();
+//	void initEffectSystem();
+//	void destroyEffectSystem();
 };
 
 #define SAudioEngine CBAudioEngine::instance()

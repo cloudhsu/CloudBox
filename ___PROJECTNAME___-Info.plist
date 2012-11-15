@@ -12,9 +12,11 @@
 	<array>
 		<string>icon.png</string>
 		<string>icon@2x.png</string>
+		<string>icon-72.png</string>
+		<string>icon-72@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.clouddevelop.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.cloudbox.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

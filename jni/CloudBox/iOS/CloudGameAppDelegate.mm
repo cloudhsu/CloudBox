@@ -21,7 +21,18 @@
 	// --- initial window and set to full screen --- //
 	window = [[UIWindow alloc] initWithFrame:t_FullScreenRect];
 	viewController = [[MainViewController alloc] init];
-	[window addSubview:viewController.view];
+    if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
+    {
+        // warning: addSubView doesn't work on iOS6
+        [window addSubview: viewController.view];
+    }
+    else
+    {
+        // use this mehod on ios6
+        [window setRootViewController:viewController];
+    }
+    //[window setRootViewController:viewController];
+	//[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
 }
 

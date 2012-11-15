@@ -56,7 +56,7 @@ public class CloudRenderer implements GLSurfaceView.Renderer
 			}
 			apkFilePath = appInfo.sourceDir;
 			nativeTextInit(txtManager);
-			nativeInit(apkFilePath);
+			nativeInit(apkFilePath, CBUtility.PackageName);
 		}
 	}
 
@@ -80,7 +80,7 @@ public class CloudRenderer implements GLSurfaceView.Renderer
 		}
 	}
 
-	private static native void nativeInit(String apkPath);
+	private static native void nativeInit(String apkPath,String packageName);
 	private static native void nativeInitGL();
 	private static native void nativeResume();
 	private static native void nativeTextInit(TextManager textManager);
@@ -89,7 +89,7 @@ public class CloudRenderer implements GLSurfaceView.Renderer
 
 	private static native void nativeRender();
 
-	public void setResume(boolean m_resume) {
-		this.m_resume = m_resume;
+	public void setResume(boolean resume) {
+		this.m_resume = resume;
 	}
 }

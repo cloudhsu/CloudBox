@@ -11,7 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.clouddevelop.cloudbox.CBInstance;
+import com.clouddevelop.cloudbox.CBUtility;
 import com.clouddevelop.cloudbox.CloudGLSurface;
 import com.google.ads.AdRequest;
 import com.google.ads.AdSize;
@@ -36,9 +36,10 @@ public class CloudADApp extends Activity {
 	{
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		CBInstance.MainActivity = this;
+		CBUtility.initUtility(this);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		//set orientation
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		DisplayMetrics displaymetrics = new DisplayMetrics();
@@ -52,10 +53,10 @@ public class CloudADApp extends Activity {
 		// Create the adView
 	    adView = new AdView(this, AdSize.BANNER, adKey);		
 	    FrameLayout.LayoutParams layoutParams1 = new
-	    		FrameLayout.LayoutParams(LayoutParams.FILL_PARENT,
-				                            LayoutParams.FILL_PARENT);
+	    		FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+				                            LayoutParams.MATCH_PARENT);
 	    FrameLayout.LayoutParams layoutParams2 = new
-	    		FrameLayout.LayoutParams(LayoutParams.FILL_PARENT,
+	    		FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
 				                            LayoutParams.WRAP_CONTENT);
 		 
 		m_layout = new FrameLayout(this);

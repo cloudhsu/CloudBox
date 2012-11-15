@@ -8,13 +8,48 @@
  */
 
 #ifndef CBVERSION
-#define CBVERSION "0.99.36"
+#define CBVERSION "0.99.46"
 #endif
 
 /*
- * Cloud Box is cross platform framework.
- * Copyright by Cloud Hsu
- * version 0.99.35
+ *******************************************************************
+ * Cloud Box is cross platform framework.                          *
+ * Copyright by Cloud Hsu                                          *
+ *******************************************************************
+ * 2012/11/15 v0.99.46
+ * 1. Fix save bug in android.
+ * 2. Fix some issue in android.
+ * 2012/11/13 v0.99.45
+ * 1. Implement Android Alert Dialog function.
+ * 2. Fix many bug in Android.
+ * 3. Add libxml to android.(but it has bug)
+ * 2012/11/06 v0.99.43
+ * 1. Add Store function in Superpig.
+ * 2. Add Simulate store.
+ * 3. Add Utility Function
+ * 2012/10/17 v0.99.42
+ * 1. Add CBUserDefault function.
+ * 2. Add libxml implement in CloudBox.
+ * 2012/10/14 v0.99.41
+ * 1. Add dialog function.
+ * 2. Implemet dialog function in iOS.
+ * 2012/10/08 v0.99.40
+ * 1. Fix orientation issue in iOS6.
+ * 2. Fix openal release bug in iOS6.
+ * 3. Add rand in CBUtility.
+ * 2012/09/09 v0.99.39
+ * 1. Fix bug for RingScroll Image.
+ * 2. Disable Sleep for iOS and Android.
+ * 3. SoundPool has some bug, record it.
+ * 2012/09/09 v0.99.39
+ * 1. Add mute function for audio engine.
+ * 2012/08/21 v0.99.38
+ * 1. Implement new CBSlideBar for 4 direction(up/down/left/right).
+ * 2012/07/30 v0.99.37
+ * 1. Implement and test android sound engine.
+ * 2012/07/28 v0.99.36
+ * 1. Fix warring.
+ * 2. Implement CBEffectManager.java.
  * 2012/07/10 v0.99.35
  * 1. Add new class in java(not implement).
  * 2. Add audio engine funtion in android.
@@ -126,6 +161,7 @@
  * 2. Improve item model and texture pool.
  * 2011/09/04 v0.99.3
  * 1. Add text for Android
+ *******************************************************************
  */
 
 #include "CBLibrary.h"
@@ -149,6 +185,19 @@
 #include "CBRotateAction.h"
 #include "CBGameApp.h"
 #include "CBAudioEngine.h"
+#include "CBUtility.h"
+#include "CBDialog.h"
+#include "CBSystemDialog.h"
+
+// CloudBox game component
+#ifdef __CBIOS__
+#include "CBSlideBar.h"
+#include "CBRingScrollImage.h"
+#else
+#include "Component/CBSlideBar.h"
+#include "Component/CBDefaultOption.h"
+#include "Component/CBRingScrollImage.h"
+#endif
 
 
 #ifdef __CBIOS__

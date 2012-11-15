@@ -29,11 +29,14 @@ jobject CBJNI::getInstance(JNIEnv* env, jclass obj_class)
     return obj;
 }
 
-void CBJNI::initial(const string& className)
+void CBJNI::initialJNIClass(const string& className)
 {
 	DebugLog("CBJNI::initial 1");
 	if(g_env == NULL)
+	{
 		DebugLog("CBJNI::initial error");
+		return;
+	}
 	jclass order_class = g_env->FindClass(className.c_str());
 	DebugLog("CBJNI::initial 2");
 	m_mainObject = getInstance(g_env, order_class);

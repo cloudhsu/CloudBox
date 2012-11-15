@@ -13,10 +13,12 @@
 #include <android/log.h>
 #include <zip.h>
 #include <jni.h>
+#include <string>
 
 extern zip* APKArchive;
 extern jobject g_textmgr;
 extern JNIEnv *g_env;
+extern std::string g_apkPath;
 
 #define STRINGIFY(x) #x
 #define LOG_TAG    "cloudbox-app"

@@ -49,7 +49,7 @@ public:
 	CBAction(double duration);
 	CBAction(double duration,int repeatTime);
 	//CBAction(double duration,int repeatTime,ActionLifeType lifeType);
-	~CBAction();
+	virtual ~CBAction();
 //	void commit();
 	virtual void commit(CBView* target);
 	virtual void commit(CBView* target, int repeatTime);
@@ -57,6 +57,8 @@ public:
 	void notify();
     void stop();
     void finish();
+    
+    void setDuration(double duration) { m_duration = duration; }
 	
 	inline const ActionStatus getStatus() { return m_status; }
 };

@@ -19,7 +19,6 @@ public class CloudGLSurface extends GLSurfaceView
 	CloudRenderer mRenderer;
 
 	private static native void nativePause();
-	//private static native void nativeResume();
 	private static native void touchBegan(float x, float y);
 	private static native void touchMoved(float x, float y);
 	private static native void touchEnded(float x, float y);
@@ -67,7 +66,11 @@ public class CloudGLSurface extends GLSurfaceView
 	public void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
-		//nativePause();
+		queueEvent(new Runnable() {
+            public void run() {
+            	nativePause();
+            }
+        });
 	}
 	@Override
 	public void onResume() {

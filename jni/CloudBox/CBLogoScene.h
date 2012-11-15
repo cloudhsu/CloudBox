@@ -11,6 +11,15 @@
 
 #include "CloudBox.h"
 
+#ifdef __CBIOS__
+#define LOGO_NAME "logo.png"
+#define LOGO_SOUND "cloudbox.wav"
+#else
+#define LOGO_NAME "system/logo.png"
+#define LOGO_SOUND "system/cloudbox.wav"
+#endif
+#define LOGO_TIME 3.5
+
 class CBLogoScene : public CBScene
 {
 private:

@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _CBTEXTMANAGER_H_
+#define _CBTEXTMANAGER_H_
+
 #include <jni.h>
 #include <GLES/gl.h>
 #include "CBJNI.h"
@@ -34,3 +37,5 @@ public:
 	GLuint createText(const char* text, float size,float& rWidth, float& rHeight);
 	CBImageData* createText(const char* text, float size);
 };
+
+#endif

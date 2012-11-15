@@ -9,7 +9,7 @@
 #ifndef _CBANDROIDAUDIOMANAGER_H_
 #define _CBANDROIDAUDIOMANAGER_H_
 
-#import "CBAudioBase.h"
+#include "../CBAudioBase.h"
 #include "CBJNI.h"
 
 class CBAndroidAudioManager : public CBAudioBase, public CBJNI

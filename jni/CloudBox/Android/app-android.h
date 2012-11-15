@@ -19,7 +19,7 @@ extern "C" {
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInit
-  (JNIEnv *, jclass, jstring);
+  (JNIEnv *, jclass, jstring, jstring);
 
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInitGL
   (JNIEnv *, jclass);
@@ -49,7 +49,7 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeResume
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_nativePause
-  (JNIEnv *, jclass);
+  (JNIEnv* env, jclass);
 
 // Event for touch
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_touchBegan
@@ -66,6 +66,9 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBMotion_onSensorChanged
 
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeTextInit
 (JNIEnv* env, jclass cls, jobject textManager);
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeAlertEvent
+  (JNIEnv *, jclass, jint dialogType, jint dialogResult, jint buttonIndex);
 
 #ifdef __cplusplus
 }

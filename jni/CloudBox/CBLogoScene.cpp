@@ -22,7 +22,6 @@ CBLogoScene::CBLogoScene()
 CBLogoScene::~CBLogoScene()
 {
 	// Deconstruct
-	//delete bg;
 }
 
 void CBLogoScene::initialize()
@@ -35,6 +34,11 @@ void CBLogoScene::initialize()
     DebugLog("width=%f,height=%f\n", bg->getWidth(),bg->getHeight());
 	bg->moveToAbsolute(x, y);
 	addChild(bg);
+    
+    SAudioEngine.initialEngine();
+    SAudioEngine.loadEffect(LOGO_SOUND);
+    SAudioEngine.playEffect(LOGO_SOUND);
+    
 	CBAction* action = new CBAction(LOGO_TIME,1);
 	action->addFinishEvent(this,&CBLogoScene::finish);
 	action->commit(this);

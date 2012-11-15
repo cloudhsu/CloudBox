@@ -25,6 +25,9 @@ void HelloScene::initialize()
 //	bg2 = new CBImage("testbg2.png");
 //	addChild(bg2,0,0);
 	//bg = new CBRingScrollImage("testbg1.png",ScrollY,3 ,0.02);
+	bg = new CBRingScrollImage("testbg11.png",ScrollX,-3 ,0.02);
+	addChild(bg,0,0);
+	bg->startScroll();
 //    CBImage* img = new CBImage("testbg11.png");
 //    addChild(img,0,100);
 	
@@ -53,6 +56,20 @@ void HelloScene::initialize()
 		animation[i]->addFrame("bomb2.png");
 		addChild(animation[i],100,10+(i*40));
 	}
+    
+    CBSlideBar* bar = new CBSlideBar();
+    bar->setOptionButton(OPTION_NAME);
+    bar->setOptionBar(OPTION_UP_BG_NAME);
+    //bar->setOptionBar(OPTION_DOWN_BG_NAME);
+    //bar->setOptionBar(OPTION_LEFT_BG_NAME);
+    //bar->setOptionBar(OPTION_RIGHT_BG_NAME);
+    bar->addButton(OPTION_INFO_NAME);
+    bar->addButton(OPTION_HELP_NAME);
+    //bar->setOptionBarDirection(SlideBarLeft);
+    bar->setOptionBarDirection(SlideBarUp);
+    //bar->setOptionBarDirection(SlideBarDown);
+    bar->initial();
+    addChild(bar,200,140);
 }
 
 void HelloScene::update()
