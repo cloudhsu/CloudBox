@@ -1,12 +1,9 @@
 CloudBox
 ========
 
-Cross-platform game engine for iOS and Android
+Cloud Box is cross platform framework.
+Copyright by Cloud Hsu.
 
-/*
- *******************************************************************
- * Cloud Box is cross platform framework.                          *
- * Copyright by Cloud Hsu                                          *
  *******************************************************************
  * 2012/11/15 v0.99.46
  * 1. Fix save bug in android.
@@ -154,4 +151,3 @@ Cross-platform game engine for iOS and Android
  * 2011/09/04 v0.99.3
  * 1. Add text for Android
  *******************************************************************
- */
