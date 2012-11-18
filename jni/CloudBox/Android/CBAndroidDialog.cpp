@@ -38,4 +38,6 @@ void CBAndroidDialog::showDialog(DialogType type, const string& title,const stri
 	jstring data1 = g_env->NewStringUTF(title.c_str());
 	jstring data2 = g_env->NewStringUTF(msg.c_str());
 	g_env->CallObjectMethod(m_mainObject, m_showDialog, (int)type, data1, data2);
+	g_env->DeleteLocalRef(data1);
+	g_env->DeleteLocalRef(data2);
 }

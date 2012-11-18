@@ -15,6 +15,8 @@
 #include "CBSystemDialog.h"
 #ifdef __CBIOS__
 #include "CBiOSStoreWrapper.h"
+#else
+#include "Android/CBAndroidStoreWrapper.h"
 #endif
 
 CBStoreManager::CBStoreManager()
@@ -23,7 +25,7 @@ CBStoreManager::CBStoreManager()
 #ifdef __CBIOS__
     m_store = new CBiOSStoreWrapper();
 #else
-    m_store = new CBSimulateStore();
+    m_store = new CBAndroidStoreWrapper();
 #endif
 }
 

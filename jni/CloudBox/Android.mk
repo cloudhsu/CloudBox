@@ -47,7 +47,7 @@ LOCAL_SRC_FILES += Extends/CBMotion.cpp
 LOCAL_SRC_FILES += Android/CBBuilderAndroid.cpp Android/app-android.cpp Android/utils.cpp \
                    Android/CBJNI.cpp Android/CBTextManager.cpp Android/CBAndroidAudioManager.cpp \
                    Android/CBAndroidEffectManager.cpp Android/CBAndroidUtility.cpp \
-                   Android/CBAndroidDialog.cpp
+                   Android/CBAndroidDialog.cpp Android/CBAndroidStoreWrapper.cpp
 # CloudBox Android Extends Library
 # LOCAL_SRC_FILES += Android/CBMotionAndroid.cpp Android/CBLedAndroid.cpp
 # CloudBox Game Component

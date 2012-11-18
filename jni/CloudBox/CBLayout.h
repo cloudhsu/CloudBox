@@ -54,6 +54,12 @@ public:
     void scaleX(float& x);
     void scaleY(float& y);
     
+    float scaleXPosition(float x);
+    float scaleYPosition(float y);
+    
+    float scaleWidthValue(float width);
+    float scaleHeightValue(float height);
+    
     void scaleWidth(float& width);
     void scaleHeight(float& height);
 };

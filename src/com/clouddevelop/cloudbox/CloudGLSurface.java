@@ -14,7 +14,7 @@ import android.opengl.GLSurfaceView;
 import android.util.Log;
 import android.view.MotionEvent;
 
-public class CloudGLSurface extends GLSurfaceView
+public class CloudGLSurface extends GLSurfaceView implements CBIQueneEvent
 {
 	CloudRenderer mRenderer;
 
@@ -77,6 +77,11 @@ public class CloudGLSurface extends GLSurfaceView
 		// TODO Auto-generated method stub
 		super.onResume();
 		mRenderer.setResume(true);
+	}
+
+	public void DoQueneEvent(Runnable run) {
+		// TODO Auto-generated method stub
+		queueEvent(run);
 	}
 	
 }

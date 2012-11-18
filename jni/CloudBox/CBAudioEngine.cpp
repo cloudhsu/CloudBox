@@ -18,7 +18,7 @@
 #include "Android/CBAndroidEffectManager.h"
 #endif
 
-CBAudioEngine::CBAudioEngine():m_isMute(false)
+CBAudioEngine::CBAudioEngine():m_isMute(false),m_isLoadMusic(false)
 {
 #ifdef __CBIOS__
     m_audioManager = new CBiOSAudioManager();
@@ -50,6 +50,7 @@ void CBAudioEngine::releaseEngine()
 void CBAudioEngine::loadMusic(const string fileName)
 {
     m_audioManager->loadMusic(fileName);
+    m_isLoadMusic = true;
 }
 void CBAudioEngine::releaseMusic()
 {
@@ -57,12 +58,14 @@ void CBAudioEngine::releaseMusic()
 	    return;
     m_audioManager->stopMusic();
     m_audioManager->releaseMusic();
+    m_isLoadMusic = false;
 }
 void CBAudioEngine::playMusic()
 {
     if(m_isMute)
         return;
-    m_audioManager->playMusic();
+    if(m_isLoadMusic)
+    	m_audioManager->playMusic();
 }
 void CBAudioEngine::stopMusic()
 {
@@ -72,11 +75,13 @@ void CBAudioEngine::stopMusic()
 }
 void CBAudioEngine::pauseMusic()
 {
-    m_audioManager->pauseMusic();
+	if(m_isLoadMusic)
+		m_audioManager->pauseMusic();
 }
 void CBAudioEngine::resumeMusic()
 {
-    m_audioManager->resumeMusic();
+	if(m_isLoadMusic)
+		m_audioManager->resumeMusic();
 }
 
 // for Effect

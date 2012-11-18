@@ -14,13 +14,13 @@ import android.graphics.BitmapFactory;
 
 public class PngManager
 {
-    private AssetManager amgr;
+    private AssetManager mAssetManager;
 
     public Bitmap open(String path)
     {
         try
         {
-            return BitmapFactory.decodeStream(amgr.open(path));
+            return BitmapFactory.decodeStream(mAssetManager.open(path));
         }
         catch (Exception e) { }
         return null;

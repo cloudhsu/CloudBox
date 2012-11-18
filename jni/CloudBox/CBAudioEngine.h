@@ -34,6 +34,7 @@ private:
     CBAudioBase* m_audioManager;
     CBEffectBase* m_effectManager;
     bool m_isMute;
+    bool m_isLoadMusic;
 public:
 	CBAudioEngine();
 	~CBAudioEngine();

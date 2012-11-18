@@ -1,20 +1,15 @@
 package com.clouddevelop.cloudbox;
 
 import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+
+import com.clouddevelop.billing.CBBillingManager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.hardware.SensorManager;
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 
 public class CBUtility {
 	private static Activity MainActivity;
@@ -44,10 +39,25 @@ public class CBUtility {
     
     private static native void nativeAlertEvent(int dialogType, int dialogResult, int buttonIndex);
     
+    private static native void nativeRequestFail(String msg);
+    private static native void nativeCompleteTransaction(String buyProductTag);
+    private static native void nativeFailedTransaction(String msg, int errorCode);
+    private static native void nativeRestoreTransaction(String buyProductTag);
+    private static native void nativePurchasingTransaction(String buyProductTag);
+    private static native void nativeRestoreCompletedTransactionsFinished();
+    private static native void nativeRestoreCompletedTransactionsFailed(String msg, int errorCode);
+    
     public static String PackageName;
     private static CBAudioManager AudioManager;
     private static CBEffectManager EffectManager;
     private static CBMotion Motion;
+    private static CBIQueneEvent QueneEvent;
+    private static CBBillingManager BillingManager;
+    
+    public static void initQueneEvent(CBIQueneEvent view)
+    {
+    	QueneEvent = view;
+    }
     
     public static void initUtility(Activity activity)
     {
@@ -108,7 +118,12 @@ public class CBUtility {
 	    new DialogInterface.OnClickListener()
 	    {
 	    	public void onClick(DialogInterface dialog, int whichButton){
-	    		nativeAlertEvent(DialogTypeClose, DialogResultOK, 0);
+	    		MainActivity.runOnUiThread(new Runnable() {
+	                public void run() {
+	                	nativeAlertEvent(DialogTypeClose, DialogResultOK, 0);
+	                }
+	            });
+	    		//nativeAlertEvent(DialogTypeClose, DialogResultOK, 0);
 	    	}
 	    }).create();
 
@@ -126,8 +141,11 @@ public class CBUtility {
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeClose, DialogResultOK, 0);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeClose, DialogResultOK, 0);
+    	                }
+    	            });
     			}
 	    	}).create();
     	}
@@ -140,8 +158,11 @@ public class CBUtility {
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeOK, DialogResultOK, 0);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeOK, DialogResultOK, 0);
+    	                }
+    	            });
     			}
 	    	}).create();
     	}
@@ -154,8 +175,11 @@ public class CBUtility {
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeCancel, DialogResultCancel, 0);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeCancel, DialogResultCancel, 0);
+    	                }
+    	            });
     			}
 	    	}).create();
     	}
@@ -168,16 +192,22 @@ public class CBUtility {
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeOKCancel, DialogResultOK, 0);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeOKCancel, DialogResultOK, 0);
+    	                }
+    	            });
     			}
 	    	})
     		.setNegativeButton("Cancel",
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeOKCancel, DialogResultCancel, 1);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeOKCancel, DialogResultCancel, 1);
+    	                }
+    	            });
     			}
 	    	}).create();
     	}
@@ -190,16 +220,22 @@ public class CBUtility {
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeYesNo, DialogResultYes, 0);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeYesNo, DialogResultYes, 0);
+    	                }
+    	            });
     			}
 	    	})
 	    	.setNegativeButton("No",
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeYesNo, DialogResultNo, 1);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeYesNo, DialogResultNo, 1);
+    	                }
+    	            });
     			}
 	    	}).create();
     	}
@@ -212,23 +248,32 @@ public class CBUtility {
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeRate, DialogResultRateMe, 0);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeRate, DialogResultRateMe, 0);
+    	                }
+    	            });
     			}
 	    	})
 	    	.setNeutralButton("Cancel",
             new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                	nativeAlertEvent(DialogTypeRate, DialogResultRateCancel, 1);
-                	dialog.dismiss();
+                	QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeRate, DialogResultRateCancel, 1);
+    	                }
+    	            });
                 }
             })
 	    	.setNegativeButton("Never",
     				new DialogInterface.OnClickListener()
     		{
     			public void onClick(DialogInterface dialog, int whichButton){
-    				nativeAlertEvent(DialogTypeRate, DialogResultRateNever, 2);
-    				dialog.dismiss();
+    				QueneEvent.DoQueneEvent(new Runnable() {
+    	                public void run() {
+    	                	nativeAlertEvent(DialogTypeRate, DialogResultRateNever, 2);
+    	                }
+    	            });
     			}
 	    	})
 	    	.create();
@@ -318,6 +363,118 @@ public class CBUtility {
     public static void stopAccelerometer()
     {
     	Motion.stopAccelerometer();
+    }
+    //--------------------------------------------------------------------------
+  	// For In-app billing
+    public static void buy(final String buyProductTag)
+    {
+    	if(BillingManager != null)
+    	{
+    		MainActivity.runOnUiThread(new Runnable() {
+                public void run() {
+                	BillingManager.buy(buyProductTag);
+                }
+            });
+    	}
+    }
+    public static boolean isCanBuy()
+    {
+    	boolean canBuy = false;
+    	if(BillingManager != null)
+    	{
+    		canBuy = BillingManager.isCanBuy();
+    	}
+    	return canBuy;
+    }
+    public static void initialStore()
+    {
+    	if(BillingManager == null)
+    	{
+    		MainActivity.runOnUiThread(new Runnable() {
+                public void run() {
+                	BillingManager = new CBBillingManager();
+                	BillingManager.initialStore(MainActivity);
+                }
+            });
+    	}
+    }
+    public static void releaseStore()
+    {
+    	if(BillingManager != null)
+    	{
+    		MainActivity.runOnUiThread(new Runnable() {
+                public void run() {
+                		BillingManager.releaseStore();
+                }
+            });
+    	}
+    }
+    public static void restoreCompletedTransactions()
+    {
+    	if(BillingManager != null)
+    	{
+    		MainActivity.runOnUiThread(new Runnable() {
+                public void run() {
+                		BillingManager.restoreCompletedTransactions();
+                }
+            });
+    	}
+    }
+    public static void requestFail(final String msg)
+    {
+    	QueneEvent.DoQueneEvent(new Runnable() {
+            public void run() {
+            	nativeRequestFail(msg);
+            }
+    	});
+    }
+    public static void completeTransaction(final String buyProductTag)
+    {
+    	QueneEvent.DoQueneEvent(new Runnable() {
+            public void run() {
+            	nativeCompleteTransaction(buyProductTag);
+            }
+    	});
+    }
+    public static void failedTransaction(final String msg, final int errorCode)
+    {
+    	QueneEvent.DoQueneEvent(new Runnable() {
+            public void run() {
+            	nativeFailedTransaction(msg,errorCode);
+            }
+    	});
+    }
+    public static void restoreTransaction(final String buyProductTag)
+    {
+    	QueneEvent.DoQueneEvent(new Runnable() {
+            public void run() {
+            	nativeRestoreTransaction(buyProductTag);
+            }
+    	});
+    }
+    public static void purchasingTransaction(final String buyProductTag)
+    {
+    	QueneEvent.DoQueneEvent(new Runnable() {
+            public void run() {
+            	nativePurchasingTransaction(buyProductTag);
+            }
+    	});
+    }
+    public static void restoreCompletedTransactionsFinished()
+    {
+    	QueneEvent.DoQueneEvent(new Runnable() {
+            public void run() {
+            	nativeRestoreCompletedTransactionsFinished();
+            }
+    	});
+    }
+    public static void restoreCompletedTransactionsFailed(final String msg, final int errorCode)
+    {
+    	QueneEvent.DoQueneEvent(new Runnable() {
+            public void run() {
+            		nativeRestoreCompletedTransactionsFailed(msg,errorCode);
+            }
+    	});
     }
 }
 

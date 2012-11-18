@@ -95,6 +95,33 @@ void CBLayout::scaleY(float& y)
 #endif
 }
 
+float CBLayout::scaleXPosition(float x)
+{
+#ifdef __CBIOS__
+	if(CBEnvironment::isRetina())
+	{
+		x *= 2;
+	}
+#else
+	x *= 2;
+	x *= m_scaleWidth;
+#endif
+    return x;
+}
+float CBLayout::scaleYPosition(float y)
+{
+#ifdef __CBIOS__
+	if(CBEnvironment::isRetina())
+	{
+		y *= 2;
+	}
+#else
+	y *= 2;
+	y *= m_scaleHeight;
+#endif
+    return y;
+}
+
 void CBLayout::scaleWidth(float& width)
 {
 #ifdef __CBIOS__
@@ -108,6 +135,23 @@ void CBLayout::scaleHeight(float& height)
 #else
 	height *= m_scaleHeight;
 #endif
+}
+
+float CBLayout::scaleWidthValue(float width)
+{
+#ifdef __CBIOS__
+#else
+	width *= m_scaleWidth;
+#endif
+    return width;
+}
+float CBLayout::scaleHeightValue(float height)
+{
+#ifdef __CBIOS__
+#else
+	height *= m_scaleHeight;
+#endif
+    return height;
 }
 
 void CBLayout::setOrientation(CBOrientation orientation)

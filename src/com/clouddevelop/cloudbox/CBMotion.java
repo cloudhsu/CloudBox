@@ -55,12 +55,6 @@ public class CBMotion implements SensorEventListener {
 		float y = event.values[1];
 		float z = event.values[2];
 		
-		/*
-		 * Because the axes are not swapped when the device's screen orientation changes. 
-		 * So we should swap it here.
-		 * In tablets such as Motorola Xoom, the default orientation is landscape, don't
-		 * need to translate coordinate.
-		 */
 		int orientation = mContext.getResources().getConfiguration().orientation;
 		if ((orientation == Configuration.ORIENTATION_LANDSCAPE) && (mNaturalOrientation != Surface.ROTATION_0)){
 			float tmp = x;

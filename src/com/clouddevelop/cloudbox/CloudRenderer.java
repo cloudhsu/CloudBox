@@ -21,33 +21,33 @@ import android.util.Log;
 
 public class CloudRenderer implements GLSurfaceView.Renderer
 {
-	boolean m_resume;
-	private Context context;
-	TextManager txtManager;
-	boolean m_wasInitialed;
+	boolean mResume;
+	private Context mContext;
+	TextManager mTextManager;
+	boolean mInitialed;
 	public CloudRenderer (Context context, int w, int h)
 	{
 		Log.i("cloudbox-app", "CloudRenderer.CloudRenderer()");
 		nativeSetsize(w, h);
-		this.context = context;
-		m_wasInitialed = false;
+		this.mContext = context;
+		mInitialed = false;
 	}
 	
 	public void onSurfaceCreated(GL10 gl, EGLConfig config)
 	{
 		Log.i("cloudbox-app", "CloudRenderer.onSurfaceCreated()");
 		nativeInitGL();
-		if(!m_wasInitialed)
+		if(!mInitialed)
 		{
-			m_wasInitialed = true;
+			mInitialed = true;
 			String apkFilePath = null;
 			ApplicationInfo appInfo = null;
-			Log.i("cloudbox-app", "PackageName:" + context.getPackageName());
-			PackageManager packMgmr = context.getPackageManager();
-			txtManager = new TextManager();
+			Log.i("cloudbox-app", "PackageName:" + mContext.getPackageName());
+			PackageManager packMgmr = mContext.getPackageManager();
+			mTextManager = new TextManager();
 			try
 			{
-				appInfo = packMgmr.getApplicationInfo(context.getPackageName(), 0);
+				appInfo = packMgmr.getApplicationInfo(mContext.getPackageName(), 0);
 			}
 			catch (NameNotFoundException e)
 			{
@@ -55,16 +55,16 @@ public class CloudRenderer implements GLSurfaceView.Renderer
 				throw new RuntimeException("Unable to locate assets, aborting...");
 			}
 			apkFilePath = appInfo.sourceDir;
-			nativeTextInit(txtManager);
+			nativeTextInit(mTextManager);
 			nativeInit(apkFilePath, CBUtility.PackageName);
 		}
 	}
 
 	public void onSurfaceChanged(GL10 gl, int w, int h) {
 		Log.i("cloudbox-app", "CloudRenderer.onSurfaceChanged()");
-		if(m_resume)
+		if(mResume)
 		{
-			m_resume = false;
+			mResume = false;
 			nativeResume();
 		}
 	}
@@ -90,6 +90,6 @@ public class CloudRenderer implements GLSurfaceView.Renderer
 	private static native void nativeRender();
 
 	public void setResume(boolean resume) {
-		this.m_resume = resume;
+		this.mResume = resume;
 	}
 }

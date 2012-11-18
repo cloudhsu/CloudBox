@@ -9,7 +9,6 @@
 
 package com.clouddevelop.cloudbox;
 
-import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.util.Log;
@@ -19,7 +18,6 @@ public class CBAudioManager
 	private static final String TAG = "cloudbox-app";
 	private float mLeftVolume;
 	private float mRightVolume;
-	private Context mContext;
 	private MediaPlayer mBackgroundMediaPlayer;
 	private boolean mIsPaused;
 	

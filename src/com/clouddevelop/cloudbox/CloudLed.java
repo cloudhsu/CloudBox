@@ -17,7 +17,7 @@ import android.os.Message;
 import android.util.Log;
 
 public class CloudLed {
-	Camera m_Camera;
+	Camera mCamera;
 	
 	Handler handler;
 	
@@ -45,11 +45,11 @@ public class CloudLed {
 		try
 		{
 			Log.i("cloudbox-app", "CloudLed.turnOnLed()");
-			m_Camera = Camera.open();
+			mCamera = Camera.open();
 			Camera.Parameters mParameters;
-			mParameters = m_Camera.getParameters();
+			mParameters = mCamera.getParameters();
 			mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-			m_Camera.setParameters(mParameters);
+			mCamera.setParameters(mParameters);
 		}catch(Exception ex)
 		{
 			ex.printStackTrace();
@@ -74,10 +74,10 @@ public class CloudLed {
 		{
 			Log.i("cloudbox-app", "CloudLed.turnOffLed()");
 			Camera.Parameters mParameters;
-			mParameters = m_Camera.getParameters();
+			mParameters = mCamera.getParameters();
 			mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-			m_Camera.setParameters(mParameters);
-			m_Camera.release();
+			mCamera.setParameters(mParameters);
+			mCamera.release();
 		}catch(Exception ex)
 		{
 			ex.printStackTrace();

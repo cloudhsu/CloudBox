@@ -66,7 +66,7 @@ void CBAndroidEffectManager::stopEffect(const string fileName)
 
 float CBAndroidEffectManager::getVolume()
 {
-	float volume = g_env->CallIntMethod(m_mainObject, m_getVolume);
+	float volume = g_env->CallFloatMethod(m_mainObject, m_getVolume);
 	return volume;
 }
 void CBAndroidEffectManager::setVolume(float volume)

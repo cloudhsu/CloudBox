@@ -41,12 +41,19 @@ void CBGameApp::setScreen(GLint screenWidth,GLint screenHeight)
 void CBGameApp::initialize()
 {
 	SOpenGL.initialize2D();
-    SStoreManager.initialStore();
+#ifdef __CBIOS__
+    initialStore();
+#endif
 	if(!m_isinitialed)
 	{
 		m_isinitialed = true;
 		start();
 	}
+}
+
+void CBGameApp::initialStore()
+{
+    SStoreManager.initialStore();
 }
 
 void CBGameApp::start()
@@ -125,4 +132,38 @@ void CBGameApp::applicationDidEnterBackground()
 void CBGameApp::applicationWillEnterForeground()
 {
     SEventProcessor.onApplicationWillEnterForeground();
+}
+
+void CBGameApp::requestFail(string& msg)
+{
+    SStoreManager.requestFail(msg);
+}
+void CBGameApp::requestFinished()
+{
+    SStoreManager.requestFinished();
+}
+
+void CBGameApp::completeTransaction(string& buyProductTag)
+{
+    SStoreManager.completeTransaction(buyProductTag);
+}
+void CBGameApp::failedTransaction(string& msg, int errorCode)
+{
+    SStoreManager.failedTransaction(msg, errorCode);
+}
+void CBGameApp::restoreTransaction(string& buyProductTag)
+{
+    SStoreManager.restoreTransaction(buyProductTag);
+}
+void CBGameApp::purchasingTransaction(string& buyProductTag)
+{
+    SStoreManager.purchasingTransaction(buyProductTag);
+}
+void CBGameApp::restoreCompletedTransactionsFinished()
+{
+    SStoreManager.restoreCompletedTransactionsFinished();
+}
+void CBGameApp::restoreCompletedTransactionsFailed(string& msg, int errorCode)
+{
+    SStoreManager.restoreCompletedTransactionsFailed(msg, errorCode);
 }

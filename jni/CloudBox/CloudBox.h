@@ -16,6 +16,9 @@
  * Cloud Box is cross platform framework.                          *
  * Copyright by Cloud Hsu                                          *
  *******************************************************************
+ * 2012/11/18 v0.99.47
+ * 1. Add IAB support in Android.
+ * 2. Test IAB function.
  * 2012/11/15 v0.99.46
  * 1. Fix save bug in android.
  * 2. Fix some issue in android.
@@ -195,7 +198,6 @@
 #include "CBRingScrollImage.h"
 #else
 #include "Component/CBSlideBar.h"
-#include "Component/CBDefaultOption.h"
 #include "Component/CBRingScrollImage.h"
 #endif
 

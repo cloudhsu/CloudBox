@@ -41,10 +41,11 @@ public:
 	void start();
 	void setScreen(GLint screenWidth,GLint screenHeight);
 	void initialize();
+    void initialTimer(double oldTime);
+    void initialStore();
 	void runWithScene(CBScene* scene);
 	void destory();
 	void mainLoop(double time);
-	void initialTimer(double oldTime);
 	void retinaDisplay();
     
     void reloadTexture();
@@ -59,6 +60,17 @@ public:
 	void applicationWillEnterForeground();
 	
 	//inline float getSpanTime() { return m_SpanTime; }
+    
+    // transaction event
+    void requestFail(string& msg);
+    void requestFinished();
+    
+    void completeTransaction(string& buyProductTag);
+    void failedTransaction(string& msg, int errorCode);
+    void restoreTransaction(string& buyProductTag);
+    void purchasingTransaction(string& buyProductTag);
+    void restoreCompletedTransactionsFinished();
+    void restoreCompletedTransactionsFailed(string& msg, int errorCode);
 };
 
 #define SGameApp CBGameApp::instance()

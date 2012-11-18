@@ -35,7 +35,6 @@ CBAndroidAudioManager::CBAndroidAudioManager()
 
 CBAndroidAudioManager::~CBAndroidAudioManager()
 {
-	stopMusic();
     releaseMusic();
 }
 
@@ -71,7 +70,7 @@ void CBAndroidAudioManager::resumeMusic()
 
 float CBAndroidAudioManager::getVolume()
 {
-	float volume = g_env->CallIntMethod(m_mainObject, m_getVolume);
+	float volume = g_env->CallFloatMethod(m_mainObject, m_getVolume);
     return volume;
 }
 void CBAndroidAudioManager::setVolume(float volume)

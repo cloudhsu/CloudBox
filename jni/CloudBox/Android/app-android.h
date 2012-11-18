@@ -51,6 +51,10 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeResume
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_nativePause
   (JNIEnv* env, jclass);
 
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeTextInit
+(JNIEnv* env, jclass cls, jobject textManager);
+
+// --------------------------------------------------------------------------------------------
 // Event for touch
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_touchBegan
   (JNIEnv *, jclass, jfloat x, jfloat y);
@@ -61,14 +65,38 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_touchMoved
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_touchEnded
   (JNIEnv *, jclass, jfloat x, jfloat y);
 
+// --------------------------------------------------------------------------------------------
+// Event for motion
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBMotion_onSensorChanged
   (JNIEnv *, jclass, jfloat x, jfloat y, jfloat z);
 
-JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeTextInit
-(JNIEnv* env, jclass cls, jobject textManager);
-
+// --------------------------------------------------------------------------------------------
+// for dialog event
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeAlertEvent
   (JNIEnv *, jclass, jint dialogType, jint dialogResult, jint buttonIndex);
+
+// --------------------------------------------------------------------------------------------
+// for in-app billing event
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeRequestFail
+  (JNIEnv *, jclass, jstring msg);
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeCompleteTransaction
+  (JNIEnv *, jclass, jstring buyProductTag);
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeFailedTransaction
+  (JNIEnv *, jclass, jstring msg, jint errorCode);
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeRestoreTransaction
+  (JNIEnv *, jclass, jstring buyProductTag);
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativePurchasingTransaction
+  (JNIEnv *, jclass, jstring buyProductTag);
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeRestoreCompletedTransactionsFinished
+  (JNIEnv *, jclass);
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeRestoreCompletedTransactionsFailed
+  (JNIEnv *, jclass, jstring msg, jint errorCode);
 
 #ifdef __cplusplus
 }

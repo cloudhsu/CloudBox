@@ -99,6 +99,7 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInit
     LOGI("apk path:%s",sApkPath);
     LOGI("package name:%s",sPackageName);
     loadAPK(sApkPath);
+    SGameApp.initialStore();
 }
 
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInitGL
@@ -139,6 +140,17 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_nativePause
 	SGameApp.applicationDidEnterBackground();
 }
 
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeTextInit
+(JNIEnv* env, jclass cls, jobject textManager)
+{
+	g_env = env;
+	g_textmgr = textManager;
+	jclass business_class = env->GetObjectClass(g_textmgr);
+	AndroidLog("initial textmanager success!");
+}
+
+// --------------------------------------------------------------------------------------------
+// Event for touch
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_touchBegan
   (JNIEnv *, jclass, jfloat x, jfloat y)
 {
@@ -156,7 +168,8 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_touchEnded
 {
 	SGameApp.touchEnded(x,y);
 }
-
+// --------------------------------------------------------------------------------------------
+// Event for motion
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBMotion_onSensorChanged
   (JNIEnv *, jclass, jfloat x, jfloat y, jfloat z)
 {
@@ -164,18 +177,79 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBMotion_onSensorChanged
 	SGameApp.onSersorChanged(x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeTextInit
-(JNIEnv* env, jclass cls, jobject textManager)
-{
-	g_env = env;
-	g_textmgr = textManager;
-	jclass business_class = env->GetObjectClass(g_textmgr);
-	AndroidLog("initial textmanager success!");
-}
-
+// --------------------------------------------------------------------------------------------
+// for dialog event
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeAlertEvent
   (JNIEnv *, jclass, jint dialogType, jint dialogResult, jint buttonIndex)
 {
 	LOGI("Alert EVent[ Type:%d Result:%d Index:%d]\n", dialogType, dialogResult, buttonIndex);
 	SGameApp.onAndroidAlertEvent(dialogType, dialogResult, buttonIndex);
+}
+
+// --------------------------------------------------------------------------------------------
+// for in-app billing event
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeRequestFail
+  (JNIEnv *, jclass, jstring msg)
+{
+	const char* myMsg;
+	jboolean isCopy;
+	myMsg = g_env->GetStringUTFChars(msg, &isCopy);
+	string message = string(myMsg);
+	SGameApp.requestFail(message);
+}
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeCompleteTransaction
+  (JNIEnv *, jclass, jstring buyProductTag)
+{
+	const char* myMsg;
+	jboolean isCopy;
+	myMsg = g_env->GetStringUTFChars(buyProductTag, &isCopy);
+	string productID = string(myMsg);
+	SGameApp.completeTransaction(productID);
+}
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeFailedTransaction
+  (JNIEnv *, jclass, jstring msg, jint errorCode)
+{
+	const char* myMsg;
+	jboolean isCopy;
+	myMsg = g_env->GetStringUTFChars(msg, &isCopy);
+	string message = string(myMsg);
+	SGameApp.restoreCompletedTransactionsFailed(message, errorCode);
+}
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeRestoreTransaction
+  (JNIEnv *, jclass, jstring buyProductTag)
+{
+	const char* myMsg;
+	jboolean isCopy;
+	myMsg = g_env->GetStringUTFChars(buyProductTag, &isCopy);
+	string productID = string(myMsg);
+	SGameApp.restoreTransaction(productID);
+}
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativePurchasingTransaction
+  (JNIEnv *, jclass, jstring buyProductTag)
+{
+	const char* myMsg;
+	jboolean isCopy;
+	myMsg = g_env->GetStringUTFChars(buyProductTag, &isCopy);
+	string productID = string(myMsg);
+	SGameApp.purchasingTransaction(productID);
+}
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeRestoreCompletedTransactionsFinished
+  (JNIEnv *, jclass)
+{
+	SGameApp.restoreCompletedTransactionsFinished();
+}
+
+JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeRestoreCompletedTransactionsFailed
+  (JNIEnv *, jclass, jstring msg, jint errorCode)
+{
+	const char* myMsg;
+	jboolean isCopy;
+	myMsg = g_env->GetStringUTFChars(msg, &isCopy);
+	string message = string(myMsg);
+	SGameApp.restoreCompletedTransactionsFailed(message, errorCode);
 }
