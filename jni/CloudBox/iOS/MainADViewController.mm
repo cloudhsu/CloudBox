@@ -126,6 +126,29 @@
 	//[[NSRunLoop currentRunLoop] runUntilDate: [NSDate distantPast]];
 }
 
+#ifdef __IPHONE_6_0
+// iPhone 6.0 code here
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    NSLog(@"supportedInterfaceOrientationsForWindow");
+    return  UIInterfaceOrientationMaskPortrait;
+}
+#endif
+
+-(BOOL)shouldAutorotate
+{
+    //return NO;
+    return YES;
+}
+
+
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    //return (interfaceOrientation == DefaultOrientation());
+    //return UIInterfaceOrientationIsLandscape( interfaceOrientation );
+    return UIInterfaceOrientationIsPortrait( interfaceOrientation );
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 /*
 - (void)viewDidLoad 
@@ -138,13 +161,6 @@
     [super viewDidLoad];
 }
 */
-
-
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == DefaultOrientation());
-}
 
 
 - (void)didReceiveMemoryWarning {
