@@ -173,34 +173,24 @@ jobject getInstance(JNIEnv* env, jclass obj_class)
 
 GLuint createText(const char* text, float size,float* rWidth, float* rHeight)
 {
-//	if(g_env)
-//		AndroidLog("g_env exist");
-//	if(g_textmgr)
-//		AndroidLog("g_textmgr exist");
 	jclass order_class = g_env->FindClass("com/clouddevelop/cloudbox/TextManager");
-	AndroidLog("FindClass succeed");
 	g_textmgr = getInstance(g_env, order_class);
 	jclass cls = g_env->GetObjectClass(g_textmgr);
-	AndroidLog("get class succeed");
 	jmethodID mid;
 
 	/* Ask the PNG manager for a bitmap */
 	mid = g_env->GetMethodID(cls, "create",
 	                         "(Ljava/lang/String;F)Landroid/graphics/Bitmap;");
-	//AndroidLog("get create succeed");
 	jstring data = g_env->NewStringUTF(text);
 	jobject textImage = g_env->CallObjectMethod(g_textmgr, mid, data,size);
-	//AndroidLog("call create succeed");
 	g_env->DeleteLocalRef(data);
 	g_env->NewGlobalRef(textImage);
 
 	/* Get image dimensions */
 	mid = g_env->GetMethodID(cls, "getWidth", "(Landroid/graphics/Bitmap;)I");
 	int width = g_env->CallIntMethod(g_textmgr, mid, textImage);
-	//AndroidLog("call getWidth succeed");
 	mid = g_env->GetMethodID(cls, "getHeight", "(Landroid/graphics/Bitmap;)I");
 	int height = g_env->CallIntMethod(g_textmgr, mid, textImage);
-	//AndroidLog("call getHeight succeed");
 	*rWidth = width;
 	*rHeight = height;
 
@@ -209,7 +199,6 @@ GLuint createText(const char* text, float size,float* rWidth, float* rHeight)
 	g_env->NewGlobalRef(image_data);
 	mid = g_env->GetMethodID(cls, "getPixels", "(Landroid/graphics/Bitmap;[I)V");
 	g_env->CallVoidMethod(g_textmgr, mid, textImage, image_data);
-	AndroidLog("call getPixels succeed");
 
 	jint *pixels = g_env->GetIntArrayElements(image_data, 0);
 
@@ -221,15 +210,12 @@ GLuint createText(const char* text, float size,float* rWidth, float* rHeight)
 	      GL_UNSIGNED_BYTE, (GLvoid*) pixels);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	//AndroidLog("generate texture succeed");
-
 	g_env->ReleaseIntArrayElements(image_data, pixels, 0);
 	g_env->DeleteGlobalRef(image_data);
 
 	/* Free image */
 	mid = g_env->GetMethodID(cls, "close", "(Landroid/graphics/Bitmap;)V");
 	g_env->CallVoidMethod(g_textmgr, mid, textImage);
-	//AndroidLog("call close succeed");
 	g_env->DeleteGlobalRef(textImage);
 
 	return texture;

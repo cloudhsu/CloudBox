@@ -54,6 +54,7 @@ public:
 	static inline void setScreenWidth(float screenWidth) { m_screenWidth = screenWidth; }
 	static inline void setScreenHeight(float screenHeight) { m_screenHeight = screenHeight; }
     static inline void setRetina(bool isRetina) { m_isRetina = isRetina; }
+    static inline void retinaDisplay() { m_isRetina = true; }
 };
 
 #endif

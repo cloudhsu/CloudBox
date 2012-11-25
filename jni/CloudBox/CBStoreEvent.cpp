@@ -26,10 +26,10 @@ void CBDefaultAlertEvent::completeTransaction(string& buyProductTag)
     CBDialog* dialog = new CBSystemDialog();
     dialog->showDialog(DialogTypeClose,"", "Transaction completed.");
 }
-void CBDefaultAlertEvent::failedTransaction(string& buyProductTag, int errorCode)
+void CBDefaultAlertEvent::failedTransaction(string& msg, int errorCode)
 {
     CBDialog* dialog = new CBSystemDialog();
-    dialog->showDialog(DialogTypeClose,"", "Transaction failed, try again.");
+    dialog->showDialog(DialogTypeClose,"Failed", msg);
 }
 void CBDefaultAlertEvent::restoreTransaction(string& buyProductTag)
 {

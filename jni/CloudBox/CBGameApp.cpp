@@ -15,6 +15,7 @@
 #include "CBTimerManager.h"
 #include "CBEventProcessor.h"
 #include "CBStoreManager.h"
+#include "CBLayout.h"
 #ifdef __CBIOS__
 #include "HelloScene.h"
 #else
@@ -99,7 +100,12 @@ void CBGameApp::initialTimer(double oldTime)
 
 void CBGameApp::retinaDisplay()
 {
-	CBEnvironment::setRetina(true);
+	CBEnvironment::retinaDisplay();
+}
+
+void CBGameApp::iOSWideScreen()
+{
+    SLayout.iOSWideScreen();
 }
 
 void CBGameApp::touchBegan(float x, float y)

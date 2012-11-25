@@ -146,7 +146,7 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeTextIn
 	g_env = env;
 	g_textmgr = textManager;
 	jclass business_class = env->GetObjectClass(g_textmgr);
-	AndroidLog("initial textmanager success!");
+	LOGI("initial textmanager success!");
 }
 
 // --------------------------------------------------------------------------------------------

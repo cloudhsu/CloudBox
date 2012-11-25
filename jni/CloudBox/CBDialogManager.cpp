@@ -22,16 +22,9 @@ bool CBDialogManager::isDialogLockScreen()
 
 void CBDialogManager::alertEvent(DialogResult result, int clickIndex)
 {
-	DebugLog("CBDialogManager::onAlertEvent 1\n");
     if(m_dialog != NULL)
     {
         m_dialog->alertEvent(result, clickIndex);
-        DebugLog("CBDialogManager::onAlertEvent 2\n");
-        DebugLog("CBDialogManager::onAlertEvent 3\n");
-#ifdef __CBIOS__
-#else
-        //SAudioEngine.playMusic();
-#endif
     }
     else
     {

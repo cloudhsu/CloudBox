@@ -47,6 +47,7 @@ public:
 	void destory();
 	void mainLoop(double time);
 	void retinaDisplay();
+    void iOSWideScreen();
     
     void reloadTexture();
 	

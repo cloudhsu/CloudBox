@@ -9,20 +9,11 @@
 
 #include "CBDialogManager.h"
 #include "CBSystemDialog.h"
-#ifdef __CBIOS__
-#include "CBiOSDialog.h"
-#else
-#include "Android/CBAndroidDialog.h"
-#endif
+#include "CBFactoryMethod.h"
 
 CBSystemDialog::CBSystemDialog()
 {
-    m_dialog = NULL;
-#ifdef __CBIOS__
-    m_dialog = new CBiOSDialog();
-#else
-    m_dialog = new CBAndroidDialog();
-#endif
+    m_dialog = CBFactoryMethod::createSystemDialog();
 }
 
 CBSystemDialog::~CBSystemDialog()

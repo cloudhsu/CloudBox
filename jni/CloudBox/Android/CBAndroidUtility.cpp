@@ -12,7 +12,8 @@
 
 CBAndroidUtility::CBAndroidUtility()
 {
-    
+	initialJNIClass("com/clouddevelop/cloudbox/CBUtility");
+	m_openUrl = g_env->GetStaticMethodID(m_mainClass, "openUrl", "(Ljava/lang/String;)V");
 }
 
 CBAndroidUtility::~CBAndroidUtility()
@@ -42,4 +43,7 @@ DeviceType CBAndroidUtility::getDeviceType()
 }
 void CBAndroidUtility::openUrl(const string& url)
 {
+	jstring data = g_env->NewStringUTF(url.c_str());
+	g_env->CallObjectMethod(m_mainObject, m_openUrl, data);
+	g_env->DeleteLocalRef(data);
 }

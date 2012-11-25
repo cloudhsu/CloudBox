@@ -10,7 +10,7 @@
 #include "CBUserDefault.h"
 #include "CBConvert.h"
 #include "CBXmlUtility.h"
-#include "CBFileUtility.h"
+#include "CBUtility.h"
 #include "CBLibrary.h"
 
 const string CBUserDefault::UserDefaultName = "CloudBoxUserDefault.plist";
@@ -27,8 +27,8 @@ CBUserDefault::~CBUserDefault(void)
 
 bool CBUserDefault::isUserDefaultExist()
 {
-    string fullName = CBFileUtility::getSystemPath(UserDefaultName);
-    return CBFileUtility::checkFileExist(fullName);
+    string fullName = SUtility.getSystemPath(UserDefaultName);
+    return SUtility.checkFileExist(fullName);
 }
 
 void CBUserDefault::load()

@@ -10,23 +10,12 @@
 #include "CBAudioEngine.h"
 #include "CBEffectBase.h"
 #include "CBAudioBase.h"
-#ifdef __CBIOS__
-#include "CBiOSAudioManager.h"
-#include "CBiOSEffectManager.h"
-#else
-#include "Android/CBAndroidAudioManager.h"
-#include "Android/CBAndroidEffectManager.h"
-#endif
+#include "CBFactoryMethod.h"
 
 CBAudioEngine::CBAudioEngine():m_isMute(false),m_isLoadMusic(false)
 {
-#ifdef __CBIOS__
-    m_audioManager = new CBiOSAudioManager();
-    m_effectManager = new CBiOSEffectManager();
-#else
-    m_audioManager = new CBAndroidAudioManager();
-    m_effectManager = new CBAndroidEffectManager();
-#endif
+    m_audioManager = CBFactoryMethod::createAudio();
+    m_effectManager = CBFactoryMethod::createEffect();
 }
 
 CBAudioEngine::~CBAudioEngine()

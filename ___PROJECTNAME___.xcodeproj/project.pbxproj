@@ -83,6 +83,7 @@
 		04FF514414F0DF3A00EF3624 /* CBCallbackDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF514314F0DF3A00EF3624 /* CBCallbackDispatcher.cpp */; };
 		04FF514714F0E2E400EF3624 /* CBTextureCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF514614F0E2E400EF3624 /* CBTextureCallback.cpp */; };
 		04FF519C14F0E85C00EF3624 /* CBThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF519B14F0E85C00EF3624 /* CBThread.cpp */; };
+		4B074CA61662433300EE49CB /* CBFactoryMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */; };
 		4B3CFD3B15E2AEDD003E2938 /* CBComposeAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD3915E2AEDD003E2938 /* CBComposeAction.cpp */; };
 		4B3CFD3E15E2AF04003E2938 /* CBProperty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD3C15E2AF04003E2938 /* CBProperty.cpp */; };
 		4B3CFD4115E2AF13003E2938 /* CBiOSEffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD4015E2AF13003E2938 /* CBiOSEffectManager.mm */; };
@@ -125,7 +126,6 @@
 		4B51EAEB16553221008F6D5F /* CBStoreManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B51EAE716553221008F6D5F /* CBStoreManager.cpp */; };
 		4B51EAFD1655324A008F6D5F /* CBDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B51EAED1655324A008F6D5F /* CBDialog.cpp */; };
 		4B51EAFE1655324A008F6D5F /* CBDialogManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B51EAF01655324A008F6D5F /* CBDialogManager.cpp */; };
-		4B51EAFF1655324A008F6D5F /* CBFileUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B51EAF21655324A008F6D5F /* CBFileUtility.cpp */; };
 		4B51EB001655324A008F6D5F /* CBLibXMLUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B51EAF41655324A008F6D5F /* CBLibXMLUtility.cpp */; };
 		4B51EB011655324A008F6D5F /* CBSystemDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B51EAF61655324A008F6D5F /* CBSystemDialog.cpp */; };
 		4B51EB021655324A008F6D5F /* CBUserDefault.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B51EAF81655324A008F6D5F /* CBUserDefault.cpp */; };
@@ -301,6 +301,9 @@
 		04FF519A14F0E85C00EF3624 /* CBThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBThread.h; sourceTree = "<group>"; };
 		04FF519B14F0E85C00EF3624 /* CBThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBThread.cpp; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* ___PROJECTNAME___.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "___PROJECTNAME___.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B074CA31662432600EE49CB /* CBFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactory.h; sourceTree = "<group>"; };
+		4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBFactoryMethod.cpp; sourceTree = "<group>"; };
+		4B074CA51662433300EE49CB /* CBFactoryMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactoryMethod.h; sourceTree = "<group>"; };
 		4B3CFD3915E2AEDD003E2938 /* CBComposeAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBComposeAction.cpp; sourceTree = "<group>"; };
 		4B3CFD3A15E2AEDD003E2938 /* CBComposeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBComposeAction.h; sourceTree = "<group>"; };
 		4B3CFD3C15E2AF04003E2938 /* CBProperty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBProperty.cpp; sourceTree = "<group>"; };
@@ -354,8 +357,6 @@
 		4B51EAEF1655324A008F6D5F /* CBDialogEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDialogEnum.h; sourceTree = "<group>"; };
 		4B51EAF01655324A008F6D5F /* CBDialogManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBDialogManager.cpp; sourceTree = "<group>"; };
 		4B51EAF11655324A008F6D5F /* CBDialogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDialogManager.h; sourceTree = "<group>"; };
-		4B51EAF21655324A008F6D5F /* CBFileUtility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBFileUtility.cpp; sourceTree = "<group>"; };
-		4B51EAF31655324A008F6D5F /* CBFileUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFileUtility.h; sourceTree = "<group>"; };
 		4B51EAF41655324A008F6D5F /* CBLibXMLUtility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBLibXMLUtility.cpp; sourceTree = "<group>"; };
 		4B51EAF51655324A008F6D5F /* CBLibXMLUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLibXMLUtility.h; sourceTree = "<group>"; };
 		4B51EAF61655324A008F6D5F /* CBSystemDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBSystemDialog.cpp; sourceTree = "<group>"; };
@@ -600,6 +601,7 @@
 		0420F3891442BB870075294B /* Patterns */ = {
 			isa = PBXGroup;
 			children = (
+				4B074CA31662432600EE49CB /* CBFactory.h */,
 				0420F39E1442BDA60075294B /* CBSingleton.h */,
 			);
 			name = Patterns;
@@ -695,6 +697,8 @@
 		04F9F48814E14F6900B058D7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */,
+				4B074CA51662433300EE49CB /* CBFactoryMethod.h */,
 				0402426014091C840083DC7E /* TCBBuilder.h */,
 				04FB42AE14B4AC63002A525B /* CBCore.h */,
 				0402423414091C840083DC7E /* CBDevice.h */,
@@ -816,8 +820,6 @@
 				4B51EAEF1655324A008F6D5F /* CBDialogEnum.h */,
 				4B51EAF01655324A008F6D5F /* CBDialogManager.cpp */,
 				4B51EAF11655324A008F6D5F /* CBDialogManager.h */,
-				4B51EAF21655324A008F6D5F /* CBFileUtility.cpp */,
-				4B51EAF31655324A008F6D5F /* CBFileUtility.h */,
 				4B51EAF41655324A008F6D5F /* CBLibXMLUtility.cpp */,
 				4B51EAF51655324A008F6D5F /* CBLibXMLUtility.h */,
 				4B51EAF61655324A008F6D5F /* CBSystemDialog.cpp */,
@@ -1010,7 +1012,6 @@
 				4B51EAEB16553221008F6D5F /* CBStoreManager.cpp in Sources */,
 				4B51EAFD1655324A008F6D5F /* CBDialog.cpp in Sources */,
 				4B51EAFE1655324A008F6D5F /* CBDialogManager.cpp in Sources */,
-				4B51EAFF1655324A008F6D5F /* CBFileUtility.cpp in Sources */,
 				4B51EB001655324A008F6D5F /* CBLibXMLUtility.cpp in Sources */,
 				4B51EB011655324A008F6D5F /* CBSystemDialog.cpp in Sources */,
 				4B51EB021655324A008F6D5F /* CBUserDefault.cpp in Sources */,
@@ -1021,6 +1022,7 @@
 				4B51EB131655326B008F6D5F /* CBiOSStoreManager.mm in Sources */,
 				4B51EB141655326B008F6D5F /* CBiOSStoreWrapper.mm in Sources */,
 				4B51EB151655326B008F6D5F /* CBiOSUtility.mm in Sources */,
+				4B074CA61662433300EE49CB /* CBFactoryMethod.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,17 +9,20 @@
 #ifndef _CBANDROIDUTILITY_H_
 #define _CBANDROIDUTILITY_H_
 
+#include "CBJNI.h"
 #include "CBUtilityBase.h"
 #include <string>
 using namespace std;
 
-class CBAndroidUtility : public CBUtilityBase
+class CBAndroidUtility : public CBUtilityBase, public CBJNI
 {
+private:
+	jmethodID m_openUrl;
 public:
 	CBAndroidUtility();
     ~CBAndroidUtility();
     
-    static string getSystemPath(const string& fileName);
+    string getSystemPath(const string& fileName);
 	string getLanguage();
     DeviceType getDeviceType();
     void openUrl(const string& url);

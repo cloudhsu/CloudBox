@@ -33,6 +33,7 @@ public:
 	virtual string getLanguage() = 0;
     virtual DeviceType getDeviceType() = 0;
     virtual void openUrl(const string& url) = 0;
+    virtual string getSystemPath(const string& fileName) = 0;
 };
 
 class CBNoneUtility : public CBUtilityBase
@@ -45,6 +46,7 @@ public:
 	string getLanguage() { return "en"; }
     DeviceType getDeviceType() { return DeviceOther; }
     void openUrl(const string& url) {}
+    string getSystemPath(const string& fileName) { return ""; }
 };
 
 #endif

@@ -13,20 +13,12 @@
 #include "CBStoreBase.h"
 #include "CBDialog.h"
 #include "CBSystemDialog.h"
-#ifdef __CBIOS__
-#include "CBiOSStoreWrapper.h"
-#else
-#include "Android/CBAndroidStoreWrapper.h"
-#endif
+#include "CBFactoryMethod.h"
 
 CBStoreManager::CBStoreManager()
 :m_storeEvent(NULL),m_status(IAPIdel),m_store(NULL)
 {
-#ifdef __CBIOS__
-    m_store = new CBiOSStoreWrapper();
-#else
-    m_store = new CBAndroidStoreWrapper();
-#endif
+    m_store = CBFactoryMethod::createStore();
 }
 
 CBStoreManager::~CBStoreManager()

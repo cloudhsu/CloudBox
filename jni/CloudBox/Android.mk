@@ -20,7 +20,9 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../libzip/ $(LOCAL_PATH)/../libpng/ $(LOCAL_PA
 LOCAL_STATIC_LIBRARIES := libzip libpng libxml2
 
 #-Wno-psabi to remove warning about GCC 4.4 va_list warning
-LOCAL_CFLAGS := -DANDROID_NDK -Wno-psabi -fno-exceptions -fno-rtti 
+LOCAL_CFLAGS := -DANDROID_NDK -Wno-psabi -fno-exceptions -fno-rtti
+# Debug preprocessor declare 
+#LOCAL_CPPFLAGS += -DDEBUG
 
 LOCAL_MODULE    := cloudbox-app
 # CloudBox Common Library
@@ -38,7 +40,7 @@ LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
                    CBAudioEngine.cpp CBSwitch.cpp CBProperty.cpp CBEventProcessor.cpp \
                    CBStoreManager.cpp CBStoreEvent.cpp CBDialog.cpp CBSystemDialog.cpp \
                    CBUtility.cpp CBXmlUtility.cpp CBUserDefault.cpp CBLibXMLUtility.cpp \
-                   CBFileUtility.cpp CBStoreBase.cpp CBDialogManager.cpp \
+                   CBFactoryMethod.cpp CBStoreBase.cpp CBDialogManager.cpp \
                    ../CBAppEvent.cpp
 # CloudBox extends function
 # LOCAL_SRC_FILES += Extends/CBLotto.cpp Extends/CBLed.cpp Extends/CBMotion.cpp

@@ -15,6 +15,7 @@
 #import "CloudBox.h"
 
 #define USE_DEPTH_BUFFER 0
+#define IS_WIDESCREEN (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)568) < DBL_EPSILON)
 
 // A class extension to declare private methods
 @interface EAGLView ()
@@ -41,19 +42,20 @@
 	if ((self = [super initWithFrame:rect])) {
 		// Get the layer
 		CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
-		
-		UIScreen *mainScreen = [UIScreen mainScreen];
-		int width = mainScreen.currentMode.size.width;
-		int height = mainScreen.currentMode.size.height;
-		if ((width == 640 && height == 960))
-		{
-			// We have a Retina Display:
+        
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
+            ([UIScreen mainScreen].scale == 2.0))
+        {
+            // We have a Retina Display:
 			NSLog(@"This is a retain display!");
 			self.contentScaleFactor = 2.0f;
 			eaglLayer.contentsScale = 2.0f;
 			SGameApp.retinaDisplay();
-		}
-        //SGameApp.setScreen(width, height);
+        }
+        if(IS_WIDESCREEN)
+        {
+            SGameApp.iOSWideScreen();
+        }
 		
 		eaglLayer.opaque = YES;
 		eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:

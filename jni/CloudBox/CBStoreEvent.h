@@ -33,7 +33,7 @@ public:
     
     virtual void completeTransaction(string& buyProductTag);
     virtual void restoreTransaction(string& buyProductTag);
-    void failedTransaction(string& buyProductTag, int errorCode);
+    void failedTransaction(string& msg, int errorCode);
     void purchasingTransaction(string& buyProductTag);
 };
 

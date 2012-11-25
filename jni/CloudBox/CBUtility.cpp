@@ -14,21 +14,12 @@
 #include "CBUserDefault.h"
 #include "CBLibrary.h"
 #include <math.h>
-#ifdef __CBIOS__
-#include "CBiOSUtility.h"
-#else
-#include <stdlib.h>
-#endif
+#include <fstream>
+#include "CBFactoryMethod.h"
 
 CBUtility::CBUtility()
 {
-#ifdef __CBIOS__
-    m_utility = new CBiOSUtility();
-#else
-    DebugLog("CBUtility 1\n");
-	m_utility = new CBNoneUtility();
-    DebugLog("CBUtility 2\n");
-#endif
+    m_utility = CBFactoryMethod::createUtility();
 }
 CBUtility::~CBUtility()
 {
@@ -47,19 +38,14 @@ DeviceType CBUtility::getDeviceType()
 
 void CBUtility::rankMyGame(const string& appleID)
 {
-    DebugLog("rankMyGame 1\n");
     bool rated = SUserDefault.getValue<bool>(RATE_TAG, false);
-    DebugLog("rankMyGame 2\n");
     int rnd = this->rand() % 100;
-    DebugLog("rankMyGame 3\n");
     if(!rated && rnd > 80)
     {
         m_appleID = appleID;
         CBDialog* dialog = new CBSystemDialog();
-        DebugLog("rankMyGame 3\n");
         dialog->addAlertEvent(this, &CBUtility::onRateAlertClick);
-        dialog->showDialog(DialogTypeRate,"", "Rate me 5 stars?");
-        DebugLog("rankMyGame 4\n");
+        dialog->showDialog(DialogTypeRate,"", "Could you rate the app?");
     }
 }
 
@@ -85,14 +71,26 @@ void CBUtility::openUrl(const string& url)
 }
 void CBUtility::openApp(const string& appleID)
 {
+#ifdef __CBIOS__
+    // iOS rate url
     string url = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=";
     url += (appleID + "&mt=8");
+#else
+    // Android rate url
+    string url = "https://play.google.com/store/apps/details?id=";
+#endif
     //DebugLog("Open App: %s\n",url.c_str());
     openUrl(url);
 }
 void CBUtility::rateApp(const string& appleID)
 {
+#ifdef __CBIOS__
+    // iOS rate url
     string url = "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=";
+#else
+    // Android rate url
+    string url = "market://details?id=";
+#endif
     url += appleID;
     //DebugLog("Rate App: %s\n",url.c_str());
     openUrl(url);
@@ -105,4 +103,22 @@ int CBUtility::rand()
 #else
     return (int)random();
 #endif
+}
+
+bool CBUtility::checkFileExist(string fileName)
+{
+    bool flag = false;
+    fstream fin;
+    fin.open(fileName.c_str(),ios::in);
+    if( fin.is_open() )
+    {
+        flag=true;
+    }
+    fin.close();
+    return flag;
+}
+string CBUtility::getSystemPath(const string& fileName)
+{
+    string fullName = m_utility->getSystemPath(fileName);
+    return fullName;
 }

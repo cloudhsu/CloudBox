@@ -31,6 +31,7 @@ typedef enum {
 class CBLayout : public CBSingleton<CBLayout>
 {
 private:
+    bool m_isiPhone5;
 	CBLayoutType m_baseLayout;
     CBLayoutType m_currentLayout;
 	float m_scaleWidth;
@@ -45,7 +46,9 @@ public:
 	~CBLayout();
 	inline const float getScaleWidth() { return m_scaleWidth; }
 	inline const float getScaleHeight() { return m_scaleHeight; }
-	
+    
+    void iOSWideScreen();
+    
 	void initScale(float screenWidth, float screenHeight);
 	void setOrientation(CBOrientation orientation);
 	void layoutScale(float &width, float &height);

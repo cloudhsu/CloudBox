@@ -9,7 +9,7 @@
 
 #include "CBLibXMLUtility.h"
 #include "CBXmlUtility.h"
-#include "CBFileUtility.h"
+#include "CBUtility.h"
 #include "CBLibrary.h"
 
 CBXmlUtility::CBXmlUtility(void)
@@ -24,14 +24,14 @@ CBXmlUtility::~CBXmlUtility(void)
 
 void CBXmlUtility::saveToXML(map<string,string>& data,const string& fileName)
 {
-    string fullName = CBFileUtility::getSystemPath(fileName);
+    string fullName = SUtility.getSystemPath(fileName);
     m_xmlUtility->saveToXML(data,fullName);
 }
 map<string,string> CBXmlUtility::loadFromXML(string fileName)
 {
-    string fullName = CBFileUtility::getSystemPath(fileName);
+    string fullName = SUtility.getSystemPath(fileName);
     map<string,string> data;
-    if(CBFileUtility::checkFileExist(fullName))
+    if(SUtility.checkFileExist(fullName))
     {
         data = m_xmlUtility->loadFromXML(fullName);
     }

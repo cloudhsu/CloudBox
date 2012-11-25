@@ -12,7 +12,6 @@
 
 #include "_CBBuilder.h"
 
-
 class _CBDefBuilder : public _CBBuilder
 {
 private:

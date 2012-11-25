@@ -37,7 +37,11 @@ public:
     
     void rankMyGame(const string& appleID);
     
+    // corss platform rand
     int rand();
+    
+    bool checkFileExist(string fileName);
+    string getSystemPath(const string& fileName);
 };
 
 #define SUtility CBUtility::instance()

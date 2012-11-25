@@ -35,12 +35,13 @@
 	#endif
 	#define AndroidLog(...)
 #else
+	#ifdef DEBUG
 	#include <android/log.h>
-//	#define AndroidLog(...)
-//	#define DebugLog(...)
 	#define AndroidLog(...) ((void)__android_log_print(ANDROID_LOG_INFO, "cloudbox-app", __VA_ARGS__))
 	#define DebugLog(...) ((void)__android_log_print(ANDROID_LOG_INFO, "cloudbox-app", __VA_ARGS__))
-//	#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "cloudbox-app", __VA_ARGS__))
+    #else
+    #define DebugLog(...)
+    #endif
 #endif
 
 #define DELETE(x)		if (x) { delete x; x = NULL; }
