@@ -80,10 +80,10 @@ public class CloudRenderer implements GLSurfaceView.Renderer
 		}
 	}
 
-	private static native void nativeInit(String apkPath,String packageName);
+	private static native void nativeInit(final String apkPath,final String packageName);
 	private static native void nativeInitGL();
 	private static native void nativeResume();
-	private static native void nativeTextInit(TextManager textManager);
+	private static native void nativeTextInit(final TextManager textManager);
 
 	private static native void nativeSetsize(int w, int h);
 

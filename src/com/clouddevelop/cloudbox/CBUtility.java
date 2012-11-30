@@ -41,13 +41,13 @@ public class CBUtility {
     
     private static native void nativeAlertEvent(int dialogType, int dialogResult, int buttonIndex);
     
-    private static native void nativeRequestFail(String msg);
-    private static native void nativeCompleteTransaction(String buyProductTag);
-    private static native void nativeFailedTransaction(String msg, int errorCode);
-    private static native void nativeRestoreTransaction(String buyProductTag);
-    private static native void nativePurchasingTransaction(String buyProductTag);
+    private static native void nativeRequestFail(final String msg);
+    private static native void nativeCompleteTransaction(final String buyProductTag);
+    private static native void nativeFailedTransaction(final String msg, int errorCode);
+    private static native void nativeRestoreTransaction(final String buyProductTag);
+    private static native void nativePurchasingTransaction(final String buyProductTag);
     private static native void nativeRestoreCompletedTransactionsFinished();
-    private static native void nativeRestoreCompletedTransactionsFailed(String msg, int errorCode);
+    private static native void nativeRestoreCompletedTransactionsFailed(final String msg, int errorCode);
     
     public static String PackageName;
     private static CBAudioManager AudioManager;
