@@ -5,6 +5,18 @@ Cloud Box is cross platform framework.
 Copyright by Cloud Hsu.
 
  *******************************************************************
+ * 2012/11/25 v0.99.49
+ * 1. Add CBFactory.
+ * 2. Add iOS retina 4 inch support.
+ * 3. Implement openUrl in Android.
+ * 4. Add DEBUG flag in Android.mk.
+ * 2012/11/25 v0.99.48
+ * 1. Fix bug for iOS retina supported.
+ * 2. Show error message when IAP failed on iOS.
+ * 3. Change rate me dialog descirption.
+ * 2012/11/18 v0.99.47
+ * 1. Add IAB support in Android.
+ * 2. Test IAB function.
  * 2012/11/15 v0.99.46
  * 1. Fix save bug in android.
  * 2. Fix some issue in android.
