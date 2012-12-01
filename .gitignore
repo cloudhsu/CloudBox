@@ -11,3 +11,7 @@
 *.la
 *.a
 *.class
+*.o.d
+bin/
+gen/
+libs/
