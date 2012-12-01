@@ -89,7 +89,7 @@ static void loadAPK (const char* apkPath)
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInit
   (JNIEnv * env, jclass cls, jstring apkPath, jstring packageName)
 {
-	//LOGI("nativeInit");
+	LOGI("nativeInit");
 	const char* sApkPath;
 	const char* sPackageName;
     jboolean isCopy;

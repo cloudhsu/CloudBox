@@ -44,6 +44,7 @@ DeviceType CBAndroidUtility::getDeviceType()
 void CBAndroidUtility::openUrl(const string& url)
 {
 	jstring data = g_env->NewStringUTF(url.c_str());
-	g_env->CallObjectMethod(m_mainObject, m_openUrl, data);
+	g_env->CallStaticVoidMethod(m_mainClass, m_openUrl, data);
 	g_env->DeleteLocalRef(data);
+	DebugLog("CBAndroidUtility openUrl succeed.\n");
 }

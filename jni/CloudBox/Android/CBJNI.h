@@ -17,6 +17,7 @@ using namespace std;
 class CBJNI
 {
 protected:
+	string m_className;
 	jobject m_mainObject;
 	jclass m_mainClass;
 	jobject getInstance(JNIEnv* env, jclass obj_class);

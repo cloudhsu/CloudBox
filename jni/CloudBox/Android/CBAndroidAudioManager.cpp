@@ -13,15 +13,6 @@
 CBAndroidAudioManager::CBAndroidAudioManager()
 :CBAudioBase()
 {
-	//initialJNIClass("com/clouddevelop/cloudbox/CBAudioManager");
-//	m_loadMusic = g_env->GetMethodID(m_mainClass, "loadMusic", "(Ljava/lang/String;)V");
-//	m_releaseMusic = g_env->GetMethodID(m_mainClass, "releaseMusic", "()V");
-//	m_playMusic = g_env->GetMethodID(m_mainClass, "playMusic", "()V");
-//	m_stopMusic = g_env->GetMethodID(m_mainClass, "stopMusic", "()V");
-//	m_pauseMusic = g_env->GetMethodID(m_mainClass, "pauseMusic", "()V");
-//	m_resumeMusic = g_env->GetMethodID(m_mainClass, "resumeMusic", "()V");
-//	m_getVolume = g_env->GetMethodID(m_mainClass, "getVolume", "()F");
-//	m_setVolume = g_env->GetMethodID(m_mainClass, "setVolume", "(F)V");
 	initialJNIClass("com/clouddevelop/cloudbox/CBUtility");
 	m_loadMusic = g_env->GetStaticMethodID(m_mainClass, "loadMusic", "(Ljava/lang/String;)V");
 	m_releaseMusic = g_env->GetStaticMethodID(m_mainClass, "releaseMusic", "()V");
@@ -42,38 +33,42 @@ void CBAndroidAudioManager::loadMusic(const string fileName)
 {
 	DebugLog("load %s",fileName.c_str());
 	jstring data = g_env->NewStringUTF(fileName.c_str());
-	g_env->CallObjectMethod(m_mainObject, m_loadMusic, data);
+	g_env->CallStaticVoidMethod(m_mainClass, m_loadMusic, data);
 	g_env->DeleteLocalRef(data);
+	DebugLog("CBAndroidAudioManager load music succeed.\n");
 }
 void CBAndroidAudioManager::releaseMusic()
 {
-	g_env->CallVoidMethod(m_mainObject, m_releaseMusic);
+	g_env->CallStaticVoidMethod(m_mainClass, m_releaseMusic);
+	DebugLog("CBAndroidAudioManager release music succeed.\n");
 }
 void CBAndroidAudioManager::playMusic()
 {
-	DebugLog("play music");
-	g_env->CallVoidMethod(m_mainObject, m_playMusic);
+	g_env->CallStaticVoidMethod(m_mainClass, m_playMusic);
+	DebugLog("CBAndroidAudioManager play music succeed.\n");
 }
 void CBAndroidAudioManager::stopMusic()
 {
-	DebugLog("stop music");
-	g_env->CallVoidMethod(m_mainObject, m_stopMusic);
+	g_env->CallStaticVoidMethod(m_mainClass, m_stopMusic);
+	DebugLog("CBAndroidAudioManager stop music succeed.\n");
 }
 void CBAndroidAudioManager::pauseMusic()
 {
-	g_env->CallVoidMethod(m_mainObject, m_pauseMusic);
+	g_env->CallStaticVoidMethod(m_mainClass, m_pauseMusic);
+	DebugLog("CBAndroidAudioManager pause music succeed.\n");
 }
 void CBAndroidAudioManager::resumeMusic()
 {
-	g_env->CallVoidMethod(m_mainObject, m_resumeMusic);
+	g_env->CallStaticVoidMethod(m_mainClass, m_resumeMusic);
+	DebugLog("CBAndroidAudioManager resume music succeed.\n");
 }
 
 float CBAndroidAudioManager::getVolume()
 {
-	float volume = g_env->CallFloatMethod(m_mainObject, m_getVolume);
+	float volume = g_env->CallStaticFloatMethod(m_mainClass, m_getVolume);
     return volume;
 }
 void CBAndroidAudioManager::setVolume(float volume)
 {
-	g_env->CallObjectMethod(m_mainObject, m_setVolume, volume);
+	g_env->CallStaticVoidMethod(m_mainClass, m_setVolume, volume);
 }

@@ -16,10 +16,8 @@ CBJNI::CBJNI()
 }
 CBJNI::~CBJNI()
 {
-//	(*g_env)->DeleteLocalRef(g_env, m_turnOff);
-//	(*g_env)->DeleteLocalRef(g_env, m_turnOn);
-//	(*g_env)->DeleteLocalRef(g_env, m_lesClass);
-//	(*g_env)->DeleteLocalRef(g_env, m_led);
+	g_env->DeleteGlobalRef(m_mainObject);
+	g_env->DeleteGlobalRef(m_mainClass);
 }
 
 jobject CBJNI::getInstance(JNIEnv* env, jclass obj_class)
@@ -37,10 +35,10 @@ void CBJNI::initialJNIClass(const string& className)
 		DebugLog("CBJNI::initial error");
 		return;
 	}
-	jclass order_class = g_env->FindClass(className.c_str());
-	DebugLog("CBJNI::initial 2");
-	m_mainObject = getInstance(g_env, order_class);
-	DebugLog("CBJNI::initial 3");
-	m_mainClass = g_env->GetObjectClass(m_mainObject);
-	DebugLog("CBJNI::initial 4");
+	m_className = string(className);
+	jclass localClass = g_env->FindClass(className.c_str());
+	jobject obj = getInstance(g_env, localClass);
+	m_mainObject = g_env->NewGlobalRef(obj);
+	jclass mainClass = g_env->GetObjectClass(m_mainObject);
+	m_mainClass = reinterpret_cast<jclass>(g_env->NewGlobalRef(mainClass));
 }

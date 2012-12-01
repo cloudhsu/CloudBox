@@ -29,27 +29,32 @@ CBAndroidStoreWrapper::~CBAndroidStoreWrapper()
 void CBAndroidStoreWrapper::buy(const string& buyProductTag)
 {
 	jstring data = g_env->NewStringUTF(buyProductTag.c_str());
-	g_env->CallObjectMethod(m_mainObject, m_buy, data);
+	g_env->CallStaticVoidMethod(m_mainClass, m_buy, data);
 	g_env->DeleteLocalRef(data);
+	DebugLog("CBAndroidStoreWrapper buy succeed.\n");
 }
 
 bool CBAndroidStoreWrapper::isCanBuy()
 {
-	jboolean canBuy = g_env->CallBooleanMethod(m_mainObject, m_isCanBuy);
+	jboolean canBuy = g_env->CallStaticBooleanMethod(m_mainClass, m_isCanBuy);
+	DebugLog("CBAndroidStoreWrapper isCanBuy succeed.\n");
 	return canBuy;
 }
 
 void CBAndroidStoreWrapper::initialStore()
 {
-	g_env->CallVoidMethod(m_mainObject, m_initialStore);
+	g_env->CallStaticVoidMethod(m_mainClass, m_initialStore);
+	DebugLog("CBAndroidStoreWrapper initialStore succeed.\n");
 }
 
 void CBAndroidStoreWrapper::releaseStore()
 {
-	g_env->CallVoidMethod(m_mainObject, m_releaseStore);
+	g_env->CallStaticVoidMethod(m_mainClass, m_releaseStore);
+	DebugLog("CBAndroidStoreWrapper releaseStore succeed.\n");
 }
 
 void CBAndroidStoreWrapper::restoreCompletedTransactions()
 {
-	g_env->CallVoidMethod(m_mainObject, m_restoreCompletedTransactions);
+	g_env->CallStaticVoidMethod(m_mainClass, m_restoreCompletedTransactions);
+	DebugLog("CBAndroidStoreWrapper restoreCompletedTransactions succeed.\n");
 }

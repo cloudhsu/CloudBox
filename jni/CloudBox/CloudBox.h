@@ -16,6 +16,8 @@
  * Cloud Box is cross platform framework.                          *
  * Copyright by Cloud Hsu                                          *
  *******************************************************************
+ * 2012/12/01 v0.99.50
+ * 1. Fix android jni bug.
  * 2012/11/25 v0.99.49
  * 1. Add CBFactory.
  * 2. Add iOS retina 4 inch support.
