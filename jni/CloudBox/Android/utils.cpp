@@ -149,7 +149,17 @@ GLuint loadTextureFromPNG(const char* filename, int &width, int &height) {
 
   //Now generate the OpenGL texture object
   GLuint texture;
-  glGenTextures(1, &texture);
+  int retry = 0;
+  do
+  {
+	  glGenTextures(1, &texture);
+	  GLenum errorCode = glGetError();
+	  if(GL_NO_ERROR == errorCode)
+		  break;
+	  retry++;
+	  if(retry > 5)
+		  break;
+  }while(1);
   glBindTexture(GL_TEXTURE_2D, texture);
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA,
       GL_UNSIGNED_BYTE, (GLvoid*) image_data);

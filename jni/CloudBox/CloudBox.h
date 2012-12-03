@@ -8,7 +8,7 @@
  */
 
 #ifndef CBVERSION
-#define CBVERSION "0.99.49"
+#define CBVERSION "0.99.51"
 #endif
 
 /*
@@ -16,6 +16,10 @@
  * Cloud Box is cross platform framework.                          *
  * Copyright by Cloud Hsu                                          *
  *******************************************************************
+ * 2012/12/03 v0.99.51
+ * 1. Fix android motion bug.
+ * 2. Add retry in android glGenTextures
+ * 3. Add runUIThread for a sound/music in android.
  * 2012/12/01 v0.99.50
  * 1. Fix android jni bug.
  * 2012/11/25 v0.99.49

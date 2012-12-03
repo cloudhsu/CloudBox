@@ -295,72 +295,111 @@ public class CBUtility {
     
     //--------------------------------------------------------------------------
   	// For Music
-    public static void loadMusic(String fileName)
+    public static void loadMusic(final String fileName)
 	{
-    	AudioManager.loadMusic(fileName);
+    	MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	AudioManager.loadMusic(fileName);
+            }});
 	}
 	public static void releaseMusic()
     {
-		AudioManager.releaseMusic();
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	AudioManager.releaseMusic();
+            }});
     }
 	public static void playMusic()
     {
-		AudioManager.playMusic();
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	AudioManager.playMusic();
+            }});
     }
 	public static void stopMusic()
     {
-		AudioManager.stopMusic();
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	AudioManager.stopMusic();
+            }});
     }
 	public static void pauseMusic()
     {
-		AudioManager.pauseMusic();
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	AudioManager.pauseMusic();
+            }});
     }
 	public static void resumeMusic()
     {
-		AudioManager.resumeMusic();
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	AudioManager.resumeMusic();
+            }});
     }
     
 	public static float getMusicVolume()
     {
 		return AudioManager.getVolume();
     }
-	public static void setMusicVolume(float volume)
+	public static void setMusicVolume(final float volume)
     {
-		AudioManager.setVolume(volume);
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	AudioManager.setVolume(volume);
+            }});
     }
 	//--------------------------------------------------------------------------
   	// For Effect
 	public static void initialEffect()
 	{
-		EffectManager.initialEffect();
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	EffectManager.initialEffect();
+            }});
 	}
 	
     // using wave file.
-	public static void loadEffect(String fileName)
+	public static void loadEffect(final String fileName)
     {
-		EffectManager.loadEffect(fileName);
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	EffectManager.loadEffect(fileName);
+            }});
     }
 	
 	public static void releaseAllEffect()
     {
-		EffectManager.releaseAllEffect();
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	EffectManager.releaseAllEffect();
+            }});
     }
-	public static void playEffect(String fileName)
+	public static void playEffect(final String fileName)
     {
-		EffectManager.playEffect(fileName);
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	EffectManager.playEffect(fileName);
+            }});
     }
-	public static void stopEffect(String fileName)
+	public static void stopEffect(final String fileName)
     {
-		EffectManager.stopEffect(fileName);
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	EffectManager.stopEffect(fileName);
+            }});
     }
     
 	public static float getEffectVolume()
     {
 		return EffectManager.getVolume();
     }
-	public static void setEffectVolume(float volume)
+	public static void setEffectVolume(final float volume)
     {
-		EffectManager.setVolume(volume);
+		MainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+            	EffectManager.setVolume(volume);
+           }});
     }
 	//--------------------------------------------------------------------------
   	// For Motion
