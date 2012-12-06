@@ -15,6 +15,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import com.clouddevelop.cloudbox.*;
@@ -62,5 +63,15 @@ public class CloudApp extends Activity {
 		Log.i("cloudbox-app", "GLSurfaceView.onResume");
 		super.onResume();
 		mGLView.onResume();
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+	        moveTaskToBack(true);
+	        return true;
+	    }
+		// TODO Auto-generated method stub
+		return super.onKeyDown(keyCode, event);
 	}
 }

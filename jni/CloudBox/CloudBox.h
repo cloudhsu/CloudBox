@@ -16,12 +16,17 @@
  * Cloud Box is cross platform framework.                          *
  * Copyright by Cloud Hsu                                          *
  *******************************************************************
+ * 2012/12/06 v0.99.52
+ * 1. Let Android back button behavior like home.
+ * 2. Fix CBEffectManager.playEffect bug.
+ * 3. To do string clone before runOnUiThread in CBUtility.
+ * 4. Using texture counter to replace glGenTextures function in Android.
  * 2012/12/03 v0.99.51
- * 1. Fix android motion bug.
- * 2. Add retry in android glGenTextures
- * 3. Add runUIThread for a sound/music in android.
+ * 1. Fix Android motion bug.
+ * 2. Add retry in Android glGenTextures
+ * 3. Add runUIThread for a sound/music in Android.
  * 2012/12/01 v0.99.50
- * 1. Fix android jni bug.
+ * 1. Fix Android jni bug.
  * 2012/11/25 v0.99.49
  * 1. Add CBFactory.
  * 2. Add iOS retina 4 inch support.

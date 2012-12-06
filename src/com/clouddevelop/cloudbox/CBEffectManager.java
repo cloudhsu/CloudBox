@@ -103,6 +103,8 @@ public class CBEffectManager
     }
 	public void playEffect(String fileName)
     {
+		if(fileName == null)
+			return;
 		Integer soundId = this.mPathSoundIDMap.get(fileName);
 		
 		if (soundId != null){

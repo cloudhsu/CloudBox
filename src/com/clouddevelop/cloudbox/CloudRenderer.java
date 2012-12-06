@@ -56,7 +56,16 @@ public class CloudRenderer implements GLSurfaceView.Renderer
 			}
 			apkFilePath = appInfo.sourceDir;
 			nativeTextInit(mTextManager);
-			nativeInit(apkFilePath, CBUtility.PackageName);
+			Log.i("cloudbox-app", "CloudRenderer.onSurfaceCreated() 11111");
+			try
+			{
+				nativeInit(apkFilePath, CBUtility.PackageName);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			Log.i("cloudbox-app", "CloudRenderer.onSurfaceCreated() 22222");
 		}
 	}
 

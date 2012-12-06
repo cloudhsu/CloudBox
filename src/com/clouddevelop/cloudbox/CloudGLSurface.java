@@ -9,9 +9,12 @@
 
 package com.clouddevelop.cloudbox;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 public class CloudGLSurface extends GLSurfaceView implements CBIQueneEvent
@@ -78,11 +81,11 @@ public class CloudGLSurface extends GLSurfaceView implements CBIQueneEvent
 		super.onResume();
 		mRenderer.setResume(true);
 	}
-
+	
+	@Override
 	public void DoQueneEvent(Runnable run) {
 		// TODO Auto-generated method stub
 		queueEvent(run);
 	}
-	
 }
 

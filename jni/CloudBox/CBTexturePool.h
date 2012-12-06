@@ -24,8 +24,10 @@ protected:
 public:
 	CBTexturePool();
 	~CBTexturePool();
-    
+    //////////////////////////////////
+	// using for android
     void reloadTexture();
+    //////////////////////////////////
 
 	void registerToPool(const string key, CBTexture* tex);
 	void unregister(const string key);

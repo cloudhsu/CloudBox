@@ -16,11 +16,22 @@
 CBOpenGL::CBOpenGL()
 {
 	// construct
+	resetTextureCounter();
 }
 
 CBOpenGL::~CBOpenGL()
 {
 	// Deconstruct
+}
+
+GLuint CBOpenGL::genTexture()
+{
+	GLuint textureID = m_textureCounter++;
+	return textureID;
+}
+void CBOpenGL::resetTextureCounter()
+{
+	m_textureCounter = 0;
 }
 
 GLuint CBOpenGL::generateTexture(GLvoid* data, int width, int height)

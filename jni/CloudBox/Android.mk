@@ -21,7 +21,8 @@ LOCAL_STATIC_LIBRARIES := libzip libpng libxml2
 
 #-Wno-psabi to remove warning about GCC 4.4 va_list warning
 LOCAL_CFLAGS := -DANDROID_NDK -Wno-psabi -fno-exceptions -fno-rtti
-# Debug preprocessor declare 
+# Debug preprocessor declare
+LOCAL_CPPFLAGS += -D__CBANDROID__ 
 #LOCAL_CPPFLAGS += -DDEBUG
 
 LOCAL_MODULE    := cloudbox-app

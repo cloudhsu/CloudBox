@@ -18,7 +18,7 @@
 #endif
 
 // use CBMotionEnable to enable for compile
-//#define CBMotionEnable
+#define CBMotionEnable
 
 class CBMotionBase;
 

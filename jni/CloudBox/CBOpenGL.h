@@ -35,10 +35,19 @@ private:
 	GLint m_screenWidth;
 	GLint m_screenHeight;
 	void render(CBView* view, CBTexture* texture, GLfloat* coordinates,GLfloat* vertices);
+
+	GLuint m_textureCounter;
+
 public:
 	CBOpenGL();
 	~CBOpenGL();
 	
+	/////////////////////////////////////
+	// Using for Android
+	GLuint genTexture();
+	void resetTextureCounter();
+	/////////////////////////////////////
+
 	GLuint generateTexture(GLvoid* data, int width, int height);
 	GLuint generateTexture(CBImageData* imageData);
 	

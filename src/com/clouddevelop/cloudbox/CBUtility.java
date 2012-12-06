@@ -114,9 +114,10 @@ public class CBUtility {
     
     public static void openUrl(final String url)
     {
+    	final String newUrl = new String(url);
     	MainActivity.runOnUiThread(new Runnable() {
             public void run() {
-            	MainActivity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+            	MainActivity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(newUrl)));
             }
         });
     }
@@ -134,7 +135,6 @@ public class CBUtility {
 	                	nativeAlertEvent(DialogTypeClose, DialogResultOK, 0);
 	                }
 	            });
-	    		//nativeAlertEvent(DialogTypeClose, DialogResultOK, 0);
 	    	}
 	    }).create();
 
@@ -297,9 +297,10 @@ public class CBUtility {
   	// For Music
     public static void loadMusic(final String fileName)
 	{
+    	final String newFileName = new String(fileName);
     	MainActivity.runOnUiThread(new Runnable() {
             public void run() {
-            	AudioManager.loadMusic(fileName);
+            	AudioManager.loadMusic(newFileName);
             }});
 	}
 	public static void releaseMusic()
@@ -362,9 +363,10 @@ public class CBUtility {
     // using wave file.
 	public static void loadEffect(final String fileName)
     {
+		final String newFileName = new String(fileName);
 		MainActivity.runOnUiThread(new Runnable() {
             public void run() {
-            	EffectManager.loadEffect(fileName);
+            	EffectManager.loadEffect(newFileName);
             }});
     }
 	
@@ -377,16 +379,18 @@ public class CBUtility {
     }
 	public static void playEffect(final String fileName)
     {
+		final String newFileName = new String(fileName);
 		MainActivity.runOnUiThread(new Runnable() {
             public void run() {
-            	EffectManager.playEffect(fileName);
+            	EffectManager.playEffect(newFileName);
             }});
     }
 	public static void stopEffect(final String fileName)
     {
+		final String newFileName = new String(fileName);
 		MainActivity.runOnUiThread(new Runnable() {
             public void run() {
-            	EffectManager.stopEffect(fileName);
+            	EffectManager.stopEffect(newFileName);
             }});
     }
     
@@ -420,9 +424,10 @@ public class CBUtility {
     {
     	if(BillingManager != null)
     	{
+    		final String newBuyProductTag = new String(buyProductTag);
     		MainActivity.runOnUiThread(new Runnable() {
                 public void run() {
-                	BillingManager.buy(buyProductTag);
+                	BillingManager.buy(newBuyProductTag);
                 }
             });
     	}
