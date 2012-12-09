@@ -1,5 +1,5 @@
 /*
- *  CBBuilderBase.h
+ *  CBTextureBuilderBase.h
  *  CloudBox Cross-Platform Framework Project
  *
  *  Created by Cloud on 2012/12/09.
@@ -7,22 +7,26 @@
  *
  */
 
-#ifndef _CBBUILDERBASE_H_
-#define _CBBUILDERBASE_H_
+#ifndef _CBTEXTUREBUILDERBASE_H_
+#define _CBTEXTUREBUILDERBASE_H_
 
 #include <iostream>
 #include <string>
 using namespace std;
 
+#ifdef __CBANDROID__
+#include <GLES/gl.h>
+#endif
+
 class CBTexture;
 
-class CBBuilderBase
+class CBTextureBuilderBase
 {
 private:
 	// --- Add private member --- //
 public:
-    CBBuilderBase(){}
-	virtual ~CBBuilderBase(){}
+    CBTextureBuilderBase(){}
+	virtual ~CBTextureBuilderBase(){}
 	// --- Add public member --- //
 #ifdef __CBANDROID__
     virtual GLuint reloadText(const string& text, float size) = 0;
@@ -32,7 +36,7 @@ public:
     virtual CBTexture* buildStringTexture(const string& text,const float size) = 0;
 };
 
-class CBNoneBuilder
+class CBNoneBuilder : public CBTextureBuilderBase
 {
 private:
 	// --- Add private member --- //

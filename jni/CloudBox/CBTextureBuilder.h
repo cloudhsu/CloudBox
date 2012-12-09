@@ -16,13 +16,13 @@
 using namespace std;
 
 class CBTexture;
-class CBBuilderBase;
+class CBTextureBuilderBase;
 
 class CBTextureBuilder : public CBSingleton<CBTextureBuilder>
 {
 private:
 	// --- Add private member --- //
-    CBBuilderBase *m_builder;
+    CBTextureBuilderBase *m_builder;
 public:
     CBTextureBuilder();
 	~CBTextureBuilder();

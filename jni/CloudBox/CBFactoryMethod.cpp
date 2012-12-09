@@ -25,7 +25,7 @@
 #include "Android/CBAndroidUtility.h"
 #include "Android/CBAndroidStoreWrapper.h"
 #include "Android/CBAndroidDialog.h"
-#include "Android/CBAndroidTextureBuilder.h.h"
+#include "Android/CBAndroidTextureBuilder.h"
 #else
 #endif
 // --------------------------------------------------
@@ -79,7 +79,7 @@ CBDialog* CBFactoryMethod::createSystemDialog()
 {
     return CBFactory::create<SYSTEM_DIALOG>();
 }
-CBBuilderBase* CBFactoryMethod::createTextureBuilder()
+CBTextureBuilderBase* CBFactoryMethod::createTextureBuilder()
 {
     return CBFactory::create<TEXTURE_BUILDER>();
 }

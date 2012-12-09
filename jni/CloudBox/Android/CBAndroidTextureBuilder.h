@@ -10,22 +10,22 @@
 #ifndef _CBBUILDERANDROID_H_
 #define _CBBUILDERANDROID_H_
 
-#include "../_CBBuilder.h"
+#include "../CBTextureBuilderBase.h"
 #include "../../libpng/png.h"
 
-class CBBuilderAndroid : public _CBBuilder
+class CBAndroidTextureBuilder : public CBTextureBuilderBase
 {
 private:
 	// --- Add private member --- //
 	GLuint CreateText(const char* text, float size,float& rWidth, float& rHeight);
 public:
 	// --- Add public member --- //
-	CBBuilderAndroid();
-	~CBBuilderAndroid();
-	GLuint ReloadText(const string& text, const float size);
-	GLuint ReloadTexture(const string& filename);
-	CBTexture* BuildTexture(const string& filename);
-	CBTexture* BuildStringTexture(const string& text, const float size);
+	CBAndroidTextureBuilder();
+	~CBAndroidTextureBuilder();
+	GLuint reloadText(const string& text, const float size);
+	GLuint reloadTexture(const string& filename);
+	CBTexture* buildTexture(const string& filename);
+	CBTexture* buildStringTexture(const string& text, const float size);
 };
 
 #endif

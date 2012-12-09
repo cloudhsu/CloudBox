@@ -8,7 +8,7 @@
  *
  */
 
-#include "CBBuilderBase.h"
+#include "CBTextureBuilderBase.h"
 #include "CBFactoryMethod.h"
 #include "CBTextureBuilder.h"
 #include "CBLibrary.h"

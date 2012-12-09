@@ -10,7 +10,6 @@
 #include "CBTextManager.h"
 #include "def.h"
 #include "../CBLibrary.h"
-#include "../CBImageData.h"
 
 CBTextManager::CBTextManager()
 {
@@ -85,41 +84,4 @@ GLuint CBTextManager::createText(const char* text, float size,float& rWidth, flo
 	close(textImage);
 
 	return texture;
-}
-
-CBImageData* CBTextManager::createText(const char* text, float size)
-{
-	CBImageData* imageData = new CBImageData();
-	/* Ask the PNG manager for a bitmap */
-	jobject textImage = create(text,size);
-
-	/* Get image dimensions */
-	int width = getWidth(textImage);
-	int height = getHeight(textImage);
-	imageData->imageWidth = width;
-	imageData->imageHeight = height;
-	imageData->textureWidth = width;
-	imageData->textureHeight = height;
-	/* Get pixels */
-	jintArray image_data = g_env->NewIntArray(width * height);
-	g_env->NewGlobalRef(image_data);
-	g_env->CallVoidMethod(m_mainObject, m_getPixels, textImage, image_data);
-
-	jint *pixels = g_env->GetIntArrayElements(image_data, 0);
-
-	//Now generate the OpenGL texture object
-	imageData->textureID = 0;
-	glGenTextures(1, &imageData->textureID);
-	glBindTexture(GL_TEXTURE_2D, imageData->textureID);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA,
-	      GL_UNSIGNED_BYTE, (GLvoid*) pixels);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-	g_env->ReleaseIntArrayElements(image_data, pixels, 0);
-	g_env->DeleteGlobalRef(image_data);
-
-	/* Free image */
-	close(textImage);
-
-	return imageData;
 }

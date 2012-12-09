@@ -51,17 +51,10 @@ void CBGLImage::loadImage(const string& fileName, float& width, float& height)
 	m_mainTexture = STexturePool.getTexture(fileName);
 	if(m_mainTexture == NULL)
 	{
-#ifdef __CBIOS__
 		m_mainTexture = STextureBuilder.buildTexture(fileName);
 		width = m_mainTexture->getImageWidth();
 		height = m_mainTexture->getImageHeight();
 		STexturePool.registerToPool(fileName,m_mainTexture);
-#else
-		m_mainTexture = CBBuilder::BuildTexture(fileName);
-		width = m_mainTexture->getImageWidth();
-		height = m_mainTexture->getImageHeight();
-		STexturePool.registerToPool(fileName,m_mainTexture);
-#endif
 	}
 	else
 	{
@@ -79,19 +72,11 @@ void CBGLImage::createTextImage(const string& text,float size, float& width, flo
 	m_mainTexture = STexturePool.getTexture(textKey.str());
 	if(m_mainTexture == NULL)
 	{
-#ifdef __CBIOS__
 		m_mainTexture = STextureBuilder.buildStringTexture(text,size);
-        width = m_mainTexture->getImageWidth();
-		height = m_mainTexture->getImageHeight();
-		DebugLog("textureID:%d,width:%f,height:%f\n",m_mainTexture->getTextureId(),width,height);
-		STexturePool.registerToPool(textKey.str(),m_mainTexture);
-#else
-		m_mainTexture = CBBuilder::BuildStringTexture(text, size);
 		width = m_mainTexture->getImageWidth();
 		height = m_mainTexture->getImageHeight();
 		DebugLog("textureID:%d,width:%f,height:%f\n",m_mainTexture->getTextureId(),width,height);
 		STexturePool.registerToPool(textKey.str(),m_mainTexture);
-#endif
 	}
 	else
 	{

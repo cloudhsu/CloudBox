@@ -364,7 +364,7 @@
 		4B63760A161EDB5D0090D2B4 /* CBUtilityBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtilityBase.h; sourceTree = "<group>"; };
 		4B63760D161EDC380090D2B4 /* cloudbox.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cloudbox.wav; sourceTree = "<group>"; };
 		4BA667DF1674465D0067DA75 /* CBTextureBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBTextureBuilder.cpp; sourceTree = "<group>"; };
-		4BA667E21674478E0067DA75 /* CBBuilderBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBuilderBase.h; sourceTree = "<group>"; };
+		4BA667E21674478E0067DA75 /* CBTextureBuilderBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextureBuilderBase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -659,7 +659,7 @@
 				4B074CA51662433300EE49CB /* CBFactoryMethod.h */,
 				0402426014091C840083DC7E /* CBTextureBuilder.h */,
 				4BA667DF1674465D0067DA75 /* CBTextureBuilder.cpp */,
-				4BA667E21674478E0067DA75 /* CBBuilderBase.h */,
+				4BA667E21674478E0067DA75 /* CBTextureBuilderBase.h */,
 				04FB42AE14B4AC63002A525B /* CBCore.h */,
 				0402423414091C840083DC7E /* CBDevice.h */,
 				04280E061526DF6200ABBC26 /* CBEnvironment.cpp */,
@@ -983,7 +983,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cloud Hsu (T89AWF4E7N)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -992,7 +993,8 @@
 				INFOPLIST_FILE = "___PROJECTNAME___-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "___PROJECTNAME___";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84E4FAE9-80B4-40A9-B0AC-7FBCFD8154D9";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Debug;
 		};
@@ -1000,12 +1002,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "___PROJECTNAMEASIDENTIFIER____Prefix.pch";
 				INFOPLIST_FILE = "___PROJECTNAME___-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "___PROJECTNAME___";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1014,7 +1019,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cloud Hsu (T89AWF4E7N)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1026,8 +1032,9 @@
 				HEADER_SEARCH_PATHS = "${SDK_ROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = "___PROJECTNAME___-Info.plist";
 				INFOPLIST_PREFIX_HEADER = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7143B64-246F-445D-ACD0-5A3171F3DE40";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1037,7 +1044,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMPRESS_PNG_FILES = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = __CBIOS__;
@@ -1046,8 +1054,9 @@
 				HEADER_SEARCH_PATHS = "${SDK_ROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = "___PROJECTNAME___-Info.plist";
 				INFOPLIST_PREFIX_HEADER = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

@@ -7,13 +7,13 @@
 //  Copyright 2011 Cloud Hsu. All rights reserved.
 //
 
-#ifndef _CBBUILDERIOS_H_
-#define _CBBUILDERIOS_H_
+#ifndef _CBIOSTEXTUREBUILDER_H_
+#define _CBIOSTEXTUREBUILDER_H_
 
-#include "CBBuilderBase.h"
+#include "CBTextureBuilderBase.h"
 
 
-class CBiOSTextureBuilder : public CBBuilderBase
+class CBiOSTextureBuilder : public CBTextureBuilderBase
 {
 private:
 	// --- Add private member --- //

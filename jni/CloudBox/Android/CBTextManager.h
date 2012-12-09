@@ -35,7 +35,7 @@ public:
 	~CBTextManager();
 
 	GLuint createText(const char* text, float size,float& rWidth, float& rHeight);
-	CBImageData* createText(const char* text, float size);
+	//CBImageData* createText(const char* text, float size);
 };
 
 #endif
