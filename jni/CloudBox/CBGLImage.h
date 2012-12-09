@@ -11,30 +11,20 @@
 #define _CBGLIMAGE_H_
 
 #include "CBImageBase.h"
-#include "CBTexture.h"
-#include "CBImageBuilder.h"
 #include <iostream>
 #include <sstream>
 using namespace std;
 
-class CBTextCallback;
-class CBTextureCallback;
+class CBTexture;
 
 class CBGLImage : public CBImageBase
 {
 protected:
 	string m_textureKey;
 	CBTexture* m_mainTexture;
-	static CBImageBuilder* builder;
 	
 	void setTexture(CBTexture *tex, float x, float y, float w, float h);
 	void setTexture(CBTexture *tex);
-	//CBTextureCallback* m_textureCallback;
-	
-	void _initialTexture(CBImageData* imageData);
-	
-	CBImageData* loadImageData(const string& fileName);
-	CBImageData* loadTextData(const string& text, float size);
 	
 public:
 	CBGLImage();

@@ -1,12 +1,13 @@
 //
-//  CBiOSBuilder.mm
+//  CBiOSTextureBuilder.mm
 //  CloudBox Cross-Platform Framework Project
 //
 //  Created by Cloud on 2011/7/24.
+//  Refactoring by Cloud on 2012/12/09.
 //  Copyright 2011 Cloud Hsu. All rights reserved.
 //
 
-#include "CBBuilderIOS.h"
+#include "CBiOSTextureBuilder.h"
 #include "Texture2D.h"
 #include "CBTexture.h"
 #include "CBImage.h"
@@ -18,38 +19,17 @@
 #include "CBNumber.h"
 #include "CBTexturePool.h"
 
-CBBuilderIOS::CBBuilderIOS()
+CBiOSTextureBuilder::CBiOSTextureBuilder()
 {
 	// construct
 }
 
-CBBuilderIOS::~CBBuilderIOS()
+CBiOSTextureBuilder::~CBiOSTextureBuilder()
 {
 	// Deconstruct
 }
 
-GLuint CBBuilderIOS::ReloadText(const string& text, const float size)
-{
-    NSString *str = [[NSString alloc] initWithUTF8String: text.c_str()];
-	
-	Texture2D *tex = [[[Texture2D alloc] initWithString:str dimensions:CGSizeMake(TEXTURE_SIZE, TEXTURE_SIZE) alignment:UITextAlignmentLeft fontName:@"Arial" fontSize:size] autorelease];
-    [str release];
-    return [tex name];
-}
-
-GLuint CBBuilderIOS::ReloadTexture(const string& filename)
-{
-    NSString *name = [[NSString alloc] initWithUTF8String: filename.c_str()];
-    UIImage *image = nil;
-	
-    image = [UIImage imageNamed: name];
-	
-    Texture2D *tex = [[[Texture2D alloc] initWithImage: image] autorelease];
-    [name release];
-    return [tex name];
-}
-
-CBTexture* CBBuilderIOS::BuildTexture(const string& filename)
+CBTexture* CBiOSTextureBuilder::buildTexture(const string& filename)
 {
 	CBTexture* texture = STexturePool.getTexture(filename);
 	if(!texture)
@@ -69,7 +49,7 @@ CBTexture* CBBuilderIOS::BuildTexture(const string& filename)
 	return texture;
 }
 
-CBTexture* CBBuilderIOS::BuildStringTexture(const string& text,const float size)
+CBTexture* CBiOSTextureBuilder::buildStringTexture(const string& text,const float size)
 {
 	NSString *str = [[NSString alloc] initWithUTF8String: text.c_str()];
 	

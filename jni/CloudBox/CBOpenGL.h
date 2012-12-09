@@ -24,7 +24,6 @@
 #endif
 #include "CBSingleton.h"
 #include "CBLibrary.h"
-#include "CBImageData.h"
 
 class CBTexture;
 class CBView;
@@ -49,7 +48,7 @@ public:
 	/////////////////////////////////////
 
 	GLuint generateTexture(GLvoid* data, int width, int height);
-	GLuint generateTexture(CBImageData* imageData);
+
 	
 	void initialize2D();
 	

@@ -22,19 +22,21 @@ CBTexturePool::~CBTexturePool()
 {
 	m_texturePool.clear();
 }
+
+#ifdef __CBANDROID__
 //////////////////////////////////
 // using for android
 void CBTexturePool::reloadTexture()
 {
-#ifdef __CBANDROID__
 	SOpenGL.resetTextureCounter();
-#endif
     for (std::map<string,CBTexture* >::iterator it = m_texturePool.begin(); it != m_texturePool.end(); ++it)
     {
         it->second->reload();
     }
 }
 //////////////////////////////////
+#endif
+
 void CBTexturePool::registerToPool(const string key, CBTexture* tex)
 {
 	tex->poolable(key);

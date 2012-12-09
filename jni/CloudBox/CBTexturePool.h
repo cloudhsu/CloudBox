@@ -26,7 +26,9 @@ public:
 	~CBTexturePool();
     //////////////////////////////////
 	// using for android
+#ifdef __CBANDROID__
     void reloadTexture();
+#endif
     //////////////////////////////////
 
 	void registerToPool(const string key, CBTexture* tex);

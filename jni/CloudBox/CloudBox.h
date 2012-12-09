@@ -202,8 +202,6 @@
 #include "CBDevice.h"
 #include "CBEnvironment.h"
 #include "CBDirector.h"
-#include "CBTextureCallback.h"
-#include "CBTextCallback.h"
 #include "CBAction.h"
 #include "CBRotateAction.h"
 #include "CBGameApp.h"

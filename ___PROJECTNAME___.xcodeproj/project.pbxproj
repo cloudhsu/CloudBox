@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0402421D14091C680083DC7E /* CBBuilderIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402420B14091C680083DC7E /* CBBuilderIOS.mm */; };
+		0402421D14091C680083DC7E /* CBiOSTextureBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402420B14091C680083DC7E /* CBiOSTextureBuilder.mm */; };
 		0402421E14091C680083DC7E /* CBDeviceIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402420D14091C680083DC7E /* CBDeviceIOS.mm */; };
 		0402421F14091C680083DC7E /* CloudGameAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402420F14091C680083DC7E /* CloudGameAppDelegate.mm */; };
 		0402422014091C680083DC7E /* CloudLib.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402421114091C680083DC7E /* CloudLib.mm */; };
@@ -16,8 +16,6 @@
 		0402422314091C680083DC7E /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0402421714091C680083DC7E /* SoundEngine.cpp */; };
 		0402422414091C680083DC7E /* Texture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402421A14091C680083DC7E /* Texture2D.mm */; };
 		0402422514091C680083DC7E /* Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402421C14091C680083DC7E /* Wrapper.mm */; };
-		0402426114091C840083DC7E /* _CBBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0402422614091C840083DC7E /* _CBBuilder.cpp */; };
-		0402426214091C840083DC7E /* _CBDefBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0402422814091C840083DC7E /* _CBDefBuilder.cpp */; };
 		0402426314091C840083DC7E /* CBAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0402422A14091C840083DC7E /* CBAction.cpp */; };
 		0402426414091C840083DC7E /* CBActionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0402422C14091C840083DC7E /* CBActionManager.cpp */; };
 		0402426514091C840083DC7E /* CBAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0402422E14091C840083DC7E /* CBAnimation.cpp */; };
@@ -44,7 +42,6 @@
 		040453EC15B6F1F900F142B7 /* CBiOSAudioManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 040453E915B6F1F900F142B7 /* CBiOSAudioManager.mm */; };
 		0405489014FBEE3B00ED03E7 /* CBGLImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0405488F14FBEE3B00ED03E7 /* CBGLImage.cpp */; };
 		041BCA891523365C00B2FC55 /* CBOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041BCA881523365C00B2FC55 /* CBOpenGL.cpp */; };
-		041CD81B152C4FA00042BA29 /* CBiOSImageBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 041CD81A152C4FA00042BA29 /* CBiOSImageBuilder.mm */; };
 		0420F4CB144319FB0075294B /* CBTimerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0420F4CA144319FB0075294B /* CBTimerManager.cpp */; };
 		04223B4B1425D51B0067FCCD /* CBLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04223B4A1425D51B0067FCCD /* CBLayout.cpp */; };
 		04280E071526DF6200ABBC26 /* CBEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04280E061526DF6200ABBC26 /* CBEnvironment.cpp */; };
@@ -62,7 +59,6 @@
 		04B47D5414CDE010001A3C7E /* CBLotto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B47D5114CDE010001A3C7E /* CBLotto.cpp */; };
 		04D208FC13FC1ED500F6B9C6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D208FB13FC1ED500F6B9C6 /* AudioToolbox.framework */; };
 		04D208FE13FC1ED500F6B9C6 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D208FD13FC1ED500F6B9C6 /* OpenAL.framework */; };
-		04D8476E15221C45008DDA97 /* CBTextCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8476C15221C45008DDA97 /* CBTextCallback.cpp */; };
 		04DC7F34155024F100A576B0 /* bomb1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC7F0F155024F100A576B0 /* bomb1.png */; };
 		04DC7F35155024F100A576B0 /* bomb1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC7F10155024F100A576B0 /* bomb1@2x.png */; };
 		04DC7F36155024F100A576B0 /* bomb2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC7F11155024F100A576B0 /* bomb2.png */; };
@@ -80,9 +76,6 @@
 		04E646EC14559DD600D9F92B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E646EB14559DD600D9F92B /* main.m */; };
 		04E646F914559E5700D9F92B /* HelloScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E646F714559E5700D9F92B /* HelloScene.cpp */; };
 		04F57FC914C5A89C006ADEAD /* CBAppEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F57FC814C5A89C006ADEAD /* CBAppEvent.cpp */; };
-		04FF514414F0DF3A00EF3624 /* CBCallbackDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF514314F0DF3A00EF3624 /* CBCallbackDispatcher.cpp */; };
-		04FF514714F0E2E400EF3624 /* CBTextureCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF514614F0E2E400EF3624 /* CBTextureCallback.cpp */; };
-		04FF519C14F0E85C00EF3624 /* CBThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FF519B14F0E85C00EF3624 /* CBThread.cpp */; };
 		4B074CA61662433300EE49CB /* CBFactoryMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */; };
 		4B3CFD3B15E2AEDD003E2938 /* CBComposeAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD3915E2AEDD003E2938 /* CBComposeAction.cpp */; };
 		4B3CFD3E15E2AF04003E2938 /* CBProperty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD3C15E2AF04003E2938 /* CBProperty.cpp */; };
@@ -142,11 +135,12 @@
 		4B51EB1D16553445008F6D5F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B51EB1C16553445008F6D5F /* StoreKit.framework */; };
 		4B63760B161EDB5D0090D2B4 /* CBUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B637608161EDB5D0090D2B4 /* CBUtility.cpp */; };
 		4B63760E161EDC380090D2B4 /* cloudbox.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B63760D161EDC380090D2B4 /* cloudbox.wav */; };
+		4BA667E01674465D0067DA75 /* CBTextureBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BA667DF1674465D0067DA75 /* CBTextureBuilder.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0402420A14091C680083DC7E /* CBBuilderIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBuilderIOS.h; sourceTree = "<group>"; };
-		0402420B14091C680083DC7E /* CBBuilderIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBBuilderIOS.mm; sourceTree = "<group>"; };
+		0402420A14091C680083DC7E /* CBiOSTextureBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBiOSTextureBuilder.h; sourceTree = "<group>"; };
+		0402420B14091C680083DC7E /* CBiOSTextureBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBiOSTextureBuilder.mm; sourceTree = "<group>"; };
 		0402420C14091C680083DC7E /* CBDeviceIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDeviceIOS.h; sourceTree = "<group>"; };
 		0402420D14091C680083DC7E /* CBDeviceIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBDeviceIOS.mm; sourceTree = "<group>"; };
 		0402420E14091C680083DC7E /* CloudGameAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudGameAppDelegate.h; sourceTree = "<group>"; };
@@ -164,10 +158,6 @@
 		0402421A14091C680083DC7E /* Texture2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Texture2D.mm; sourceTree = "<group>"; };
 		0402421B14091C680083DC7E /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
 		0402421C14091C680083DC7E /* Wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Wrapper.mm; sourceTree = "<group>"; };
-		0402422614091C840083DC7E /* _CBBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _CBBuilder.cpp; sourceTree = "<group>"; };
-		0402422714091C840083DC7E /* _CBBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CBBuilder.h; sourceTree = "<group>"; };
-		0402422814091C840083DC7E /* _CBDefBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _CBDefBuilder.cpp; sourceTree = "<group>"; };
-		0402422914091C840083DC7E /* _CBDefBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CBDefBuilder.h; sourceTree = "<group>"; };
 		0402422A14091C840083DC7E /* CBAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAction.cpp; sourceTree = "<group>"; };
 		0402422B14091C840083DC7E /* CBAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAction.h; sourceTree = "<group>"; };
 		0402422C14091C840083DC7E /* CBActionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBActionManager.cpp; sourceTree = "<group>"; };
@@ -217,7 +207,7 @@
 		0402425D14091C840083DC7E /* CBLogoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLogoScene.h; sourceTree = "<group>"; };
 		0402425E14091C840083DC7E /* CBDirector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBDirector.cpp; sourceTree = "<group>"; };
 		0402425F14091C840083DC7E /* CBDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDirector.h; sourceTree = "<group>"; };
-		0402426014091C840083DC7E /* TCBBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBBuilder.h; sourceTree = "<group>"; };
+		0402426014091C840083DC7E /* CBTextureBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextureBuilder.h; sourceTree = "<group>"; };
 		040453DC15B6F1C500F142B7 /* CBRingScrollImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CBRingScrollImage.cpp; path = Component/CBRingScrollImage.cpp; sourceTree = "<group>"; };
 		040453DD15B6F1C500F142B7 /* CBRingScrollImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBRingScrollImage.h; path = Component/CBRingScrollImage.h; sourceTree = "<group>"; };
 		040453DE15B6F1C500F142B7 /* CBSlideBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CBSlideBar.cpp; path = Component/CBSlideBar.cpp; sourceTree = "<group>"; };
@@ -231,10 +221,6 @@
 		0405488F14FBEE3B00ED03E7 /* CBGLImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBGLImage.cpp; sourceTree = "<group>"; };
 		041BCA871523365C00B2FC55 /* CBOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBOpenGL.h; sourceTree = "<group>"; };
 		041BCA881523365C00B2FC55 /* CBOpenGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBOpenGL.cpp; sourceTree = "<group>"; };
-		041CD816152C4D380042BA29 /* CBImageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBImageBuilder.h; sourceTree = "<group>"; };
-		041CD819152C4FA00042BA29 /* CBiOSImageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBiOSImageBuilder.h; sourceTree = "<group>"; };
-		041CD81A152C4FA00042BA29 /* CBiOSImageBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBiOSImageBuilder.mm; sourceTree = "<group>"; };
-		041CD828152C541E0042BA29 /* CBImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBImageData.h; sourceTree = "<group>"; };
 		0420F38A1442BC120075294B /* CBDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDelegate.h; sourceTree = "<group>"; };
 		0420F39E1442BDA60075294B /* CBSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSingleton.h; sourceTree = "<group>"; };
 		0420F4C9144319FB0075294B /* CBTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTimerManager.h; sourceTree = "<group>"; };
@@ -267,8 +253,6 @@
 		04B47D5214CDE010001A3C7E /* CBLotto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBLotto.h; path = Extends/CBLotto.h; sourceTree = "<group>"; };
 		04D208FB13FC1ED500F6B9C6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		04D208FD13FC1ED500F6B9C6 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		04D8476C15221C45008DDA97 /* CBTextCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBTextCallback.cpp; sourceTree = "<group>"; };
-		04D8476D15221C45008DDA97 /* CBTextCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextCallback.h; sourceTree = "<group>"; };
 		04DC7F0F155024F100A576B0 /* bomb1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bomb1.png; path = iOS/Resources/bomb1.png; sourceTree = "<group>"; };
 		04DC7F10155024F100A576B0 /* bomb1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bomb1@2x.png"; path = "iOS/Resources/bomb1@2x.png"; sourceTree = "<group>"; };
 		04DC7F11155024F100A576B0 /* bomb2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bomb2.png; path = iOS/Resources/bomb2.png; sourceTree = "<group>"; };
@@ -292,14 +276,7 @@
 		04E646F814559E5700D9F92B /* HelloScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloScene.h; sourceTree = "<group>"; };
 		04F57FC714C5A89C006ADEAD /* CBAppEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAppEvent.h; sourceTree = "<group>"; };
 		04F57FC814C5A89C006ADEAD /* CBAppEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAppEvent.cpp; sourceTree = "<group>"; };
-		04F998EC14E3F21E004DD273 /* CBCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCallback.h; sourceTree = "<group>"; };
 		04FB42AE14B4AC63002A525B /* CBCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCore.h; sourceTree = "<group>"; };
-		04FF514214F0DF3A00EF3624 /* CBCallbackDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCallbackDispatcher.h; sourceTree = "<group>"; };
-		04FF514314F0DF3A00EF3624 /* CBCallbackDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBCallbackDispatcher.cpp; sourceTree = "<group>"; };
-		04FF514514F0E2E400EF3624 /* CBTextureCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextureCallback.h; sourceTree = "<group>"; };
-		04FF514614F0E2E400EF3624 /* CBTextureCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBTextureCallback.cpp; sourceTree = "<group>"; };
-		04FF519A14F0E85C00EF3624 /* CBThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBThread.h; sourceTree = "<group>"; };
-		04FF519B14F0E85C00EF3624 /* CBThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBThread.cpp; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* ___PROJECTNAME___.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "___PROJECTNAME___.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B074CA31662432600EE49CB /* CBFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactory.h; sourceTree = "<group>"; };
 		4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBFactoryMethod.cpp; sourceTree = "<group>"; };
@@ -386,6 +363,8 @@
 		4B637609161EDB5D0090D2B4 /* CBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtility.h; sourceTree = "<group>"; };
 		4B63760A161EDB5D0090D2B4 /* CBUtilityBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtilityBase.h; sourceTree = "<group>"; };
 		4B63760D161EDC380090D2B4 /* cloudbox.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cloudbox.wav; sourceTree = "<group>"; };
+		4BA667DF1674465D0067DA75 /* CBTextureBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBTextureBuilder.cpp; sourceTree = "<group>"; };
+		4BA667E21674478E0067DA75 /* CBBuilderBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBuilderBase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,7 +403,6 @@
 				04024284140920550083DC7E /* Scene */,
 				04024288140920E20083DC7E /* Sound */,
 				04024286140920A50083DC7E /* View */,
-				04F998EB14E3F1EE004DD273 /* Threading */,
 				04024285140920820083DC7E /* OpenGL */,
 				0402420914091C3C0083DC7E /* iOS */,
 				0402425114091C840083DC7E /* CloudBox.h */,
@@ -453,12 +431,10 @@
 				040453E915B6F1F900F142B7 /* CBiOSAudioManager.mm */,
 				04935ADD1584F8CC001901E7 /* CBMotioniOS.h */,
 				04935ADE1584F8CC001901E7 /* CBMotioniOS.mm */,
-				041CD819152C4FA00042BA29 /* CBiOSImageBuilder.h */,
-				041CD81A152C4FA00042BA29 /* CBiOSImageBuilder.mm */,
 				04DE921E14C48D9500431255 /* CBLediOS.h */,
 				04DE921F14C48D9500431255 /* CBLediOS.mm */,
-				0402420A14091C680083DC7E /* CBBuilderIOS.h */,
-				0402420B14091C680083DC7E /* CBBuilderIOS.mm */,
+				0402420A14091C680083DC7E /* CBiOSTextureBuilder.h */,
+				0402420B14091C680083DC7E /* CBiOSTextureBuilder.mm */,
 				0402420C14091C680083DC7E /* CBDeviceIOS.h */,
 				0402420D14091C680083DC7E /* CBDeviceIOS.mm */,
 				0402420E14091C680083DC7E /* CloudGameAppDelegate.h */,
@@ -543,8 +519,6 @@
 				0402424E14091C840083DC7E /* CBTexturePool.h */,
 				041BCA871523365C00B2FC55 /* CBOpenGL.h */,
 				041BCA881523365C00B2FC55 /* CBOpenGL.cpp */,
-				041CD816152C4D380042BA29 /* CBImageBuilder.h */,
-				041CD828152C541E0042BA29 /* CBImageData.h */,
 			);
 			name = OpenGL;
 			sourceTree = "<group>";
@@ -678,28 +652,14 @@
 			path = iOS/Resources/system;
 			sourceTree = "<group>";
 		};
-		04F998EB14E3F1EE004DD273 /* Threading */ = {
-			isa = PBXGroup;
-			children = (
-				04D8476C15221C45008DDA97 /* CBTextCallback.cpp */,
-				04D8476D15221C45008DDA97 /* CBTextCallback.h */,
-				04F998EC14E3F21E004DD273 /* CBCallback.h */,
-				04FF514514F0E2E400EF3624 /* CBTextureCallback.h */,
-				04FF514614F0E2E400EF3624 /* CBTextureCallback.cpp */,
-				04FF514214F0DF3A00EF3624 /* CBCallbackDispatcher.h */,
-				04FF514314F0DF3A00EF3624 /* CBCallbackDispatcher.cpp */,
-				04FF519A14F0E85C00EF3624 /* CBThread.h */,
-				04FF519B14F0E85C00EF3624 /* CBThread.cpp */,
-			);
-			name = Threading;
-			sourceTree = "<group>";
-		};
 		04F9F48814E14F6900B058D7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */,
 				4B074CA51662433300EE49CB /* CBFactoryMethod.h */,
-				0402426014091C840083DC7E /* TCBBuilder.h */,
+				0402426014091C840083DC7E /* CBTextureBuilder.h */,
+				4BA667DF1674465D0067DA75 /* CBTextureBuilder.cpp */,
+				4BA667E21674478E0067DA75 /* CBBuilderBase.h */,
 				04FB42AE14B4AC63002A525B /* CBCore.h */,
 				0402423414091C840083DC7E /* CBDevice.h */,
 				04280E061526DF6200ABBC26 /* CBEnvironment.cpp */,
@@ -710,10 +670,6 @@
 				04223B4A1425D51B0067FCCD /* CBLayout.cpp */,
 				0420F4C9144319FB0075294B /* CBTimerManager.h */,
 				0420F4CA144319FB0075294B /* CBTimerManager.cpp */,
-				0402422614091C840083DC7E /* _CBBuilder.cpp */,
-				0402422714091C840083DC7E /* _CBBuilder.h */,
-				0402422814091C840083DC7E /* _CBDefBuilder.cpp */,
-				0402422914091C840083DC7E /* _CBDefBuilder.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -947,7 +903,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0402421D14091C680083DC7E /* CBBuilderIOS.mm in Sources */,
+				0402421D14091C680083DC7E /* CBiOSTextureBuilder.mm in Sources */,
 				0402421E14091C680083DC7E /* CBDeviceIOS.mm in Sources */,
 				0402421F14091C680083DC7E /* CloudGameAppDelegate.mm in Sources */,
 				0402422014091C680083DC7E /* CloudLib.mm in Sources */,
@@ -956,8 +912,6 @@
 				0402422314091C680083DC7E /* SoundEngine.cpp in Sources */,
 				0402422414091C680083DC7E /* Texture2D.mm in Sources */,
 				0402422514091C680083DC7E /* Wrapper.mm in Sources */,
-				0402426114091C840083DC7E /* _CBBuilder.cpp in Sources */,
-				0402426214091C840083DC7E /* _CBDefBuilder.cpp in Sources */,
 				0402426314091C840083DC7E /* CBAction.cpp in Sources */,
 				0402426414091C840083DC7E /* CBActionManager.cpp in Sources */,
 				0402426514091C840083DC7E /* CBAnimation.cpp in Sources */,
@@ -986,14 +940,9 @@
 				04F57FC914C5A89C006ADEAD /* CBAppEvent.cpp in Sources */,
 				04B47D5314CDE010001A3C7E /* CBLed.cpp in Sources */,
 				04B47D5414CDE010001A3C7E /* CBLotto.cpp in Sources */,
-				04FF514414F0DF3A00EF3624 /* CBCallbackDispatcher.cpp in Sources */,
-				04FF514714F0E2E400EF3624 /* CBTextureCallback.cpp in Sources */,
-				04FF519C14F0E85C00EF3624 /* CBThread.cpp in Sources */,
 				0405489014FBEE3B00ED03E7 /* CBGLImage.cpp in Sources */,
-				04D8476E15221C45008DDA97 /* CBTextCallback.cpp in Sources */,
 				041BCA891523365C00B2FC55 /* CBOpenGL.cpp in Sources */,
 				04280E071526DF6200ABBC26 /* CBEnvironment.cpp in Sources */,
-				041CD81B152C4FA00042BA29 /* CBiOSImageBuilder.mm in Sources */,
 				0461F0BB153036F800A2ED31 /* CBRotateAction.cpp in Sources */,
 				0461F36F15319B6000A2ED31 /* CBPropertyAction.cpp in Sources */,
 				046BF1D41533183E00E92978 /* CBSwitch.cpp in Sources */,
@@ -1023,6 +972,7 @@
 				4B51EB141655326B008F6D5F /* CBiOSStoreWrapper.mm in Sources */,
 				4B51EB151655326B008F6D5F /* CBiOSUtility.mm in Sources */,
 				4B074CA61662433300EE49CB /* CBFactoryMethod.cpp in Sources */,
+				4BA667E01674465D0067DA75 /* CBTextureBuilder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

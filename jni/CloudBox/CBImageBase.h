@@ -18,21 +18,12 @@ class CBView;
 class CBImageBase
 {
 protected:
-//	float m_imageWidth;
-//	float m_imageHeight;
-	bool isInitial;
+
 public:
-	CBImageBase():isInitial(false){}
+	CBImageBase(){}
 	virtual ~CBImageBase(){}
 	
-//	inline const float getImageWidth() { return m_imageWidth; }
-//	inline const float getImageHeight() { return m_imageHeight; }
-//	inline void setImageWidth(float imageWidth) { m_imageWidth = imageWidth; }
-//	inline void setImageHeight(float imageHeight) { m_imageHeight = imageHeight; }
-	
-	inline bool IsInitial() { return isInitial; }
 	virtual void draw(CBView* view) = 0;
-	//virtual void draw(float x, float y, float width, float height) = 0;
 	virtual void loadImage(const string& fileName, float& width, float& height) = 0;
 	virtual void createTextImage(const string& text,float size, float& width, float& height) = 0;
 };

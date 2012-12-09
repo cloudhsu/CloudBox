@@ -39,6 +39,7 @@ CBTexture::CBTexture()
 {
 }
 
+#ifdef __CBANDROID__
 void CBTexture::reload()
 {
 	if(m_isText)
@@ -49,6 +50,7 @@ void CBTexture::reload()
 		m_textureId = CBBuilder::ReloadTexture(m_key);
 	}
 }
+#endif
 
 void CBTexture::release()
 {

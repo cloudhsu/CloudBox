@@ -88,10 +88,12 @@ void CBGameApp::destory()
     SStoreManager.releaseStore();
 }
 
+#ifdef __CBANDROID__
 void CBGameApp::reloadTexture()
 {
     STexturePool.reloadTexture();
 }
+#endif
 
 void CBGameApp::initialTimer(double oldTime)
 {
