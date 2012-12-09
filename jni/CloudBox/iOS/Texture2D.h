@@ -47,7 +47,6 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 #import <UIKit/UIKit.h>
 #import <OpenGLES/ES1/gl.h>
-#import "CBImageData.h"
 
 //CONSTANTS:
 
@@ -105,7 +104,6 @@ Note that RGBA type textures will have their alpha premultiplied - use the blend
 */
 @interface Texture2D (Image)
 - (id) initWithImage:(UIImage *)uiImage;
-+ (CBImageData*) loadWithImage:(UIImage *)uiImage;
 @end
 
 /*
@@ -114,6 +112,5 @@ Note that the generated textures are of type A8 - use the blending mode (GL_SRC_
 */
 @interface Texture2D (Text)
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size;
-+ (CBImageData*) loadWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size;
 - (id) makeASCIIBitmapFont:(CGSize)dimensions fontName:(NSString*)name fontSize:(CGFloat)size charWidthArray:(float*)charWidths fontHeight:(float *)actualHeight;
 @end

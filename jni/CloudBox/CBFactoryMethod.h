@@ -15,6 +15,7 @@ class CBEffectBase;
 class CBUtilityBase;
 class CBStoreBase;
 class CBDialog;
+class CBTextureBuilderBase;
 
 class CBFactoryMethod
 {
@@ -25,6 +26,7 @@ public:
     static CBUtilityBase* createUtility();
     static CBStoreBase* createStore();
     static CBDialog* createSystemDialog();
+    static CBTextureBuilderBase* createTextureBuilder();
 };
 
 #endif

@@ -7,7 +7,7 @@
  *
  */
 
-#include "CBBuilderAndroid.h"
+#include "CBAndroidTextureBuilder.h"
 #include "../CBTexture.h"
 #include "../CBImage.h"
 #include "../CBLabel.h"
@@ -21,17 +21,17 @@
 #include "CBTextManager.h"
 #include "utils.h"
 
-CBBuilderAndroid::CBBuilderAndroid()
+CBAndroidTextureBuilder::CBAndroidTextureBuilder()
 {
 	// construct
 }
 
-CBBuilderAndroid::~CBBuilderAndroid()
+CBAndroidTextureBuilder::~CBAndroidTextureBuilder()
 {
 	// Deconstruct
 }
 
-GLuint CBBuilderAndroid::ReloadText(const string& text, const float size)
+GLuint CBAndroidTextureBuilder::reloadText(const string& text, const float size)
 {
 	float width = 0;
 	float height = 0;
@@ -41,7 +41,7 @@ GLuint CBBuilderAndroid::ReloadText(const string& text, const float size)
 	return texID;
 }
 
-GLuint CBBuilderAndroid::ReloadTexture(const string& filename)
+GLuint CBAndroidTextureBuilder::reloadTexture(const string& filename)
 {
 	int width = 0;
 	int height = 0;
@@ -51,7 +51,7 @@ GLuint CBBuilderAndroid::ReloadTexture(const string& filename)
     return texID;
 }
 
-CBTexture* CBBuilderAndroid::BuildTexture(const string& filename)
+CBTexture* CBAndroidTextureBuilder::buildTexture(const string& filename)
 {
 	string name = "assets/" + filename;
 	int width = 0;
@@ -62,7 +62,7 @@ CBTexture* CBBuilderAndroid::BuildTexture(const string& filename)
 	return texture;
 }
 
-CBTexture* CBBuilderAndroid::BuildStringTexture(const string& text, const float size)
+CBTexture* CBAndroidTextureBuilder::buildStringTexture(const string& text, const float size)
 {
 	float width = 0;
 	float height = 0;
@@ -72,7 +72,7 @@ CBTexture* CBBuilderAndroid::BuildStringTexture(const string& text, const float 
 	return texture;
 }
 
-GLuint CBBuilderAndroid::CreateText(const char* text, float size,float& rWidth, float& rHeight)
+GLuint CBAndroidTextureBuilder::CreateText(const char* text, float size,float& rWidth, float& rHeight)
 {
 	static CBTextManager manager;
 	return manager.createText(text, size, rWidth, rHeight);

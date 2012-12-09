@@ -46,8 +46,9 @@ public:
 	CBTexture(GLuint texId, float width, float height, float texWidth, float texHeight,int fontSize);
 	CBTexture(GLuint texId, float width, float height, float texWidth, float texHeight, string text, int fontSize);
 	~CBTexture();
-    
+#ifdef __CBANDROID__
     void reload();
+#endif
     void release();
 	
 	void bind();

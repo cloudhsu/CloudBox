@@ -20,7 +20,8 @@ CBSlideBar::CBSlideBar()
 : m_optionButton(NULL), m_optionBar(NULL), m_status(SlideBarHide),
 m_optionButtonShowClick(NULL), m_optionButtonHideClick(NULL),
 m_optionBarShow(NULL), m_optionBarHide(NULL), m_buttonClick(NULL),
-m_direction(SlideBarRight),m_duration(1.0),m_barScrollLength(10.0)
+m_direction(SlideBarRight),m_duration(1.0),m_barScrollLength(10.0),
+m_optionClick(NULL)
 {
 	registerClickEvent();
 }

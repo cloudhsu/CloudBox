@@ -35,8 +35,7 @@ LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
                    CBRenderBox.cpp CBScene.cpp CBSprite.cpp \
                    CBString.cpp CBTexture.cpp CBTexturePool.cpp \
                    CBTimerManager.cpp CBTouchManager.cpp \
-                   _CBDefBuilder.cpp _CBBuilder.cpp CBGLImage.cpp \
-                   CBTextCallback.cpp CBTextureCallback.cpp CBCallbackDispatcher.cpp \
+                   CBTextureBuilder.cpp CBGLImage.cpp \
                    CBOpenGL.cpp CBEnvironment.cpp CBRotateAction.cpp CBPropertyAction.cpp \
                    CBAudioEngine.cpp CBSwitch.cpp CBProperty.cpp CBEventProcessor.cpp \
                    CBStoreManager.cpp CBStoreEvent.cpp CBDialog.cpp CBSystemDialog.cpp \
@@ -47,7 +46,7 @@ LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
 # LOCAL_SRC_FILES += Extends/CBLotto.cpp Extends/CBLed.cpp Extends/CBMotion.cpp
 LOCAL_SRC_FILES += Extends/CBMotion.cpp
 # CloudBox Android Library
-LOCAL_SRC_FILES += Android/CBBuilderAndroid.cpp Android/app-android.cpp Android/utils.cpp \
+LOCAL_SRC_FILES += Android/CBAndroidTextureBuilder.cpp Android/app-android.cpp Android/utils.cpp \
                    Android/CBJNI.cpp Android/CBTextManager.cpp Android/CBAndroidAudioManager.cpp \
                    Android/CBAndroidEffectManager.cpp Android/CBAndroidUtility.cpp \
                    Android/CBAndroidDialog.cpp Android/CBAndroidStoreWrapper.cpp

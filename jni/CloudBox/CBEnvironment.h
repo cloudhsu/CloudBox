@@ -10,34 +10,11 @@
 #ifndef _CBENVIRONMENT_H_
 #define _CBENVIRONMENT_H_
 
+#include "CBDevice.h"
+
 // 1 to skip CBLogoScene, default scene is HelloScene
 //#define SKIP_LOGO true
 #define SKIP_LOGO false
-
-#ifdef WIN32
-// for win32
-#include "_CBDefBuilder.h"
-#elif __CBIOS__
-// for ios
-#include "CBBuilderIOS.h"
-#else
-// for android
-#include "Android/CBBuilderAndroid.h"
-#endif
-#include "CBDevice.h"
-#include "TCBBuilder.h"
-
-#ifdef WIN32
-// for win32
-typedef _CBDefBuilder DEVICE_BUILDER;
-#elif __CBIOS__
-// for ios
-typedef CBBuilderIOS DEVICE_BUILDER;
-#else
-// for android
-typedef CBBuilderAndroid DEVICE_BUILDER;
-#endif
-typedef TCBBuilder<DEVICE_BUILDER> CBBuilder;
 
 class CBEnvironment
 {

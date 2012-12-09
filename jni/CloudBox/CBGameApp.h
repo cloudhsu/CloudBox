@@ -48,9 +48,9 @@ public:
 	void mainLoop(double time);
 	void retinaDisplay();
     void iOSWideScreen();
-    
+#ifdef __CBANDROID__
     void reloadTexture();
-	
+#endif
 	void touchBegan(float x, float y);
 	void touchMoved(float x, float y);
 	void touchEnded(float x, float y);

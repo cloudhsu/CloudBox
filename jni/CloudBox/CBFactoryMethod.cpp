@@ -18,12 +18,15 @@
 #include "CBiOSUtility.h"
 #include "CBiOSStoreWrapper.h"
 #include "CBiOSDialog.h"
-#else
+#include "CBiOSTextureBuilder.h"
+#elif __CBANDROID__
 #include "Android/CBAndroidAudioManager.h"
 #include "Android/CBAndroidEffectManager.h"
 #include "Android/CBAndroidUtility.h"
 #include "Android/CBAndroidStoreWrapper.h"
 #include "Android/CBAndroidDialog.h"
+#include "Android/CBAndroidTextureBuilder.h"
+#else
 #endif
 // --------------------------------------------------
 
@@ -36,13 +39,23 @@ typedef CBiOSEffectManager EFFECT_MANAGER;
 typedef CBiOSUtility UTILITY;
 typedef CBiOSStoreWrapper STORE_MANAGER;
 typedef CBiOSDialog SYSTEM_DIALOG;
-#else
+typedef CBiOSTextureBuilder TEXTURE_BUILDER;
+#elif __CBANDROID__
 // for Android
 typedef CBAndroidAudioManager AUDIO_MANAGER;
 typedef CBAndroidEffectManager EFFECT_MANAGER;
 typedef CBAndroidUtility UTILITY;
 typedef CBAndroidStoreWrapper STORE_MANAGER;
 typedef CBAndroidDialog SYSTEM_DIALOG;
+typedef CBAndroidTextureBuilder TEXTURE_BUILDER;
+#else
+// for default none behavior 
+typedef CBNoneAudioManager AUDIO_MANAGER;
+typedef CBNoneEffectManager EFFECT_MANAGER;
+typedef CBNoneUtility UTILITY;
+typedef CBNoneSStoreWrapper STORE_MANAGER;
+typedef CBNoneDialog SYSTEM_DIALOG;
+typedef CBNoneTextureBuilder TEXTURE_BUILDER;
 #endif
 // --------------------------------------------------
 
@@ -65,4 +78,8 @@ CBStoreBase* CBFactoryMethod::createStore()
 CBDialog* CBFactoryMethod::createSystemDialog()
 {
     return CBFactory::create<SYSTEM_DIALOG>();
+}
+CBTextureBuilderBase* CBFactoryMethod::createTextureBuilder()
+{
+    return CBFactory::create<TEXTURE_BUILDER>();
 }

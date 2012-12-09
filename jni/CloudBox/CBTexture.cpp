@@ -9,6 +9,9 @@
 #include "CBTexture.h"
 #include "CBTexturePool.h"
 #include "CBEnvironment.h"
+#ifdef __CBANDROID__
+#include "CBTextureBuilder.h"
+#endif
 
 CBTexture::CBTexture(GLuint texId, float width, float height, float texWidth, float texHeight)
 :m_textureId(texId), m_key(""), m_imageWidth(width), m_imageHeight(height),
@@ -39,16 +42,18 @@ CBTexture::CBTexture()
 {
 }
 
+#ifdef __CBANDROID__
 void CBTexture::reload()
 {
 	if(m_isText)
 	{
-		m_textureId = CBBuilder::ReloadText(m_text,m_fontSize);
+		m_textureId = STextureBuilder.reloadText(m_text,m_fontSize);
 	}
 	else {
-		m_textureId = CBBuilder::ReloadTexture(m_key);
+		m_textureId = STextureBuilder.reloadTexture(m_key);
 	}
 }
+#endif
 
 void CBTexture::release()
 {

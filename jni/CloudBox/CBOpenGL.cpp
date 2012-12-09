@@ -46,29 +46,29 @@ GLuint CBOpenGL::generateTexture(GLvoid* data, int width, int height)
 	return textureId;
 }
 
-GLuint CBOpenGL::generateTexture(CBImageData* imageData)
-{
-	GLuint textureId = 0;
-	glGenTextures(1, &textureId);
-	glBindTexture(GL_TEXTURE_2D, textureId);
-	switch(imageData->pixelFormat) {
-			
-		case CBTexture2DPixelFormat_RGBA8888:
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageData->textureWidth, imageData->textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData->data);
-			break;
-		case CBTexture2DPixelFormat_RGB565:
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, imageData->textureWidth, imageData->textureHeight, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, imageData->data);
-			break;
-		case CBTexture2DPixelFormat_A8:
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, imageData->textureWidth, imageData->textureHeight, 0, GL_ALPHA, GL_UNSIGNED_BYTE, imageData->data);
-			break;
-		default:
-			return -1;
-	}
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	
-	return textureId;
-}
+//GLuint CBOpenGL::generateTexture(CBImageData* imageData)
+//{
+//	GLuint textureId = 0;
+//	glGenTextures(1, &textureId);
+//	glBindTexture(GL_TEXTURE_2D, textureId);
+//	switch(imageData->pixelFormat) {
+//			
+//		case CBTexture2DPixelFormat_RGBA8888:
+//			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageData->textureWidth, imageData->textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData->data);
+//			break;
+//		case CBTexture2DPixelFormat_RGB565:
+//			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, imageData->textureWidth, imageData->textureHeight, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, imageData->data);
+//			break;
+//		case CBTexture2DPixelFormat_A8:
+//			glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, imageData->textureWidth, imageData->textureHeight, 0, GL_ALPHA, GL_UNSIGNED_BYTE, imageData->data);
+//			break;
+//		default:
+//			return -1;
+//	}
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+//	
+//	return textureId;
+//}
 
 void CBOpenGL::beforeRender()
 {
