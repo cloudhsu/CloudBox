@@ -13,7 +13,6 @@
 #include <string>
 #include <vector>
 #include "CBView.h"
-#include "CBModel.h"
 using namespace std;
 
 class CBTexture;
@@ -42,14 +41,9 @@ public:
 	void addChild(CBView* view, float x, float y);
 	
 	void endInitial();
-	
-//	void checkEndInitial();
 
 	inline const bool isEndInitial()
 	{
-//		if(!m_isEndTextureInit)
-//			checkEndInitial();
-//		return m_isEndInitial && m_isEndTextureInit;
 		return m_isEndInitial;
 	}
 

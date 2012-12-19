@@ -35,13 +35,12 @@ void CBLogoScene::initialize()
 	bg->moveToAbsolute(x, y);
 	addChild(bg);
     
-    SAudioEngine.initialEngine();
-    SAudioEngine.loadEffect(LOGO_SOUND);
-    SAudioEngine.playEffect(LOGO_SOUND);
-    
 	CBAction* action = new CBAction(LOGO_TIME,1);
 	action->addFinishEvent(this,&CBLogoScene::finish);
 	action->commit(this);
+    SAudioEngine.initialEngine();
+    SAudioEngine.loadEffect(LOGO_SOUND);
+    SAudioEngine.playEffect(LOGO_SOUND);
 }
 
 void CBLogoScene::finish(CBView* sender)
