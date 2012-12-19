@@ -32,7 +32,7 @@ LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
                    CBEventDispatcher.cpp CBGameApp.cpp CBImage.cpp \
                    CBView.cpp CBLabel.cpp CBLayout.cpp \
                    CBLibrary.cpp CBLogoScene.cpp CBNumber.cpp \
-                   CBRenderBox.cpp CBScene.cpp CBSprite.cpp \
+                   CBScene.cpp CBSprite.cpp \
                    CBString.cpp CBTexture.cpp CBTexturePool.cpp \
                    CBTimerManager.cpp CBTouchManager.cpp \
                    CBTextureBuilder.cpp CBGLImage.cpp \

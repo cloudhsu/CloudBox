@@ -159,8 +159,6 @@ GLuint CBAndroidTextureBuilder::loadTextureFromPNG (const char* filename, int &w
            	i *= 2;
         pixelHeight = i;
     }
-    LOGE("width:%d, height:%d",width,height);
-    LOGE("pixel width:%d, pixel height:%d",pixelWidth,pixelHeight);
 
     // Update the png info struct.
     png_read_update_info(png_ptr, info_ptr);
@@ -225,25 +223,23 @@ GLuint CBAndroidTextureBuilder::loadTextureFromPNG (const char* filename, int &w
         case PNG_COLOR_TYPE_RGBA:
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, pixelWidth, pixelHeight, 0,
            	    		GL_RGBA, GL_UNSIGNED_BYTE, (GLvoid*) image_data);
-            LOGE("png is RGBA. ");
             break;
         case PNG_COLOR_TYPE_RGB:
           	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, pixelWidth, pixelHeight, 0,
            			GL_RGB, GL_UNSIGNED_SHORT_5_6_5, (GLvoid*) image_data);
-            LOGE("png is RGB. ");
             break;
         default:
         	glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, pixelWidth, pixelHeight, 0, GL_ALPHA, GL_UNSIGNED_BYTE, (GLvoid*) image_data);
-            LOGE("png is not RGB or RGBA. ");
             break;
     }
     errorCode = glGetError();
     if(GL_NO_ERROR != errorCode)
     {
+    	int maxtexsize;
+    	glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxtexsize);
   	    LOGE("OpenGL Error in glTexImage2D: %d ", errorCode);
   	    LOGE("width:%d, height:%d",width,height);
-  	    int maxtexsize;
-  	    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxtexsize);
+  	    LOGE("pixel width:%d, pixel height:%d",pixelWidth,pixelHeight);
   	    LOGE("OpenGL maximum texture size is: %d ", maxtexsize);
     }
 
