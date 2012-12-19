@@ -53,6 +53,7 @@ public class CBEffectManager
 		
 		this.mLeftVolume = 0.5f;
 		this.mRightVolume = 0.5f;
+		Log.i("cloudbox-app", "initialEffect succeed.");
 	}
 	
 	public int createSoundIdFromAsset(String fileName){
@@ -70,6 +71,12 @@ public class CBEffectManager
     // using wave file.
 	public void loadEffect(String fileName)
     {
+		if(fileName.length() == 0)
+			return;
+		if(mSoundIdStreamIdMap == null)
+		{
+			initialEffect();
+		}
 		int soundId = INVALID_SOUND_ID;
 		
 		// if the sound is preloaded, pass it
@@ -105,6 +112,11 @@ public class CBEffectManager
     {
 		if(fileName == null)
 			return;
+		if(mPathSoundIDMap == null)
+		{
+			Log.i("cloudbox-app", "mPathSoundIDMap is null.");
+			return;
+		}
 		Integer soundId = this.mPathSoundIDMap.get(fileName);
 		
 		if (soundId != null){

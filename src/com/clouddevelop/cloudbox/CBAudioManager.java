@@ -31,18 +31,21 @@ public class CBAudioManager
 	
 	public void loadMusic(String fileName)
 	{
-		if (mBackgroundMediaPlayer != null){
-			mBackgroundMediaPlayer.release();
-			mBackgroundMediaPlayer = null;
-		}
+		if(fileName.length() == 0)
+			return;
+		releaseMusic();
 		mBackgroundMediaPlayer = createMediaplayerFromAssets(fileName);
 		mBackgroundMediaPlayer.setLooping(true);
-		try {
+		try
+		{
 			//mBackgroundMediaPlayer.prepare();
 			mBackgroundMediaPlayer.seekTo(0);
-		} catch (Exception e){
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
+		Log.e(TAG, "loadMusic succeed.");
 	}
 	public void releaseMusic()
     {
@@ -54,9 +57,11 @@ public class CBAudioManager
     }
 	public void playMusic()
     {
-		if (mBackgroundMediaPlayer == null){
+		if (mBackgroundMediaPlayer == null)
+		{
 			Log.e(TAG, "playBackgroundMusic: background media player is null");
-		} else {		
+		}
+		else {		
 			// if the music is playing or paused, stop it
 			if(!mBackgroundMediaPlayer.isPlaying())
 			{
@@ -71,7 +76,8 @@ public class CBAudioManager
     }
 	public void stopMusic()
     {
-		if (mBackgroundMediaPlayer != null){
+		if (mBackgroundMediaPlayer != null)
+		{
 			mBackgroundMediaPlayer.stop();
 			//mBackgroundMediaPlayer.pause();
 			//mBackgroundMediaPlayer.seekTo(0);
@@ -80,14 +86,16 @@ public class CBAudioManager
     }
 	public void pauseMusic()
     {
-		if (mBackgroundMediaPlayer != null && mBackgroundMediaPlayer.isPlaying()){
+		if (mBackgroundMediaPlayer != null && mBackgroundMediaPlayer.isPlaying())
+		{
 			mBackgroundMediaPlayer.pause();
 			this.mIsPaused = true;
 		}
     }
 	public void resumeMusic()
     {
-		if (mBackgroundMediaPlayer != null && this.mIsPaused){
+		if (mBackgroundMediaPlayer != null && this.mIsPaused)
+		{
 			mBackgroundMediaPlayer.start();
 			this.mIsPaused = false;
 		}
@@ -95,24 +103,30 @@ public class CBAudioManager
     
 	public float getVolume()
     {
-		if (this.mBackgroundMediaPlayer != null){
+		if (this.mBackgroundMediaPlayer != null)
+		{
 			return (this.mLeftVolume + this.mRightVolume) / 2;
-		} else {
+		}
+		else
+		{
 			return 0.0f;
 		}
     }
 	public void setVolume(float volume)
     {
-		if (volume < 0.0f){
+		if (volume < 0.0f)
+		{
 			volume = 0.0f;
 		}
 		
-		if (volume > 1.0f){
+		if (volume > 1.0f)
+		{
 			volume = 1.0f;
 		}
 		
 	    this.mLeftVolume = this.mRightVolume = volume;
-		if (this.mBackgroundMediaPlayer != null){
+		if (this.mBackgroundMediaPlayer != null)
+		{
 			this.mBackgroundMediaPlayer.setVolume(this.mLeftVolume, this.mRightVolume);
 		}
     }

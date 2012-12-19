@@ -1,6 +1,8 @@
 package com.clouddevelop.myapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -102,7 +104,22 @@ public class CloudADApp extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-	        moveTaskToBack(true);
+			// This function will move task to back
+	        //moveTaskToBack(true);
+			// Confirm to exit and delete process
+			new AlertDialog.Builder(this)
+			.setTitle("  ")
+			.setMessage("Do you want to exit?")
+			.setPositiveButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+			 
+			}
+			}).setNeutralButton("Yes", new DialogInterface.OnClickListener() {
+			 public void onClick(DialogInterface dialog, int which) {
+			     finish();
+			     System.exit(0);
+			 }
+			}).create().show();
 	        return true;
 	    }
 		// TODO Auto-generated method stub

@@ -9,12 +9,10 @@
 
 package com.clouddevelop.cloudbox;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 public class CloudGLSurface extends GLSurfaceView implements CBIQueneEvent
@@ -29,6 +27,8 @@ public class CloudGLSurface extends GLSurfaceView implements CBIQueneEvent
 	public CloudGLSurface(Context context, int w, int h)
 	{
 		super(context);
+		setEGLConfigChooser(8, 8, 8, 8, 0, 0);
+		getHolder().setFormat(PixelFormat.RGBA_8888);
 		setDebugFlags(DEBUG_CHECK_GL_ERROR | DEBUG_LOG_GL_CALLS);
 		Log.i("cloudbox-app", "CloudGLSurface.CloudGLSurface()");
 		mRenderer = new CloudRenderer(context,w,h);
