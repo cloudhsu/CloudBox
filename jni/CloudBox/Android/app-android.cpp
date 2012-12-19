@@ -10,7 +10,6 @@
 #include "app-android.h"
 #include <GLES/gl.h>
 #include "def.h"
-#include "utils.h"
 #include <time.h>
 #include <string>
 #include "../CloudBox.h"
@@ -20,27 +19,6 @@ zip* APKArchive;
 jobject g_textmgr;
 JNIEnv *g_env;
 string g_apkPath;
-
-//int to fixed point
-#define iX(x) (x<<16)
-//float ti fixed point
-#define fX(x) ((int)(x * (1  << 16)))
-
-//int square[12] = {
-//    fX(-0.5), fX(-0.5), 0,
-//    fX(0.5), fX(-0.5), 0,
-//    fX(-0.5), fX(0.5), 0,
-//    fX(0.5), fX(0.5), 0
-//};
-//
-//int texCoords[8] = {
-//    0, fX(1),
-//    fX(1), fX(1),
-//    0,0,
-//    fX(1),0
-//};
-//
-//GLuint texture;
 
 static double _getTime(void)
 {
@@ -67,23 +45,26 @@ static void checkGlError(const char* op)
 
 static void loadAPK (const char* apkPath)
 {
-  LOGI("Loading APK %s", apkPath);
-  APKArchive = zip_open(apkPath, 0, NULL);
-  if (APKArchive == NULL) {
-    LOGE("Error loading APK");
-    return;
-  }
-
-  //Just for debug, print APK contents
-  int numFiles = zip_get_num_files(APKArchive);
-  for (int i=0; i<numFiles; i++) {
-    const char* name = zip_get_name(APKArchive, i, 0);
-    if (name == NULL) {
-      LOGE("Error reading zip file name at index %i : %s", zip_strerror(APKArchive));
-      return;
+    LOGI("Loading APK %s", apkPath);
+    APKArchive = zip_open(apkPath, 0, NULL);
+    if (APKArchive == NULL)
+    {
+        LOGE("Error loading APK");
+        return;
     }
-    LOGI("File %i : %s\n", i, name);
-  }
+
+    //Just for debug, print APK contents
+    int numFiles = zip_get_num_files(APKArchive);
+    for (int i=0; i<numFiles; i++)
+    {
+        const char* name = zip_get_name(APKArchive, i, 0);
+        if (name == NULL)
+        {
+            LOGE("Error reading zip file name at index %i : %s", zip_strerror(APKArchive));
+            return;
+        }
+        LOGI("File %i : %s\n", i, name);
+    }
 }
 
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInit
@@ -173,7 +154,7 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudGLSurface_touchEnded
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBMotion_onSensorChanged
   (JNIEnv *, jclass, jfloat x, jfloat y, jfloat z)
 {
-	LOGI("x:%f y:%f z:%f\n", x, y, z);
+	//LOGI("x:%f y:%f z:%f\n", x, y, z);
 	SGameApp.onSersorChanged(x, y, z);
 }
 
@@ -182,7 +163,7 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBMotion_onSensorChanged
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CBUtility_nativeAlertEvent
   (JNIEnv *, jclass, jint dialogType, jint dialogResult, jint buttonIndex)
 {
-	LOGI("Alert EVent[ Type:%d Result:%d Index:%d]\n", dialogType, dialogResult, buttonIndex);
+	//LOGI("Alert EVent[ Type:%d Result:%d Index:%d]\n", dialogType, dialogResult, buttonIndex);
 	SGameApp.onAndroidAlertEvent(dialogType, dialogResult, buttonIndex);
 }
 

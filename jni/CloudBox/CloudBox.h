@@ -16,6 +16,10 @@
  * Cloud Box is cross platform framework.                          *
  * Copyright by Cloud Hsu                                          *
  *******************************************************************
+ * 2012/12/19 v0.99.53
+ * 1. Fix bug that cause when touch Hold button it will crash in Audio in Android .
+ * 2. Refactoring loadTextureFromPNG to pixWidth, pixHeight for glTexImage2D.
+ * 3. Let back button in Android show exit dialog.
  * 2012/12/06 v0.99.52
  * 1. Let Android back button behavior like home.
  * 2. Fix CBEffectManager.playEffect bug.

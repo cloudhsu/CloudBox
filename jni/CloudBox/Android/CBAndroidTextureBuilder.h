@@ -17,7 +17,9 @@ class CBAndroidTextureBuilder : public CBTextureBuilderBase
 {
 private:
 	// --- Add private member --- //
-	GLuint CreateText(const char* text, float size,float& rWidth, float& rHeight);
+	GLuint createText(const char* text, float size,float& rWidth, float& rHeight);
+	// load texture from png
+	GLuint loadTextureFromPNG (const char* filename, int &width, int &height, int &rpixWidth, int &rpixHeight);
 public:
 	// --- Add public member --- //
 	CBAndroidTextureBuilder();

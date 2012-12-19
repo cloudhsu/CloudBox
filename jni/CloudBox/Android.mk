@@ -46,7 +46,7 @@ LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
 # LOCAL_SRC_FILES += Extends/CBLotto.cpp Extends/CBLed.cpp Extends/CBMotion.cpp
 LOCAL_SRC_FILES += Extends/CBMotion.cpp
 # CloudBox Android Library
-LOCAL_SRC_FILES += Android/CBAndroidTextureBuilder.cpp Android/app-android.cpp Android/utils.cpp \
+LOCAL_SRC_FILES += Android/CBAndroidTextureBuilder.cpp Android/app-android.cpp \
                    Android/CBJNI.cpp Android/CBTextManager.cpp Android/CBAndroidAudioManager.cpp \
                    Android/CBAndroidEffectManager.cpp Android/CBAndroidUtility.cpp \
                    Android/CBAndroidDialog.cpp Android/CBAndroidStoreWrapper.cpp
