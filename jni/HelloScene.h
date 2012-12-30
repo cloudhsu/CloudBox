@@ -10,7 +10,11 @@
 #ifndef _HELLOSCENE_H_
 #define _HELLOSCENE_H_
 
+#ifdef __CBIOS__
 #include "CloudBox.h"
+#else
+#include "CloudBox/CloudBox.h"
+#endif
 
 #define MAX_ANIMATION 50
 

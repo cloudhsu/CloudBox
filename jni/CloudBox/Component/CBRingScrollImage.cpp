@@ -8,10 +8,17 @@
  */
 
 #include "CBRingScrollImage.h"
+#ifdef __CBBLACKBERRY__
+#include "../CBImage.h"
+#include "../CBAction.h"
+#include "../CBEnvironment.h"
+#include "../CBLayout.h"
+#else
 #include "CBImage.h"
 #include "CBAction.h"
 #include "CBEnvironment.h"
 #include "CBLayout.h"
+#endif
 
 CBRingScrollImage::CBRingScrollImage()
 :CBView(), m_image1(NULL), m_image2(NULL),m_isPause(false)

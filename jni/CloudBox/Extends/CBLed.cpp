@@ -8,9 +8,10 @@
  */
 
 #include "CBLed.h"
+#include "CBLedBase.h"
 #ifdef __CBIOS__
 #include "CBLediOS.h"
-#else
+#elif __CBANDROID__
 #include "../Android/CBLedAndroid.h"
 #endif
 
@@ -19,8 +20,10 @@ CBLed::CBLed()
 	m_isOn = false;
 #ifdef __CBIOS__
 	m_led = new CBLediOS();
-#else
+#elif __CBANDROID__
 	m_led = new CBLedAndroid();
+#else
+	m_led = new CBNoneLed();
 #endif
 }
 

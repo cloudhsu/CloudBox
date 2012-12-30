@@ -10,7 +10,11 @@
 #ifndef _CBAPPEVENT_H_
 #define _CBAPPEVENT_H_
 
+#ifdef __CBIOS__
 #include "CBSingleton.h"
+#else
+#include "CloudBox/CBSingleton.h"
+#endif
 
 class CBAppEvent : public CBSingleton<CBAppEvent>
 {

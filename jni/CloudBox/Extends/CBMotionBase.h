@@ -9,8 +9,6 @@
 #ifndef _CBMOTIONBASE_h_
 #define _CBMOTIONBASE_h_
 
-#include "CBLibrary.h"
-
 class CBMotionBase
 {
 protected:

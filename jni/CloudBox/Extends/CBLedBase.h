@@ -19,4 +19,13 @@ public:
 	virtual void turnOffLed() = 0;
 };
 
+class CBNoneLed : public CBLedBase
+{
+public:
+	CBNoneLed() {}
+	~CBNoneLed() {}
+	void turnOnLed() {}
+	void turnOffLed() {}
+};
+
 #endif

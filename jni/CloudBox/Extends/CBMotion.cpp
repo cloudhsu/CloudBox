@@ -10,8 +10,9 @@
 #include "CBMotionBase.h"
 #ifdef __CBIOS__
 #include "CBMotioniOS.h"
-#else
+#elif __CBANDROID__
 #include "../Android/CBMotionAndroid.h"
+#else
 #endif
 
 CBMotion::CBMotion()
@@ -20,8 +21,10 @@ CBMotion::CBMotion()
 #ifdef CBMotionEnable
 #ifdef __CBIOS__
 	m_impl = new CBMotioniOS();
-#else
+#elif __CBANDROID__
 	m_impl = new CBMotionAndroid();
+#else
+	m_impl = new CBEmptyMotion();
 #endif
 #else
     m_impl = new CBEmptyMotion();

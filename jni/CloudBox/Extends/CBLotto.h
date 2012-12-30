@@ -9,7 +9,11 @@
 #ifndef _CBLOTTO_H_
 #define _CBLOTTO_H_
 
+#ifdef __CBBLACKBERRY__
+#include "../CBSingleton.h"
+#else
 #include "CBSingleton.h"
+#endif
 
 enum LottoType
 {

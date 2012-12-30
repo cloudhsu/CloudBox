@@ -42,5 +42,15 @@ public:
     virtual void showDialog(DialogType type, const string& title,const string& msg) = 0;
 };
 
+class CBNoneDialog : public CBDialog
+{
+public:
+	CBNoneDialog() {}
+	~CBNoneDialog() {}
+	void showDialog() {}
+	void showDialog(const string& title,const string& msg) {}
+	void showDialog(DialogType type, const string& title,const string& msg) {}
+};
+
 
 #endif

@@ -8,12 +8,14 @@
  */
 
 #include "CBSlideBar.h"
-#include "CBImage.h"
-#include "CBSwitch.h"
 #ifdef __CBIOS__
 #include "CBPropertyAction.h"
+#include "CBImage.h"
+#include "CBSwitch.h"
 #else
 #include "../CBPropertyAction.h"
+#include "../CBImage.h"
+#include "../CBSwitch.h"
 #endif
 
 CBSlideBar::CBSlideBar()

@@ -23,7 +23,21 @@
 #define OPTION_INFO_NAME "button_info.png"
 #define OPTION_HELP_NAME "button_help.png"
 #define OPTION_CLOSE_NAME "button_close.png"
-#else
+#elif __CBANDROID__
+#define OPTION_NAME "system/button_options.png"
+#define OPTION_UP_BG_NAME "system/options_up_bg.png"
+#define OPTION_DOWN_BG_NAME "system/options_down_bg.png"
+#define OPTION_LEFT_BG_NAME "system/options_left_bg.png"
+#define OPTION_RIGHT_BG_NAME "system/options_right_bg.png"
+#define OPTION_BG_NAME "system/options_bg.png"
+#define OPTION_VERTICAL_BG_NAME "system/options_vertical_bg.png"
+#define OPTION_MUSIC_ON_NAME "system/button_music_on.png"
+#define OPTION_MUSIC_OFF_NAME "system/button_music_off.png"
+#define OPTION_CLOSE_NAME "system/button_close.png"
+#define OPTION_INFO_NAME "system/button_info.png"
+#define OPTION_HELP_NAME "system/button_help.png"
+#define OPTION_CLOSE_NAME "system/button_close.png"
+#elif __CBBLACKBERRY__
 #define OPTION_NAME "system/button_options.png"
 #define OPTION_UP_BG_NAME "system/options_up_bg.png"
 #define OPTION_DOWN_BG_NAME "system/options_down_bg.png"
@@ -39,8 +53,13 @@
 #define OPTION_CLOSE_NAME "system/button_close.png"
 #endif
 
+#ifdef __CBBLACKBERRY__
+#include "../CBView.h"
+#include "../CBAction.h"
+#else
 #include "CBView.h"
 #include "CBAction.h"
+#endif
 
 enum SlideBarStatus
 {

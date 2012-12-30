@@ -27,6 +27,12 @@
 #include "Android/CBAndroidDialog.h"
 #include "Android/CBAndroidTextureBuilder.h"
 #else
+#include "CBEffectBase.h"
+#include "CBAudioBase.h"
+#include "CBUtility.h"
+#include "CBStoreBase.h"
+#include "CBDialog.h"
+#include "CBTextureBuilderBase.h"
 #endif
 // --------------------------------------------------
 
@@ -50,12 +56,12 @@ typedef CBAndroidDialog SYSTEM_DIALOG;
 typedef CBAndroidTextureBuilder TEXTURE_BUILDER;
 #else
 // for default none behavior 
-typedef CBNoneAudioManager AUDIO_MANAGER;
-typedef CBNoneEffectManager EFFECT_MANAGER;
+typedef CBNoneAudio AUDIO_MANAGER;
+typedef CBNoneEffect EFFECT_MANAGER;
 typedef CBNoneUtility UTILITY;
-typedef CBNoneSStoreWrapper STORE_MANAGER;
+typedef CBSimulateStore STORE_MANAGER;
 typedef CBNoneDialog SYSTEM_DIALOG;
-typedef CBNoneTextureBuilder TEXTURE_BUILDER;
+typedef CBNoneBuilder TEXTURE_BUILDER;
 #endif
 // --------------------------------------------------
 

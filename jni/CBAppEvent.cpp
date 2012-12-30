@@ -8,7 +8,11 @@
  */
 
 #include "CBAppEvent.h"
+#ifdef __CBIOS__
 #include "CBLibrary.h"
+#else
+#include "CloudBox/CBLibrary.h"
+#endif
 
 void CBAppEvent::applicationDidEnterBackground()
 {

@@ -53,7 +53,11 @@ void CBLibXMLUtility::saveWithLibXML(map<string,string>& data,const string& file
     for(map<string,string>::iterator iter = data.begin(); iter != data.end(); iter++)
     {
         cout<<"key:"<<iter->first<<"   value:"<<iter->second<<endl;
+#ifdef __CBBLACKBERRY__
+        xmlNewChild(root, NULL, BAD_CAST (*iter).first.c_str(), BAD_CAST (*iter).second.c_str());
+#else
         xmlNewTextChild(root, NULL, BAD_CAST (*iter).first.c_str(), BAD_CAST (*iter).second.c_str());
+#endif
     }
     DebugLog("CBLibXMLUtility::saveWithLibXML 3\n");
     //save xml

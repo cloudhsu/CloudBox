@@ -10,7 +10,11 @@
 #ifndef _CBRINGSCROLLIMAGE_
 #define _CBRINGSCROLLIMAGE_
 
+#ifdef __CBBLACKBERRY__
+#include "../CBView.h"
+#else
 #include "CBView.h"
+#endif
 
 class CBImage;
 
