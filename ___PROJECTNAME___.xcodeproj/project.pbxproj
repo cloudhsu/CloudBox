@@ -54,7 +54,7 @@
 		04698EAC13EED5340066CCCF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04698EAB13EED5340066CCCF /* UIKit.framework */; };
 		046BF1D41533183E00E92978 /* CBSwitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046BF1D31533183E00E92978 /* CBSwitch.cpp */; };
 		04935ADC1584F8BA001901E7 /* CBMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04935AD91584F8BA001901E7 /* CBMotion.cpp */; };
-		04935ADF1584F8CC001901E7 /* CBMotioniOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04935ADE1584F8CC001901E7 /* CBMotioniOS.mm */; };
+		04935ADF1584F8CC001901E7 /* CBiOSMotion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04935ADE1584F8CC001901E7 /* CBiOSMotion.mm */; };
 		04B47D5314CDE010001A3C7E /* CBLed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B47D4E14CDE010001A3C7E /* CBLed.cpp */; };
 		04B47D5414CDE010001A3C7E /* CBLotto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B47D5114CDE010001A3C7E /* CBLotto.cpp */; };
 		04D208FC13FC1ED500F6B9C6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D208FB13FC1ED500F6B9C6 /* AudioToolbox.framework */; };
@@ -71,7 +71,7 @@
 		04DC7F55155024F100A576B0 /* testbg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC7F31155024F100A576B0 /* testbg2@2x.png */; };
 		04DC7F56155024F100A576B0 /* testbg11.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC7F32155024F100A576B0 /* testbg11.png */; };
 		04DC7F57155024F100A576B0 /* testbg11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC7F33155024F100A576B0 /* testbg11@2x.png */; };
-		04DE922014C48D9500431255 /* CBLediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04DE921F14C48D9500431255 /* CBLediOS.mm */; };
+		04DE922014C48D9500431255 /* CBiOSLed.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04DE921F14C48D9500431255 /* CBiOSLed.mm */; };
 		04DE923214C48DC500431255 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DE923114C48DC500431255 /* AVFoundation.framework */; };
 		04E646EC14559DD600D9F92B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E646EB14559DD600D9F92B /* main.m */; };
 		04E646F914559E5700D9F92B /* HelloScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E646F714559E5700D9F92B /* HelloScene.cpp */; };
@@ -244,8 +244,8 @@
 		04935AD91584F8BA001901E7 /* CBMotion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CBMotion.cpp; path = Extends/CBMotion.cpp; sourceTree = "<group>"; };
 		04935ADA1584F8BA001901E7 /* CBMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBMotion.h; path = Extends/CBMotion.h; sourceTree = "<group>"; };
 		04935ADB1584F8BA001901E7 /* CBMotionBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBMotionBase.h; path = Extends/CBMotionBase.h; sourceTree = "<group>"; };
-		04935ADD1584F8CC001901E7 /* CBMotioniOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMotioniOS.h; sourceTree = "<group>"; };
-		04935ADE1584F8CC001901E7 /* CBMotioniOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBMotioniOS.mm; sourceTree = "<group>"; };
+		04935ADD1584F8CC001901E7 /* CBiOSMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBiOSMotion.h; sourceTree = "<group>"; };
+		04935ADE1584F8CC001901E7 /* CBiOSMotion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBiOSMotion.mm; sourceTree = "<group>"; };
 		04B47D4E14CDE010001A3C7E /* CBLed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CBLed.cpp; path = Extends/CBLed.cpp; sourceTree = "<group>"; };
 		04B47D4F14CDE010001A3C7E /* CBLed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBLed.h; path = Extends/CBLed.h; sourceTree = "<group>"; };
 		04B47D5014CDE010001A3C7E /* CBLedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBLedBase.h; path = Extends/CBLedBase.h; sourceTree = "<group>"; };
@@ -266,8 +266,8 @@
 		04DC7F32155024F100A576B0 /* testbg11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testbg11.png; path = iOS/Resources/testbg11.png; sourceTree = "<group>"; };
 		04DC7F33155024F100A576B0 /* testbg11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "testbg11@2x.png"; path = "iOS/Resources/testbg11@2x.png"; sourceTree = "<group>"; };
 		04DD49A214D166400039AC46 /* CloudBoxEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudBoxEx.h; sourceTree = "<group>"; };
-		04DE921E14C48D9500431255 /* CBLediOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLediOS.h; sourceTree = "<group>"; };
-		04DE921F14C48D9500431255 /* CBLediOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBLediOS.mm; sourceTree = "<group>"; };
+		04DE921E14C48D9500431255 /* CBiOSLed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBiOSLed.h; sourceTree = "<group>"; };
+		04DE921F14C48D9500431255 /* CBiOSLed.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBiOSLed.mm; sourceTree = "<group>"; };
 		04DE923114C48DC500431255 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		04E646EA14559DD600D9F92B /* ___PROJECTNAMEASIDENTIFIER____Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___PROJECTNAMEASIDENTIFIER____Prefix.pch"; sourceTree = "<group>"; };
 		04E646EB14559DD600D9F92B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iOS/main.m; sourceTree = "<group>"; };
@@ -281,6 +281,7 @@
 		4B074CA31662432600EE49CB /* CBFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactory.h; sourceTree = "<group>"; };
 		4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBFactoryMethod.cpp; sourceTree = "<group>"; };
 		4B074CA51662433300EE49CB /* CBFactoryMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactoryMethod.h; sourceTree = "<group>"; };
+		4B25E0FA16BF49AC00CFAE0D /* CBConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBConfig.h; sourceTree = "<group>"; };
 		4B3CFD3915E2AEDD003E2938 /* CBComposeAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBComposeAction.cpp; sourceTree = "<group>"; };
 		4B3CFD3A15E2AEDD003E2938 /* CBComposeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBComposeAction.h; sourceTree = "<group>"; };
 		4B3CFD3C15E2AF04003E2938 /* CBProperty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBProperty.cpp; sourceTree = "<group>"; };
@@ -429,10 +430,10 @@
 				4B3CFD4015E2AF13003E2938 /* CBiOSEffectManager.mm */,
 				040453E815B6F1F900F142B7 /* CBiOSAudioManager.h */,
 				040453E915B6F1F900F142B7 /* CBiOSAudioManager.mm */,
-				04935ADD1584F8CC001901E7 /* CBMotioniOS.h */,
-				04935ADE1584F8CC001901E7 /* CBMotioniOS.mm */,
-				04DE921E14C48D9500431255 /* CBLediOS.h */,
-				04DE921F14C48D9500431255 /* CBLediOS.mm */,
+				04935ADD1584F8CC001901E7 /* CBiOSMotion.h */,
+				04935ADE1584F8CC001901E7 /* CBiOSMotion.mm */,
+				04DE921E14C48D9500431255 /* CBiOSLed.h */,
+				04DE921F14C48D9500431255 /* CBiOSLed.mm */,
 				0402420A14091C680083DC7E /* CBiOSTextureBuilder.h */,
 				0402420B14091C680083DC7E /* CBiOSTextureBuilder.mm */,
 				0402420C14091C680083DC7E /* CBDeviceIOS.h */,
@@ -670,6 +671,7 @@
 				04223B4A1425D51B0067FCCD /* CBLayout.cpp */,
 				0420F4C9144319FB0075294B /* CBTimerManager.h */,
 				0420F4CA144319FB0075294B /* CBTimerManager.cpp */,
+				4B25E0FA16BF49AC00CFAE0D /* CBConfig.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -936,7 +938,7 @@
 				0420F4CB144319FB0075294B /* CBTimerManager.cpp in Sources */,
 				04E646EC14559DD600D9F92B /* main.m in Sources */,
 				04E646F914559E5700D9F92B /* HelloScene.cpp in Sources */,
-				04DE922014C48D9500431255 /* CBLediOS.mm in Sources */,
+				04DE922014C48D9500431255 /* CBiOSLed.mm in Sources */,
 				04F57FC914C5A89C006ADEAD /* CBAppEvent.cpp in Sources */,
 				04B47D5314CDE010001A3C7E /* CBLed.cpp in Sources */,
 				04B47D5414CDE010001A3C7E /* CBLotto.cpp in Sources */,
@@ -947,7 +949,7 @@
 				0461F36F15319B6000A2ED31 /* CBPropertyAction.cpp in Sources */,
 				046BF1D41533183E00E92978 /* CBSwitch.cpp in Sources */,
 				04935ADC1584F8BA001901E7 /* CBMotion.cpp in Sources */,
-				04935ADF1584F8CC001901E7 /* CBMotioniOS.mm in Sources */,
+				04935ADF1584F8CC001901E7 /* CBiOSMotion.mm in Sources */,
 				040453E115B6F1C500F142B7 /* CBRingScrollImage.cpp in Sources */,
 				040453E215B6F1C500F142B7 /* CBSlideBar.cpp in Sources */,
 				040453E715B6F1E200F142B7 /* CBAudioEngine.cpp in Sources */,

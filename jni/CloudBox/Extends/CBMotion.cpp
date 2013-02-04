@@ -8,27 +8,12 @@
 
 #include "CBMotion.h"
 #include "CBMotionBase.h"
-#ifdef __CBIOS__
-#include "CBMotioniOS.h"
-#elif __CBANDROID__
-#include "../Android/CBMotionAndroid.h"
-#else
-#endif
+#include "CBFactoryMethod.h"
 
 CBMotion::CBMotion()
 :m_isStartAcclermeter(false)
 {
-#ifdef CBMotionEnable
-#ifdef __CBIOS__
-	m_impl = new CBMotioniOS();
-#elif __CBANDROID__
-	m_impl = new CBMotionAndroid();
-#else
-	m_impl = new CBEmptyMotion();
-#endif
-#else
-    m_impl = new CBEmptyMotion();
-#endif
+    m_impl = CBFactoryMethod::createMotion();
 }
 
 CBMotion::~CBMotion()

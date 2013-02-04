@@ -17,9 +17,6 @@
 #include "../CBLibrary.h"
 #endif
 
-// use CBMotionEnable to enable for compile
-//#define CBMotionEnable
-
 class CBMotionBase;
 
 class CBMotion : public CBSingleton<CBMotion>

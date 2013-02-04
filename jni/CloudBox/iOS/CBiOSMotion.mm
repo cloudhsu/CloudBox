@@ -1,17 +1,17 @@
 //
-//  CBMotioniOS.mm
+//  CBiOSMotion.mm
 //  CloudBox Cross-Platform Framework Project
 //
 //  Created by Hsu Cloud on 2012/5/20.
 //  Copyright 2012 Orz. All rights reserved.
 //
 
-#import "CBMotioniOS.h"
+#import "CBiOSMotion.h"
 #import <AVFoundation/AVFoundation.h>
 #import "CBEnvironment.h"
 #import "CBMotion.h"
 
-CBMotioniOS::CBMotioniOS()
+CBiOSMotion::CBiOSMotion()
 {
 #ifdef CBMotionEnable
 #ifdef TARGET_OS_IPHONE
@@ -22,12 +22,12 @@ CBMotioniOS::CBMotioniOS()
 #endif
 #endif
 }
-CBMotioniOS::~CBMotioniOS()
+CBiOSMotion::~CBiOSMotion()
 {
     [motionManager release];
 }
 
-void CBMotioniOS::startAccelerometer()
+void CBiOSMotion::startAccelerometer()
 {
 #ifdef CBMotionEnable
 #ifdef TARGET_OS_IPHONE
@@ -36,7 +36,7 @@ void CBMotioniOS::startAccelerometer()
 #endif
 #endif
 }
-void CBMotioniOS::updateAccelerometer()
+void CBiOSMotion::updateAccelerometer()
 {
 #ifdef CBMotionEnable
 #ifdef TARGET_OS_IPHONE
@@ -52,7 +52,7 @@ void CBMotioniOS::updateAccelerometer()
 #endif
 #endif
 }
-void CBMotioniOS::stopAccelerometer()
+void CBiOSMotion::stopAccelerometer()
 {
 #ifdef CBMotionEnable
 #ifdef TARGET_OS_IPHONE

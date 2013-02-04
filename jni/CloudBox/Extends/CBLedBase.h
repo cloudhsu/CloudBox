@@ -10,6 +10,8 @@
 #ifndef _CBLEDBASE_h_
 #define _CBLEDBASE_h_
 
+#include "CBConfig.h"
+
 class CBLedBase
 {
 public:
@@ -19,11 +21,11 @@ public:
 	virtual void turnOffLed() = 0;
 };
 
-class CBNoneLed : public CBLedBase
+class CBLedSimulator : public CBLedBase
 {
 public:
-	CBNoneLed() {}
-	~CBNoneLed() {}
+	CBLedSimulator() {}
+	~CBLedSimulator() {}
 	void turnOnLed() {}
 	void turnOffLed() {}
 };

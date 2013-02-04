@@ -35,7 +35,7 @@ bool CBStoreManager::isBusy()
 void CBStoreManager::enableSimulateStore()
 {
     DELETE(m_store);
-    m_store = new CBSimulateStore();
+    m_store = CBFactoryMethod::createSimulateStore();
     CBDialog* dialog = new CBSystemDialog();
     dialog->showDialog(DialogTypeClose,"Warring", "Simulate Store Mode!");
 }

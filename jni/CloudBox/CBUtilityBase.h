@@ -36,12 +36,12 @@ public:
     virtual string getSystemPath(const string& fileName) = 0;
 };
 
-class CBNoneUtility : public CBUtilityBase
+class CBUtilitySimulator : public CBUtilityBase
 {
 private:
 public:
-    CBNoneUtility(){}
-    ~CBNoneUtility(){}
+    CBUtilitySimulator(){}
+    ~CBUtilitySimulator(){}
 	//string getFilePath() { return ""; }
 	string getLanguage() { return "en"; }
     DeviceType getDeviceType() { return DeviceOther; }

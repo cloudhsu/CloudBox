@@ -12,23 +12,23 @@
 #include "CBDialog.h"
 #include "CBSystemDialog.h"
 
-CBSimulateStore::CBSimulateStore()
+CBStoreSimulator::CBStoreSimulator()
 {
     
 }
-CBSimulateStore::~CBSimulateStore()
+CBStoreSimulator::~CBStoreSimulator()
 {
     
 }
-void CBSimulateStore::buy(const string& buyProductTag)
+void CBStoreSimulator::buy(const string& buyProductTag)
 {
     m_buyProductID = buyProductTag;
     CBDialog* dialog = new CBSystemDialog();
-    dialog->addAlertEvent(this, &CBSimulateStore::onAlertClick);
+    dialog->addAlertEvent(this, &CBStoreSimulator::onAlertClick);
     dialog->showDialog(DialogTypeOKCancel,"Confirm", "Do you want to buy it?");
 }
 
-void CBSimulateStore::onAlertClick(DialogResult result, int clickIndex)
+void CBStoreSimulator::onAlertClick(DialogResult result, int clickIndex)
 {
     if(DialogResultOK == result)
     {
@@ -36,22 +36,22 @@ void CBSimulateStore::onAlertClick(DialogResult result, int clickIndex)
     }
 }
 
-bool CBSimulateStore::isCanBuy()
+bool CBStoreSimulator::isCanBuy()
 {
     return true;
 }
 
-void CBSimulateStore::initialStore()
+void CBStoreSimulator::initialStore()
 {
     // nothing to do
 }
 
-void CBSimulateStore::releaseStore()
+void CBStoreSimulator::releaseStore()
 {
     // nothing to do
 }
 
-void CBSimulateStore::restoreCompletedTransactions()
+void CBStoreSimulator::restoreCompletedTransactions()
 {
     
 }

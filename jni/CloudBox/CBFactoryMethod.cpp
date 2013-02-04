@@ -10,6 +10,14 @@
 #include "CBFactory.h"
 #include "CBFactoryMethod.h"
 
+#include "CBEffectBase.h"
+#include "CBAudioBase.h"
+#include "CBUtility.h"
+#include "CBStoreBase.h"
+#include "CBDialog.h"
+#include "CBTextureBuilderBase.h"
+#include "CBMotionBase.h"
+#include "CBLedBase.h"
 // --------------------------------------------------
 // include for cross-platform header file.
 #ifdef __CBIOS__
@@ -19,6 +27,8 @@
 #include "CBiOSStoreWrapper.h"
 #include "CBiOSDialog.h"
 #include "CBiOSTextureBuilder.h"
+#include "CBiOSMotion.h"
+#include "CBiOSLed.h"
 #elif __CBANDROID__
 #include "Android/CBAndroidAudioManager.h"
 #include "Android/CBAndroidEffectManager.h"
@@ -26,13 +36,10 @@
 #include "Android/CBAndroidStoreWrapper.h"
 #include "Android/CBAndroidDialog.h"
 #include "Android/CBAndroidTextureBuilder.h"
+#include "Android/CBAndroidMotion.h"
+#include "Android/CBAndroidLed.h"
 #else
-#include "CBEffectBase.h"
-#include "CBAudioBase.h"
-#include "CBUtility.h"
-#include "CBStoreBase.h"
-#include "CBDialog.h"
-#include "CBTextureBuilderBase.h"
+
 #endif
 // --------------------------------------------------
 
@@ -46,6 +53,8 @@ typedef CBiOSUtility UTILITY;
 typedef CBiOSStoreWrapper STORE_MANAGER;
 typedef CBiOSDialog SYSTEM_DIALOG;
 typedef CBiOSTextureBuilder TEXTURE_BUILDER;
+typedef CBiOSMotion MOTION_BUILDER;
+typedef CBiOSLed LED_BUILDER;
 #elif __CBANDROID__
 // for Android
 typedef CBAndroidAudioManager AUDIO_MANAGER;
@@ -54,14 +63,18 @@ typedef CBAndroidUtility UTILITY;
 typedef CBAndroidStoreWrapper STORE_MANAGER;
 typedef CBAndroidDialog SYSTEM_DIALOG;
 typedef CBAndroidTextureBuilder TEXTURE_BUILDER;
+typedef CBAndroidMotion MOTION_BUILDER;
+typedef CBAndroidLed LED_BUILDER;
 #else
 // for default none behavior 
-typedef CBNoneAudio AUDIO_MANAGER;
-typedef CBNoneEffect EFFECT_MANAGER;
-typedef CBNoneUtility UTILITY;
-typedef CBSimulateStore STORE_MANAGER;
-typedef CBNoneDialog SYSTEM_DIALOG;
-typedef CBNoneBuilder TEXTURE_BUILDER;
+typedef CBAudioSimulator AUDIO_MANAGER;
+typedef CBEffectSimulator EFFECT_MANAGER;
+typedef CBUtilitySimulator UTILITY;
+typedef CBStoreSimulator STORE_MANAGER;
+typedef CBDialogSimulator SYSTEM_DIALOG;
+typedef CBTextureBuilderSmulator TEXTURE_BUILDER;
+typedef CBMotionSimulator MOTION_BUILDER;
+typedef CBLedSimulator MOTION_BUILDER;
 #endif
 // --------------------------------------------------
 
@@ -81,6 +94,10 @@ CBStoreBase* CBFactoryMethod::createStore()
 {
     return CBFactory::create<STORE_MANAGER>();
 }
+CBStoreBase* CBFactoryMethod::createSimulateStore()
+{
+    return CBFactory::create<CBStoreSimulator>();
+}
 CBDialog* CBFactoryMethod::createSystemDialog()
 {
     return CBFactory::create<SYSTEM_DIALOG>();
@@ -88,4 +105,20 @@ CBDialog* CBFactoryMethod::createSystemDialog()
 CBTextureBuilderBase* CBFactoryMethod::createTextureBuilder()
 {
     return CBFactory::create<TEXTURE_BUILDER>();
+}
+CBMotionBase* CBFactoryMethod::createMotion()
+{
+#ifdef CBMotionEnable
+    return CBFactory::create<MOTION_BUILDER>();
+#else
+    return CBFactory::create<CBMotionSimulator>();
+#endif
+}
+CBLedBase* CBFactoryMethod::createLed()
+{
+#ifdef CBLedEnable
+    return CBFactory::create<LED_BUILDER>();
+#else
+    return CBFactory::create<CBLedSimulator>();
+#endif
 }

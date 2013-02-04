@@ -1,5 +1,5 @@
 /*
- *  CBLediOS.h
+ *  CBiOSLed.h
  *  CloudBox Cross-Platform Framework Project
  *
  *  Created by Cloud on 2012/1/14.
@@ -12,11 +12,11 @@
 
 #include "CBLedBase.h"
 
-class CBLediOS : public CBLedBase
+class CBiOSLed : public CBLedBase
 {
 public:
-	CBLediOS();
-	~CBLediOS();
+	CBiOSLed();
+	~CBiOSLed();
 	void turnOnLed();
 	void turnOffLed();
 };

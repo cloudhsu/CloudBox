@@ -40,11 +40,11 @@ public:
     virtual void setVolume(float volume) = 0;
 };
 
-class CBNoneAudio : public CBAudioBase
+class CBAudioSimulator : public CBAudioBase
 {
 public:
-    CBNoneAudio() {}
-    ~CBNoneAudio() {}
+    CBAudioSimulator() {}
+    ~CBAudioSimulator() {}
     void loadMusic(const string fileName) {}
     void releaseMusic() {}
     void playMusic() {}

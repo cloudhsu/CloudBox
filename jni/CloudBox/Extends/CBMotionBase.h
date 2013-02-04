@@ -9,6 +9,9 @@
 #ifndef _CBMOTIONBASE_h_
 #define _CBMOTIONBASE_h_
 
+#include "CBConfig.h"
+#include "CBLibrary.h"
+
 class CBMotionBase
 {
 protected:
@@ -33,11 +36,11 @@ public:
     float getAccelerationZ() { return  m_accleration.z; }
 };
 
-class CBEmptyMotion : public CBMotionBase
+class CBMotionSimulator : public CBMotionBase
 {
 public:
-    CBEmptyMotion() {}
-	~CBEmptyMotion() {}
+    CBMotionSimulator() {}
+	~CBMotionSimulator() {}
     
     void startAccelerometer() {}
     void updateAccelerometer() {}

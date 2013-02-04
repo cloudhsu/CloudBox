@@ -28,13 +28,13 @@ public:
     virtual bool isCanBuy() = 0;
 };
 
-class CBSimulateStore : public CBStoreBase
+class CBStoreSimulator : public CBStoreBase
 {
 private:
     string m_buyProductID;
 public:
-    CBSimulateStore();
-    ~CBSimulateStore();
+    CBStoreSimulator();
+    ~CBStoreSimulator();
     
     void onAlertClick(DialogResult result, int clickIndex);
     void buy(const string& buyProductTag);

@@ -9,22 +9,12 @@
 
 #include "CBLed.h"
 #include "CBLedBase.h"
-#ifdef __CBIOS__
-#include "CBLediOS.h"
-#elif __CBANDROID__
-#include "../Android/CBLedAndroid.h"
-#endif
+#include "CBFactoryMethod.h"
 
 CBLed::CBLed()
 {
 	m_isOn = false;
-#ifdef __CBIOS__
-	m_led = new CBLediOS();
-#elif __CBANDROID__
-	m_led = new CBLedAndroid();
-#else
-	m_led = new CBNoneLed();
-#endif
+    m_led = CBFactoryMethod::createLed();
 }
 
 CBLed::~CBLed()

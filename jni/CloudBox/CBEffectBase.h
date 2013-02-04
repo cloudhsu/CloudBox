@@ -32,11 +32,11 @@ public:
     virtual void setVolume(float volume) = 0;
 };
 
-class CBNoneEffect : public CBEffectBase
+class CBEffectSimulator : public CBEffectBase
 {
 public:
-    CBNoneEffect() {}
-    ~CBNoneEffect() {}
+    CBEffectSimulator() {}
+    ~CBEffectSimulator() {}
     void initialEffect() {}
     void loadEffect(const string fileName) {}
     //void releaseEffect(const string fileName) {}

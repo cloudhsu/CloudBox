@@ -36,13 +36,13 @@ public:
     virtual CBTexture* buildStringTexture(const string& text,const float size) = 0;
 };
 
-class CBNoneBuilder : public CBTextureBuilderBase
+class CBTextureBuilderSmulator : public CBTextureBuilderBase
 {
 private:
 	// --- Add private member --- //
 public:
-    CBNoneBuilder() {}
-	virtual ~CBNoneBuilder() {}
+    CBTextureBuilderSmulator() {}
+	virtual ~CBTextureBuilderSmulator() {}
 	// --- Add public member --- //
 #ifdef __CBANDROID__
     GLuint reloadText(const string& text, float size) { return 0; }
