@@ -1,5 +1,5 @@
 /*
- *  CBLedAndroid.cpp
+ *  CBAndroidLed.cpp
  *  CloudBox Cross-Platform Framework Project
  *
  *  Created by Cloud Hsu on 2012/1/17.
@@ -7,25 +7,25 @@
  *
  */
 
-#include "CBLedAndroid.h"
+#include "CBAndroidLed.h"
 #include "def.h"
 #include "../CBLibrary.h"
 
-CBLedAndroid::CBLedAndroid()
+CBAndroidLed::CBAndroidLed()
 {
 	initialJNIClass("com/clouddevelop/cloudbox/CloudLed");
 	m_turnOn = g_env->GetMethodID(m_mainClass, "turnOn", "()V");
 	m_turnOff = g_env->GetMethodID(m_mainClass, "turnOff", "()V");
 }
-CBLedAndroid::~CBLedAndroid()
+CBAndroidLed::~CBAndroidLed()
 {
 }
 
-void CBLedAndroid::turnOnLed()
+void CBAndroidLed::turnOnLed()
 {
 	g_env->CallVoidMethod(m_mainObject, m_turnOn);
 }
-void CBLedAndroid::turnOffLed()
+void CBAndroidLed::turnOffLed()
 {
 	g_env->CallVoidMethod(m_mainObject, m_turnOff);
 }

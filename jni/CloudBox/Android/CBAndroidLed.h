@@ -1,5 +1,5 @@
 /*
- *  CBLedAndroid.h
+ *  CBAndroidLed.h
  *  CloudBox Cross-Platform Framework Project
  *
  *  Created by Cloud Hsu on 2012/1/17.
@@ -14,14 +14,14 @@
 #include "../Extends/CBLedBase.h"
 #include "CBJNI.h"
 
-class CBLedAndroid : public CBLedBase, public CBJNI
+class CBAndroidLed : public CBLedBase, public CBJNI
 {
 private:
 	jmethodID m_turnOn;
 	jmethodID m_turnOff;
 public:
-	CBLedAndroid();
-	~CBLedAndroid();
+	CBAndroidLed();
+	~CBAndroidLed();
 	void turnOnLed();
 	void turnOffLed();
 };

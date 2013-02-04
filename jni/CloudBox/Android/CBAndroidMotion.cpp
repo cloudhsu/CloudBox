@@ -1,5 +1,5 @@
 /*
- *  CBMotionAndroid.cpp
+ *  CBAndroidMotion.cpp
  *  CloudBox Cross-Platform Framework Project
  *
  *  Created by Cloud Hsu on 2012/6/14.
@@ -7,31 +7,31 @@
  *
  */
 
-#include "CBMotionAndroid.h"
+#include "CBAndroidMotion.h"
 #include "def.h"
 #include "../CBLibrary.h"
 
-CBMotionAndroid::CBMotionAndroid()
+CBAndroidMotion::CBAndroidMotion()
 {
 	DebugLog("CBMotionAndroid::CBMotionAndroid()\n");
 	initialJNIClass("com/clouddevelop/cloudbox/CBUtility");
 	m_start = g_env->GetStaticMethodID(m_mainClass, "startAccelerometer", "()V");
 	m_stop = g_env->GetStaticMethodID(m_mainClass, "stopAccelerometer", "()V");
 }
-CBMotionAndroid::~CBMotionAndroid()
+CBAndroidMotion::~CBAndroidMotion()
 {
 }
 
-void CBMotionAndroid::startAccelerometer()
+void CBAndroidMotion::startAccelerometer()
 {
 	g_env->CallStaticVoidMethod(m_mainClass, m_start);
 	DebugLog("CBMotionAndroid::startAccelerometer() succeed.\n");
 }
-void CBMotionAndroid::updateAccelerometer()
+void CBAndroidMotion::updateAccelerometer()
 {
 
 }
-void CBMotionAndroid::stopAccelerometer()
+void CBAndroidMotion::stopAccelerometer()
 {
 	g_env->CallStaticVoidMethod(m_mainClass, m_stop);
 	DebugLog("CBMotionAndroid::stopAccelerometer() succeed.\n");

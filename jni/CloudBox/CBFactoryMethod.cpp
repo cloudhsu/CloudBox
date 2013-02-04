@@ -16,8 +16,14 @@
 #include "CBStoreBase.h"
 #include "CBDialog.h"
 #include "CBTextureBuilderBase.h"
+// for extends
+#ifdef __CBIOS__
 #include "CBMotionBase.h"
 #include "CBLedBase.h"
+#elif __CBANDROID__
+#include "Extends/CBMotionBase.h"
+#include "Extends/CBLedBase.h"
+#endif
 // --------------------------------------------------
 // include for cross-platform header file.
 #ifdef __CBIOS__

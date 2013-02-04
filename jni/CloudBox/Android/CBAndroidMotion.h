@@ -1,5 +1,5 @@
 /*
- *  CBMotionAndroid.h
+ *  CBAndroidMotion.h
  *  CloudBox Cross-Platform Framework Project
  *
  *  Created by Cloud Hsu on 2012/6/14.
@@ -14,14 +14,14 @@
 #include "../Extends/CBMotionBase.h"
 #include "CBJNI.h"
 
-class CBMotionAndroid : public CBMotionBase, public CBJNI
+class CBAndroidMotion : public CBMotionBase, public CBJNI
 {
 private:
 	jmethodID m_start;
 	jmethodID m_stop;
 public:
-	CBMotionAndroid();
-	~CBMotionAndroid();
+	CBAndroidMotion();
+	~CBAndroidMotion();
 	void startAccelerometer();
 	void updateAccelerometer();
 	void stopAccelerometer();
