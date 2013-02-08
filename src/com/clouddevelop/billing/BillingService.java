@@ -418,7 +418,9 @@ public class BillingService extends Service implements ServiceConnection {
 
     @Override
     public void onStart(Intent intent, int startId) {
-        handleCommand(intent, startId);
+        if (null != intent) {
+            handleCommand(intent, startId);
+        }
     }
 
     /**
