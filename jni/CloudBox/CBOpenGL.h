@@ -17,11 +17,12 @@
 // for ios
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
-#else
+#elif __CBANDROID__
 // for android
 #include <EGL/egl.h>
 #include <GLES/gl.h>
 #endif
+
 #include "CBSingleton.h"
 #include "CBLibrary.h"
 

@@ -1,13 +1,14 @@
-//
-//  CBConfig.h
-//  ___PROJECTNAME___
-//
-//  Created by Cloud on 13/2/4.
-//
-//
+/*
+ *  CBConfig.h
+ *  CloudBox Cross-Platform Framework Project
+ *
+ *  Created by Cloud on 2013/02/04.
+ *  Copyright 2012 Orz. All rights reserved.
+ *
+ */
 
-#ifndef __CBConfig_h__
-#define __CBConfig_h__
+#ifndef __CBCONFIG_H__
+#define __CBCONFIG_H__
 
 
 // Using CBMotionEnable to enable motion for compile
