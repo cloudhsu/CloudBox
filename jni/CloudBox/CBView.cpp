@@ -12,7 +12,8 @@
 #include <math.h>
 
 CBView::CBView()
-:m_visible(true),m_z(0.0),m_angle(0.0),m_rotateAxis(RotateAxisZ)
+:m_visible(true), m_x(0.0), m_y(0.0), m_z(0.0), m_angle(0.0),
+m_rotateAxis(RotateAxisZ), m_width(0.0), m_height(0.0)
 {
 	// construct
 	m_color.r = m_color.g = m_color.b = m_color.a = 1.0f;

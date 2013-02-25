@@ -60,7 +60,7 @@ void CBDirector::runWithScene(CBScene* scene)
 	DebugLog("CBDirector::runWithScene\n");
 	if(m_currentScene != NULL)
 	{
-		DELETE(m_currentScene);
+		CBDELETE(m_currentScene);
 		STexturePool.releasePool();
 		SEventDispatcher.clear();
 		SActionManager.clear();

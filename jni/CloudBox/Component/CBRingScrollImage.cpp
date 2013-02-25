@@ -8,7 +8,12 @@
  */
 
 #include "CBRingScrollImage.h"
-#ifdef __CBBLACKBERRY__
+#ifdef __CBBLACKBERRY__ 
+#include "../CBImage.h"
+#include "../CBAction.h"
+#include "../CBEnvironment.h"
+#include "../CBLayout.h"
+#elif WIN32
 #include "../CBImage.h"
 #include "../CBAction.h"
 #include "../CBEnvironment.h"
@@ -51,8 +56,8 @@ m_distance(distance), m_duration(duration),m_isPause(false)
 
 CBRingScrollImage::~CBRingScrollImage()
 {
-	DELETE(m_image1);
-	DELETE(m_image2);
+	CBDELETE(m_image1);
+	CBDELETE(m_image2);
 }
 
 //const float CBRingScrollImage::getOffset()

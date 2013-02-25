@@ -44,8 +44,8 @@
     #endif
 #endif
 
-#define DELETE(x)		if (x) { delete x; x = NULL; }
-#define DELETE_ARRAY(x)	if (x) { delete [] x; x = NULL; }
+#define CBDELETE(x)		if (x) { delete x; x = NULL; }
+#define CBDELETE_ARRAY(x)	if (x) { delete [] x; x = NULL; }
 
 //#ifndef M_PI
 //#define M_PI		(3.1415927f)

@@ -32,7 +32,7 @@ void CBActionManager::clear()
 {
 	for(int i = 0 ; i < m_actions.size() ; i++)
 	{
-		DELETE(m_actions[i]);
+		CBDELETE(m_actions[i]);
 	}
 	m_actions.clear();
 }
@@ -43,7 +43,7 @@ void CBActionManager::removeAction(CBAction* action)
 	{
 		if(m_actions[i]->getID() == action->getID())
 		{
-			DELETE(m_actions[i]);
+			CBDELETE(m_actions[i]);
 			m_actions.erase(m_actions.begin()+i);
 			break;
 		}

@@ -22,7 +22,7 @@ CBUserDefault::CBUserDefault(void)
 
 CBUserDefault::~CBUserDefault(void)
 {
-    DELETE(m_xmlUtility);
+    CBDELETE(m_xmlUtility);
 }
 
 bool CBUserDefault::isUserDefaultExist()

@@ -16,7 +16,7 @@ CBDialog::CBDialog():m_dialogClick(NULL),m_result(DialogResultNone)
 
 CBDialog::~CBDialog()
 {
-    DELETE(m_dialogClick);
+    CBDELETE(m_dialogClick);
 }
 
 DialogResult CBDialog::getDialogResult()

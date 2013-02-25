@@ -23,8 +23,8 @@ CBStoreManager::CBStoreManager()
 
 CBStoreManager::~CBStoreManager()
 {
-    DELETE(m_store);
-    DELETE(m_storeEvent);
+    CBDELETE(m_store);
+    CBDELETE(m_storeEvent);
 }
 
 bool CBStoreManager::isBusy()
@@ -34,7 +34,7 @@ bool CBStoreManager::isBusy()
 
 void CBStoreManager::enableSimulateStore()
 {
-    DELETE(m_store);
+    CBDELETE(m_store);
     m_store = CBFactoryMethod::createSimulateStore();
     CBDialog* dialog = new CBSystemDialog();
     dialog->showDialog(DialogTypeClose,"Warring", "Simulate Store Mode!");
@@ -77,7 +77,7 @@ void CBStoreManager::restoreCompletedTransactions()
 
 void CBStoreManager::registerStoreEvent(CBStoreEvent* event)
 {
-    DELETE(m_storeEvent);
+    CBDELETE(m_storeEvent);
     m_storeEvent = event;
 }
 

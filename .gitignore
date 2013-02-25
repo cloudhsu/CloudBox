@@ -12,6 +12,12 @@
 *.a
 *.class
 *.o.d
+*.ncb
+*.suo
+*.user
+*.obj
 bin/
 gen/
 libs/
+Debug/
+debug/

@@ -41,8 +41,8 @@ public:
 	}
 	virtual ~IAction()
 	{
-		DELETE(m_delegate);
-		DELETE(m_finish);
+		CBDELETE(m_delegate);
+		CBDELETE(m_finish);
 	}
 	
 	template <typename T>

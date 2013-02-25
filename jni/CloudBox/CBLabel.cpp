@@ -34,7 +34,7 @@ CBLabel::CBLabel(const string& fileName,const string& text, int fontSize)
 
 CBLabel::~CBLabel()
 {
-	DELETE(m_text);
+	CBDELETE(m_text);
 }
 
 void CBLabel::offsetText()
@@ -47,7 +47,7 @@ void CBLabel::loadBackground(const string& fileName)
 {
 	//m_background->loadImage(fileName);
 	CBImage* newBg = new CBImage(fileName);
-	DELETE(m_background);
+	CBDELETE(m_background);
 	m_background = newBg;
 	setWidth(m_background->getWidth());
 	setHeight(m_background->getHeight());
@@ -62,7 +62,7 @@ void CBLabel::setBackground(const string& fileName)
 void CBLabel::setText(const string& text)
 {
 	CBString* newText = new CBString(text, m_fontSize);
-	DELETE(m_text);
+	CBDELETE(m_text);
 	m_text = newText;
 	offsetText();
 }

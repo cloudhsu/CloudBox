@@ -19,7 +19,7 @@ CBTextureBuilder::CBTextureBuilder()
 }
 CBTextureBuilder::~CBTextureBuilder()
 {
-    DELETE(m_builder);
+    CBDELETE(m_builder);
 }
 
 #ifdef __CBANDROID__

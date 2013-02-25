@@ -24,7 +24,7 @@ CBAnimation::CBAnimation(float duration)
 CBAnimation::~CBAnimation()
 {
 	for (int i = 0; i < m_frames.size(); i++) {
-		DELETE(m_frames[i].image);
+		CBDELETE(m_frames[i].image);
 	}
 	m_frames.clear();
 }

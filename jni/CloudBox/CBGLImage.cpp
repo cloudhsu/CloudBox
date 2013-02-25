@@ -52,15 +52,23 @@ void CBGLImage::loadImage(const string& fileName, float& width, float& height)
 	if(m_mainTexture == NULL)
 	{
 		m_mainTexture = STextureBuilder.buildTexture(fileName);
-		width = m_mainTexture->getImageWidth();
-		height = m_mainTexture->getImageHeight();
-		STexturePool.registerToPool(fileName,m_mainTexture);
+        if(m_mainTexture != NULL)
+        {
+		    width = m_mainTexture->getImageWidth();
+		    height = m_mainTexture->getImageHeight();
+		    STexturePool.registerToPool(fileName,m_mainTexture);
+        }
+        else
+        {
+            DebugLog("Generate texture error");
+        }
 	}
 	else
 	{
 		width = m_mainTexture->getImageWidth();
 		height = m_mainTexture->getImageHeight();
 	}
+    if(m_mainTexture != NULL)
 	DebugLog("Name:%s,texture id:%d,width:%f,height:%f\n",
 			fileName.c_str(),m_mainTexture->getTextureId(),width,height);
 }

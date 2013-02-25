@@ -23,6 +23,9 @@
 #elif __CBANDROID__
 #include "Extends/CBMotionBase.h"
 #include "Extends/CBLedBase.h"
+#elif WIN32
+#include "Extends/CBMotionBase.h"
+#include "Extends/CBLedBase.h"
 #endif
 // --------------------------------------------------
 // include for cross-platform header file.
@@ -44,6 +47,9 @@
 #include "Android/CBAndroidTextureBuilder.h"
 #include "Android/CBAndroidMotion.h"
 #include "Android/CBAndroidLed.h"
+#elif WIN32
+#include "Win32/CBWin32Dialog.h"
+#include "Win32/CBWin32TextureBuilder.h"
 #else
 
 #endif
@@ -71,6 +77,16 @@ typedef CBAndroidDialog SYSTEM_DIALOG;
 typedef CBAndroidTextureBuilder TEXTURE_BUILDER;
 typedef CBAndroidMotion MOTION_BUILDER;
 typedef CBAndroidLed LED_BUILDER;
+#elif WIN32
+// for default none behavior 
+typedef CBAudioSimulator AUDIO_MANAGER;
+typedef CBEffectSimulator EFFECT_MANAGER;
+typedef CBUtilitySimulator UTILITY;
+typedef CBStoreSimulator STORE_MANAGER;
+typedef CBWin32Dialog SYSTEM_DIALOG;
+typedef CBWin32TextureBuilder TEXTURE_BUILDER;
+typedef CBMotionSimulator MOTION_BUILDER;
+typedef CBLedSimulator LED_BUILDER;
 #else
 // for default none behavior 
 typedef CBAudioSimulator AUDIO_MANAGER;
@@ -80,7 +96,7 @@ typedef CBStoreSimulator STORE_MANAGER;
 typedef CBDialogSimulator SYSTEM_DIALOG;
 typedef CBTextureBuilderSmulator TEXTURE_BUILDER;
 typedef CBMotionSimulator MOTION_BUILDER;
-typedef CBLedSimulator MOTION_BUILDER;
+typedef CBLedSimulator LED_BUILDER;
 #endif
 // --------------------------------------------------
 

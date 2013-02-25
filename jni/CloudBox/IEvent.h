@@ -43,7 +43,7 @@ public:
 	}
 	virtual ~IEvent()
 	{
-		DELETE(m_delegate);
+		CBDELETE(m_delegate);
 	}
 };	
 

@@ -49,7 +49,7 @@ CBNumber::CBNumber(const string& preFileNmae)
 CBNumber::~CBNumber()
 {
 	for(int i = 0; i <= 9 ; i++)
-		DELETE(m_numbers[i]);
+		CBDELETE(m_numbers[i]);
 }
 
 int CBNumber::getNumber()
