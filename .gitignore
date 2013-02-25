@@ -15,6 +15,7 @@
 *.ncb
 *.suo
 *.user
+*.obj
 bin/
 gen/
 libs/
