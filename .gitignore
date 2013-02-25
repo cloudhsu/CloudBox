@@ -19,5 +19,5 @@
 bin/
 gen/
 libs/
-Debug/
-debug/
+[Dd]ebug/
+[Rr]elease/
