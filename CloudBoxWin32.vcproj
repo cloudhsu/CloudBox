@@ -41,11 +41,12 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectPath)\jni\CloudBox\Component;&quot;$(ProjectPath)\jni\CloudBox\Win32&quot;;&quot;$(ProjectPath)\&quot;;&quot;$(ProjectPath)\jni\CloudBox&quot;;"
+				AdditionalIncludeDirectories="&quot;$(ProjectPath)\&quot;;&quot;$(ProjectPath)\jni\CloudBox&quot;;&quot;$(ProjectPath)\jni\CloudBox\Component&quot;;&quot;$(ProjectPath)\jni\CloudBox\Win32&quot;;&quot;$(ProjectPath)\jni\CloudBox\Win32\libpng&quot;;&quot;C:\Program Files\GnuWin32\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
+				BufferSecurityCheck="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="4"
@@ -61,9 +62,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="GlU32.Lib OpenGL32.Lib freeglut.lib glut32.lib libxml2.lib iconv.lib"
+				UseLibraryDependencyInputs="true"
+				AdditionalDependencies="GlU32.Lib OpenGL32.Lib freeglut.lib glut32.lib libxml2.lib iconv.lib libpng.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$(VSInstallDir)\include\libxml&quot;"
+				AdditionalLibraryDirectories="&quot;C:\Program Files\GnuWin32\lib&quot;;&quot;$(VSInstallDir)\include\libxml&quot;"
+				AddModuleNamesToAssembly="libpng.lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -343,6 +346,14 @@
 			</File>
 			<File
 				RelativePath=".\jni\CloudBox\CBView.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jni\CloudBox\Win32\CBWin32Dialog.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jni\CloudBox\Win32\CBWin32TextureBuilder.cpp"
 				>
 			</File>
 			<File
@@ -663,6 +674,18 @@
 					</File>
 					<File
 						RelativePath=".\jni\CloudBox\Component\CBSlideBar.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Win32"
+					>
+					<File
+						RelativePath=".\jni\CloudBox\Win32\CBWin32Dialog.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\Win32\CBWin32TextureBuilder.h"
 						>
 					</File>
 				</Filter>
