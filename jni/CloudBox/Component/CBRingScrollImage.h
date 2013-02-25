@@ -12,6 +12,8 @@
 
 #ifdef __CBBLACKBERRY__
 #include "../CBView.h"
+#elif WIN32
+#include "../CBView.h"
 #else
 #include "CBView.h"
 #endif

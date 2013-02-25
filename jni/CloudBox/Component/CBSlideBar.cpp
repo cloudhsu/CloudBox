@@ -12,6 +12,10 @@
 #include "CBPropertyAction.h"
 #include "CBImage.h"
 #include "CBSwitch.h"
+#elif WIN32
+#include "../CBPropertyAction.h"
+#include "../CBImage.h"
+#include "../CBSwitch.h"
 #else
 #include "../CBPropertyAction.h"
 #include "../CBImage.h"
@@ -30,12 +34,12 @@ m_optionClick(NULL)
 
 CBSlideBar::~CBSlideBar()
 {
-	DELETE(m_optionButton);
-	DELETE(m_optionBar);
-	DELETE(m_buttonClick);
+	CBDELETE(m_optionButton);
+	CBDELETE(m_optionBar);
+	CBDELETE(m_buttonClick);
 	for(int i = 0 ; i < m_options.size() ; i++)
 	{
-		DELETE(m_options[i]);
+		CBDELETE(m_options[i]);
 	}
 	m_options.clear();
 }
@@ -256,13 +260,13 @@ void CBSlideBar::onBarAnimationFinish(CBView* target)
 
 void CBSlideBar::setOptionButton(const string& imageName)
 {
-	DELETE(m_optionButton);
+	CBDELETE(m_optionButton);
 	m_optionButton = new CBImage(imageName);
 }
 
 void CBSlideBar::setOptionBar(const string& imageName)
 {
-	DELETE(m_optionBar);
+	CBDELETE(m_optionBar);
 	m_optionBar = new CBImage(imageName);
 	m_optionBar->hide();
 }

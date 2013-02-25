@@ -89,8 +89,10 @@ void CBOpenGL::initialize2D()
 	
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+#if !WIN32
 	glOrthof(0, (float)m_screenWidth, 0, (float)m_screenHeight, -100, 100);
 	//glOrthof(0, (float)m_screenWidth, 0, (float)m_screenHeight, 0, 100);
+#endif
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();

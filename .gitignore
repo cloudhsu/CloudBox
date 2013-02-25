@@ -12,6 +12,10 @@
 *.a
 *.class
 *.o.d
+*.ncb
+*.suo
+*.user
 bin/
 gen/
 libs/
+D[d]ebug\

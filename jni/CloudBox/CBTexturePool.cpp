@@ -60,7 +60,7 @@ void CBTexturePool::releasePool()
 {
 	for (std::map<string,CBTexture* >::iterator it = m_texturePool.begin(); it != m_texturePool.end(); ++it)
     {
-        DELETE(it->second);
+        CBDELETE(it->second);
     }
 	m_texturePool.clear();
 #ifdef __CBANDROID__

@@ -23,6 +23,9 @@
 #elif __CBANDROID__
 #include "Extends/CBMotionBase.h"
 #include "Extends/CBLedBase.h"
+#elif WIN32
+#include "Extends/CBMotionBase.h"
+#include "Extends/CBLedBase.h"
 #endif
 // --------------------------------------------------
 // include for cross-platform header file.
@@ -80,7 +83,7 @@ typedef CBStoreSimulator STORE_MANAGER;
 typedef CBDialogSimulator SYSTEM_DIALOG;
 typedef CBTextureBuilderSmulator TEXTURE_BUILDER;
 typedef CBMotionSimulator MOTION_BUILDER;
-typedef CBLedSimulator MOTION_BUILDER;
+typedef CBLedSimulator LED_BUILDER;
 #endif
 // --------------------------------------------------
 

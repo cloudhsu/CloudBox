@@ -31,21 +31,21 @@ CBButton::CBButton(const string& text, int fontSize)
 
 CBButton::~CBButton()
 {
-	DELETE(m_normal);
-	DELETE(m_clicked);
-	DELETE(m_text);
+	CBDELETE(m_normal);
+	CBDELETE(m_clicked);
+	CBDELETE(m_text);
 }
 
 void CBButton::setNormalState(CBImage* image)
 {
-	DELETE(m_normal);
+	CBDELETE(m_normal);
 	m_normal = image;
 	this->setWidth(m_normal->getWidth());
 	this->setHeight(m_normal->getHeight());
 }
 void CBButton::setClickState(CBImage* image)
 {
-	DELETE(m_clicked);
+	CBDELETE(m_clicked);
 	m_clicked = image;
 }
 
@@ -80,7 +80,7 @@ void CBButton::offsetText()
 void CBButton::setText(const string& text)
 {
 	CBString* newText = new CBString(text, m_fontSize);
-	DELETE(m_text);
+	CBDELETE(m_text);
 	m_text = newText;
 	offsetText();
 }

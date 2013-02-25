@@ -11,7 +11,7 @@
 
 #ifdef WIN32
 // for win32
-#include <GLES/gl.h>
+#include <GL/glut.h>
 #elif __CBIOS__
 // for ios
 #import <OpenGLES/ES1/gl.h>

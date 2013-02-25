@@ -33,8 +33,8 @@ CBSwitch::CBSwitch(const string& onImageName,const string& offImageName)
 
 CBSwitch::~CBSwitch()
 {
-	DELETE(m_on);
-	DELETE(m_off);
+	CBDELETE(m_on);
+	CBDELETE(m_off);
 }
 
 void CBSwitch::onSwitch()
@@ -81,14 +81,14 @@ void CBSwitch::onClick(float x,float y)
 
 void CBSwitch::setOnView(CBView* view)
 {
-	DELETE(m_on);
+	CBDELETE(m_on);
 	m_on = view;
 	this->setWidth(m_on->getWidth());
 	this->setHeight(m_on->getHeight());
 }
 void CBSwitch::setOffView(CBView* view)
 {
-	DELETE(m_off);
+	CBDELETE(m_off);
 	m_off = view;
 }
 

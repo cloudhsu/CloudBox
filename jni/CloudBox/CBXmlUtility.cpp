@@ -19,7 +19,7 @@ CBXmlUtility::CBXmlUtility(void)
 
 CBXmlUtility::~CBXmlUtility(void)
 {
-    DELETE(m_xmlUtility);
+    CBDELETE(m_xmlUtility);
 }
 
 void CBXmlUtility::saveToXML(map<string,string>& data,const string& fileName)

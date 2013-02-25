@@ -19,7 +19,7 @@ CBSprite::CBSprite()
 CBSprite::~CBSprite()
 {
 	for (int i = 0; i < m_Animations.size(); i++) {
-		DELETE(m_Animations[i].animation);
+		CBDELETE(m_Animations[i].animation);
 	}
 	m_Animations.clear();
 }

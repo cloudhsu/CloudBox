@@ -16,6 +16,7 @@
 #include <math.h>
 #include <fstream>
 #include "CBFactoryMethod.h"
+#include <stdlib.h>
 
 CBUtility::CBUtility()
 {
@@ -101,7 +102,7 @@ int CBUtility::rand()
 #ifdef __CBIOS__
     return abs((int)arc4random());
 #else
-    return (int)random();
+    return (int)rand();
 #endif
 }
 

@@ -42,7 +42,7 @@ void CBScene::endInitial()
 CBScene::~CBScene()
 {
 	for (int i = 0; i < m_items.size(); i++) {
-		DELETE(m_items[i]);
+		CBDELETE(m_items[i]);
 	}
 	m_items.clear();
 }

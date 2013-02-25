@@ -34,6 +34,6 @@ void CBDialogManager::alertEvent(DialogResult result, int clickIndex)
 
 void CBDialogManager::registerDialog(CBDialog* dialog)
 {
-	DELETE(m_dialog);
+	CBDELETE(m_dialog);
     m_dialog = dialog;
 }
