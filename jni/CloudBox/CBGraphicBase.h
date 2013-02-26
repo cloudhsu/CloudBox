@@ -15,16 +15,16 @@ class CBGraphicBase
 private:
 public:
     // initial graphic
-    void initial2D();
+    virtual void initial2D() = 0;
     
     // for draw function
-    void drawLine();
-    void drawRect();
-    void drawCircle();
+    virtual void drawLine(CBPoint& ptStart,CBPoint& ptEnd) = 0;
+    virtual void drawRect(CBRect& rect) = 0;
+    virtual void drawCircle(CBPoint& pt, float radius) = 0;
     
     // for texture
-    void render();
-    void renderString();
+    virtual void render() = 0;
+    virtual void renderString() = 0;
 };
 
 #endif

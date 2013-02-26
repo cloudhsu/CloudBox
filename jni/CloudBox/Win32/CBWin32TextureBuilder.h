@@ -19,7 +19,7 @@ private:
 	// --- Add private member --- //
 	GLuint createText(const char* text, float size,float& rWidth, float& rHeight);
 	// load texture from png
-	GLuint loadTextureFromPNG (const char* filename, int &width, int &height, int &rpixWidth, int &rpixHeight);
+	GLuint loadTextureFromPNG(const char* filename, int &width, int &height, int &rpixWidth, int &rpixHeight);
 public:
 	// --- Add public member --- //
 	CBWin32TextureBuilder();

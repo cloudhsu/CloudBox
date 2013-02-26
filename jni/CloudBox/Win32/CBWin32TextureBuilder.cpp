@@ -13,7 +13,7 @@
 #include "../CBLibrary.h"
 #include <GL/glut.h>
 #include <stdio.h>
-#include <png.h>
+#include "libpng/png.h"
 
 CBWin32TextureBuilder::CBWin32TextureBuilder()
 {
@@ -45,7 +45,7 @@ CBWin32TextureBuilder::~CBWin32TextureBuilder()
 //  zip_fread(file, data, length);
 //}
 
-GLuint CBWin32TextureBuilder::loadTextureFromPNG (const char* filename, int &width, int &height, int &rpixWidth, int &rpixHeight)
+GLuint CBWin32TextureBuilder::loadTextureFromPNG(const char* filename, int &width, int &height, int &rpixWidth, int &rpixHeight)
 {
     png_structp png_ptr;
     png_infop info_ptr;
@@ -57,11 +57,14 @@ GLuint CBWin32TextureBuilder::loadTextureFromPNG (const char* filename, int &wid
         return false;
 
     // Check the validity of the file
-    unsigned char header[8];
+    png_byte header[8];
     fread(header, 1, 8, fp);
-    if(!png_check_sig(header, 8))
-        // Not a valid PNG
+    int is_png = !png_sig_cmp(header, 0, 8);
+    if(!is_png)
+    {
+        fclose(fp);
         return false;
+    }
 
     /* Create and initialize the png_struct
      * with the desired error handler

@@ -21,9 +21,9 @@ public:
     void initial2D();
     
     // for draw function
-    void drawLine();
-    void drawRect();
-    void drawCircle();
+    void drawLine(CBPoint& ptStart,CBPoint& ptEnd);
+    void drawRect(CBRect& rect);
+    void drawCircle(CBPoint& pt, float radius);
     
     // for texture
     void render();

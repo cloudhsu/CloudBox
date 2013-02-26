@@ -41,12 +41,12 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectPath)\&quot;;&quot;$(ProjectPath)\jni\CloudBox&quot;;&quot;$(ProjectPath)\jni\CloudBox\Component&quot;;&quot;$(ProjectPath)\jni\CloudBox\Win32&quot;;&quot;$(ProjectPath)\jni\CloudBox\Win32\libpng&quot;;&quot;C:\Program Files\GnuWin32\include&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)&quot;;&quot;$(ProjectDir)jni\CloudBox&quot;;&quot;$(ProjectDir)jni\CloudBox\Component&quot;;&quot;$(ProjectDir)jni\CloudBox\Win32&quot;;&quot;C:\Program Files\GnuWin32\include&quot;;&quot;$(ProjectDir)CloudBox\libpng&quot;;&quot;$(ProjectDir)CloudBox\libzip&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				BufferSecurityCheck="true"
+				BufferSecurityCheck="false"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="4"
@@ -62,11 +62,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				UseLibraryDependencyInputs="true"
-				AdditionalDependencies="GlU32.Lib OpenGL32.Lib freeglut.lib glut32.lib libxml2.lib iconv.lib libpng.lib"
+				UseLibraryDependencyInputs="false"
+				AdditionalDependencies="GlU32.Lib OpenGL32.Lib freeglut.lib glut32.lib libxml2.lib iconv.lib zlib.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;C:\Program Files\GnuWin32\lib&quot;;&quot;$(VSInstallDir)\include\libxml&quot;"
-				AddModuleNamesToAssembly="libpng.lib"
+				AdditionalLibraryDirectories="&quot;$(VSInstallDir)\include\libxml&quot;;&quot;C:\Program Files\GnuWin32\lib&quot;"
+				AddModuleNamesToAssembly=""
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -689,6 +689,86 @@
 						>
 					</File>
 				</Filter>
+			</Filter>
+			<Filter
+				Name="libpng"
+				>
+				<File
+					RelativePath=".\jni\libpng\config.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\png.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\png.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngconf.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngerror.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngget.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngmem.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngpread.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngpriv.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngread.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngrio.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngrtran.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngrutil.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngset.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngtrans.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngwio.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngwrite.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngwtran.c"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\libpng\pngwutil.c"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
