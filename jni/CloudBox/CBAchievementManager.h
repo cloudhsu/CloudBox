@@ -15,9 +15,10 @@ class CBAchievements;
 class CBAchievementManager
 {
 private:
+    const static string DEFAULT_ACHIEVEMENT_SETTING_NAME;
+    const static string ACHIEVEMENT_SETTING_NAME;
     CBAchievements* m_defaultAchievements;
     CBAchievements* m_currentAchievements;
-
 
 public:
     CBAchievementManager();
