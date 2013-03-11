@@ -10,11 +10,21 @@
 #ifndef __CBACHIEVEMENTMANAGER_H__
 #define __CBACHIEVEMENTMANAGER_H__
 
+class CBAchievements;
+
 class CBAchievementManager
 {
+private:
+    CBAchievements* m_defaultAchievements;
+    CBAchievements* m_currentAchievements;
+
+
 public:
     CBAchievementManager();
     ~CBAchievementManager();
+
+    void loadAchievements();
+
 };
 
 #endif

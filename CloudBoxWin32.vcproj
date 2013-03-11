@@ -390,6 +390,30 @@
 				Name="CloudBox"
 				>
 				<File
+					RelativePath=".\jni\CloudBox\CBAchievementItem.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBAchievementItem.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBAchievementManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBAchievementManager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBAchievements.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBAchievements.h"
+					>
+				</File>
+				<File
 					RelativePath=".\jni\CloudBox\CBAction.h"
 					>
 				</File>
@@ -495,6 +519,18 @@
 				</File>
 				<File
 					RelativePath=".\jni\CloudBox\CBGLImage.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBGraphic.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBGraphic.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBGraphicBase.h"
 					>
 				</File>
 				<File
