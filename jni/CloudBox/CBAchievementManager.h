@@ -10,6 +10,10 @@
 #ifndef __CBACHIEVEMENTMANAGER_H__
 #define __CBACHIEVEMENTMANAGER_H__
 
+#include "CBSingleton.h"
+#include <string>
+using namespace std;
+
 class CBAchievements;
 
 class CBAchievementManager
@@ -25,7 +29,6 @@ public:
     ~CBAchievementManager();
 
     void loadAchievements();
-
 };
 
 #endif

@@ -12,6 +12,8 @@
 
 #include "CBXmlBase.h"
 
+class CBAchievements;
+
 class CBXmlUtility : public CBXmlBase
 {
 private:
@@ -22,6 +24,9 @@ public:
 
     void saveToXML(map<string,string>& data,const string& fileName);
     map<string,string> loadFromXML(string fileName);
+
+    CBAchievements* loadAchievement(const string& fileName);
+    void SaveAchievement(const string& fileName, CBAchievements* achievements);
 };
 
 #endif

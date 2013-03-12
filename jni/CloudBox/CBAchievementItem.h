@@ -37,6 +37,12 @@ public:
     inline string getDescription() const { return m_description; }
     inline void setDescription(std::string val) { m_description = val; }
 
+    inline double getCurrentValue() const { return m_currentValue; }
+    inline void setCurrentValue(double val) { m_currentValue = val; }
+
+    inline double getTargetValue() const { return m_targetValue; }
+    inline void setTargetValue(double val) { m_targetValue = val; }
+
     double getPercentage();
 };
 

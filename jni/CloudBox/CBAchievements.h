@@ -18,13 +18,15 @@ class CBAchievementItem;
 
 class CBAchievements
 {
+private:
+    string m_info;
     map<string,CBAchievementItem*> m_achievements;
 public:
     CBAchievements();
     ~CBAchievements();
 
-    void loadAchievement(const string& fileName);
-    void saveAchievement(const string& fileName);
+    inline std::string getInfo() const { return m_info; }
+    inline void setInfo(std::string val) { m_info = val; }
 
     CBAchievementItem* getAchievementItem(const string& id);
 
@@ -33,6 +35,8 @@ public:
 
     void updateAchievement(const string& id, double newValue);
     void increaseAchievement(const string& id, double increaseValue);
+
+    void addAchievement(string id, CBAchievementItem* item);
 };
 
 #endif

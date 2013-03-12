@@ -23,16 +23,6 @@ CBAchievements::~CBAchievements()
     }
 }
 
-void CBAchievements::loadAchievement( const string& fileName )
-{
-
-}
-
-void CBAchievements::saveAchievement( const string& fileName )
-{
-
-}
-
 CBAchievementItem* CBAchievements::getAchievementItem( const string& id )
 {
     CBAchievementItem* item = NULL;
@@ -79,4 +69,9 @@ void CBAchievements::increaseAchievement( const string& id, double increaseValue
         item = m_achievements[id];
         item->increaseAchievement(increaseValue);
     }
+}
+
+void CBAchievements::addAchievement( string id, CBAchievementItem* item )
+{
+    m_achievements[id] = item;
 }
