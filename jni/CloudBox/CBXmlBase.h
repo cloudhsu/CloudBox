@@ -14,6 +14,8 @@
 #include <map>
 using namespace std;
 
+class CBAchievements;
+
 class CBXmlBase
 {
 public:
@@ -22,6 +24,9 @@ public:
 
     virtual void saveToXML(map<string,string>& data,const string& fileName) = 0;
     virtual map<string,string> loadFromXML(string fileName) = 0;
+
+    virtual CBAchievements* loadAchievement(const string& fileName) = 0;
+    virtual void saveAchievement(const string& fileName, CBAchievements* achievements) = 0;
 };
 
 #endif

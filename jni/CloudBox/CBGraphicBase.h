@@ -10,6 +10,8 @@
 #ifndef __CBGRAPHICBASE_H__
 #define __CBGRAPHICBASE_H__
 
+#include "CBLibrary.h"
+
 class CBGraphicBase
 {
 private:
@@ -25,6 +27,23 @@ public:
     // for texture
     virtual void render() = 0;
     virtual void renderString() = 0;
+};
+
+class CBGraphicSimulator : public CBGraphicBase
+{
+private:
+public:
+    // initial graphic
+    void initial2D(){};
+
+    // for draw function
+    void drawLine(CBPoint& ptStart,CBPoint& ptEnd){};
+    void drawRect(CBRect& rect){};
+    void drawCircle(CBPoint& pt, float radius){};
+
+    // for texture
+    void render(){};
+    void renderString(){};
 };
 
 #endif

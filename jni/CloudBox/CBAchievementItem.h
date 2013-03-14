@@ -15,6 +15,13 @@ using namespace std;
 
 #define DEFAULT_ACHIEVEMENT_VALUE 0
 
+enum CBAchievementState
+{
+    AchievementInit = 0,
+    AchievementComplete = 1,
+    AchievementCompleteAndUpdate = 2,
+};
+
 class CBAchievementItem
 {
 private:
@@ -22,6 +29,7 @@ private:
     string m_description;
     double m_targetValue;
     double m_currentValue;
+    bool m_complete;
 public:
     CBAchievementItem();
     ~CBAchievementItem();
@@ -29,7 +37,10 @@ public:
     void update(double newValue);
     void reset();
     void increase(double increaseValue);
+    void updateAchievementSucceed();
 
+    inline bool getIsComplete() const { return m_complete; }
+    inline void setIsComplete(bool val) { m_complete = val; }
 
     inline string getId() const { return m_id; }
     inline void setId(std::string val) { m_id = val; }

@@ -7,12 +7,12 @@
  *
  */
 
-#include "CBLibrary.h"
+#include "CBGraphicBase.h"
 #include "CBGraphic.h"
 
 CBGraphic::CBGraphic()
 {
-
+    m_impl = new CBGraphicSimulator();
 }
 
 CBGraphic::~CBGraphic()

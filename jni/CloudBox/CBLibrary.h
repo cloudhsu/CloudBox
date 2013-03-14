@@ -23,7 +23,7 @@
 	#endif
 	#define AndroidLog(...)
 #elif WIN32
-	#ifdef DEBUG
+	#ifdef _DEBUG
 	#include <stdio.h>
 	#define DebugLog(str) printf(str)
 	#undef DebugLog

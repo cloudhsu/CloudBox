@@ -23,6 +23,9 @@ public:
 
     void saveToXML(map<string,string>& data,const string& fileName);
     map<string,string> loadFromXML(string fileName);
+
+    CBAchievements* loadAchievement(const string& fileName);
+    void saveAchievement(const string& fileName, CBAchievements* achievements);
 };
 
 #endif

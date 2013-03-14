@@ -68,6 +68,8 @@ void CBOpenGL::initialize2D()
 #if !WIN32
 	glOrthof(0, (float)m_screenWidth, 0, (float)m_screenHeight, -100, 100);
 	//glOrthof(0, (float)m_screenWidth, 0, (float)m_screenHeight, 0, 100);
+#else
+    glOrtho(0, (float)m_screenWidth, 0, (float)m_screenHeight, -100, 100);
 #endif
 	
 	glMatrixMode(GL_MODELVIEW);

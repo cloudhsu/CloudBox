@@ -37,3 +37,16 @@ map<string,string> CBXmlUtility::loadFromXML(string fileName)
     }
     return data;
 }
+
+CBAchievements* CBXmlUtility::loadAchievement(const string& fileName)
+{
+    string fullName = SUtility.getSystemPath(fileName);
+    CBAchievements* achievements = NULL;
+    achievements = m_xmlUtility->loadAchievement(fullName);
+    return achievements;
+}
+void CBXmlUtility::saveAchievement(const string& fileName, CBAchievements* achievements)
+{
+    string fullName = SUtility.getSystemPath(fileName);
+    m_xmlUtility->saveAchievement(fullName, achievements);
+}

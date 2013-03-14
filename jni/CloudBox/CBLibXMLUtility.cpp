@@ -106,3 +106,13 @@ map<string,string> CBLibXMLUtility::loadWithLibXML(string fileName)
     }
     return data;
 }
+
+CBAchievements* CBLibXMLUtility::loadAchievement( const string& fileName )
+{
+    return NULL;
+}
+
+void CBLibXMLUtility::saveAchievement( const string& fileName, CBAchievements* achievements )
+{
+
+}

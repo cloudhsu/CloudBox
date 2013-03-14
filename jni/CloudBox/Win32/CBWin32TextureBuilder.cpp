@@ -6,14 +6,24 @@
  *  Copyright 2013 Orz. All rights reserved.
  *
  */
+#pragma comment (lib, "gdiplus.lib")
 
+#include <windows.h>
+#include <gdiplus.h>
+#include <gdiplus.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <stdio.h>
+#include <sstream>
+#include <stdexcept>
+#include <string>
+#include <vector>
+#include <memory>
 #include "CBWin32TextureBuilder.h"
 #include "../CBTexture.h"
 #include "../CBTexturePool.h"
 #include "../CBLibrary.h"
-#include <GL/glut.h>
-#include <stdio.h>
-#include "libpng/png.h"
+using namespace std;
 
 CBWin32TextureBuilder::CBWin32TextureBuilder()
 {
@@ -47,215 +57,75 @@ CBWin32TextureBuilder::~CBWin32TextureBuilder()
 
 GLuint CBWin32TextureBuilder::loadTextureFromPNG(const char* filename, int &width, int &height, int &rpixWidth, int &rpixHeight)
 {
-    png_structp png_ptr;
-    png_infop info_ptr;
-    unsigned int sig_read = 0;
-    int color_type, interlace_type;
-    FILE *fp = NULL;
+    ULONG_PTR m_gdiplusToken;
+    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+    Gdiplus::GdiplusStartup(&m_gdiplusToken, &gdiplusStartupInput, NULL);
+    // GDI+ requires unicode strings.
+    // This trick only works for strings containing English ASCII text.
+    std::string asciiFilename(filename);
+    std::wstring unicodeFilename(asciiFilename.length(), L' ');
+    std::copy(asciiFilename.begin(), asciiFilename.end(), unicodeFilename.begin());
 
-    if ((fp = fopen(filename, "rb")) == NULL)
-        return false;
+    Gdiplus::Bitmap* pBitmap = Gdiplus::Bitmap::FromFile(unicodeFilename.c_str(), FALSE);
 
-    // Check the validity of the file
-    png_byte header[8];
-    fread(header, 1, 8, fp);
-    int is_png = !png_sig_cmp(header, 0, 8);
-    if(!is_png)
+    if (pBitmap == NULL )
     {
-        fclose(fp);
         return false;
     }
 
-    /* Create and initialize the png_struct
-     * with the desired error handler
-     * functions.  If you want to use the
-     * default stderr and longjump method,
-     * you can supply NULL for the last
-     * three parameters.  We also supply the
-     * the compiler header file version, so
-     * that we know if the application
-     * was compiled with a compatible version
-     * of the library.  REQUIRED
-     */
-    png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING,
-            NULL, NULL, NULL);
+    // GDI+ orients bitmap images top-bottom.
+    // OpenGL expects bitmap images to be oriented bottom-top by default.
+    pBitmap->RotateFlip(Gdiplus::RotateNoneFlipY);
 
-    if (png_ptr == NULL) {
-        fclose(fp);
+    // GDI+ pads each scanline of the loaded bitmap image to 4-byte memory
+    // boundaries. Fortunately OpenGL also aligns bitmap images to 4-byte
+    // memory boundaries by default.
+    width = pBitmap->GetWidth();
+    height = pBitmap->GetHeight();
+    int pitch = ((width * 32 + 31) & ~31) >> 3;
+
+    std::vector<unsigned char> pixels(pitch * height);
+    Gdiplus::BitmapData data;
+    Gdiplus::Rect rect(0, 0, width, height);
+
+    // Convert to 32-bit BGRA pixel format and fetch the pixel data.
+
+    if (pBitmap->LockBits(&rect, Gdiplus::ImageLockModeRead, PixelFormat32bppARGB, &data) != Gdiplus::Ok)
         return false;
-    }
 
-    /* Allocate/initialize the memory
-     * for image information.  REQUIRED. */
-    info_ptr = png_create_info_struct(png_ptr);
-    if (info_ptr == NULL) {
-        fclose(fp);
-        png_destroy_read_struct(&png_ptr, png_infopp_NULL, png_infopp_NULL);
-        return false;
-    }
-
-    /* Set error handling if you are
-     * using the setjmp/longjmp method
-     * (this is the normal method of
-     * doing things with libpng).
-     * REQUIRED unless you  set up
-     * your own error handlers in
-     * the png_create_read_struct()
-     * earlier.
-     */
-    if (setjmp(png_jmpbuf(png_ptr))) {
-        /* Free all of the memory associated
-         * with the png_ptr and info_ptr */
-        png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
-        fclose(fp);
-        /* If we get here, we had a
-         * problem reading the file */
-        return false;
-    }
-
-    /* Set up the output control if
-     * you are using standard C streams */
-    png_init_io(png_ptr, fp);
-
-    /* If we have already
-     * read some of the signature */
-    png_set_sig_bytes(png_ptr, 8);
-
-    /*
-     * If you have enough memory to read
-     * in the entire image at once, and
-     * you need to specify only
-     * transforms that can be controlled
-     * with one of the PNG_TRANSFORM_*
-     * bits (this presently excludes
-     * dithering, filling, setting
-     * background, and doing gamma
-     * adjustment), then you can read the
-     * entire image (including pixels)
-     * into the info structure with this
-     * call
-     *
-     * PNG_TRANSFORM_STRIP_16 |
-     * PNG_TRANSFORM_PACKING  forces 8 bit
-     * PNG_TRANSFORM_EXPAND forces to
-     *  expand a palette into RGB
-     */
-    int bit_depth = 0;
-    png_uint_32 twidth = 0;
-    png_uint_32 theight = 0;
-    // read all the info up to the image data
-    //png_read_info(png_ptr, info_ptr);
-    //png_get_IHDR(png_ptr, info_ptr, &twidth, &theight, &bit_depth, &color_type, NULL, NULL, NULL);
-    png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_16 | PNG_TRANSFORM_PACKING | PNG_TRANSFORM_EXPAND, png_voidp_NULL);
-
-    
-
-    //update width and height based on png info
-    width = info_ptr->width;
-    height = info_ptr->height;
-    int pixelWidth = width;
-    int pixelHeight = height;
-    int i;
-    bool sizeToFit = false;
-    if((pixelWidth != 1) && (pixelWidth & (pixelWidth - 1)))
+    if (data.Stride == pitch)
     {
-        i = 1;
-        while((sizeToFit ? 2 * i : i) < pixelWidth)
-         	i *= 2;
-        pixelWidth = i;
+        memcpy(&pixels[0], data.Scan0, pitch * height);
     }
-    if((pixelHeight != 1) && (pixelHeight & (pixelHeight - 1)))
+    else
     {
-        i = 1;
-        while((sizeToFit ? 2 * i : i) < pixelHeight)
-           	i *= 2;
-        pixelHeight = i;
+        unsigned char *pSrcPixels = static_cast<unsigned char *>(data.Scan0);
+
+        for (int i = 0; i < height; ++i)
+            memcpy(&pixels[i * pitch], &pSrcPixels[i * data.Stride], pitch);
     }
 
-    // Update the png info struct.
-    png_read_update_info(png_ptr, info_ptr);
+    pBitmap->UnlockBits(&data);
 
-    // Row size in bytes.
-    int rowbytes = png_get_rowbytes(png_ptr, info_ptr);
+    // Create an OpenGL texture object to store the loaded bitmap image.
 
-    // Allocate the image_data as a big block, to be given to opengl
-    //png_byte *image_data = new png_byte[rowbytes * height];
-    png_byte *image_data = new png_byte[pixelWidth * pixelHeight*4];
-    if (!image_data)
-    {
-        //clean up memory and close stuff
-        png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
-        fclose(fp);
-        return TEXTURE_LOAD_ERROR;
-    }
+    GLuint g_texture;
 
-    //row_pointers is for pointing to image_data for reading the png with libpng
-    //png_bytep *row_pointers = new png_bytep[height];
-    png_bytep *row_pointers = new png_bytep[pixelHeight];
-    if (!row_pointers)
-    {
-        //clean up memory and close stuff
-        png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
-        delete[] image_data;
-        fclose(fp);
-        return TEXTURE_LOAD_ERROR;
-    }
-    // set the individual row_pointers to point at the correct offsets of image_data
-    for (int i = 0; i < height; ++i)
-    	row_pointers[height - 1 - i] = image_data + i * pixelWidth*4;
-        //row_pointers[height - 1 - i] = image_data + i * rowbytes;
+    glGenTextures(1, &g_texture);
+    glBindTexture(GL_TEXTURE_2D, g_texture);
 
-    //read the png into image_data through row_pointers
-    png_read_image(png_ptr, row_pointers);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-    rpixWidth = pixelWidth;
-    rpixHeight = pixelHeight;
-    //Now generate the OpenGL texture object
+    gluBuild2DMipmaps(GL_TEXTURE_2D, 4, width, height, GL_BGRA_EXT, GL_UNSIGNED_BYTE, &pixels[0]);
 
-    GLuint texture;
-    glGenTextures(1, &texture);
-    GLenum errorCode = glGetError();
-    if(GL_NO_ERROR != errorCode)
-	    DebugLog("OpenGL Error in glGenTextures: %d ", errorCode);
+    rpixWidth = width;
+    rpixHeight = height;
+    Gdiplus::GdiplusShutdown(m_gdiplusToken);
 
-    glBindTexture(GL_TEXTURE_2D, texture);
-    errorCode = glGetError();
-    if(GL_NO_ERROR != errorCode)
-  	    DebugLog("OpenGL Error in glBindTexture: %d ", errorCode);
-
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-    //glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
-    //glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
-
-    switch (color_type)
-    {
-        case PNG_COLOR_TYPE_RGBA:
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, pixelWidth, pixelHeight, 0,
-           	    		GL_RGBA, GL_UNSIGNED_BYTE, (GLvoid*) image_data);
-            break;
-        /*case PNG_COLOR_TYPE_RGB:
-          	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, pixelWidth, pixelHeight, 0,
-           			GL_RGB, GL_UNSIGNED_SHORT_5_6_5, (GLvoid*) image_data);
-            break;*/
-        default:
-        	glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, pixelWidth, pixelHeight, 0, GL_ALPHA, GL_UNSIGNED_BYTE, (GLvoid*) image_data);
-            break;
-    }
-    errorCode = glGetError();
-    if(GL_NO_ERROR != errorCode)
-    {
-    	int maxtexsize;
-    	glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxtexsize);
-    }
-
-    //clean up memory and close stuff
-    png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
-    delete[] image_data;
-    delete[] row_pointers;
-    fclose(fp);
-
-    return texture;
+    return g_texture;
 }
 
 

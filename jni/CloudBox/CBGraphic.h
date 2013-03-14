@@ -10,6 +10,9 @@
 #ifndef __CBGRAPHIC_H__
 #define __CBGRAPHIC_H__
 
+#include <string>
+using namespace std;
+
 class CBGraphicBase;
 
 class CBGraphic
@@ -17,6 +20,9 @@ class CBGraphic
 private:
     CBGraphicBase* m_impl;
 public:
+    CBGraphic();
+    virtual ~CBGraphic();
+
     // initial graphic
     void initial2D();
     

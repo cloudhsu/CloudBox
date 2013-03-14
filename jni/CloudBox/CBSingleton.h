@@ -10,7 +10,7 @@
 #ifndef _CBSINGLETON_H_
 #define _CBSINGLETON_H_
 
-template <typename T>
+template <typename TInstance>
 class CBSingleton
 {
 protected:
@@ -18,9 +18,9 @@ protected:
 public:
 	~CBSingleton(){}
 
-	static T& instance()
+	static TInstance& instance()
 	{
-		static T instance;
+		static TInstance instance;
 		return instance;
 	}
 };

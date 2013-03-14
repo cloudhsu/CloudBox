@@ -26,7 +26,7 @@ public:
     map<string,string> loadFromXML(string fileName);
 
     CBAchievements* loadAchievement(const string& fileName);
-    void SaveAchievement(const string& fileName, CBAchievements* achievements);
+    void saveAchievement(const string& fileName, CBAchievements* achievements);
 };
 
 #endif

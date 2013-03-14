@@ -57,7 +57,7 @@ void CBAchievements::updateAchievement( const string& id, double newValue )
     if( !(m_achievements.find(id) == m_achievements.end()) )
     {
         item = m_achievements[id];
-        item->updateAchievement(newValue);
+        item->update(newValue);
     }
 }
 
@@ -67,7 +67,7 @@ void CBAchievements::increaseAchievement( const string& id, double increaseValue
     if( !(m_achievements.find(id) == m_achievements.end()) )
     {
         item = m_achievements[id];
-        item->increaseAchievement(increaseValue);
+        item->increase(increaseValue);
     }
 }
 

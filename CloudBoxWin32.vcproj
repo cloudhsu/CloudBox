@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)&quot;;&quot;$(ProjectDir)jni\CloudBox&quot;;&quot;$(ProjectDir)jni\CloudBox\Component&quot;;&quot;$(ProjectDir)jni\CloudBox\Win32&quot;;&quot;C:\Program Files\GnuWin32\include&quot;;&quot;$(ProjectDir)CloudBox\libpng&quot;;&quot;$(ProjectDir)CloudBox\libzip&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\GnuWin32\include&quot;;&quot;$(ProjectDir)&quot;;&quot;$(ProjectDir)jni\CloudBox&quot;;&quot;$(ProjectDir)jni\CloudBox\Component&quot;;&quot;$(ProjectDir)jni\CloudBox\Win32&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -177,6 +177,18 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\jni\CloudBox\CBAchievementItem.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jni\CloudBox\CBAchievementManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jni\CloudBox\CBAchievements.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBAction.cpp"
 				>
 			</File>
@@ -238,6 +250,10 @@
 			</File>
 			<File
 				RelativePath=".\jni\CloudBox\CBGLImage.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jni\CloudBox\CBGraphic.cpp"
 				>
 			</File>
 			<File
@@ -390,23 +406,11 @@
 				Name="CloudBox"
 				>
 				<File
-					RelativePath=".\jni\CloudBox\CBAchievementItem.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\jni\CloudBox\CBAchievementItem.h"
 					>
 				</File>
 				<File
-					RelativePath=".\jni\CloudBox\CBAchievementManager.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\jni\CloudBox\CBAchievementManager.h"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\CloudBox\CBAchievements.cpp"
 					>
 				</File>
 				<File
@@ -522,10 +526,6 @@
 					>
 				</File>
 				<File
-					RelativePath=".\jni\CloudBox\CBGraphic.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\jni\CloudBox\CBGraphic.h"
 					>
 				</File>
@@ -570,6 +570,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\jni\CloudBox\CBObserver.h"
+					>
+				</File>
+				<File
 					RelativePath=".\jni\CloudBox\CBOpenGL.h"
 					>
 				</File>
@@ -611,6 +615,10 @@
 				</File>
 				<File
 					RelativePath=".\jni\CloudBox\CBString.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBSubjectMediator.h"
 					>
 				</File>
 				<File
@@ -725,86 +733,6 @@
 						>
 					</File>
 				</Filter>
-			</Filter>
-			<Filter
-				Name="libpng"
-				>
-				<File
-					RelativePath=".\jni\libpng\config.h"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\png.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\png.h"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngconf.h"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngerror.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngget.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngmem.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngpread.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngpriv.h"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngread.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngrio.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngrtran.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngrutil.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngset.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngtrans.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngwio.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngwrite.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngwtran.c"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\libpng\pngwutil.c"
-					>
-				</File>
 			</Filter>
 		</Filter>
 		<Filter

@@ -10,13 +10,15 @@
 #ifndef __CBACHIEVEMENTMANAGER_H__
 #define __CBACHIEVEMENTMANAGER_H__
 
+#include "CBSubjectMediator.h"
 #include "CBSingleton.h"
 #include <string>
 using namespace std;
 
+class CBAchievementItem;
 class CBAchievements;
 
-class CBAchievementManager
+class CBAchievementManager : public CBSingleton<CBAchievementManager>, public CBSubjectMediator<CBAchievementItem>
 {
 private:
     const static string DEFAULT_ACHIEVEMENT_SETTING_NAME;
@@ -24,11 +26,21 @@ private:
     CBAchievements* m_defaultAchievements;
     CBAchievements* m_currentAchievements;
 
+    void checkArchievementComplete(const string& id);
+
 public:
     CBAchievementManager();
     ~CBAchievementManager();
 
-    void loadAchievements();
+    void initialAchievementSystem();
+
+    void resetAchievement(const string& id);
+    void resetAllAchievement();
+
+    void updateAchievement(const string& id, double newValue);
+    void increaseAchievement(const string& id, double increaseValue);
 };
+
+#define SAchievementManager CBAchievementManager::instance()
 
 #endif
