@@ -1,3 +1,7 @@
+#pragma comment (lib, "gdiplus.lib")
+
+#include <windows.h>
+#include <gdiplus.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -52,6 +56,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
   int argc = 0;
   glutInit(&argc, (char**)"");
 
+  ULONG_PTR m_gdiplusToken;
+  Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+  Gdiplus::GdiplusStartup(&m_gdiplusToken, &gdiplusStartupInput, NULL);
+
   glutInitDisplayMode(GLUT_RGB|GLUT_DOUBLE);
   SGameApp.setScreen(960, 640);
   glutInitWindowSize(960,640);
@@ -59,6 +67,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
   //glutFullScreen();  
   if (!glutExtensionSupported("GL_EXT_abgr")) {
     printf("Couldn't find abgr extension.\n");
+    Gdiplus::GdiplusShutdown(m_gdiplusToken);
     exit(0);
   }
 
@@ -67,5 +76,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
   glutMouseFunc(Mouse);
   glutDisplayFunc(Draw);
   glutMainLoop();
+  Gdiplus::GdiplusShutdown(m_gdiplusToken);
   return 0;             /* ANSI C requires main to return int. */
 }

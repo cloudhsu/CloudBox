@@ -10,7 +10,6 @@
 
 #include <windows.h>
 #include <gdiplus.h>
-#include <gdiplus.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <stdio.h>
@@ -57,9 +56,6 @@ CBWin32TextureBuilder::~CBWin32TextureBuilder()
 
 GLuint CBWin32TextureBuilder::loadTextureFromPNG(const char* filename, int &width, int &height, int &rpixWidth, int &rpixHeight)
 {
-    ULONG_PTR m_gdiplusToken;
-    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
-    Gdiplus::GdiplusStartup(&m_gdiplusToken, &gdiplusStartupInput, NULL);
     // GDI+ requires unicode strings.
     // This trick only works for strings containing English ASCII text.
     std::string asciiFilename(filename);
@@ -123,8 +119,6 @@ GLuint CBWin32TextureBuilder::loadTextureFromPNG(const char* filename, int &widt
 
     rpixWidth = width;
     rpixHeight = height;
-    Gdiplus::GdiplusShutdown(m_gdiplusToken);
-
     return g_texture;
 }
 
