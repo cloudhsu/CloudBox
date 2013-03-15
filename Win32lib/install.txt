@@ -1,0 +1,13 @@
+1. Copy freeglut.dll and glut32.dll into Windows/system folder.
+2. Copy all files in include/GL to visual studio install folder VC\include\GL.
+  Sample: C:\Program Files\Microsoft Visual Studio 9.0\VC\include
+3. Copy all files in include\lib to visual studio install folder VC\lib.
+  Sample:C:\Program Files\Microsoft Visual Studio 9.0\VC\lib
+
+4. Project setting
+  4-1. Click on Project -> [project name] Properties.
+  4-2. Expand Configuration Properties.
+  4-3. In the Configuration dropdown, select All Configurations.
+  4-4. Select Linker -> Input.
+  4-5. In the Additional Dependencies field, enter in GlU32.Lib OpenGL32.Lib freeglut.lib glut32.lib. Then click OK.
+
