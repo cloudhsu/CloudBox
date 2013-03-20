@@ -75,3 +75,8 @@ void CBAchievements::addAchievement( string id, CBAchievementItem* item )
 {
     m_achievements[id] = item;
 }
+
+void CBAchievements::syncAchievement( CBAchievements* achievements )
+{
+
+}

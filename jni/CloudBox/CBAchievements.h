@@ -37,6 +37,8 @@ public:
     void increaseAchievement(const string& id, double increaseValue);
 
     void addAchievement(string id, CBAchievementItem* item);
+
+    void syncAchievement(CBAchievements* achievements);
 };
 
 #endif

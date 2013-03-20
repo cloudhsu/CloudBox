@@ -11,6 +11,7 @@
 #include "CBLibrary.h"
 #include "CBAchievements.h"
 #include "CBAchievementItem.h"
+#include "CBXmlUtility.h"
 
 const string CBAchievementManager::DEFAULT_ACHIEVEMENT_SETTING_NAME = "defAchievement.plist";
 const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.plist";
@@ -28,6 +29,7 @@ CBAchievementManager::~CBAchievementManager()
 
 void CBAchievementManager::initialAchievementSystem()
 {
+    loadAchievement();
 }
 
 void CBAchievementManager::resetAllAchievement()
@@ -55,4 +57,26 @@ void CBAchievementManager::checkArchievementComplete(const string& id)
 {
     CBAchievementItem* item = m_currentAchievements->getAchievementItem(id);
     notify(item);
+    saveAchievement();
+}
+
+void CBAchievementManager::loadAchievement()
+{
+    CBXmlUtility* xmlUtility = new CBXmlUtility();
+    m_defaultAchievements = xmlUtility->loadAchievement(DEFAULT_ACHIEVEMENT_SETTING_NAME);
+    m_currentAchievements = xmlUtility->loadAchievement(ACHIEVEMENT_SETTING_NAME);
+    syncAchievement();
+    CBDELETE(xmlUtility);
+}
+
+void CBAchievementManager::syncAchievement()
+{
+    m_currentAchievements->syncAchievement(m_defaultAchievements);
+}
+
+void CBAchievementManager::saveAchievement()
+{
+    CBXmlUtility* xmlUtility = new CBXmlUtility();
+    xmlUtility->saveAchievement(ACHIEVEMENT_SETTING_NAME, m_currentAchievements);
+    CBDELETE(xmlUtility);
 }

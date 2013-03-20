@@ -24,10 +24,11 @@
 	#define AndroidLog(...)
 #elif WIN32
 	#ifdef _DEBUG
-	#include <stdio.h>
-	#define DebugLog(str) printf(str)
+	#include <windows.h>
+    #include <stdio.h>
+	#define DebugLog(str) OutputDebugStringA(str)
 	#undef DebugLog
-	#define DebugLog(format, ...) printf(format, ## __VA_ARGS__)
+    #define DebugLog(format, ...) { char str[256]; sprintf_s(str, format, ## __VA_ARGS__); OutputDebugStringA(str); }
 	#else
 	#define DebugLog(str)
 	#undef DebugLog

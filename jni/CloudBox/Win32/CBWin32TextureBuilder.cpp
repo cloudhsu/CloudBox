@@ -119,6 +119,7 @@ GLuint CBWin32TextureBuilder::loadTextureFromPNG(const char* filename, int &widt
 
     rpixWidth = width;
     rpixHeight = height;
+    delete pBitmap;
     return g_texture;
 }
 
@@ -142,14 +143,71 @@ CBTexture* CBWin32TextureBuilder::buildStringTexture(const string& text, const f
 	float height = 0;
 	CBTexture* texture;
 	GLuint texID = createText(text.c_str(), size, width, height);
-	texture = new CBTexture(texID, width, height, width, height, text, size);
+	texture = new CBTexture(texID, width, height, 256, 256, text, size);
 	return texture;
 }
 
 GLuint CBWin32TextureBuilder::createText(const char* text, float size,float& rWidth, float& rHeight)
 {
-	//static CBTextManager manager;
-	//return manager.createText(text, size, rWidth, rHeight);
-    return 0;
+    std::string asciiText(text);
+    std::wstring unicodeText(asciiText.length(), L' ');
+    std::copy(asciiText.begin(), asciiText.end(), unicodeText.begin());
+
+    Gdiplus::Bitmap* pBitmap = new Gdiplus::Bitmap(256,256);
+    Gdiplus::Graphics *g = Gdiplus::Graphics::FromImage(pBitmap);
+    Gdiplus::Font myFont(L"Arial", 16);
+    Gdiplus::PointF origin(0.0f, 0.0f);
+    Gdiplus::SolidBrush blackBrush(Gdiplus::Color(255, 255, 0, 0));
+    g->DrawString(unicodeText.c_str(), unicodeText.size(), &myFont, origin, &blackBrush);
+
+    Gdiplus::RectF layoutRect(0, 0, 256, 256);
+    Gdiplus::RectF textRect(0, 0, 256, 256);
+    g->MeasureString(unicodeText.c_str(), unicodeText.size(), &myFont,layoutRect,&textRect);
+    UINT width = pBitmap->GetWidth();
+    UINT height = pBitmap->GetHeight();
+    int pitch = ((width * 32 + 31) & ~31) >> 3;
+
+    std::vector<unsigned char> pixels(pitch * height);
+    Gdiplus::BitmapData data;
+    Gdiplus::Rect rect(0, 0, width, height);
+
+    // Convert to 32-bit BGRA pixel format and fetch the pixel data.
+
+    if (pBitmap->LockBits(&rect, Gdiplus::ImageLockModeRead, PixelFormat32bppARGB, &data) != Gdiplus::Ok)
+        return false;
+
+    if (data.Stride == pitch)
+    {
+        memcpy(&pixels[0], data.Scan0, pitch * height);
+    }
+    else
+    {
+        unsigned char *pSrcPixels = static_cast<unsigned char *>(data.Scan0);
+
+        for (int i = 0; i < height; ++i)
+            memcpy(&pixels[i * pitch], &pSrcPixels[i * data.Stride], pitch);
+    }
+
+    pBitmap->UnlockBits(&data);
+
+    // Create an OpenGL texture object to store the loaded bitmap image.
+
+    GLuint g_texture;
+
+    glGenTextures(1, &g_texture);
+    glBindTexture(GL_TEXTURE_2D, g_texture);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+    gluBuild2DMipmaps(GL_TEXTURE_2D, 4, width, height, GL_BGRA_EXT, GL_UNSIGNED_BYTE, &pixels[0]);
+
+    rWidth = textRect.Width;
+    rHeight = textRect.Height;
+    delete pBitmap;
+
+    return g_texture;
 }
 

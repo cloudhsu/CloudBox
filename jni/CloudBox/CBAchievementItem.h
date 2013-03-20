@@ -34,6 +34,8 @@ public:
     CBAchievementItem();
     ~CBAchievementItem();
 
+    static CBAchievementItem* clone(CBAchievementItem* item);
+
     void update(double newValue);
     void reset();
     void increase(double increaseValue);

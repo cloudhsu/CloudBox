@@ -28,6 +28,10 @@ private:
 
     void checkArchievementComplete(const string& id);
 
+    void loadAchievement();
+    void syncAchievement();
+    void saveAchievement();
+
 public:
     CBAchievementManager();
     ~CBAchievementManager();

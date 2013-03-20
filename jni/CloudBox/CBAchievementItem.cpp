@@ -38,3 +38,12 @@ double CBAchievementItem::getPercentage()
 {
     return m_currentValue / m_targetValue * 100;
 }
+
+CBAchievementItem* CBAchievementItem::clone( CBAchievementItem* item )
+{
+    CBAchievementItem* newItem = new CBAchievementItem();
+    newItem->setId(item->getId());
+    newItem->setTargetValue(item->getTargetValue());
+    newItem->setDescription(item->getDescription());
+    return newItem;
+}
