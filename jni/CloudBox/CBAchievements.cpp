@@ -78,5 +78,12 @@ void CBAchievements::addAchievement( string id, CBAchievementItem* item )
 
 void CBAchievements::syncAchievement( CBAchievements* achievements )
 {
-
+    for (std::map<string,CBAchievementItem* >::iterator it = achievements->getAchievements().begin(); it != achievements->getAchievements().end(); ++it)
+    {
+        string key = it->first;
+        if( !(m_achievements.find(key) == m_achievements.end()) )
+        {
+            m_achievements[key] = CBAchievementItem::clone(it->second);
+        }
+    }
 }

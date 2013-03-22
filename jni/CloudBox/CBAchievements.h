@@ -28,6 +28,8 @@ public:
     inline std::string getInfo() const { return m_info; }
     inline void setInfo(std::string val) { m_info = val; }
 
+    map<string,CBAchievementItem*>& getAchievements() { return m_achievements; }
+
     CBAchievementItem* getAchievementItem(const string& id);
 
     void resetAchievement(const string& id);
