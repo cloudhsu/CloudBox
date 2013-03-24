@@ -30,6 +30,8 @@ private:
     double m_targetValue;
     double m_currentValue;
     bool m_complete;
+    void checkComplete();
+    
 public:
     CBAchievementItem();
     ~CBAchievementItem();

@@ -21,17 +21,32 @@ CBAchievementItem::~CBAchievementItem()
 
 void CBAchievementItem::update( double newValue )
 {
-    m_currentValue = newValue;
+    if(!m_complete)
+    {
+        m_currentValue = newValue;
+        checkComplete();
+    }
 }
 
 void CBAchievementItem::reset()
 {
     m_currentValue = DEFAULT_ACHIEVEMENT_VALUE;
+    m_complete = false;
 }
 
 void CBAchievementItem::increase( double increaseValue )
 {
-    m_currentValue += increaseValue;
+    if(!m_complete)
+    {
+        m_currentValue += increaseValue;
+        checkComplete();
+    }
+}
+
+void CBAchievementItem::checkComplete()
+{
+    if(m_currentValue >= m_targetValue)
+        m_complete = true;
 }
 
 double CBAchievementItem::getPercentage()

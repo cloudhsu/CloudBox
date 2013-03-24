@@ -16,6 +16,8 @@ class CBGraphicBase
 {
 private:
 public:
+    CBGraphicBase() {}
+    virtual ~CBGraphicBase(){}
     // initial graphic
     virtual void initial2D() = 0;
     
@@ -33,6 +35,8 @@ class CBGraphicSimulator : public CBGraphicBase
 {
 private:
 public:
+    CBGraphicSimulator() {}
+    ~CBGraphicSimulator() {}
     // initial graphic
     void initial2D(){};
 

@@ -12,6 +12,7 @@
 #include "CBAchievementItem.h"
 
 CBAchievements::CBAchievements()
+:m_info("CloudBox Achievement System"),m_version("v0.1")
 {
 }
 

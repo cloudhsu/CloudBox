@@ -20,6 +20,7 @@ class CBAchievements
 {
 private:
     string m_info;
+    string m_version;
     map<string,CBAchievementItem*> m_achievements;
 public:
     CBAchievements();
@@ -27,6 +28,9 @@ public:
 
     inline std::string getInfo() const { return m_info; }
     inline void setInfo(std::string val) { m_info = val; }
+    
+    inline std::string getVersion() const { return m_version; }
+    inline void setVersion(std::string val) { m_version = val; }
 
     map<string,CBAchievementItem*>& getAchievements() { return m_achievements; }
 

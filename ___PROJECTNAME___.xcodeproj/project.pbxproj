@@ -136,6 +136,9 @@
 		4B63760B161EDB5D0090D2B4 /* CBUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B637608161EDB5D0090D2B4 /* CBUtility.cpp */; };
 		4B63760E161EDC380090D2B4 /* cloudbox.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B63760D161EDC380090D2B4 /* cloudbox.wav */; };
 		4BA667E01674465D0067DA75 /* CBTextureBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BA667DF1674465D0067DA75 /* CBTextureBuilder.cpp */; };
+		4BADDABF16FD6F8300CD96C4 /* CBAchievementItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BADDAB916FD6F8300CD96C4 /* CBAchievementItem.cpp */; };
+		4BADDAC016FD6F8300CD96C4 /* CBAchievementManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BADDABB16FD6F8300CD96C4 /* CBAchievementManager.cpp */; };
+		4BADDAC116FD6F8300CD96C4 /* CBAchievements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BADDABD16FD6F8300CD96C4 /* CBAchievements.cpp */; };
 		4BF48B7C16C665BD009B193F /* CBGraphic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BF48B7A16C665BD009B193F /* CBGraphic.cpp */; };
 /* End PBXBuildFile section */
 
@@ -367,6 +370,14 @@
 		4B63760D161EDC380090D2B4 /* cloudbox.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cloudbox.wav; sourceTree = "<group>"; };
 		4BA667DF1674465D0067DA75 /* CBTextureBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBTextureBuilder.cpp; sourceTree = "<group>"; };
 		4BA667E21674478E0067DA75 /* CBTextureBuilderBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextureBuilderBase.h; sourceTree = "<group>"; };
+		4BADDAB916FD6F8300CD96C4 /* CBAchievementItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAchievementItem.cpp; sourceTree = "<group>"; };
+		4BADDABA16FD6F8300CD96C4 /* CBAchievementItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAchievementItem.h; sourceTree = "<group>"; };
+		4BADDABB16FD6F8300CD96C4 /* CBAchievementManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAchievementManager.cpp; sourceTree = "<group>"; };
+		4BADDABC16FD6F8300CD96C4 /* CBAchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAchievementManager.h; sourceTree = "<group>"; };
+		4BADDABD16FD6F8300CD96C4 /* CBAchievements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAchievements.cpp; sourceTree = "<group>"; };
+		4BADDABE16FD6F8300CD96C4 /* CBAchievements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAchievements.h; sourceTree = "<group>"; };
+		4BADDAC216FD6F9100CD96C4 /* CBObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBObserver.h; sourceTree = "<group>"; };
+		4BADDAC316FD6F9100CD96C4 /* CBSubjectMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSubjectMediator.h; sourceTree = "<group>"; };
 		4BF48B7A16C665BD009B193F /* CBGraphic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBGraphic.cpp; sourceTree = "<group>"; };
 		4BF48B7B16C665BD009B193F /* CBGraphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphic.h; sourceTree = "<group>"; };
 		4BF48B7D16C666E4009B193F /* CBGraphicBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBGraphicBase.h; sourceTree = "<group>"; };
@@ -397,6 +408,7 @@
 		0402420814091C240083DC7E /* CloudBox */ = {
 			isa = PBXGroup;
 			children = (
+				4BADDAB816FD6F6100CD96C4 /* Achievement */,
 				4BF48B7816C6658E009B193F /* Graphic */,
 				4B51EAE2165531FD008F6D5F /* Store */,
 				4B637606161EDB300090D2B4 /* Utility */,
@@ -582,6 +594,8 @@
 		0420F3891442BB870075294B /* Patterns */ = {
 			isa = PBXGroup;
 			children = (
+				4BADDAC216FD6F9100CD96C4 /* CBObserver.h */,
+				4BADDAC316FD6F9100CD96C4 /* CBSubjectMediator.h */,
 				4B074CA31662432600EE49CB /* CBFactory.h */,
 				0420F39E1442BDA60075294B /* CBSingleton.h */,
 			);
@@ -800,6 +814,19 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
+		4BADDAB816FD6F6100CD96C4 /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				4BADDAB916FD6F8300CD96C4 /* CBAchievementItem.cpp */,
+				4BADDABA16FD6F8300CD96C4 /* CBAchievementItem.h */,
+				4BADDABB16FD6F8300CD96C4 /* CBAchievementManager.cpp */,
+				4BADDABC16FD6F8300CD96C4 /* CBAchievementManager.h */,
+				4BADDABD16FD6F8300CD96C4 /* CBAchievements.cpp */,
+				4BADDABE16FD6F8300CD96C4 /* CBAchievements.h */,
+			);
+			name = Achievement;
+			sourceTree = "<group>";
+		};
 		4BF48B7816C6658E009B193F /* Graphic */ = {
 			isa = PBXGroup;
 			children = (
@@ -993,6 +1020,9 @@
 				4B074CA61662433300EE49CB /* CBFactoryMethod.cpp in Sources */,
 				4BA667E01674465D0067DA75 /* CBTextureBuilder.cpp in Sources */,
 				4BF48B7C16C665BD009B193F /* CBGraphic.cpp in Sources */,
+				4BADDABF16FD6F8300CD96C4 /* CBAchievementItem.cpp in Sources */,
+				4BADDAC016FD6F8300CD96C4 /* CBAchievementManager.cpp in Sources */,
+				4BADDAC116FD6F8300CD96C4 /* CBAchievements.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
