@@ -7,6 +7,7 @@
  *
  */
 
+#include "CBAchievementManager.h"
 #include "HelloScene.h"
 
 HelloScene::HelloScene()
@@ -31,13 +32,18 @@ void HelloScene::initialize()
 //    CBImage* img = new CBImage("testbg11.png");
 //    addChild(img,0,100);
 	
-	label = new CBLabel("Test", 18);
+	label = new CBLabel("Label", 18);
 	label->moveTo(10,10);
 	addChild(label);
 	
-	button = new CBButton("Test2",20);
+	button = new CBButton("Button1",20);
 	button->moveTo(10,80);
 	addChild(button);
+    
+    button2 = new CBButton("Button2",20);
+	button2->moveTo(200,80);
+    button2->addClickEvent(this, &HelloScene::OnClick);
+	addChild(button2);
 	
 	dart2 = new CBImage("dart.png");
 	addChild(dart2,210,200);
@@ -70,6 +76,7 @@ void HelloScene::initialize()
     //bar->setOptionBarDirection(SlideBarDown);
     bar->initial();
     addChild(bar,200,140);
+    SAchievementManager.initialAchievementSystem();
 }
 
 void HelloScene::update()
@@ -105,6 +112,7 @@ void HelloScene::update()
 
 void HelloScene::OnClick(CBView* item,CBEvent* e)
 {
+    SAchievementManager.completeAchievement("com.cloudbox.superbabypig.stage1_clear");
 }
 
 void HelloScene::OnOptionButtonClick(CBView* item,int index)

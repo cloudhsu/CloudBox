@@ -77,6 +77,7 @@
 		04E646F914559E5700D9F92B /* HelloScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E646F714559E5700D9F92B /* HelloScene.cpp */; };
 		04F57FC914C5A89C006ADEAD /* CBAppEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F57FC814C5A89C006ADEAD /* CBAppEvent.cpp */; };
 		4B074CA61662433300EE49CB /* CBFactoryMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */; };
+		4B0E282C16FF3B97008A6D82 /* default_achievement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4B0E282B16FF3B97008A6D82 /* default_achievement.xml */; };
 		4B3CFD3B15E2AEDD003E2938 /* CBComposeAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD3915E2AEDD003E2938 /* CBComposeAction.cpp */; };
 		4B3CFD3E15E2AF04003E2938 /* CBProperty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD3C15E2AF04003E2938 /* CBProperty.cpp */; };
 		4B3CFD4115E2AF13003E2938 /* CBiOSEffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD4015E2AF13003E2938 /* CBiOSEffectManager.mm */; };
@@ -285,6 +286,7 @@
 		4B074CA31662432600EE49CB /* CBFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactory.h; sourceTree = "<group>"; };
 		4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBFactoryMethod.cpp; sourceTree = "<group>"; };
 		4B074CA51662433300EE49CB /* CBFactoryMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactoryMethod.h; sourceTree = "<group>"; };
+		4B0E282B16FF3B97008A6D82 /* default_achievement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = default_achievement.xml; path = iOS/Resources/default_achievement.xml; sourceTree = "<group>"; };
 		4B25E0FA16BF49AC00CFAE0D /* CBConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBConfig.h; sourceTree = "<group>"; };
 		4B3CFD3915E2AEDD003E2938 /* CBComposeAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBComposeAction.cpp; sourceTree = "<group>"; };
 		4B3CFD3A15E2AEDD003E2938 /* CBComposeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBComposeAction.h; sourceTree = "<group>"; };
@@ -741,6 +743,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4B0E282B16FF3B97008A6D82 /* default_achievement.xml */,
 				04DC7F0F155024F100A576B0 /* bomb1.png */,
 				04DC7F10155024F100A576B0 /* bomb1@2x.png */,
 				04DC7F11155024F100A576B0 /* bomb2.png */,
@@ -939,6 +942,7 @@
 				4B63760E161EDC380090D2B4 /* cloudbox.wav in Resources */,
 				4B51EB1A16553364008F6D5F /* icon-72@2x.png in Resources */,
 				4B51EB1B16553364008F6D5F /* icon-72.png in Resources */,
+				4B0E282C16FF3B97008A6D82 /* default_achievement.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

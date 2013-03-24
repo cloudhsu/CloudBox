@@ -43,10 +43,16 @@ void CBAchievementItem::increase( double increaseValue )
     }
 }
 
+void CBAchievementItem::complete()
+{
+    m_currentValue = m_targetValue;
+    m_complete = true;
+}
+
 void CBAchievementItem::checkComplete()
 {
     if(m_currentValue >= m_targetValue)
-        m_complete = true;
+        complete();
 }
 
 double CBAchievementItem::getPercentage()

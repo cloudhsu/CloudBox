@@ -76,9 +76,11 @@ void CBUtility::openApp(const string& appleID)
     // iOS rate url
     string url = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=";
     url += (appleID + "&mt=8");
-#else
+#elif __CBANDROID__
     // Android rate url
     string url = "https://play.google.com/store/apps/details?id=";
+#else
+    string url = "";
 #endif
     //DebugLog("Open App: %s\n",url.c_str());
     openUrl(url);
@@ -88,9 +90,11 @@ void CBUtility::rateApp(const string& appleID)
 #ifdef __CBIOS__
     // iOS rate url
     string url = "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=";
-#else
+#elif __CBANDROID__
     // Android rate url
     string url = "market://details?id=";
+#else
+    string url = "";
 #endif
     url += appleID;
     //DebugLog("Rate App: %s\n",url.c_str());
@@ -121,5 +125,10 @@ bool CBUtility::checkFileExist(string fileName)
 string CBUtility::getSystemPath(const string& fileName)
 {
     string fullName = m_utility->getSystemPath(fileName);
+    return fullName;
+}
+string CBUtility::getResourcePath(const string& fileName)
+{
+    string fullName = m_utility->getResourcePath(fileName);
     return fullName;
 }

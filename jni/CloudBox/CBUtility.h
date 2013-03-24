@@ -42,6 +42,7 @@ public:
     
     bool checkFileExist(string fileName);
     string getSystemPath(const string& fileName);
+    string getResourcePath(const string& fileName);
 };
 
 #define SUtility CBUtility::instance()

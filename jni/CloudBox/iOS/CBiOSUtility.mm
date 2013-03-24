@@ -29,6 +29,15 @@ string CBiOSUtility::getSystemPath(const string& fileName)
     return string([path UTF8String]);
 }
 
+string CBiOSUtility::getResourcePath(const string& fileName)
+{
+    NSString *name = [[NSString alloc] initWithUTF8String: fileName.c_str()];
+    NSString *tileDirectory = [[NSBundle mainBundle] resourcePath];
+	NSString *path = [tileDirectory stringByAppendingPathComponent:name]; //3
+    
+    return string([path UTF8String]);
+}
+
 string CBiOSUtility::getLanguage()
 {
     return "en";

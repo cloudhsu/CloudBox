@@ -12,12 +12,13 @@
 #include "CBAchievements.h"
 #include "CBAchievementItem.h"
 #include "CBXmlUtility.h"
+#include "CBUtility.h"
 
-const string CBAchievementManager::DEFAULT_ACHIEVEMENT_SETTING_NAME = "defAchievement.plist";
-const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.plist";
+const string CBAchievementManager::DEFAULT_ACHIEVEMENT_SETTING_NAME = "default_achievement.xml";
+const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.xml";
 
 CBAchievementManager::CBAchievementManager()
-:m_defaultAchievements(NULL),m_currentAchievements(NULL)
+:m_defaultAchievements(NULL),m_currentAchievements(NULL),m_isInitialed(false)
 {
 }
 
@@ -29,7 +30,11 @@ CBAchievementManager::~CBAchievementManager()
 
 void CBAchievementManager::initialAchievementSystem()
 {
-    loadAchievement();
+    if(!m_isInitialed)
+    {
+        loadAchievement();
+        m_isInitialed = true;
+    }
 }
 
 void CBAchievementManager::resetAllAchievement()
@@ -45,6 +50,7 @@ void CBAchievementManager::resetAchievement(const string& id)
 void CBAchievementManager::updateAchievement( const string& id, double newValue )
 {
     m_currentAchievements->updateAchievement(id, newValue);
+    checkArchievementComplete(id);
 }
 
 void CBAchievementManager::increaseAchievement( const string& id, double increaseValue )
@@ -53,19 +59,38 @@ void CBAchievementManager::increaseAchievement( const string& id, double increas
     checkArchievementComplete(id);
 }
 
+void CBAchievementManager::completeAchievement(const string& id)
+{
+    m_currentAchievements->completeAchievement(id);
+    checkArchievementComplete(id);
+}
+
 void CBAchievementManager::checkArchievementComplete(const string& id)
 {
     CBAchievementItem* item = m_currentAchievements->getAchievementItem(id);
-    notify(item);
+    if(item->getIsComplete())
+    {
+        DebugLog("Achievement:%s completed.\n",id.c_str());
+        notify(item);
+    }
     saveAchievement();
 }
 
 void CBAchievementManager::loadAchievement()
 {
     CBXmlUtility* xmlUtility = new CBXmlUtility();
-    m_defaultAchievements = xmlUtility->loadAchievement(DEFAULT_ACHIEVEMENT_SETTING_NAME);
-    m_currentAchievements = xmlUtility->loadAchievement(ACHIEVEMENT_SETTING_NAME);
-    syncAchievement();
+    m_defaultAchievements = xmlUtility->loadAchievement(defaultAchievementName());
+    string myAchievements = myAchievementName();
+    if(SUtility.checkFileExist(myAchievements))
+    {
+        m_currentAchievements = xmlUtility->loadAchievement(myAchievements);
+        syncAchievement();
+    }
+    else
+    {
+        m_currentAchievements = xmlUtility->loadAchievement(defaultAchievementName());
+    }
+    saveAchievement();
     CBDELETE(xmlUtility);
 }
 
@@ -77,6 +102,18 @@ void CBAchievementManager::syncAchievement()
 void CBAchievementManager::saveAchievement()
 {
     CBXmlUtility* xmlUtility = new CBXmlUtility();
-    xmlUtility->saveAchievement(ACHIEVEMENT_SETTING_NAME, m_currentAchievements);
+    xmlUtility->saveAchievement(myAchievementName(), m_currentAchievements);
     CBDELETE(xmlUtility);
+}
+
+string CBAchievementManager::myAchievementName()
+{
+    string myAchievementName = SUtility.getSystemPath(ACHIEVEMENT_SETTING_NAME);
+    return myAchievementName;
+}
+
+string CBAchievementManager::defaultAchievementName()
+{
+    string myAchievementName = SUtility.getResourcePath(DEFAULT_ACHIEVEMENT_SETTING_NAME);
+    return myAchievementName;
 }

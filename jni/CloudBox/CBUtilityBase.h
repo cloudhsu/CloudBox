@@ -29,11 +29,11 @@ private:
 public:
     CBUtilityBase(){}
     virtual ~CBUtilityBase() {}
-	//virtual string getFilePath() = 0;
 	virtual string getLanguage() = 0;
     virtual DeviceType getDeviceType() = 0;
     virtual void openUrl(const string& url) = 0;
     virtual string getSystemPath(const string& fileName) = 0;
+    virtual string getResourcePath(const string& fileName) = 0;
 };
 
 class CBUtilitySimulator : public CBUtilityBase
@@ -47,6 +47,7 @@ public:
     DeviceType getDeviceType() { return DeviceOther; }
     void openUrl(const string& url) {}
     string getSystemPath(const string& fileName) { return ""; }
+    string getResourcePath(const string& fileName) { return ""; }
 };
 
 #endif

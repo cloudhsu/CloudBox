@@ -20,6 +20,7 @@ public:
     ~CBiOSUtility();
     
     string getSystemPath(const string& fileName);
+    string getResourcePath(const string& fileName);
 	string getLanguage();
     DeviceType getDeviceType();
     void openUrl(const string& url);

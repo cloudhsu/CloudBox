@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CloudBoxAchievement>
+	<info>CloudBox Achievement System</info>
+	<ver>V0.1</ver>
+	<AchievementItem>
+		<id>com.cloudbox.superbabypig.stage1_clear</id>
+		<description>Stage 1 clear</description>
+		<current_value>0</current_value>
+		<target_value>1</target_value>
+		<completed>0</completed>
+	</AchievementItem>
+	<AchievementItem>
+		<id>com.cloudbox.superbabypig.stage2_clear</id>
+		<description>Stage 2 clear</description>
+		<current_value>0</current_value>
+		<target_value>1</target_value>
+		<completed>0</completed>
+	</AchievementItem>
+	<AchievementItem>
+		<id>com.cloudbox.superbabypig.stage3_clear</id>
+		<description>Stage 3 clear</description>
+		<current_value>0</current_value>
+		<target_value>1</target_value>
+		<completed>0</completed>
+	</AchievementItem>
+	<AchievementItem>
+		<id>com.cloudbox.superbabypig.stage4_clear</id>
+		<description>Stage 4 clear</description>
+		<current_value>0</current_value>
+		<target_value>1</target_value>
+		<completed>0</completed>
+	</AchievementItem>
+</CloudBoxAchievement>

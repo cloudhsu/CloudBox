@@ -105,6 +105,16 @@ map<string,string> CBLibXMLUtility::loadWithLibXML(string fileName)
     return data;
 }
 
+#define ACHIEVEMENT_TAG_ROOT "CloudBoxAchievement"
+#define ACHIEVEMENT_TAG_INFO "info"
+#define ACHIEVEMENT_TAG_VER "ver"
+#define ACHIEVEMENT_TAG_ITEM "AchievementItem"
+#define ACHIEVEMENT_TAG_ITEM_ID "id"
+#define ACHIEVEMENT_TAG_ITEM_DESC "description"
+#define ACHIEVEMENT_TAG_ITEM_CURRENT "current_value"
+#define ACHIEVEMENT_TAG_ITEM_TARGET "target_value"
+#define ACHIEVEMENT_TAG_ITEM_COMPLETE "completed"
+
 CBAchievements* CBLibXMLUtility::loadAchievement( const string& fileName )
 {
     CBAchievements* achievements = new CBAchievements();
@@ -121,58 +131,127 @@ CBAchievements* CBLibXMLUtility::loadAchievement( const string& fileName )
             xmlNodePtr head = root->children;
             while(head != NULL)
             {
-                if(head->type == XML_TEXT_NODE)
+                if(head->type == XML_ELEMENT_NODE)
                 {
                     cout<<"Name:"<<head->name<<endl;
                     cout<<"Content:"<<xmlNodeGetContent(head->children)<<endl;
                     string name = string((char*)head->name);
-                    string value = string((char*)xmlNodeGetContent(head->children));
-                    if(name == "info")
+                    string value = "";
+                    if(name == ACHIEVEMENT_TAG_INFO)
                     {
+                        value = string((char*)xmlNodeGetContent(head->children));
                         achievements->setInfo(value);
                     }
-                    else if(name == "ver")
+                    else if(name == ACHIEVEMENT_TAG_VER)
                     {
+                        value = string((char*)xmlNodeGetContent(head->children));
                         achievements->setVersion(value);
                     }
+                    else if(name == ACHIEVEMENT_TAG_ITEM)
+                    {
+                        xmlNodePtr itemHead = head->children;
+                        CBAchievementItem* item = new CBAchievementItem();
+                        while(itemHead != NULL)
+                        {
+                            if(itemHead->type == XML_ELEMENT_NODE)
+                            {
+                                cout<<"Name:"<<itemHead->name<<endl;
+                                cout<<"Content:"<<xmlNodeGetContent(itemHead->children)<<endl;
+                                string name = string((char*)itemHead->name);
+                                string value = string((char*)xmlNodeGetContent(itemHead->children));
+                                if(name == ACHIEVEMENT_TAG_ITEM_ID)
+                                {
+                                    item->setId(value);
+                                }
+                                else if(name == ACHIEVEMENT_TAG_ITEM_DESC)
+                                {
+                                    item->setDescription(value);
+                                }
+                                else if(name == ACHIEVEMENT_TAG_ITEM_CURRENT)
+                                {
+                                    item->setCurrentValue(CBConvert::toValue<double>(value));
+                                }
+                                else if(name == ACHIEVEMENT_TAG_ITEM_TARGET)
+                                {
+                                    item->setTargetValue(CBConvert::toValue<double>(value));
+                                }
+                                else if(name == ACHIEVEMENT_TAG_ITEM_COMPLETE)
+                                {
+                                    item->setIsComplete(CBConvert::toValue<bool>(value));
+                                }
+                            }
+                            itemHead = itemHead->next;
+                        }
+                        achievements->addAchievement(item);
+                    }
                 }
-                else if(head->type == XML_ELEMENT_NODE)
-                {
-                    cout<<"Name:"<<head->name<<endl;
-                    cout<<"Content:"<<xmlNodeGetContent(head->children)<<endl;
-                    string key = string((char*)head->name);
-                    string value = string((char*)xmlNodeGetContent(head->children));
-                }
+//                else if(head->type == XML_ELEMENT_NODE)
+//                {
+//                    cout<<"Name:"<<head->name<<endl;
+//                    cout<<"Content:"<<xmlNodeGetContent(head->children)<<endl;
+//                    xmlNodePtr itemHead = head->children;
+//                    CBAchievementItem* item = new CBAchievementItem();
+//                    while(itemHead != NULL)
+//                    {
+//                        if(itemHead->type == XML_TEXT_NODE)
+//                        {
+//                            string name = string((char*)itemHead->name);
+//                            string value = string((char*)xmlNodeGetContent(itemHead->children));
+//                            if(name == ACHIEVEMENT_TAG_ITEM_ID)
+//                            {
+//                                item->setId(value);
+//                            }
+//                            else if(name == ACHIEVEMENT_TAG_ITEM_DESC)
+//                            {
+//                                item->setDescription(value);
+//                            }
+//                            else if(name == ACHIEVEMENT_TAG_ITEM_CURRENT)
+//                            {
+//                                item->setCurrentValue(CBConvert::toValue<double>(value));
+//                            }
+//                            else if(name == ACHIEVEMENT_TAG_ITEM_TARGET)
+//                            {
+//                                item->setTargetValue(CBConvert::toValue<double>(value));
+//                            }
+//                            else if(name == ACHIEVEMENT_TAG_ITEM_COMPLETE)
+//                            {
+//                                item->setIsComplete(CBConvert::toValue<bool>(value));
+//                            }
+//                        }
+//                        itemHead = itemHead->next;
+//                    }
+//                    achievements->addAchievement(item);
+//                }
                 head = head->next;
             }
         }
         xmlFreeDoc(doc);
     }
-    return NULL;
+    return achievements;
 }
 
 void CBLibXMLUtility::saveAchievement( const string& fileName, CBAchievements* achievements )
 {
     // create xml document
     xmlDocPtr doc = xmlNewDoc(BAD_CAST"1.0");
-    xmlNodePtr root = xmlNewNode(NULL,BAD_CAST"CloudBoxAchievement");
+    xmlNodePtr root = xmlNewNode(NULL,BAD_CAST ACHIEVEMENT_TAG_ROOT);
     //set root
     xmlDocSetRootElement(doc,root);
     
     // add achievement infomation
-    xmlNewTextChild(root, NULL, BAD_CAST"info", BAD_CAST achievements->getInfo().c_str());
-    xmlNewTextChild(root, NULL, BAD_CAST"ver", BAD_CAST achievements->getVersion().c_str());
+    xmlNewTextChild(root, NULL, BAD_CAST ACHIEVEMENT_TAG_INFO, BAD_CAST achievements->getInfo().c_str());
+    xmlNewTextChild(root, NULL, BAD_CAST ACHIEVEMENT_TAG_VER, BAD_CAST achievements->getVersion().c_str());
     
     for (std::map<string,CBAchievementItem* >::iterator it = achievements->getAchievements().begin(); it != achievements->getAchievements().end(); ++it)
     {
         string key = it->first;
         CBAchievementItem* item = it->second;
-        xmlNodePtr itemNode = xmlNewNode(NULL,BAD_CAST"AchievementItem");
-        xmlNewTextChild(itemNode, NULL, BAD_CAST "id", BAD_CAST item->getId().c_str());
-        xmlNewTextChild(itemNode, NULL, BAD_CAST "description", BAD_CAST item->getDescription().c_str());
-        xmlNewTextChild(itemNode, NULL, BAD_CAST "current_value", BAD_CAST CBConvert::toCString(item->getCurrentValue()));
-        xmlNewTextChild(itemNode, NULL, BAD_CAST "target_value", BAD_CAST CBConvert::toCString(item->getTargetValue()));
-        xmlNewTextChild(itemNode, NULL, BAD_CAST "completed", BAD_CAST CBConvert::toCString(item->getIsComplete()));
+        xmlNodePtr itemNode = xmlNewNode(NULL,BAD_CAST ACHIEVEMENT_TAG_ITEM);
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_ID, BAD_CAST item->getId().c_str());
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_DESC, BAD_CAST item->getDescription().c_str());
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_CURRENT, BAD_CAST CBConvert::toCString(item->getCurrentValue()));
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_TARGET, BAD_CAST CBConvert::toCString(item->getTargetValue()));
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_COMPLETE, BAD_CAST CBConvert::toCString(item->getIsComplete()));
         xmlAddChild(root, itemNode);
     }
     

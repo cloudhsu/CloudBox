@@ -21,7 +21,8 @@ class CBAchievements
 private:
     string m_info;
     string m_version;
-    map<string,CBAchievementItem*> m_achievements;
+    typedef map<string,CBAchievementItem*> ahcievementMap;
+    ahcievementMap m_achievements;
 public:
     CBAchievements();
     ~CBAchievements();
@@ -32,17 +33,18 @@ public:
     inline std::string getVersion() const { return m_version; }
     inline void setVersion(std::string val) { m_version = val; }
 
-    map<string,CBAchievementItem*>& getAchievements() { return m_achievements; }
-
     CBAchievementItem* getAchievementItem(const string& id);
+    
+    ahcievementMap& getAchievements() { return m_achievements; }
 
     void resetAchievement(const string& id);
     void resetAllAchievement();
 
     void updateAchievement(const string& id, double newValue);
     void increaseAchievement(const string& id, double increaseValue);
+    void completeAchievement(const string& id);
 
-    void addAchievement(string id, CBAchievementItem* item);
+    void addAchievement(CBAchievementItem* item);
 
     void syncAchievement(CBAchievements* achievements);
 };

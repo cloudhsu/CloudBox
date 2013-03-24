@@ -21,6 +21,7 @@ class CBAchievements;
 class CBAchievementManager : public CBSingleton<CBAchievementManager>, public CBSubjectMediator<CBAchievementItem>
 {
 private:
+    bool m_isInitialed;
     const static string DEFAULT_ACHIEVEMENT_SETTING_NAME;
     const static string ACHIEVEMENT_SETTING_NAME;
     CBAchievements* m_defaultAchievements;
@@ -31,6 +32,8 @@ private:
     void loadAchievement();
     void syncAchievement();
     void saveAchievement();
+    string myAchievementName();
+    string defaultAchievementName();
 
 public:
     CBAchievementManager();
@@ -43,6 +46,7 @@ public:
 
     void updateAchievement(const string& id, double newValue);
     void increaseAchievement(const string& id, double increaseValue);
+    void completeAchievement(const string& id);
 };
 
 #define SAchievementManager CBAchievementManager::instance()

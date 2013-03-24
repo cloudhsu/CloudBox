@@ -12,13 +12,13 @@
 #include "CBAchievementItem.h"
 
 CBAchievements::CBAchievements()
-:m_info("CloudBox Achievement System"),m_version("v0.1")
+:m_info("CloudBox Achievement System"),m_version("V0.1")
 {
 }
 
 CBAchievements::~CBAchievements()
 {
-    for (std::map<string,CBAchievementItem* >::iterator it = m_achievements.begin(); it != m_achievements.end(); ++it)
+    for (ahcievementMap::iterator it = m_achievements.begin(); it != m_achievements.end(); ++it)
     {
         CBDELETE(it->second);
     }
@@ -46,7 +46,7 @@ void CBAchievements::resetAchievement( const string& id )
 
 void CBAchievements::resetAllAchievement()
 {
-    for (std::map<string,CBAchievementItem* >::iterator it = m_achievements.begin(); it != m_achievements.end(); ++it)
+    for (ahcievementMap::iterator it = m_achievements.begin(); it != m_achievements.end(); ++it)
     {
         it->second->reset();
     }
@@ -72,17 +72,27 @@ void CBAchievements::increaseAchievement( const string& id, double increaseValue
     }
 }
 
-void CBAchievements::addAchievement( string id, CBAchievementItem* item )
+void CBAchievements::completeAchievement(const string& id)
 {
-    m_achievements[id] = item;
+    CBAchievementItem* item = NULL;
+    if( !(m_achievements.find(id) == m_achievements.end()) )
+    {
+        item = m_achievements[id];
+        item->complete();
+    }
+}
+
+void CBAchievements::addAchievement( CBAchievementItem* item )
+{
+    m_achievements[item->getId()] = item;
 }
 
 void CBAchievements::syncAchievement( CBAchievements* achievements )
 {
-    for (std::map<string,CBAchievementItem* >::iterator it = achievements->getAchievements().begin(); it != achievements->getAchievements().end(); ++it)
+    for (ahcievementMap::iterator it = achievements->getAchievements().begin(); it != achievements->getAchievements().end(); ++it)
     {
         string key = it->first;
-        if( !(m_achievements.find(key) == m_achievements.end()) )
+        if( (m_achievements.find(key) == m_achievements.end()) )
         {
             m_achievements[key] = CBAchievementItem::clone(it->second);
         }

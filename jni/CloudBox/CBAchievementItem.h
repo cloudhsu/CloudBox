@@ -42,6 +42,7 @@ public:
     void reset();
     void increase(double increaseValue);
     void updateAchievementSucceed();
+    void complete();
 
     inline bool getIsComplete() const { return m_complete; }
     inline void setIsComplete(bool val) { m_complete = val; }

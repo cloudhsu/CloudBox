@@ -28,6 +28,7 @@ private:
 	CBRingScrollImage* bg;
 	CBLabel* label;
 	CBButton* button;
+    CBButton* button2;
 	CBAnimation* animation[MAX_ANIMATION];
 	CBSprite* sprite;
 	CBImage* dart;
