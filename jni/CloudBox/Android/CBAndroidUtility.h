@@ -22,7 +22,8 @@ public:
 	CBAndroidUtility();
     ~CBAndroidUtility();
     
-    string getSystemPath(const string& fileName);
+    string getDocumentPath(const string& fileName);
+    string getResourcePath(const string& fileName);
 	string getLanguage();
     DeviceType getDeviceType();
     void openUrl(const string& url);

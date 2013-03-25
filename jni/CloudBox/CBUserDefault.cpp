@@ -27,7 +27,7 @@ CBUserDefault::~CBUserDefault(void)
 
 bool CBUserDefault::isUserDefaultExist()
 {
-    string fullName = SUtility.getSystemPath(UserDefaultName);
+    string fullName = SUtility.getDocumentPath(UserDefaultName);
     return SUtility.checkFileExist(fullName);
 }
 

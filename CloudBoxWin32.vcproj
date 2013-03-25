@@ -376,6 +376,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\jni\CloudBox\Win32\CBWin32Utility.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBXmlUtility.cpp"
 				>
 			</File>
@@ -733,6 +737,10 @@
 					</File>
 					<File
 						RelativePath=".\jni\CloudBox\Win32\CBWin32TextureBuilder.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\Win32\CBWin32Utility.h"
 						>
 					</File>
 				</Filter>

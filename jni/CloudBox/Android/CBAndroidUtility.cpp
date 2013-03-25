@@ -21,7 +21,7 @@ CBAndroidUtility::~CBAndroidUtility()
     
 }
 
-string CBAndroidUtility::getSystemPath(const string& fileName)
+string CBAndroidUtility::getDocumentPath(const string& fileName)
 {
 	string dir("/data/data/");
 	DebugLog("apk Path:%s\n",g_apkPath.c_str());
@@ -30,6 +30,13 @@ string CBAndroidUtility::getSystemPath(const string& fileName)
 	dir.append(tmp).append("/").append(fileName);
 	DebugLog("System Path:%s\n",dir.c_str());
 	return dir;
+}
+
+string CBAndroidUtility::getResourcePath(const string& fileName)
+{
+    string dir("/asset/");
+    dir.append(fileName);
+    return dir;
 }
 
 string CBAndroidUtility::getLanguage()

@@ -249,9 +249,9 @@ void CBLibXMLUtility::saveAchievement( const string& fileName, CBAchievements* a
         xmlNodePtr itemNode = xmlNewNode(NULL,BAD_CAST ACHIEVEMENT_TAG_ITEM);
         xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_ID, BAD_CAST item->getId().c_str());
         xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_DESC, BAD_CAST item->getDescription().c_str());
-        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_CURRENT, BAD_CAST CBConvert::toCString(item->getCurrentValue()));
-        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_TARGET, BAD_CAST CBConvert::toCString(item->getTargetValue()));
-        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_COMPLETE, BAD_CAST CBConvert::toCString(item->getIsComplete()));
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_CURRENT, BAD_CAST CBConvert::toString(item->getCurrentValue()).c_str());
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_TARGET, BAD_CAST CBConvert::toString(item->getTargetValue()).c_str());
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_COMPLETE, BAD_CAST CBConvert::toString(item->getIsComplete()).c_str());
         xmlAddChild(root, itemNode);
     }
     

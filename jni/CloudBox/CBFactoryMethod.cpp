@@ -50,6 +50,7 @@
 #elif WIN32
 #include "Win32/CBWin32Dialog.h"
 #include "Win32/CBWin32TextureBuilder.h"
+#include "Win32/CBWin32Utility.h"
 #else
 
 #endif
@@ -81,7 +82,7 @@ typedef CBAndroidLed LED_BUILDER;
 // for default none behavior 
 typedef CBAudioSimulator AUDIO_MANAGER;
 typedef CBEffectSimulator EFFECT_MANAGER;
-typedef CBUtilitySimulator UTILITY;
+typedef CBWin32Utility UTILITY;
 typedef CBStoreSimulator STORE_MANAGER;
 typedef CBWin32Dialog SYSTEM_DIALOG;
 typedef CBWin32TextureBuilder TEXTURE_BUILDER;

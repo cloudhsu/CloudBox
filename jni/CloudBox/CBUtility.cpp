@@ -122,9 +122,9 @@ bool CBUtility::checkFileExist(string fileName)
     fin.close();
     return flag;
 }
-string CBUtility::getSystemPath(const string& fileName)
+string CBUtility::getDocumentPath(const string& fileName)
 {
-    string fullName = m_utility->getSystemPath(fileName);
+    string fullName = m_utility->getDocumentPath(fileName);
     return fullName;
 }
 string CBUtility::getResourcePath(const string& fileName)

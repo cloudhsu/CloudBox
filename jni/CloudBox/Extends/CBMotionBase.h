@@ -31,9 +31,9 @@ public:
     }
 
     CBAcceleration& getAcceleration() { return m_accleration; }
-    float getAccelerationX() { return  m_accleration.x; }
-    float getAccelerationY() { return  m_accleration.y; }
-    float getAccelerationZ() { return  m_accleration.z; }
+    double getAccelerationX() { return  m_accleration.x; }
+    double getAccelerationY() { return  m_accleration.y; }
+    double getAccelerationZ() { return  m_accleration.z; }
 };
 
 class CBMotionSimulator : public CBMotionBase

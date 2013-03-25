@@ -24,12 +24,12 @@ CBXmlUtility::~CBXmlUtility(void)
 
 void CBXmlUtility::saveToXML(map<string,string>& data,const string& fileName)
 {
-    string fullName = SUtility.getSystemPath(fileName);
+    string fullName = SUtility.getDocumentPath(fileName);
     m_xmlUtility->saveToXML(data,fullName);
 }
 map<string,string> CBXmlUtility::loadFromXML(string fileName)
 {
-    string fullName = SUtility.getSystemPath(fileName);
+    string fullName = SUtility.getDocumentPath(fileName);
     map<string,string> data;
     if(SUtility.checkFileExist(fullName))
     {

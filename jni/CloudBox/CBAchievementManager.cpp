@@ -108,7 +108,7 @@ void CBAchievementManager::saveAchievement()
 
 string CBAchievementManager::myAchievementName()
 {
-    string myAchievementName = SUtility.getSystemPath(ACHIEVEMENT_SETTING_NAME);
+    string myAchievementName = SUtility.getDocumentPath(ACHIEVEMENT_SETTING_NAME);
     return myAchievementName;
 }
 

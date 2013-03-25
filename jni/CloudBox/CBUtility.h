@@ -41,7 +41,7 @@ public:
     int rand();
     
     bool checkFileExist(string fileName);
-    string getSystemPath(const string& fileName);
+    string getDocumentPath(const string& fileName);
     string getResourcePath(const string& fileName);
 };
 

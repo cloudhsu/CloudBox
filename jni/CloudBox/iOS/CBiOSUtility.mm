@@ -19,7 +19,7 @@ CBiOSUtility::~CBiOSUtility()
     
 }
 
-string CBiOSUtility::getSystemPath(const string& fileName)
+string CBiOSUtility::getDocumentPath(const string& fileName)
 {
     NSString *name = [[NSString alloc] initWithUTF8String: fileName.c_str()];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //1

@@ -19,8 +19,9 @@ enum DeviceType
     DeviceiPad = 1,
     DeviceAndroidPhone = 2,
     DeviceAndroidPad = 3,
-    DeviceWP8 = 4,
-    DeviceOther = 5
+    DeviceWin32 = 4,
+    DeviceWP8 = 5,
+    DeviceOther = 6
 };
 
 class CBUtilityBase
@@ -32,7 +33,7 @@ public:
 	virtual string getLanguage() = 0;
     virtual DeviceType getDeviceType() = 0;
     virtual void openUrl(const string& url) = 0;
-    virtual string getSystemPath(const string& fileName) = 0;
+    virtual string getDocumentPath(const string& fileName) = 0;
     virtual string getResourcePath(const string& fileName) = 0;
 };
 
@@ -46,7 +47,7 @@ public:
 	string getLanguage() { return "en"; }
     DeviceType getDeviceType() { return DeviceOther; }
     void openUrl(const string& url) {}
-    string getSystemPath(const string& fileName) { return ""; }
+    string getDocumentPath(const string& fileName) { return ""; }
     string getResourcePath(const string& fileName) { return ""; }
 };
 

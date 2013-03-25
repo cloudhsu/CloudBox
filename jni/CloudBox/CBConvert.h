@@ -20,14 +20,6 @@ public:
     ~CBConvert(void);
 public:
     template<class T>
-    static const char* toCString(const T& t)
-    {
-        std::ostringstream stream;
-        stream << t;
-        return stream.str().c_str();
-    }
-    
-    template<class T>
     static T toValueFromCStr(char* s)
     {
         std::istringstream stream ((std::string(s)));

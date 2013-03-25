@@ -30,4 +30,11 @@
 		<target_value>1</target_value>
 		<completed>0</completed>
 	</AchievementItem>
+	<AchievementItem>
+		<id>com.cloudbox.superbabypig.stage5_clear</id>
+		<description>Stage 5 clear</description>
+		<current_value>0</current_value>
+		<target_value>1</target_value>
+		<completed>0</completed>
+	</AchievementItem>
 </CloudBoxAchievement>
