@@ -114,6 +114,7 @@ map<string,string> CBLibXMLUtility::loadWithLibXML(string fileName)
 #define ACHIEVEMENT_TAG_ITEM_CURRENT "current_value"
 #define ACHIEVEMENT_TAG_ITEM_TARGET "target_value"
 #define ACHIEVEMENT_TAG_ITEM_COMPLETE "completed"
+#define ACHIEVEMENT_TAG_ITEM_IMAGE "image_name"
 
 CBAchievements* CBLibXMLUtility::loadAchievement( const string& fileName )
 {
@@ -179,6 +180,10 @@ CBAchievements* CBLibXMLUtility::loadAchievement( const string& fileName )
                                 {
                                     item->setIsComplete(CBConvert::toValue<bool>(value));
                                 }
+                                else if(name == ACHIEVEMENT_TAG_ITEM_IMAGE)
+                                {
+                                    item->setImageName(value);
+                                }
                             }
                             itemHead = itemHead->next;
                         }
@@ -215,6 +220,7 @@ void CBLibXMLUtility::saveAchievement( const string& fileName, CBAchievements* a
         xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_CURRENT, BAD_CAST CBConvert::toString(item->getCurrentValue()).c_str());
         xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_TARGET, BAD_CAST CBConvert::toString(item->getTargetValue()).c_str());
         xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_COMPLETE, BAD_CAST CBConvert::toString(item->getIsComplete()).c_str());
+        xmlNewTextChild(itemNode, NULL, BAD_CAST ACHIEVEMENT_TAG_ITEM_IMAGE, BAD_CAST item->getImageName().c_str());
         xmlAddChild(root, itemNode);
     }
     

@@ -30,6 +30,7 @@ private:
     double m_targetValue;
     double m_currentValue;
     bool m_complete;
+    string m_imageName;
     void checkComplete();
     
 public:
@@ -44,14 +45,17 @@ public:
     void updateAchievementSucceed();
     void complete();
 
+    inline string getImageName() const { return m_imageName; }
+    inline void setImageName(string val) { m_imageName = val; }
+
     inline bool getIsComplete() const { return m_complete; }
     inline void setIsComplete(bool val) { m_complete = val; }
 
     inline string getId() const { return m_id; }
-    inline void setId(std::string val) { m_id = val; }
+    inline void setId(string val) { m_id = val; }
 
     inline string getDescription() const { return m_description; }
-    inline void setDescription(std::string val) { m_description = val; }
+    inline void setDescription(string val) { m_description = val; }
 
     inline double getCurrentValue() const { return m_currentValue; }
     inline void setCurrentValue(double val) { m_currentValue = val; }
