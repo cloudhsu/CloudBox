@@ -185,43 +185,6 @@ CBAchievements* CBLibXMLUtility::loadAchievement( const string& fileName )
                         achievements->addAchievement(item);
                     }
                 }
-//                else if(head->type == XML_ELEMENT_NODE)
-//                {
-//                    cout<<"Name:"<<head->name<<endl;
-//                    cout<<"Content:"<<xmlNodeGetContent(head->children)<<endl;
-//                    xmlNodePtr itemHead = head->children;
-//                    CBAchievementItem* item = new CBAchievementItem();
-//                    while(itemHead != NULL)
-//                    {
-//                        if(itemHead->type == XML_TEXT_NODE)
-//                        {
-//                            string name = string((char*)itemHead->name);
-//                            string value = string((char*)xmlNodeGetContent(itemHead->children));
-//                            if(name == ACHIEVEMENT_TAG_ITEM_ID)
-//                            {
-//                                item->setId(value);
-//                            }
-//                            else if(name == ACHIEVEMENT_TAG_ITEM_DESC)
-//                            {
-//                                item->setDescription(value);
-//                            }
-//                            else if(name == ACHIEVEMENT_TAG_ITEM_CURRENT)
-//                            {
-//                                item->setCurrentValue(CBConvert::toValue<double>(value));
-//                            }
-//                            else if(name == ACHIEVEMENT_TAG_ITEM_TARGET)
-//                            {
-//                                item->setTargetValue(CBConvert::toValue<double>(value));
-//                            }
-//                            else if(name == ACHIEVEMENT_TAG_ITEM_COMPLETE)
-//                            {
-//                                item->setIsComplete(CBConvert::toValue<bool>(value));
-//                            }
-//                        }
-//                        itemHead = itemHead->next;
-//                    }
-//                    achievements->addAchievement(item);
-//                }
                 head = head->next;
             }
         }
@@ -264,5 +227,5 @@ void CBLibXMLUtility::saveAchievement( const string& fileName, CBAchievements* a
     
     //release
     xmlFreeDoc(doc);
-    DebugLog("CBLibXMLUtility::saveWithLibXML succeed.\n");
+    DebugLog("CBLibXMLUtility::saveAchievement succeed.\n");
 }
