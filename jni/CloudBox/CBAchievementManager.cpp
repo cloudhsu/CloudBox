@@ -13,6 +13,7 @@
 #include "CBAchievementItem.h"
 #include "CBXmlUtility.h"
 #include "CBUtility.h"
+#include "CBAchievementExhibitor.h"
 
 const string CBAchievementManager::DEFAULT_ACHIEVEMENT_SETTING_NAME = "default_achievement.xml";
 const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.xml";
@@ -33,8 +34,24 @@ void CBAchievementManager::initialAchievementSystem()
     if(!m_isInitialed)
     {
         loadAchievement();
+        initialExhibiter();
         m_isInitialed = true;
     }
+}
+
+void CBAchievementManager::initialExhibiter()
+{
+    attachExhibiter(new CBDebugExhibitor());
+}
+
+void CBAchievementManager::attachExhibiter( CBAchievementExhibitor* exhibitor )
+{
+    attachObserver(exhibitor);
+}
+
+void CBAchievementManager::detachExhibiter( CBAchievementExhibitor* exhibitor )
+{
+    detachObserver(exhibitor);
 }
 
 void CBAchievementManager::resetAllAchievement()
@@ -68,11 +85,11 @@ void CBAchievementManager::completeAchievement(const string& id)
 void CBAchievementManager::checkArchievementComplete(const string& id)
 {
     CBAchievementItem* item = m_currentAchievements->getAchievementItem(id);
-    if(item->getIsComplete())
-    {
-        DebugLog("Achievement:%s completed.\n",id.c_str());
+    //if(item->getIsComplete())
+    //{
+        //DebugLog("Achievement:%s completed.\n",id.c_str());
         notify(item);
-    }
+    //}
     saveAchievement();
 }
 

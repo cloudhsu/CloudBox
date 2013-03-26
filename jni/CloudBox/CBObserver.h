@@ -16,8 +16,8 @@ class CBObserver
 protected:
     int m_id;
 public:
-    CBObserver();
-    virtual ~CBObserver();
+    CBObserver() {}
+    virtual ~CBObserver() {}
 
     inline int getId() const { return m_id; }
     inline void setId(int val) { m_id = val; }

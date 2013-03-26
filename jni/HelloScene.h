@@ -27,8 +27,9 @@ private:
 	//CBImage* bg2;
 	CBRingScrollImage* bg;
 	CBLabel* label;
-	CBButton* button;
+	CBButton* button1;
     CBButton* button2;
+    CBButton* button3;
 	CBAnimation* animation[MAX_ANIMATION];
 	CBSprite* sprite;
 	CBImage* dart;
@@ -43,7 +44,9 @@ public:
 	void initialize();
 	
 	void OnOptionButtonClick(CBView* item,int index);
-	void OnClick(CBView* item,CBEvent* e);
+	void OnClick1(CBView* item,CBEvent* e);
+    void OnClick2(CBView* item,CBEvent* e);
+    void OnClick3(CBView* item,CBEvent* e);
 	
 	void touchBegan(float x, float y);
 	void touchMoved(float x, float y);

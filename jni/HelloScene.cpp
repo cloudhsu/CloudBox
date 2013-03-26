@@ -36,14 +36,20 @@ void HelloScene::initialize()
 	label->moveTo(10,10);
 	addChild(label);
 	
-	button = new CBButton("Button1",20);
-	button->moveTo(10,80);
-	addChild(button);
+	button1 = new CBButton("Button1",20);
+	button1->moveTo(110,80);
+    button1->addClickEvent(this, &HelloScene::OnClick1);
+	addChild(button1);
     
     button2 = new CBButton("Button2",20);
-	button2->moveTo(200,80);
-    button2->addClickEvent(this, &HelloScene::OnClick);
+	button2->moveTo(210,80);
+    button2->addClickEvent(this, &HelloScene::OnClick2);
 	addChild(button2);
+
+    button3 = new CBButton("Button3",20);
+    button3->moveTo(310,80);
+    button3->addClickEvent(this, &HelloScene::OnClick3);
+    addChild(button3);
 	
 	dart2 = new CBImage("dart.png");
 	addChild(dart2,210,200);
@@ -81,38 +87,6 @@ void HelloScene::initialize()
 
 void HelloScene::update()
 {
-	//bg2->move(0, -1);
-//	static int i = 0;
-//	if(i++ > 5)
-//	{
-//		i = 0;
-//	static float aaa = 3;
-//	if(dart->getX() > CBEnvironment::getScreenWidth())
-//	{
-//		aaa = -3;
-//	}
-//	else if(dart->getX() < 0) {
-//		aaa = 3;
-//	}
-//	static float bbb = 3;
-//	if(dart->getY() > CBEnvironment::getScreenHeight())
-//	{
-//		bbb = -3;
-//	}
-//	else if(dart->getY() < 0) {
-//		bbb = 3;
-//	}
-//
-//	//dart->move(aaa, 0);
-//	//dart->move(0, bbb);
-//	dart->move(aaa, bbb);
-//	dart->rotate(15);
-//	}
-}
-
-void HelloScene::OnClick(CBView* item,CBEvent* e)
-{
-    SAchievementManager.completeAchievement("com.cloudbox.superbabypig.stage1_clear");
 }
 
 void HelloScene::OnOptionButtonClick(CBView* item,int index)
@@ -128,6 +102,19 @@ void HelloScene::touchMoved(float x, float y)
 }
 void HelloScene::touchEnded(float x, float y)
 {
-	if(button->isInArea(x, y))
-		SDirector.runNextScene(new HelloScene());
+}
+
+void HelloScene::OnClick1( CBView* item,CBEvent* e )
+{
+    SAchievementManager.completeAchievement("com.cloudbox.superbabypig.stage1_clear");
+}
+
+void HelloScene::OnClick2( CBView* item,CBEvent* e )
+{
+    SAchievementManager.increaseAchievement("com.cloudbox.superbabypig.stage2_clear", 1);
+}
+
+void HelloScene::OnClick3( CBView* item,CBEvent* e )
+{
+    SAchievementManager.updateAchievement("com.cloudbox.superbabypig.stage3_clear", 5);
 }

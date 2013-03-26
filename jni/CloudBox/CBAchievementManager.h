@@ -17,6 +17,7 @@ using namespace std;
 
 class CBAchievementItem;
 class CBAchievements;
+class CBAchievementExhibitor;
 
 class CBAchievementManager : public CBSingleton<CBAchievementManager>, public CBSubjectMediator<CBAchievementItem>
 {
@@ -34,6 +35,10 @@ private:
     void saveAchievement();
     string myAchievementName();
     string defaultAchievementName();
+
+    void detachExhibiter(CBAchievementExhibitor* exhibitor);
+    void attachExhibiter(CBAchievementExhibitor* exhibitor);
+    void initialExhibiter();
 
 public:
     CBAchievementManager();

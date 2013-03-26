@@ -15,7 +15,7 @@
 		<description>Stage 2 clear</description>
 		<image_name>achievement2.png</image_name>
 		<current_value>0</current_value>
-		<target_value>1</target_value>
+		<target_value>5</target_value>
 		<completed>0</completed>
 	</AchievementItem>
 	<AchievementItem>
@@ -23,13 +23,13 @@
 		<description>Stage 3 clear</description>
 		<image_name>achievement3.png</image_name>
 		<current_value>0</current_value>
-		<target_value>1</target_value>
+		<target_value>10</target_value>
 		<completed>0</completed>
 	</AchievementItem>
 	<AchievementItem>
 		<id>com.cloudbox.superbabypig.stage4_clear</id>
 		<description>Stage 4 clear</description>
-		<image_name>achievement4.png</image_name>
+		<image_name>achievement3.png</image_name>
 		<current_value>0</current_value>
 		<target_value>1</target_value>
 		<completed>0</completed>

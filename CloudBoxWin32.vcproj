@@ -180,6 +180,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\jni\CloudBox\CBAchievementExhibitor.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBAchievementItem.cpp"
 				>
 			</File>
@@ -244,11 +248,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\jni\CloudBox\CBFacebookExhibitor.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBFactoryMethod.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\jni\CloudBox\CBGameApp.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jni\CloudBox\CBGameCenterExhibitor.cpp"
 				>
 			</File>
 			<File
@@ -308,6 +320,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\jni\CloudBox\CBScreenExhibitor.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBSprite.cpp"
 				>
 			</File>
@@ -356,6 +372,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\jni\CloudBox\CBTwitterExhibitor.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBUserDefault.cpp"
 				>
 			</File>
@@ -365,6 +385,10 @@
 			</File>
 			<File
 				RelativePath=".\jni\CloudBox\CBView.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jni\CloudBox\CBWeiboExhibitor.cpp"
 				>
 			</File>
 			<File
@@ -412,18 +436,6 @@
 			<Filter
 				Name="CloudBox"
 				>
-				<File
-					RelativePath=".\jni\CloudBox\CBAchievementItem.h"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\CloudBox\CBAchievementManager.h"
-					>
-				</File>
-				<File
-					RelativePath=".\jni\CloudBox\CBAchievements.h"
-					>
-				</File>
 				<File
 					RelativePath=".\jni\CloudBox\CBAction.h"
 					>
@@ -741,6 +753,46 @@
 					</File>
 					<File
 						RelativePath=".\jni\CloudBox\Win32\CBWin32Utility.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Achievement"
+					>
+					<File
+						RelativePath=".\jni\CloudBox\CBAchievementExhibitor.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBAchievementItem.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBAchievementManager.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBAchievements.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBFacebookExhibitor.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBGameCenterExhibitor.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBScreenExhibitor.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBTwitterExhibitor.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBWeiboExhibitor.h"
 						>
 					</File>
 				</Filter>
