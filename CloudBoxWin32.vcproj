@@ -320,6 +320,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\jni\CloudBox\CBScreenExhibitItem.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBScreenExhibitor.cpp"
 				>
 			</File>
@@ -781,10 +785,6 @@
 					</File>
 					<File
 						RelativePath=".\jni\CloudBox\CBGameCenterExhibitor.h"
-						>
-					</File>
-					<File
-						RelativePath=".\jni\CloudBox\CBScreenExhibitItem.cpp"
 						>
 					</File>
 					<File

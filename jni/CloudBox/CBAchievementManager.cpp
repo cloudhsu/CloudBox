@@ -21,7 +21,7 @@ const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.xml
 
 CBAchievementManager::CBAchievementManager()
 :m_defaultAchievements(NULL),m_currentAchievements(NULL),m_isInitialed(false),
-m_screenExhibitor(NULL)
+m_screenExhibitor(NULL),m_isSupported(false)
 {
 }
 
@@ -33,11 +33,22 @@ CBAchievementManager::~CBAchievementManager()
 
 void CBAchievementManager::initialAchievementSystem()
 {
-    if(!m_isInitialed)
+    if(SUtility.checkFileExist(defaultAchievementName()))
     {
-        loadAchievement();
-        initialExhibiter();
-        m_isInitialed = true;
+        m_isSupported = true;
+        if(!m_isInitialed)
+        {
+            loadAchievement();
+            initialExhibiter();
+            m_isInitialed = true;
+            DebugLog("CloudBox Achievement system succeed to initialize .\n");
+        }
+    }
+    else
+    {
+        m_isSupported = false;
+        DebugLog("CloudBox Achievement system is not suppored.\n");
+        DebugLog("Please check default_achievement.xml exist or not.\n");
     }
 }
 
@@ -48,40 +59,53 @@ void CBAchievementManager::initialExhibiter()
 
 void CBAchievementManager::attachExhibitor( CBAchievementExhibitor* exhibitor )
 {
-    attachObserver(exhibitor);
+    if(getIsSupport())
+        attachObserver(exhibitor);
 }
 
 void CBAchievementManager::detachExhibitor( CBAchievementExhibitor* exhibitor )
 {
-    detachObserver(exhibitor);
+    if(getIsSupport())
+        detachObserver(exhibitor);
 }
 
 void CBAchievementManager::resetAllAchievement()
 {
-    m_currentAchievements->resetAllAchievement();
+    if(getIsSupport() && getIsInitial())
+        m_currentAchievements->resetAllAchievement();
 }
 
 void CBAchievementManager::resetAchievement(const string& id)
 {
-    m_currentAchievements->resetAchievement(id);
+    if(getIsSupport() && getIsInitial())
+        m_currentAchievements->resetAchievement(id);
 }
 
 void CBAchievementManager::updateAchievement( const string& id, double newValue )
 {
-    m_currentAchievements->updateAchievement(id, newValue);
-    postArchievement(id);
+    if(getIsSupport() && getIsInitial())
+    {
+        m_currentAchievements->updateAchievement(id, newValue);
+        postArchievement(id);
+    }
 }
 
 void CBAchievementManager::increaseAchievement( const string& id, double increaseValue )
 {
-    m_currentAchievements->increaseAchievement(id, increaseValue);
-    postArchievement(id);
+    if(getIsSupport() && getIsInitial())
+    {
+        m_currentAchievements->increaseAchievement(id, increaseValue);
+        postArchievement(id);
+    }
 }
 
 void CBAchievementManager::completeAchievement(const string& id)
 {
-    m_currentAchievements->completeAchievement(id);
-    postArchievement(id);
+    if(getIsSupport() && getIsInitial())
+    {
+        m_currentAchievements->completeAchievement(id);
+        postArchievement(id);
+    }
 }
 
 void CBAchievementManager::postArchievement(const string& id)
@@ -94,8 +118,12 @@ void CBAchievementManager::postArchievement(const string& id)
         {
             item->posted();
         }
+        saveAchievement();
     }
-    saveAchievement();
+    else
+    {
+        DebugLog("%s already posted.\n",id.c_str());
+    }
 }
 
 void CBAchievementManager::loadAchievement()

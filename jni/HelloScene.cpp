@@ -82,7 +82,6 @@ void HelloScene::initialize()
     //bar->setOptionBarDirection(SlideBarDown);
     bar->initial();
     addChild(bar,200,140);
-    SAchievementManager.initialAchievementSystem();
 }
 
 void HelloScene::update()

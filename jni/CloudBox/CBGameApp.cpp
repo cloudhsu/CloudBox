@@ -16,6 +16,7 @@
 #include "CBEventProcessor.h"
 #include "CBStoreManager.h"
 #include "CBLayout.h"
+#include "CBAchievementManager.h"
 #ifdef __CBIOS__
 #include "HelloScene.h"
 #else
@@ -45,6 +46,7 @@ void CBGameApp::initialize()
 #ifdef __CBIOS__
     initialStore();
 #endif
+    SAchievementManager.initialAchievementSystem();
 	if(!m_isinitialed)
 	{
 		m_isinitialed = true;

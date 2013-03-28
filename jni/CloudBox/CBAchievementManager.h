@@ -20,9 +20,10 @@ class CBAchievements;
 class CBAchievementExhibitor;
 class CBScreenExhibitor;
 
-class CBAchievementManager : public CBSingleton<CBAchievementManager>, public CBSubjectMediator<CBAchievementItem>
+class CBAchievementManager : public CBSingleton<CBAchievementManager>, protected CBSubjectMediator<CBAchievementItem>
 {
 private:
+    bool m_isSupported;
     bool m_isInitialed;
     const static string DEFAULT_ACHIEVEMENT_SETTING_NAME;
     const static string ACHIEVEMENT_SETTING_NAME;
@@ -38,14 +39,18 @@ private:
     string myAchievementName();
     string defaultAchievementName();
 
-    void detachExhibitor(CBAchievementExhibitor* exhibitor);
-    void attachExhibitor(CBAchievementExhibitor* exhibitor);
     void initialExhibiter();
     void initialDefaultExhibiter();
 
 public:
     CBAchievementManager();
     ~CBAchievementManager();
+
+    void detachExhibitor(CBAchievementExhibitor* exhibitor);
+    void attachExhibitor(CBAchievementExhibitor* exhibitor);
+
+    inline bool getIsSupport() { return m_isSupported; }
+    inline bool getIsInitial() { return m_isInitialed; }
 
     void initialAchievementSystem();
 
