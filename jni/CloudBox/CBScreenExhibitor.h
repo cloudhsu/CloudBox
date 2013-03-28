@@ -12,12 +12,16 @@
 
 #include "CBAchievementExhibitor.h"
 #include <string>
+#include <vector>
 using namespace std;
+
+class CBScreenExhibitItem;
 
 class CBScreenExhibitor : public CBAchievementExhibitor
 {
 private:
-    
+    vector<CBScreenExhibitItem*> m_exhibitItems;
+protected:
 public:
     CBScreenExhibitor();
     ~CBScreenExhibitor();
@@ -26,6 +30,9 @@ public:
     void login();
     void logout();
     void post(CBAchievementItem* object);
+
+    void draw();
+    void update();
 };
 
 #endif

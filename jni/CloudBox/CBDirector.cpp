@@ -13,6 +13,7 @@
 #include "CBEventDispatcher.h"
 #include "CBActionManager.h"
 #include "CBAudioEngine.h"
+#include "CBAchievementManager.h"
 
 CBDirector::CBDirector()
 {
@@ -32,12 +33,14 @@ void CBDirector::notify()
 	changeScene();
 	if(m_currentScene && m_currentScene->isEndInitial())
 		m_currentScene->notify();
+    SAchievementManager.updateScreenExhibitor();
 }
 
 void CBDirector::visit()
 {
 	if(m_currentScene)
 		m_currentScene->visit();
+    SAchievementManager.drawScreenExhibitor();
 }
 
 void CBDirector::changeScene()

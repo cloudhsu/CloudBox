@@ -14,12 +14,14 @@
 #include "CBXmlUtility.h"
 #include "CBUtility.h"
 #include "CBAchievementExhibitor.h"
+#include "CBScreenExhibitor.h"
 
 const string CBAchievementManager::DEFAULT_ACHIEVEMENT_SETTING_NAME = "default_achievement.xml";
 const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.xml";
 
 CBAchievementManager::CBAchievementManager()
-:m_defaultAchievements(NULL),m_currentAchievements(NULL),m_isInitialed(false)
+:m_defaultAchievements(NULL),m_currentAchievements(NULL),m_isInitialed(false),
+m_screenExhibitor(NULL)
 {
 }
 
@@ -41,15 +43,15 @@ void CBAchievementManager::initialAchievementSystem()
 
 void CBAchievementManager::initialExhibiter()
 {
-    attachExhibiter(new CBDebugExhibitor());
+    initialDefaultExhibiter();
 }
 
-void CBAchievementManager::attachExhibiter( CBAchievementExhibitor* exhibitor )
+void CBAchievementManager::attachExhibitor( CBAchievementExhibitor* exhibitor )
 {
     attachObserver(exhibitor);
 }
 
-void CBAchievementManager::detachExhibiter( CBAchievementExhibitor* exhibitor )
+void CBAchievementManager::detachExhibitor( CBAchievementExhibitor* exhibitor )
 {
     detachObserver(exhibitor);
 }
@@ -67,29 +69,25 @@ void CBAchievementManager::resetAchievement(const string& id)
 void CBAchievementManager::updateAchievement( const string& id, double newValue )
 {
     m_currentAchievements->updateAchievement(id, newValue);
-    checkArchievementComplete(id);
+    postArchievement(id);
 }
 
 void CBAchievementManager::increaseAchievement( const string& id, double increaseValue )
 {
     m_currentAchievements->increaseAchievement(id, increaseValue);
-    checkArchievementComplete(id);
+    postArchievement(id);
 }
 
 void CBAchievementManager::completeAchievement(const string& id)
 {
     m_currentAchievements->completeAchievement(id);
-    checkArchievementComplete(id);
+    postArchievement(id);
 }
 
-void CBAchievementManager::checkArchievementComplete(const string& id)
+void CBAchievementManager::postArchievement(const string& id)
 {
     CBAchievementItem* item = m_currentAchievements->getAchievementItem(id);
-    //if(item->getIsComplete())
-    //{
-        //DebugLog("Achievement:%s completed.\n",id.c_str());
-        notify(item);
-    //}
+    notify(item);
     saveAchievement();
 }
 
@@ -133,4 +131,23 @@ string CBAchievementManager::defaultAchievementName()
 {
     string myAchievementName = SUtility.getResourcePath(DEFAULT_ACHIEVEMENT_SETTING_NAME);
     return myAchievementName;
+}
+
+void CBAchievementManager::updateScreenExhibitor()
+{
+    if(m_screenExhibitor != NULL)
+        m_screenExhibitor->update();
+}
+
+void CBAchievementManager::drawScreenExhibitor()
+{
+    if(m_screenExhibitor != NULL)
+        m_screenExhibitor->draw();
+}
+
+void CBAchievementManager::initialDefaultExhibiter()
+{
+    attachExhibitor(new CBDebugExhibitor());
+    m_screenExhibitor = new CBScreenExhibitor();
+    attachExhibitor(m_screenExhibitor);
 }

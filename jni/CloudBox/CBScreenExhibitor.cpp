@@ -7,8 +7,10 @@
  *
  */
 
+
 #include "CBScreenExhibitor.h"
 #include "CBLibrary.h"
+#include "CBScreenExhibitItem.h"
 
 CBScreenExhibitor::CBScreenExhibitor()
 {
@@ -17,23 +19,53 @@ CBScreenExhibitor::CBScreenExhibitor()
 
 CBScreenExhibitor::~CBScreenExhibitor()
 {
-
+    for (int i = 0; i < m_exhibitItems.size(); i++) {
+        CBDELETE(m_exhibitItems[i]);
+    }
+    m_exhibitItems.clear();
 }
 
 void CBScreenExhibitor::login()
 {
-    DebugLog("call CBDebugExhibitor::login()\n");
+    DebugLog("call CBScreenExhibitor::login()\n");
 }
 void CBScreenExhibitor::logout()
 {
-    DebugLog("call CBDebugExhibitor::logout()\n");
+    DebugLog("call CBScreenExhibitor::logout()\n");
 }
 
 void CBScreenExhibitor::post(CBAchievementItem* object)
 {
-    DebugLog("call CBDebugExhibitor::post()\n");
-    DebugLog("ID:%s [%.2f%%]\n",object->getId().c_str(),object->getPercentage());
-    DebugLog("Current Value:[%.2f], Target Value:[%.2f] \n",object->getCurrentValue(),object->getTargetValue());
-    DebugLog("Complete:[%s] \n", object->getIsComplete() ? "YES": "NO");
-    DebugLog("Description:%s, Image Name:%s \n", object->getDescription().c_str(), object->getImageName().c_str());
+    DebugLog("call CBScreenExhibitor::post()\n");
+    if(object->getIsComplete())
+    {
+        m_exhibitItems.push_back(new CBScreenExhibitItem(object));
+        if(m_exhibitItems.size() == 1)
+        {
+            m_exhibitItems[0]->start();
+        }
+    }
+}
+
+void CBScreenExhibitor::draw()
+{
+    if(m_exhibitItems.size() > 0)
+    {
+        m_exhibitItems[0]->visit();
+    }
+}
+
+void CBScreenExhibitor::update()
+{
+    if(m_exhibitItems.size() > 0)
+    {
+        m_exhibitItems[0]->notify();
+        if(m_exhibitItems[0]->IsEnded())
+        {
+            DebugLog("Remove a CBScreenExhibitItem.\n");
+            CBScreenExhibitItem* item = m_exhibitItems[0];
+            m_exhibitItems.erase (m_exhibitItems.begin());
+            CBDELETE(item);
+        }
+    }
 }

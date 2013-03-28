@@ -18,6 +18,7 @@ using namespace std;
 class CBAchievementItem;
 class CBAchievements;
 class CBAchievementExhibitor;
+class CBScreenExhibitor;
 
 class CBAchievementManager : public CBSingleton<CBAchievementManager>, public CBSubjectMediator<CBAchievementItem>
 {
@@ -27,8 +28,9 @@ private:
     const static string ACHIEVEMENT_SETTING_NAME;
     CBAchievements* m_defaultAchievements;
     CBAchievements* m_currentAchievements;
+    CBScreenExhibitor* m_screenExhibitor;
 
-    void checkArchievementComplete(const string& id);
+    void postArchievement(const string& id);
 
     void loadAchievement();
     void syncAchievement();
@@ -36,9 +38,10 @@ private:
     string myAchievementName();
     string defaultAchievementName();
 
-    void detachExhibiter(CBAchievementExhibitor* exhibitor);
-    void attachExhibiter(CBAchievementExhibitor* exhibitor);
+    void detachExhibitor(CBAchievementExhibitor* exhibitor);
+    void attachExhibitor(CBAchievementExhibitor* exhibitor);
     void initialExhibiter();
+    void initialDefaultExhibiter();
 
 public:
     CBAchievementManager();
@@ -52,6 +55,9 @@ public:
     void updateAchievement(const string& id, double newValue);
     void increaseAchievement(const string& id, double increaseValue);
     void completeAchievement(const string& id);
+
+    void updateScreenExhibitor();
+    void drawScreenExhibitor();
 };
 
 #define SAchievementManager CBAchievementManager::instance()

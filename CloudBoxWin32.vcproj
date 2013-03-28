@@ -784,6 +784,14 @@
 						>
 					</File>
 					<File
+						RelativePath=".\jni\CloudBox\CBScreenExhibitItem.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBScreenExhibitItem.h"
+						>
+					</File>
+					<File
 						RelativePath=".\jni\CloudBox\CBScreenExhibitor.h"
 						>
 					</File>
@@ -804,6 +812,10 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
+		<File
+			RelativePath=".\CloudBoxDiagram.cd"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
