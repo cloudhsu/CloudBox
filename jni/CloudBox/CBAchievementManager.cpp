@@ -87,7 +87,14 @@ void CBAchievementManager::completeAchievement(const string& id)
 void CBAchievementManager::postArchievement(const string& id)
 {
     CBAchievementItem* item = m_currentAchievements->getAchievementItem(id);
-    notify(item);
+    if(!item->getIsPosted())
+    {
+        notify(item);
+        if(item->getIsComplete())
+        {
+            item->posted();
+        }
+    }
     saveAchievement();
 }
 

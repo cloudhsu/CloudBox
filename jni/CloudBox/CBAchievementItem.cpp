@@ -10,7 +10,7 @@
 #include "CBAchievementItem.h"
 
 CBAchievementItem::CBAchievementItem()
-:m_complete(false),m_targetValue(0.0),m_currentValue(0.0),
+:m_complete(false),m_isPosted(false),m_targetValue(0.0),m_currentValue(0.0),
 m_id(""),m_description(""),m_imageName("")
 {
 }

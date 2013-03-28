@@ -15,13 +15,6 @@ using namespace std;
 
 #define DEFAULT_ACHIEVEMENT_VALUE 0
 
-enum CBAchievementState
-{
-    AchievementInit = 0,
-    AchievementComplete = 1,
-    AchievementCompleteAndUpdate = 2,
-};
-
 class CBAchievementItem
 {
 private:
@@ -30,6 +23,7 @@ private:
     double m_targetValue;
     double m_currentValue;
     bool m_complete;
+    bool m_isPosted;
     string m_imageName;
     void checkComplete();
     
@@ -45,8 +39,13 @@ public:
     void updateAchievementSucceed();
     void complete();
 
+    inline void posted() { m_isPosted = true; }
+
     inline string getImageName() const { return m_imageName; }
     inline void setImageName(string val) { m_imageName = val; }
+
+    inline bool getIsPosted() const { return m_isPosted; }
+    inline void setIsPosted(bool val) { m_isPosted = val; }
 
     inline bool getIsComplete() const { return m_complete; }
     inline void setIsComplete(bool val) { m_complete = val; }
