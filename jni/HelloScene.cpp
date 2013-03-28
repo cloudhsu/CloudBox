@@ -36,17 +36,17 @@ void HelloScene::initialize()
 	label->moveTo(10,10);
 	addChild(label);
 	
-	button1 = new CBButton("Button1",20);
+	button1 = new CBButton("Complete",20);
 	button1->moveTo(110,80);
     button1->addClickEvent(this, &HelloScene::OnClick1);
 	addChild(button1);
     
-    button2 = new CBButton("Button2",20);
+    button2 = new CBButton("Increase",20);
 	button2->moveTo(210,80);
     button2->addClickEvent(this, &HelloScene::OnClick2);
 	addChild(button2);
 
-    button3 = new CBButton("Button3",20);
+    button3 = new CBButton("Update",20);
     button3->moveTo(310,80);
     button3->addClickEvent(this, &HelloScene::OnClick3);
     addChild(button3);
