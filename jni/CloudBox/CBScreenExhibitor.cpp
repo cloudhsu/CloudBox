@@ -40,10 +40,7 @@ void CBScreenExhibitor::post(CBAchievementItem* object)
     if(object->getIsComplete())
     {
         m_exhibitItems.push_back(new CBScreenExhibitItem(object));
-        if(m_exhibitItems.size() == 1)
-        {
-            m_exhibitItems[0]->start();
-        }
+        m_exhibitItems[0]->start();
     }
 }
 
@@ -66,6 +63,8 @@ void CBScreenExhibitor::update()
             CBScreenExhibitItem* item = m_exhibitItems[0];
             m_exhibitItems.erase (m_exhibitItems.begin());
             CBDELETE(item);
+            if(m_exhibitItems.size() > 0)
+                m_exhibitItems[0]->start();
         }
     }
 }
