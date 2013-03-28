@@ -61,7 +61,7 @@ void CBScreenExhibitItem::start()
         DebugLog("call CBScreenExhibitItem::start()\n");
         startX = CBEnvironment::getScreenWidth();
         startY = CBEnvironment::getScreenHeight() - m_image->getHeight();
-        moveX = -5;
+        moveX = -8;
         m_image->moveToAbsolute(startX,startY);
         m_image->show();
         m_state = ScreenExhibitItemShowing;
