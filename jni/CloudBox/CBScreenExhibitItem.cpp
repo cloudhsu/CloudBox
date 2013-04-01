@@ -119,4 +119,3 @@ void CBScreenExhibitItem::onHidingFinish( CBView* target )
     DebugLog("call CBScreenExhibitItem::onHidingFinish()\n");
     m_state = ScreenExhibitItemEnded;
 }
-

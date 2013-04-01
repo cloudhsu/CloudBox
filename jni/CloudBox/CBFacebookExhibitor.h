@@ -10,11 +10,11 @@
 #ifndef __CBFACEBOOKXHIBITOR_H__
 #define __CBFACEBOOKXHIBITOR_H__
 
-#include "CBAchievementExhibitor.h"
+#include "CBCommunityExhibitor.h"
 #include <string>
 using namespace std;
 
-class CBFacebookExhibitor : public CBAchievementExhibitor
+class CBFacebookExhibitor : public CBCommunityExhibitor
 {
 private:
     

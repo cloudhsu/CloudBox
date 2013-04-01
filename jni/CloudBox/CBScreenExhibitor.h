@@ -27,8 +27,6 @@ public:
     ~CBScreenExhibitor();
     
     // define function for achievement exhibtion
-    void login();
-    void logout();
     void post(CBAchievementItem* object);
 
     void draw();

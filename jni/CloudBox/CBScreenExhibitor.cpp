@@ -25,15 +25,6 @@ CBScreenExhibitor::~CBScreenExhibitor()
     m_exhibitItems.clear();
 }
 
-void CBScreenExhibitor::login()
-{
-    DebugLog("call CBScreenExhibitor::login()\n");
-}
-void CBScreenExhibitor::logout()
-{
-    DebugLog("call CBScreenExhibitor::logout()\n");
-}
-
 void CBScreenExhibitor::post(CBAchievementItem* object)
 {
     DebugLog("call CBScreenExhibitor::post()\n");

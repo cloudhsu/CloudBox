@@ -15,6 +15,7 @@
 #include "CBUtility.h"
 #include "CBAchievementExhibitor.h"
 #include "CBScreenExhibitor.h"
+#include "CBDebugExhibitor.h"
 
 const string CBAchievementManager::DEFAULT_ACHIEVEMENT_SETTING_NAME = "default_achievement.xml";
 const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.xml";

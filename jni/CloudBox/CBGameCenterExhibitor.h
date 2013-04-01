@@ -10,11 +10,11 @@
 #ifndef __CBGAMECENTEREXHIBITOR_H__
 #define __CBGAMECENTEREXHIBITOR_H__
 
-#include "CBAchievementExhibitor.h"
+#include "CBCommunityExhibitor.h"
 #include <string>
 using namespace std;
 
-class CBGameCenterExhibitor : public CBAchievementExhibitor
+class CBGameCenterExhibitor : public CBCommunityExhibitor
 {
 private:
     

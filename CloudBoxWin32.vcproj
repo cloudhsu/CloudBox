@@ -220,7 +220,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\jni\CloudBox\CBCommunityExhibitor.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBComposeAction.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jni\CloudBox\CBDebugExhibitor.cpp"
 				>
 			</File>
 			<File
@@ -777,6 +785,14 @@
 					</File>
 					<File
 						RelativePath=".\jni\CloudBox\CBAchievements.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBCommunityExhibitor.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBDebugExhibitor.h"
 						>
 					</File>
 					<File

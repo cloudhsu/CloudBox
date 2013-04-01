@@ -10,11 +10,11 @@
 #ifndef __CBWEIBOEXHIBITOR_H__
 #define __CBWEIBOEXHIBITOR_H__
 
-#include "CBAchievementExhibitor.h"
+#include "CBCommunityExhibitor.h"
 #include <string>
 using namespace std;
 
-class CBWeiboExhibitor : public CBAchievementExhibitor
+class CBWeiboExhibitor : public CBCommunityExhibitor
 {
 private:
     
