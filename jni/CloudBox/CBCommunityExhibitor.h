@@ -20,9 +20,9 @@ public:
     CBCommunityExhibitor();
     virtual ~CBCommunityExhibitor();
 
-    virtual void login();
-    virtual void logout();
-    virtual void post(CBAchievementItem* object);
+    void login();
+    void logout();
+    void post(CBAchievementItem* object);
 };
 
 #endif
