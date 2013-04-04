@@ -10,19 +10,19 @@
 #ifndef __CBCOMMUNITYEXHIBITOR_H__
 #define __CBCOMMUNITYEXHIBITOR_H__
 
-#include "CBAchievementExhibitor.h"
+#include "CBCommunityExhibitorBase.h"
 
-class CBCommunityExhibitor : public CBAchievementExhibitor
+class CBCommunityExhibitor : public CBCommunityExhibitorBase
 {
 protected:
-    CBCommunityExhibitor m_implExhibitor;
+    CBCommunityExhibitorBase* m_implExhibitor;
 public:
     CBCommunityExhibitor();
     virtual ~CBCommunityExhibitor();
 
-    virtual void login() = 0;
-    virtual void logout() = 0;
-    virtual void post(CBAchievementItem* object) = 0;
+    virtual void login();
+    virtual void logout();
+    virtual void post(CBAchievementItem* object);
 };
 
 #endif

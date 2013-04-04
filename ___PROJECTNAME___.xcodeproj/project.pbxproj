@@ -12,7 +12,6 @@
 		0402421F14091C680083DC7E /* CloudGameAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402420F14091C680083DC7E /* CloudGameAppDelegate.mm */; };
 		0402422014091C680083DC7E /* CloudLib.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402421114091C680083DC7E /* CloudLib.mm */; };
 		0402422114091C680083DC7E /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402421314091C680083DC7E /* EAGLView.mm */; };
-		0402422214091C680083DC7E /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402421514091C680083DC7E /* MainViewController.mm */; };
 		0402422314091C680083DC7E /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0402421714091C680083DC7E /* SoundEngine.cpp */; };
 		0402422414091C680083DC7E /* Texture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402421A14091C680083DC7E /* Texture2D.mm */; };
 		0402422514091C680083DC7E /* Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0402421C14091C680083DC7E /* Wrapper.mm */; };
@@ -76,6 +75,18 @@
 		04E646EC14559DD600D9F92B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E646EB14559DD600D9F92B /* main.m */; };
 		04E646F914559E5700D9F92B /* HelloScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E646F714559E5700D9F92B /* HelloScene.cpp */; };
 		04F57FC914C5A89C006ADEAD /* CBAppEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F57FC814C5A89C006ADEAD /* CBAppEvent.cpp */; };
+		4B037167170D8AF200AC0825 /* achievement1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B03715F170D8AF200AC0825 /* achievement1.png */; };
+		4B037168170D8AF200AC0825 /* achievement1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B037160170D8AF200AC0825 /* achievement1@2x.png */; };
+		4B037169170D8AF200AC0825 /* achievement2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B037161170D8AF200AC0825 /* achievement2.png */; };
+		4B03716A170D8AF200AC0825 /* achievement2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B037162170D8AF200AC0825 /* achievement2@2x.png */; };
+		4B03716B170D8AF200AC0825 /* achievement3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B037163170D8AF200AC0825 /* achievement3.png */; };
+		4B03716C170D8AF200AC0825 /* achievement3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B037164170D8AF200AC0825 /* achievement3@2x.png */; };
+		4B03716D170D8AF200AC0825 /* achievement4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B037165170D8AF200AC0825 /* achievement4.png */; };
+		4B03716E170D8AF200AC0825 /* achievement4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B037166170D8AF200AC0825 /* achievement4@2x.png */; };
+		4B037172170DD26500AC0825 /* CBExhibitorFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B037170170DD26400AC0825 /* CBExhibitorFactory.cpp */; };
+		4B03717A170DD68300AC0825 /* CBFacebookExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B037174170DD68200AC0825 /* CBFacebookExhibitor.cpp */; };
+		4B03717B170DD68300AC0825 /* CBTwitterExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B037176170DD68200AC0825 /* CBTwitterExhibitor.cpp */; };
+		4B03717C170DD68300AC0825 /* CBWeiboExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B037178170DD68300AC0825 /* CBWeiboExhibitor.cpp */; };
 		4B074CA61662433300EE49CB /* CBFactoryMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */; };
 		4B0E282C16FF3B97008A6D82 /* default_achievement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4B0E282B16FF3B97008A6D82 /* default_achievement.xml */; };
 		4B3CFD3B15E2AEDD003E2938 /* CBComposeAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CFD3915E2AEDD003E2938 /* CBComposeAction.cpp */; };
@@ -141,6 +152,16 @@
 		4BADDAC016FD6F8300CD96C4 /* CBAchievementManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BADDABB16FD6F8300CD96C4 /* CBAchievementManager.cpp */; };
 		4BADDAC116FD6F8300CD96C4 /* CBAchievements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BADDABD16FD6F8300CD96C4 /* CBAchievements.cpp */; };
 		4BF48B7C16C665BD009B193F /* CBGraphic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BF48B7A16C665BD009B193F /* CBGraphic.cpp */; };
+		4BFC63D4170D590B008A5348 /* CBAchievementExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63C8170D590B008A5348 /* CBAchievementExhibitor.cpp */; };
+		4BFC63D5170D590B008A5348 /* CBCommunityExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63CA170D590B008A5348 /* CBCommunityExhibitor.cpp */; };
+		4BFC63D6170D590B008A5348 /* CBDebugExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63CC170D590B008A5348 /* CBDebugExhibitor.cpp */; };
+		4BFC63D7170D590B008A5348 /* CBGameCenterExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63CE170D590B008A5348 /* CBGameCenterExhibitor.cpp */; };
+		4BFC63D8170D590B008A5348 /* CBScreenExhibitItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63D0170D590B008A5348 /* CBScreenExhibitItem.cpp */; };
+		4BFC63D9170D590B008A5348 /* CBScreenExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63D2170D590B008A5348 /* CBScreenExhibitor.cpp */; };
+		4BFC63DC170D591D008A5348 /* CBiOSGameCenterExhibitor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63DB170D591D008A5348 /* CBiOSGameCenterExhibitor.mm */; };
+		4BFC63DF170D5961008A5348 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63DE170D5961008A5348 /* GameCenterManager.m */; };
+		4BFC63E1170D63FE008A5348 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFC63E0170D63FE008A5348 /* GameKit.framework */; };
+		4BFC63E4170D7A00008A5348 /* MainViewGameCenterController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63E3170D7A00008A5348 /* MainViewGameCenterController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,8 +175,6 @@
 		0402421114091C680083DC7E /* CloudLib.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CloudLib.mm; sourceTree = "<group>"; };
 		0402421214091C680083DC7E /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		0402421314091C680083DC7E /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
-		0402421414091C680083DC7E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		0402421514091C680083DC7E /* MainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewController.mm; sourceTree = "<group>"; };
 		0402421614091C680083DC7E /* OpenGL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL_Internal.h; sourceTree = "<group>"; };
 		0402421714091C680083DC7E /* SoundEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEngine.cpp; sourceTree = "<group>"; };
 		0402421814091C680083DC7E /* SoundEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEngine.h; sourceTree = "<group>"; };
@@ -283,6 +302,24 @@
 		04F57FC814C5A89C006ADEAD /* CBAppEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAppEvent.cpp; sourceTree = "<group>"; };
 		04FB42AE14B4AC63002A525B /* CBCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCore.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* ___PROJECTNAME___.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "___PROJECTNAME___.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B03715F170D8AF200AC0825 /* achievement1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = achievement1.png; path = iOS/Resources/achievement1.png; sourceTree = "<group>"; };
+		4B037160170D8AF200AC0825 /* achievement1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "achievement1@2x.png"; path = "iOS/Resources/achievement1@2x.png"; sourceTree = "<group>"; };
+		4B037161170D8AF200AC0825 /* achievement2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = achievement2.png; path = iOS/Resources/achievement2.png; sourceTree = "<group>"; };
+		4B037162170D8AF200AC0825 /* achievement2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "achievement2@2x.png"; path = "iOS/Resources/achievement2@2x.png"; sourceTree = "<group>"; };
+		4B037163170D8AF200AC0825 /* achievement3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = achievement3.png; path = iOS/Resources/achievement3.png; sourceTree = "<group>"; };
+		4B037164170D8AF200AC0825 /* achievement3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "achievement3@2x.png"; path = "iOS/Resources/achievement3@2x.png"; sourceTree = "<group>"; };
+		4B037165170D8AF200AC0825 /* achievement4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = achievement4.png; path = iOS/Resources/achievement4.png; sourceTree = "<group>"; };
+		4B037166170D8AF200AC0825 /* achievement4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "achievement4@2x.png"; path = "iOS/Resources/achievement4@2x.png"; sourceTree = "<group>"; };
+		4B03716F170DD1CD00AC0825 /* CBGameCenterExhibitorBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGameCenterExhibitorBase.h; sourceTree = "<group>"; };
+		4B037170170DD26400AC0825 /* CBExhibitorFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBExhibitorFactory.cpp; sourceTree = "<group>"; };
+		4B037171170DD26500AC0825 /* CBExhibitorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBExhibitorFactory.h; sourceTree = "<group>"; };
+		4B037173170DD55900AC0825 /* CBCommunityExhibitorBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCommunityExhibitorBase.h; sourceTree = "<group>"; };
+		4B037174170DD68200AC0825 /* CBFacebookExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBFacebookExhibitor.cpp; sourceTree = "<group>"; };
+		4B037175170DD68200AC0825 /* CBFacebookExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFacebookExhibitor.h; sourceTree = "<group>"; };
+		4B037176170DD68200AC0825 /* CBTwitterExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBTwitterExhibitor.cpp; sourceTree = "<group>"; };
+		4B037177170DD68200AC0825 /* CBTwitterExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTwitterExhibitor.h; sourceTree = "<group>"; };
+		4B037178170DD68300AC0825 /* CBWeiboExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBWeiboExhibitor.cpp; sourceTree = "<group>"; };
+		4B037179170DD68300AC0825 /* CBWeiboExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWeiboExhibitor.h; sourceTree = "<group>"; };
 		4B074CA31662432600EE49CB /* CBFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactory.h; sourceTree = "<group>"; };
 		4B074CA41662433300EE49CB /* CBFactoryMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBFactoryMethod.cpp; sourceTree = "<group>"; };
 		4B074CA51662433300EE49CB /* CBFactoryMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFactoryMethod.h; sourceTree = "<group>"; };
@@ -384,6 +421,25 @@
 		4BF48B7B16C665BD009B193F /* CBGraphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphic.h; sourceTree = "<group>"; };
 		4BF48B7D16C666E4009B193F /* CBGraphicBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBGraphicBase.h; sourceTree = "<group>"; };
 		4BF48B7E16C66810009B193F /* CbGraphicDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CbGraphicDef.h; sourceTree = "<group>"; };
+		4BFC63C8170D590B008A5348 /* CBAchievementExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAchievementExhibitor.cpp; sourceTree = "<group>"; };
+		4BFC63C9170D590B008A5348 /* CBAchievementExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAchievementExhibitor.h; sourceTree = "<group>"; };
+		4BFC63CA170D590B008A5348 /* CBCommunityExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBCommunityExhibitor.cpp; sourceTree = "<group>"; };
+		4BFC63CB170D590B008A5348 /* CBCommunityExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCommunityExhibitor.h; sourceTree = "<group>"; };
+		4BFC63CC170D590B008A5348 /* CBDebugExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBDebugExhibitor.cpp; sourceTree = "<group>"; };
+		4BFC63CD170D590B008A5348 /* CBDebugExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDebugExhibitor.h; sourceTree = "<group>"; };
+		4BFC63CE170D590B008A5348 /* CBGameCenterExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBGameCenterExhibitor.cpp; sourceTree = "<group>"; };
+		4BFC63CF170D590B008A5348 /* CBGameCenterExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGameCenterExhibitor.h; sourceTree = "<group>"; };
+		4BFC63D0170D590B008A5348 /* CBScreenExhibitItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBScreenExhibitItem.cpp; sourceTree = "<group>"; };
+		4BFC63D1170D590B008A5348 /* CBScreenExhibitItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBScreenExhibitItem.h; sourceTree = "<group>"; };
+		4BFC63D2170D590B008A5348 /* CBScreenExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBScreenExhibitor.cpp; sourceTree = "<group>"; };
+		4BFC63D3170D590B008A5348 /* CBScreenExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBScreenExhibitor.h; sourceTree = "<group>"; };
+		4BFC63DA170D591D008A5348 /* CBiOSGameCenterExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBiOSGameCenterExhibitor.h; sourceTree = "<group>"; };
+		4BFC63DB170D591D008A5348 /* CBiOSGameCenterExhibitor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CBiOSGameCenterExhibitor.mm; sourceTree = "<group>"; };
+		4BFC63DD170D5961008A5348 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
+		4BFC63DE170D5961008A5348 /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
+		4BFC63E0170D63FE008A5348 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		4BFC63E2170D7A00008A5348 /* MainViewGameCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewGameCenterController.h; sourceTree = "<group>"; };
+		4BFC63E3170D7A00008A5348 /* MainViewGameCenterController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewGameCenterController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +447,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BFC63E1170D63FE008A5348 /* GameKit.framework in Frameworks */,
 				4B51EB1D16553445008F6D5F /* StoreKit.framework in Frameworks */,
 				4B51EB17165532B4008F6D5F /* libxml2.dylib in Frameworks */,
 				0461C67B13DBF1BC00CC30CF /* OpenGLES.framework in Frameworks */,
@@ -436,6 +493,12 @@
 		0402420914091C3C0083DC7E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4BFC63E2170D7A00008A5348 /* MainViewGameCenterController.h */,
+				4BFC63E3170D7A00008A5348 /* MainViewGameCenterController.mm */,
+				4BFC63DA170D591D008A5348 /* CBiOSGameCenterExhibitor.h */,
+				4BFC63DB170D591D008A5348 /* CBiOSGameCenterExhibitor.mm */,
+				4BFC63DD170D5961008A5348 /* GameCenterManager.h */,
+				4BFC63DE170D5961008A5348 /* GameCenterManager.m */,
 				4B51EB071655326B008F6D5F /* CBiOSDialog.h */,
 				4B51EB081655326B008F6D5F /* CBiOSDialog.mm */,
 				4B51EB091655326B008F6D5F /* CBiOSDialogView.h */,
@@ -464,8 +527,6 @@
 				0402421114091C680083DC7E /* CloudLib.mm */,
 				0402421214091C680083DC7E /* EAGLView.h */,
 				0402421314091C680083DC7E /* EAGLView.mm */,
-				0402421414091C680083DC7E /* MainViewController.h */,
-				0402421514091C680083DC7E /* MainViewController.mm */,
 				0402421614091C680083DC7E /* OpenGL_Internal.h */,
 				0402421714091C680083DC7E /* SoundEngine.cpp */,
 				0402421814091C680083DC7E /* SoundEngine.h */,
@@ -743,6 +804,14 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4B03715F170D8AF200AC0825 /* achievement1.png */,
+				4B037160170D8AF200AC0825 /* achievement1@2x.png */,
+				4B037161170D8AF200AC0825 /* achievement2.png */,
+				4B037162170D8AF200AC0825 /* achievement2@2x.png */,
+				4B037163170D8AF200AC0825 /* achievement3.png */,
+				4B037164170D8AF200AC0825 /* achievement3@2x.png */,
+				4B037165170D8AF200AC0825 /* achievement4.png */,
+				4B037166170D8AF200AC0825 /* achievement4@2x.png */,
 				4B0E282B16FF3B97008A6D82 /* default_achievement.xml */,
 				04DC7F0F155024F100A576B0 /* bomb1.png */,
 				04DC7F10155024F100A576B0 /* bomb1@2x.png */,
@@ -765,6 +834,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BFC63E0170D63FE008A5348 /* GameKit.framework */,
 				4B51EB1C16553445008F6D5F /* StoreKit.framework */,
 				4B51EB16165532B4008F6D5F /* libxml2.dylib */,
 				0461C67A13DBF1BC00CC30CF /* OpenGLES.framework */,
@@ -820,6 +890,28 @@
 		4BADDAB816FD6F6100CD96C4 /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
+				4B037174170DD68200AC0825 /* CBFacebookExhibitor.cpp */,
+				4B037175170DD68200AC0825 /* CBFacebookExhibitor.h */,
+				4B037176170DD68200AC0825 /* CBTwitterExhibitor.cpp */,
+				4B037177170DD68200AC0825 /* CBTwitterExhibitor.h */,
+				4B037178170DD68300AC0825 /* CBWeiboExhibitor.cpp */,
+				4B037179170DD68300AC0825 /* CBWeiboExhibitor.h */,
+				4B037170170DD26400AC0825 /* CBExhibitorFactory.cpp */,
+				4B037171170DD26500AC0825 /* CBExhibitorFactory.h */,
+				4BFC63C8170D590B008A5348 /* CBAchievementExhibitor.cpp */,
+				4BFC63C9170D590B008A5348 /* CBAchievementExhibitor.h */,
+				4BFC63CA170D590B008A5348 /* CBCommunityExhibitor.cpp */,
+				4BFC63CB170D590B008A5348 /* CBCommunityExhibitor.h */,
+				4B037173170DD55900AC0825 /* CBCommunityExhibitorBase.h */,
+				4BFC63CC170D590B008A5348 /* CBDebugExhibitor.cpp */,
+				4BFC63CD170D590B008A5348 /* CBDebugExhibitor.h */,
+				4BFC63CE170D590B008A5348 /* CBGameCenterExhibitor.cpp */,
+				4BFC63CF170D590B008A5348 /* CBGameCenterExhibitor.h */,
+				4B03716F170DD1CD00AC0825 /* CBGameCenterExhibitorBase.h */,
+				4BFC63D0170D590B008A5348 /* CBScreenExhibitItem.cpp */,
+				4BFC63D1170D590B008A5348 /* CBScreenExhibitItem.h */,
+				4BFC63D2170D590B008A5348 /* CBScreenExhibitor.cpp */,
+				4BFC63D3170D590B008A5348 /* CBScreenExhibitor.h */,
 				4BADDAB916FD6F8300CD96C4 /* CBAchievementItem.cpp */,
 				4BADDABA16FD6F8300CD96C4 /* CBAchievementItem.h */,
 				4BADDABB16FD6F8300CD96C4 /* CBAchievementManager.cpp */,
@@ -943,6 +1035,14 @@
 				4B51EB1A16553364008F6D5F /* icon-72@2x.png in Resources */,
 				4B51EB1B16553364008F6D5F /* icon-72.png in Resources */,
 				4B0E282C16FF3B97008A6D82 /* default_achievement.xml in Resources */,
+				4B037167170D8AF200AC0825 /* achievement1.png in Resources */,
+				4B037168170D8AF200AC0825 /* achievement1@2x.png in Resources */,
+				4B037169170D8AF200AC0825 /* achievement2.png in Resources */,
+				4B03716A170D8AF200AC0825 /* achievement2@2x.png in Resources */,
+				4B03716B170D8AF200AC0825 /* achievement3.png in Resources */,
+				4B03716C170D8AF200AC0825 /* achievement3@2x.png in Resources */,
+				4B03716D170D8AF200AC0825 /* achievement4.png in Resources */,
+				4B03716E170D8AF200AC0825 /* achievement4@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,7 +1058,6 @@
 				0402421F14091C680083DC7E /* CloudGameAppDelegate.mm in Sources */,
 				0402422014091C680083DC7E /* CloudLib.mm in Sources */,
 				0402422114091C680083DC7E /* EAGLView.mm in Sources */,
-				0402422214091C680083DC7E /* MainViewController.mm in Sources */,
 				0402422314091C680083DC7E /* SoundEngine.cpp in Sources */,
 				0402422414091C680083DC7E /* Texture2D.mm in Sources */,
 				0402422514091C680083DC7E /* Wrapper.mm in Sources */,
@@ -1027,6 +1126,19 @@
 				4BADDABF16FD6F8300CD96C4 /* CBAchievementItem.cpp in Sources */,
 				4BADDAC016FD6F8300CD96C4 /* CBAchievementManager.cpp in Sources */,
 				4BADDAC116FD6F8300CD96C4 /* CBAchievements.cpp in Sources */,
+				4BFC63D4170D590B008A5348 /* CBAchievementExhibitor.cpp in Sources */,
+				4BFC63D5170D590B008A5348 /* CBCommunityExhibitor.cpp in Sources */,
+				4BFC63D6170D590B008A5348 /* CBDebugExhibitor.cpp in Sources */,
+				4BFC63D7170D590B008A5348 /* CBGameCenterExhibitor.cpp in Sources */,
+				4BFC63D8170D590B008A5348 /* CBScreenExhibitItem.cpp in Sources */,
+				4BFC63D9170D590B008A5348 /* CBScreenExhibitor.cpp in Sources */,
+				4BFC63DC170D591D008A5348 /* CBiOSGameCenterExhibitor.mm in Sources */,
+				4BFC63DF170D5961008A5348 /* GameCenterManager.m in Sources */,
+				4BFC63E4170D7A00008A5348 /* MainViewGameCenterController.mm in Sources */,
+				4B037172170DD26500AC0825 /* CBExhibitorFactory.cpp in Sources */,
+				4B03717A170DD68300AC0825 /* CBFacebookExhibitor.cpp in Sources */,
+				4B03717B170DD68300AC0825 /* CBTwitterExhibitor.cpp in Sources */,
+				4B03717C170DD68300AC0825 /* CBWeiboExhibitor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

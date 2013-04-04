@@ -7,6 +7,7 @@
  *
  */
 
+#import "GameCenterManager.h"
 #include "CBiOSGameCenterExhibitor.h"
 #include "CBLibrary.h"
 
@@ -22,18 +23,31 @@ CBiOSGameCenterExhibitor::~CBiOSGameCenterExhibitor()
 
 void CBiOSGameCenterExhibitor::login()
 {
-    DebugLog("call CBDebugExhibitor::login()\n");
+    DebugLog("call CBiOSGameCenterExhibitor::login()\n");
+    [[GameCenterManager sharedInstance] login];
 }
 void CBiOSGameCenterExhibitor::logout()
 {
-    DebugLog("call CBDebugExhibitor::logout()\n");
+    DebugLog("call CBiOSGameCenterExhibitor::logout()\n");
 }
 
 void CBiOSGameCenterExhibitor::post(CBAchievementItem* object)
 {
-    DebugLog("call CBDebugExhibitor::post()\n");
-    DebugLog("ID:%s [%.2f%%]\n",object->getId().c_str(),object->getPercentage());
-    DebugLog("Current Value:[%.2f], Target Value:[%.2f] \n",object->getCurrentValue(),object->getTargetValue());
-    DebugLog("Complete:[%s] \n", object->getIsComplete() ? "YES": "NO");
-    DebugLog("Description:%s, Image Name:%s \n", object->getDescription().c_str(), object->getImageName().c_str());
+    DebugLog("call CBiOSGameCenterExhibitor::post()\n");
+    NSString *name = [[[NSString alloc] initWithUTF8String: object->getId().c_str()]autorelease];
+    [[GameCenterManager sharedInstance] submitAchievement:name percentComplete:object->getPercentage()];
+}
+
+void CBiOSGameCenterExhibitor::showGameCenter()
+{
+    [[GameCenterManager sharedInstance]showAchievements];
+}
+void CBiOSGameCenterExhibitor::reportScore(string name, int score)
+{
+    NSString *category = [[[NSString alloc] initWithUTF8String: name.c_str()]autorelease];
+    [[GameCenterManager sharedInstance]reportScore:score forCategory:category];
+}
+void CBiOSGameCenterExhibitor::resetAchievements()
+{
+    [[GameCenterManager sharedInstance]resetAchievements];
 }

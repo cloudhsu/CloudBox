@@ -17,6 +17,10 @@
 #include "CBScreenExhibitor.h"
 #include "CBDebugExhibitor.h"
 
+#ifdef __CBIOS__
+#include "CBGameCenterExhibitor.h"
+#endif
+
 const string CBAchievementManager::DEFAULT_ACHIEVEMENT_SETTING_NAME = "default_achievement.xml";
 const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.xml";
 
@@ -74,6 +78,7 @@ void CBAchievementManager::resetAllAchievement()
 {
     if(getIsSupport() && getIsInitial())
         m_currentAchievements->resetAllAchievement();
+    resetAllGameCenterAchievement();
 }
 
 void CBAchievementManager::resetAchievement(const string& id)
@@ -186,4 +191,35 @@ void CBAchievementManager::initialDefaultExhibiter()
     attachExhibitor(new CBDebugExhibitor());
     m_screenExhibitor = new CBScreenExhibitor();
     attachExhibitor(m_screenExhibitor);
+    initialGameCenter();
+}
+
+void CBAchievementManager::initialGameCenter()
+{
+#ifdef __CBIOS__
+    if(m_gameCenterExhibitor == NULL)
+    {
+        m_gameCenterExhibitor = new CBGameCenterExhibitor();
+        attachExhibitor(m_gameCenterExhibitor);
+        m_gameCenterExhibitor->login();
+    }
+#endif
+}
+void CBAchievementManager::showGameCenter()
+{
+#ifdef __CBIOS__
+    if(m_gameCenterExhibitor != NULL)
+    {
+        m_gameCenterExhibitor->showGameCenter();
+    }
+#endif
+}
+void CBAchievementManager::resetAllGameCenterAchievement()
+{
+#ifdef __CBIOS__
+    if(m_gameCenterExhibitor != NULL)
+    {
+        m_gameCenterExhibitor->resetAchievements();
+    }
+#endif
 }

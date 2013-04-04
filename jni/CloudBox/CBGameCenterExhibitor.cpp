@@ -9,31 +9,48 @@
 
 #include "CBGameCenterExhibitor.h"
 #include "CBLibrary.h"
+#include "CBExhibitorFactory.h"
 
 CBGameCenterExhibitor::CBGameCenterExhibitor()
+:m_implGameCenterExhibitor(NULL)
 {
-
+    m_implGameCenterExhibitor = CBExhibitorFactory::createGameCenterExhibitor();
 }
 
 CBGameCenterExhibitor::~CBGameCenterExhibitor()
 {
-
+    CBDELETE(m_implGameCenterExhibitor);
 }
 
 void CBGameCenterExhibitor::login()
 {
-    DebugLog("call CBDebugExhibitor::login()\n");
+    if(m_implGameCenterExhibitor != NULL)
+        m_implGameCenterExhibitor->login();
 }
 void CBGameCenterExhibitor::logout()
 {
-    DebugLog("call CBDebugExhibitor::logout()\n");
+    if(m_implGameCenterExhibitor != NULL)
+        m_implGameCenterExhibitor->logout();
 }
 
 void CBGameCenterExhibitor::post(CBAchievementItem* object)
 {
-    DebugLog("call CBDebugExhibitor::post()\n");
-    DebugLog("ID:%s [%.2f%%]\n",object->getId().c_str(),object->getPercentage());
-    DebugLog("Current Value:[%.2f], Target Value:[%.2f] \n",object->getCurrentValue(),object->getTargetValue());
-    DebugLog("Complete:[%s] \n", object->getIsComplete() ? "YES": "NO");
-    DebugLog("Description:%s, Image Name:%s \n", object->getDescription().c_str(), object->getImageName().c_str());
+    if(m_implGameCenterExhibitor != NULL)
+        m_implGameCenterExhibitor->post(object);
+}
+
+void CBGameCenterExhibitor::showGameCenter()
+{
+    if(m_implGameCenterExhibitor != NULL)
+        m_implGameCenterExhibitor->showGameCenter();
+}
+void CBGameCenterExhibitor::reportScore(string name, int score)
+{
+    if(m_implGameCenterExhibitor != NULL)
+        m_implGameCenterExhibitor->reportScore(name, score);
+}
+void CBGameCenterExhibitor::resetAchievements()
+{
+    if(m_implGameCenterExhibitor != NULL)
+        m_implGameCenterExhibitor->resetAchievements();
 }

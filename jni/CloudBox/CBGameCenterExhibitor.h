@@ -10,22 +10,26 @@
 #ifndef __CBGAMECENTEREXHIBITOR_H__
 #define __CBGAMECENTEREXHIBITOR_H__
 
-#include "CBCommunityExhibitor.h"
+#include "CBGameCenterExhibitorBase.h"
 #include <string>
 using namespace std;
 
-class CBGameCenterExhibitor : public CBCommunityExhibitor
+class CBGameCenterExhibitor : public CBGameCenterExhibitorBase
 {
 private:
-    
+    CBGameCenterExhibitorBase* m_implGameCenterExhibitor;
 public:
     CBGameCenterExhibitor();
-    ~CBGameCenterExhibitor();
+    virtual ~CBGameCenterExhibitor();
     
     // define function for achievement exhibtion
     void login();
     void logout();
     void post(CBAchievementItem* object);
+    
+    void showGameCenter();
+    void reportScore(string name, int score);
+    void resetAchievements();
 };
 
 #endif

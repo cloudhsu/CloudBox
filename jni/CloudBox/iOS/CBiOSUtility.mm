@@ -21,7 +21,7 @@ CBiOSUtility::~CBiOSUtility()
 
 string CBiOSUtility::getDocumentPath(const string& fileName)
 {
-    NSString *name = [[NSString alloc] initWithUTF8String: fileName.c_str()];
+    NSString *name = [[[NSString alloc] initWithUTF8String: fileName.c_str()]autorelease];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //1
 	NSString *documentsDirectory = [paths objectAtIndex:0]; //2
 	NSString *path = [documentsDirectory stringByAppendingPathComponent:name]; //3
@@ -31,7 +31,7 @@ string CBiOSUtility::getDocumentPath(const string& fileName)
 
 string CBiOSUtility::getResourcePath(const string& fileName)
 {
-    NSString *name = [[NSString alloc] initWithUTF8String: fileName.c_str()];
+    NSString *name = [[[NSString alloc] initWithUTF8String: fileName.c_str()]autorelease];
     NSString *tileDirectory = [[NSBundle mainBundle] resourcePath];
 	NSString *path = [tileDirectory stringByAppendingPathComponent:name]; //3
     
@@ -48,6 +48,6 @@ DeviceType CBiOSUtility::getDeviceType()
 }
 void CBiOSUtility::openUrl(const string& url)
 {
-    NSString *myUrl = [[NSString alloc] initWithUTF8String: url.c_str()];
+    NSString *myUrl = [[[NSString alloc] initWithUTF8String: url.c_str()]autorelease];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:myUrl]];
 }

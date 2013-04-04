@@ -10,11 +10,11 @@
 #ifndef __CBIOSGAMECENTEREXHIBITOR_H__
 #define __CBIOSGAMECENTEREXHIBITOR_H__
 
-#include "CBCommunityExhibitor.h"
+#include "CBGameCenterExhibitorBase.h"
 #include <string>
 using namespace std;
 
-class CBiOSGameCenterExhibitor : public CBCommunityExhibitor
+class CBiOSGameCenterExhibitor : public CBGameCenterExhibitorBase
 {
 private:
     
@@ -26,6 +26,10 @@ public:
     void login();
     void logout();
     void post(CBAchievementItem* object);
+    
+    void showGameCenter();
+    void reportScore(string name, int score);
+    void resetAchievements();
 };
 
 #endif

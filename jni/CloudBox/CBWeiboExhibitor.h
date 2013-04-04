@@ -16,16 +16,9 @@ using namespace std;
 
 class CBWeiboExhibitor : public CBCommunityExhibitor
 {
-private:
-    
 public:
     CBWeiboExhibitor();
     ~CBWeiboExhibitor();
-    
-    // define function for achievement exhibtion
-    void login();
-    void logout();
-    void post(CBAchievementItem* object);
 };
 
 #endif

@@ -50,6 +50,8 @@ void HelloScene::initialize()
     button3->moveTo(310,80);
     button3->addClickEvent(this, &HelloScene::OnClick3);
     addChild(button3);
+    
+    
 	
 	dart2 = new CBImage("dart.png");
 	addChild(dart2,210,200);
@@ -82,6 +84,16 @@ void HelloScene::initialize()
     //bar->setOptionBarDirection(SlideBarDown);
     bar->initial();
     addChild(bar,200,140);
+    
+    button4 = new CBButton("Show",20);
+    button4->moveTo(110,150);
+    button4->addClickEvent(this, &HelloScene::OnClick4);
+    addChild(button4);
+    
+    button5 = new CBButton("Reset",20);
+    button5->moveTo(210,150);
+    button5->addClickEvent(this, &HelloScene::OnClick5);
+    addChild(button5);
 }
 
 void HelloScene::update()
@@ -116,4 +128,14 @@ void HelloScene::OnClick2( CBView* item,CBEvent* e )
 void HelloScene::OnClick3( CBView* item,CBEvent* e )
 {
     SAchievementManager.updateAchievement("com.cloudbox.superbabypig.stage3_clear", 5);
+}
+
+void HelloScene::OnClick4( CBView* item,CBEvent* e )
+{
+    SAchievementManager.showGameCenter();
+}
+
+void HelloScene::OnClick5( CBView* item,CBEvent* e )
+{
+    SAchievementManager.resetAllAchievement();
 }

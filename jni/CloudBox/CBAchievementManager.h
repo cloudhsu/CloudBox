@@ -19,6 +19,7 @@ class CBAchievementItem;
 class CBAchievements;
 class CBAchievementExhibitor;
 class CBScreenExhibitor;
+class CBGameCenterExhibitor;
 
 class CBAchievementManager : public CBSingleton<CBAchievementManager>, protected CBSubjectMediator<CBAchievementItem>
 {
@@ -30,6 +31,7 @@ private:
     CBAchievements* m_defaultAchievements;
     CBAchievements* m_currentAchievements;
     CBScreenExhibitor* m_screenExhibitor;
+    CBGameCenterExhibitor* m_gameCenterExhibitor;
 
     void postArchievement(const string& id);
 
@@ -41,6 +43,8 @@ private:
 
     void initialExhibiter();
     void initialDefaultExhibiter();
+    void initialGameCenter();
+    void resetAllGameCenterAchievement();
 
 public:
     CBAchievementManager();
@@ -63,6 +67,8 @@ public:
 
     void updateScreenExhibitor();
     void drawScreenExhibitor();
+    
+    void showGameCenter();
 };
 
 #define SAchievementManager CBAchievementManager::instance()

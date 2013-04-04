@@ -32,6 +32,7 @@ void CBAchievementItem::reset()
 {
     m_currentValue = DEFAULT_ACHIEVEMENT_VALUE;
     m_complete = false;
+    m_isPosted = false;
 }
 
 void CBAchievementItem::increase( double increaseValue )

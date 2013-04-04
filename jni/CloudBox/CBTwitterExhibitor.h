@@ -15,17 +15,10 @@
 using namespace std;
 
 class CBTwitterExhibitor : public CBCommunityExhibitor
-{
-private:
-    
+{  
 public:
     CBTwitterExhibitor();
-    virtual ~CBTwitterExhibitor();
-    
-    // define function for achievement exhibtion
-    void login();
-    void logout();
-    void post(CBAchievementItem* object);
+    ~CBTwitterExhibitor();
 };
 
 #endif

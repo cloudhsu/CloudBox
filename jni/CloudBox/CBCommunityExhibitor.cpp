@@ -11,9 +11,28 @@
 #include "CBLibrary.h"
 
 CBCommunityExhibitor::CBCommunityExhibitor()
+:m_implExhibitor(NULL)
 {
 }
 
 CBCommunityExhibitor::~CBCommunityExhibitor()
 {
+    CBDELETE(m_implExhibitor);
+}
+
+void CBCommunityExhibitor::login()
+{
+    if(m_implExhibitor != NULL)
+        m_implExhibitor->login();
+}
+void CBCommunityExhibitor::logout()
+{
+    if(m_implExhibitor != NULL)
+        m_implExhibitor->logout();
+}
+
+void CBCommunityExhibitor::post(CBAchievementItem* object)
+{
+    if(m_implExhibitor != NULL)
+        m_implExhibitor->post(object);
 }
