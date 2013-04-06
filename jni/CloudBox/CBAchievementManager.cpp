@@ -16,6 +16,8 @@
 #include "CBAchievementExhibitor.h"
 #include "CBScreenExhibitor.h"
 #include "CBDebugExhibitor.h"
+#include "CBCommunityExhibitor.h"
+#include "CBFacebookExhibitor.h"
 
 #ifdef __CBIOS__
 #include "CBGameCenterExhibitor.h"
@@ -26,7 +28,7 @@ const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.xml
 
 CBAchievementManager::CBAchievementManager()
 :m_defaultAchievements(NULL),m_currentAchievements(NULL),m_isInitialed(false),
-m_screenExhibitor(NULL),m_isSupported(false)
+m_screenExhibitor(NULL),m_isSupported(false),m_facebookExhibitor(NULL)
 {
 }
 
@@ -222,4 +224,14 @@ void CBAchievementManager::resetAllGameCenterAchievement()
         m_gameCenterExhibitor->resetAchievements();
     }
 #endif
+}
+
+void CBAchievementManager::loginFacebook()
+{
+    if(m_facebookExhibitor == NULL)
+    {
+        m_facebookExhibitor = new CBFacebookExhibitor();
+        attachExhibitor(m_facebookExhibitor);
+    }
+    m_facebookExhibitor->login();
 }

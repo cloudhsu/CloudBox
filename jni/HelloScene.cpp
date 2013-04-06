@@ -94,6 +94,11 @@ void HelloScene::initialize()
     button5->moveTo(210,150);
     button5->addClickEvent(this, &HelloScene::OnClick5);
     addChild(button5);
+    
+    button6 = new CBButton("Facebook",20);
+    button6->moveTo(310,150);
+    button6->addClickEvent(this, &HelloScene::OnClick6);
+    addChild(button6);
 }
 
 void HelloScene::update()
@@ -138,4 +143,9 @@ void HelloScene::OnClick4( CBView* item,CBEvent* e )
 void HelloScene::OnClick5( CBView* item,CBEvent* e )
 {
     SAchievementManager.resetAllAchievement();
+}
+
+void HelloScene::OnClick6( CBView* item,CBEvent* e )
+{
+    SAchievementManager.loginFacebook();
 }

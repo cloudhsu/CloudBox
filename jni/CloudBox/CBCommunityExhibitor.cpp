@@ -33,6 +33,8 @@ void CBCommunityExhibitor::logout()
 
 void CBCommunityExhibitor::post(CBAchievementItem* object)
 {
-    if(m_implExhibitor != NULL)
+    if(m_implExhibitor != NULL && object->getIsComplete())
+    {
         m_implExhibitor->post(object);
+    }
 }
