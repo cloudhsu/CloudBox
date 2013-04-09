@@ -17,6 +17,7 @@
     UIViewController* _controller;
     id<FBGraphUser> _loggedInUser;
     FBSession *session;
+    NSArray *_defaultPermissions;
 }
 
 + (FacebookManager *) sharedInstance;
