@@ -26,10 +26,6 @@ void CBiOSGameCenterExhibitor::login()
     DebugLog("call CBiOSGameCenterExhibitor::login()\n");
     [[GameCenterManager sharedInstance] login];
 }
-void CBiOSGameCenterExhibitor::logout()
-{
-    DebugLog("call CBiOSGameCenterExhibitor::logout()\n");
-}
 
 void CBiOSGameCenterExhibitor::post(CBAchievementItem* object)
 {

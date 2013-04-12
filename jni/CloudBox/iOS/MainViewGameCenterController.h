@@ -15,7 +15,7 @@
 
 @class EAGLView;
 
-@interface MainViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, GameCenterManagerDelegate>
+@interface MainViewController : UIViewController
 {
 	EAGLView *glView;
 	

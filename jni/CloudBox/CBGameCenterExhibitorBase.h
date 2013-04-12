@@ -14,15 +14,14 @@
 #include <string>
 using namespace std;
 
-class CBGameCenterExhibitorBase : public CBCommunityExhibitor
+class CBGameCenterExhibitorBase : public CBAchievementExhibitor
 {
 public:
     CBGameCenterExhibitorBase() {}
     virtual ~CBGameCenterExhibitorBase() {}
     
-    // define function for achievement exhibtion
+    // define function for game center achievement exhibition
     virtual void login() = 0;
-    virtual void logout() = 0;
     virtual void post(CBAchievementItem* object) = 0;
     
     virtual void showGameCenter() = 0;
@@ -38,7 +37,6 @@ public:
     
     // define function for achievement exhibtion
     void login() {}
-    void logout() {}
     void post(CBAchievementItem* object) {}
     
     void showGameCenter() {}

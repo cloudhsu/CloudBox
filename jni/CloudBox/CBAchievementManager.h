@@ -33,7 +33,6 @@ private:
     CBAchievements* m_currentAchievements;
     CBScreenExhibitor* m_screenExhibitor;
     CBGameCenterExhibitor* m_gameCenterExhibitor;
-    CBCommunityExhibitor* m_facebookExhibitor;
 
     void postArchievement(const string& id);
 
@@ -72,7 +71,6 @@ public:
     
     void showGameCenter();
     
-    void loginFacebook();
 };
 
 #define SAchievementManager CBAchievementManager::instance()

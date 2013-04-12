@@ -256,6 +256,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\jni\CloudBox\CBExhibitorFactory.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBFacebookExhibitor.cpp"
 				>
 			</File>
@@ -792,7 +796,23 @@
 						>
 					</File>
 					<File
+						RelativePath=".\jni\CloudBox\CBCommunityExhibitorBase.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBCommunityManager.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBCommunityManager.h"
+						>
+					</File>
+					<File
 						RelativePath=".\jni\CloudBox\CBDebugExhibitor.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBExhibitorFactory.h"
 						>
 					</File>
 					<File
@@ -801,6 +821,10 @@
 					</File>
 					<File
 						RelativePath=".\jni\CloudBox\CBGameCenterExhibitor.h"
+						>
+					</File>
+					<File
+						RelativePath=".\jni\CloudBox\CBGameCenterExhibitorBase.h"
 						>
 					</File>
 					<File

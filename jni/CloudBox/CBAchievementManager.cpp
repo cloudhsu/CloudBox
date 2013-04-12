@@ -16,8 +16,7 @@
 #include "CBAchievementExhibitor.h"
 #include "CBScreenExhibitor.h"
 #include "CBDebugExhibitor.h"
-#include "CBCommunityExhibitor.h"
-#include "CBFacebookExhibitor.h"
+#include "CBCommunityManager.h"
 
 #ifdef __CBIOS__
 #include "CBGameCenterExhibitor.h"
@@ -122,6 +121,7 @@ void CBAchievementManager::postArchievement(const string& id)
     if(!item->getIsPosted())
     {
         notify(item);
+        SCommunityManager.notify(item);
         if(item->getIsComplete())
         {
             item->posted();
@@ -224,14 +224,4 @@ void CBAchievementManager::resetAllGameCenterAchievement()
         m_gameCenterExhibitor->resetAchievements();
     }
 #endif
-}
-
-void CBAchievementManager::loginFacebook()
-{
-    if(m_facebookExhibitor == NULL)
-    {
-        m_facebookExhibitor = new CBFacebookExhibitor();
-        attachExhibitor(m_facebookExhibitor);
-    }
-    m_facebookExhibitor->login();
 }

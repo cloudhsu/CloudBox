@@ -12,7 +12,7 @@
 @implementation GameCenterManager
 
 @synthesize isLogon = _isLogon;
-@synthesize delegate;
+@synthesize controller = _controller;
 
 static GameCenterManager* _sharedInstance = nil;
 
@@ -46,7 +46,7 @@ static GameCenterManager* _sharedInstance = nil;
     self = [super init];
     if (self) {
         _isLogon = NO;
-        delegate = nil;
+        _controller = nil;
     }
     return self;
 }
@@ -79,21 +79,21 @@ static GameCenterManager* _sharedInstance = nil;
     return @"unknownPlayer";
 }
 
-- (void) showAchievements
-{
-    if(delegate != nil)
-    {
-        [delegate showAchievements];
-    }
-}
-
-- (void) showLeaderboard;
-{
-    if(delegate != nil)
-    {
-        [delegate showLeaderboard];
-    }
-}
+//- (void) showAchievements
+//{
+//    if(delegate != nil)
+//    {
+//        [delegate showAchievements];
+//    }
+//}
+//
+//- (void) showLeaderboard;
+//{
+//    if(delegate != nil)
+//    {
+//        [delegate showLeaderboard];
+//    }
+//}
 
 - (void) login
 {
@@ -180,6 +180,40 @@ static GameCenterManager* _sharedInstance = nil;
     {
         NSLog(@"You must login Game Center.");
     }
+}
+
+- (void) showLeaderboard;
+{
+	GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+	if (leaderboardController != NULL)
+	{
+		leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
+		leaderboardController.leaderboardDelegate = self;
+		[_controller presentModalViewController: leaderboardController animated: YES];
+	}
+}
+
+- (void) showAchievements
+{
+	GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
+	if (achievements != NULL)
+	{
+		achievements.achievementDelegate = self;
+		[_controller presentModalViewController: achievements animated: YES];
+	}
+}
+
+#pragma mark GameCenter View Controllers
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	[_controller dismissModalViewControllerAnimated: YES];
+	[viewController release];
+}
+
+- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController;
+{
+	[_controller dismissModalViewControllerAnimated: YES];
+	[viewController release];
 }
 
 @end

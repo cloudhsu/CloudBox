@@ -27,11 +27,6 @@ void CBGameCenterExhibitor::login()
     if(m_implGameCenterExhibitor != NULL)
         m_implGameCenterExhibitor->login();
 }
-void CBGameCenterExhibitor::logout()
-{
-    if(m_implGameCenterExhibitor != NULL)
-        m_implGameCenterExhibitor->logout();
-}
 
 void CBGameCenterExhibitor::post(CBAchievementItem* object)
 {

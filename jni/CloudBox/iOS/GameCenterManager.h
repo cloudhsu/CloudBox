@@ -10,16 +10,10 @@
 #import <Foundation/Foundation.h>
 #import <GameKit/GameKit.h>
 
-@protocol GameCenterManagerDelegate <NSObject>
-@optional
-- (void) showLeaderboard;
-- (void) showAchievements;
-@end
-
-@interface GameCenterManager : NSObject
+@interface GameCenterManager : NSObject <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate>
 {
-    BOOL _isLogon;    
-    id <GameCenterManagerDelegate, NSObject> delegate;
+    BOOL _isLogon;
+    UIViewController* _controller;
 }
 
 + (GameCenterManager *) sharedInstance;
@@ -42,6 +36,6 @@
 - (void) reportScore: (int64_t) score forCategory: (NSString*) category;
 
 @property (nonatomic, readonly) BOOL isLogon;
-@property (nonatomic, assign)  id <GameCenterManagerDelegate> delegate;
+@property (nonatomic, assign)  UIViewController controller;
 
 @end
