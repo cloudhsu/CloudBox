@@ -20,6 +20,12 @@ CBCommunityExhibitor::~CBCommunityExhibitor()
     CBDELETE(m_implExhibitor);
 }
 
+void CBCommunityExhibitor::autoLogin()
+{
+    if(m_implExhibitor != NULL)
+        m_implExhibitor->autoLogin();
+}
+
 void CBCommunityExhibitor::login()
 {
     if(m_implExhibitor != NULL)

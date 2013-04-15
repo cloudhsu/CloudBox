@@ -16,7 +16,7 @@
 
 @class EAGLView;
 
-@interface MainViewController : UIViewController<AdWhirlDelegate,GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, GameCenterManagerDelegate>
+@interface MainViewController : UIViewController<AdWhirlDelegate>
 {
 	AdWhirlView *awView;
 	EAGLView *glView;

@@ -158,6 +158,7 @@
 		4BC06EF51710819200DAB0E1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC06EF31710819200DAB0E1 /* AdSupport.framework */; };
 		4BC06EF71710825000DAB0E1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC06EF61710825000DAB0E1 /* Social.framework */; };
 		4BC06EFA17108E6600DAB0E1 /* CloudFBAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BC06EF817108E6500DAB0E1 /* CloudFBAppDelegate.mm */; };
+		4BCA206C171AB8240075A807 /* CBCommunityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BCA206A171AB8240075A807 /* CBCommunityManager.cpp */; };
 		4BF48B7C16C665BD009B193F /* CBGraphic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BF48B7A16C665BD009B193F /* CBGraphic.cpp */; };
 		4BFC63D4170D590B008A5348 /* CBAchievementExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63C8170D590B008A5348 /* CBAchievementExhibitor.cpp */; };
 		4BFC63D5170D590B008A5348 /* CBCommunityExhibitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC63CA170D590B008A5348 /* CBCommunityExhibitor.cpp */; };
@@ -433,6 +434,8 @@
 		4BC06EF61710825000DAB0E1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4BC06EF817108E6500DAB0E1 /* CloudFBAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CloudFBAppDelegate.mm; sourceTree = "<group>"; };
 		4BC06EF917108E6500DAB0E1 /* CloudFBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudFBAppDelegate.h; sourceTree = "<group>"; };
+		4BCA206A171AB8240075A807 /* CBCommunityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBCommunityManager.cpp; sourceTree = "<group>"; };
+		4BCA206B171AB8240075A807 /* CBCommunityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCommunityManager.h; sourceTree = "<group>"; };
 		4BF48B7A16C665BD009B193F /* CBGraphic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBGraphic.cpp; sourceTree = "<group>"; };
 		4BF48B7B16C665BD009B193F /* CBGraphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphic.h; sourceTree = "<group>"; };
 		4BF48B7D16C666E4009B193F /* CBGraphicBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBGraphicBase.h; sourceTree = "<group>"; };
@@ -919,6 +922,8 @@
 		4BADDAB816FD6F6100CD96C4 /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
+				4BCA206A171AB8240075A807 /* CBCommunityManager.cpp */,
+				4BCA206B171AB8240075A807 /* CBCommunityManager.h */,
 				4B037174170DD68200AC0825 /* CBFacebookExhibitor.cpp */,
 				4B037175170DD68200AC0825 /* CBFacebookExhibitor.h */,
 				4B037176170DD68200AC0825 /* CBTwitterExhibitor.cpp */,
@@ -1171,6 +1176,7 @@
 				4BC06EEC17107B5100DAB0E1 /* FacebookManager.m in Sources */,
 				4BC06EED17107B5100DAB0E1 /* CBiOSFacebookExhibitor.mm in Sources */,
 				4BC06EFA17108E6600DAB0E1 /* CloudFBAppDelegate.mm in Sources */,
+				4BCA206C171AB8240075A807 /* CBCommunityManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

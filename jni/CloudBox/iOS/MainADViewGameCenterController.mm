@@ -42,7 +42,7 @@
 	glView = [[EAGLView alloc]initWithFrame:t_FullScreenRect];
 	//NSLog(@"glView:%d",[glView retainCount]);
 	self.view = glView;
-    [GameCenterManager sharedInstance].delegate = self;
+    [GameCenterManager sharedInstance].controller = self;
 	
 	animating = FALSE;
 	// Set 1 = 60FPS
@@ -231,40 +231,5 @@
 {
 	return nil;
 }
-
-#pragma mark GameCenter View Controllers
-- (void) showLeaderboard;
-{
-	GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
-	if (leaderboardController != NULL)
-	{
-		leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
-		leaderboardController.leaderboardDelegate = self;
-		[self presentModalViewController: leaderboardController animated: YES];
-	}
-}
-
-- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-	[self dismissModalViewControllerAnimated: YES];
-	[viewController release];
-}
-
-- (void) showAchievements
-{
-	GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
-	if (achievements != NULL)
-	{
-		achievements.achievementDelegate = self;
-		[self presentModalViewController: achievements animated: YES];
-	}
-}
-
-- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController;
-{
-	[self dismissModalViewControllerAnimated: YES];
-	[viewController release];
-}
-
 
 @end

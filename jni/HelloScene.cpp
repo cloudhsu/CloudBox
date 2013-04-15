@@ -7,6 +7,7 @@
  *
  */
 
+#include "CBCommunityManager.h"
 #include "CBAchievementManager.h"
 #include "HelloScene.h"
 
@@ -147,5 +148,6 @@ void HelloScene::OnClick5( CBView* item,CBEvent* e )
 
 void HelloScene::OnClick6( CBView* item,CBEvent* e )
 {
-    SAchievementManager.loginFacebook();
+    //SAchievementManager.loginFacebook();
+    SCommunityManager.loginFacebook();
 }

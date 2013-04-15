@@ -15,16 +15,27 @@
 #include <string>
 using namespace std;
 
+class CBAchievementExhibitor;
 class CBAchievementItem;
 class CBFeed;
+class CBCommunityExhibitorBase;
 
-class CBCommunityManager : public CBSingleton<CBCommunityManager>, protected CBSubjectMediator<CBAchievementItem>
+class CBCommunityManager : public CBSingleton<CBCommunityManager>, public CBSubjectMediator<CBAchievementItem>
 {
 private:
-    CBCommunityExhibitor* m_facebookExhibitor;
+    CBCommunityExhibitorBase* m_facebookExhibitor;
+    CBCommunityExhibitorBase* m_weiboExhibitor;
+    CBCommunityExhibitorBase* m_twitterExhibitor;
 
     void detachExhibitor(CBAchievementExhibitor* exhibitor);
     void attachExhibitor(CBAchievementExhibitor* exhibitor);
+    
+    void autoLogin();
+    
+    void initialFacebook();
+    void initialWeibo();
+    void initialTwitter();
+    
 public:
     CBCommunityManager();
     ~CBCommunityManager();

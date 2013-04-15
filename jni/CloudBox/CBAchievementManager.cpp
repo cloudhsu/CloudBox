@@ -27,7 +27,7 @@ const string CBAchievementManager::ACHIEVEMENT_SETTING_NAME = "CBAchievement.xml
 
 CBAchievementManager::CBAchievementManager()
 :m_defaultAchievements(NULL),m_currentAchievements(NULL),m_isInitialed(false),
-m_screenExhibitor(NULL),m_isSupported(false),m_facebookExhibitor(NULL)
+m_screenExhibitor(NULL),m_isSupported(false)
 {
 }
 

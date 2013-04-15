@@ -20,6 +20,7 @@ public:
     CBCommunityExhibitor();
     virtual ~CBCommunityExhibitor();
 
+    void autoLogin();
     void login();
     void logout();
     void post(CBAchievementItem* object);

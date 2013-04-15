@@ -21,14 +21,17 @@ CBiOSFacebookExhibitor::~CBiOSFacebookExhibitor()
 
 }
 
+void CBiOSFacebookExhibitor::autoLogin()
+{
+    [[FacebookManager sharedInstance]autoLogin];
+}
+
 void CBiOSFacebookExhibitor::login()
 {
-    DebugLog("call CBDebugExhibitor::login()\n");
     [[FacebookManager sharedInstance]login];
 }
 void CBiOSFacebookExhibitor::logout()
 {
-    DebugLog("call CBDebugExhibitor::logout()\n");
     [[FacebookManager sharedInstance]logout];
 }
 

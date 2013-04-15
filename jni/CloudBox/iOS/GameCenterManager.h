@@ -7,6 +7,7 @@
  *
  */
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <GameKit/GameKit.h>
 
@@ -36,6 +37,6 @@
 - (void) reportScore: (int64_t) score forCategory: (NSString*) category;
 
 @property (nonatomic, readonly) BOOL isLogon;
-@property (nonatomic, assign)  UIViewController controller;
+@property (nonatomic, assign)  UIViewController* controller;
 
 @end

@@ -22,7 +22,7 @@
 
 + (FacebookManager *) sharedInstance;
 
-- (void) initialSession;
+- (void) autoLogin;
 - (void) login;
 - (BOOL) handleOpenURL :(NSURL*)url;
 - (void) handleActive;

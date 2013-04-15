@@ -48,7 +48,7 @@ static FacebookManager* _sharedInstance = nil;
     if (self) {
         _isLogon = NO;
         _controller = nil;
-        [self initialSession];
+        _defaultPermissions = [[NSArray alloc] initWithObjects:@"publish_stream", @"publish_actions", nil];
     }
     return self;
 }
@@ -56,6 +56,7 @@ static FacebookManager* _sharedInstance = nil;
 - (void)dealloc {
     [session close];
 	[_sharedInstance release];
+    [_defaultPermissions release];
 	[self dealloc];
     [super dealloc];
 }
@@ -66,9 +67,7 @@ static FacebookManager* _sharedInstance = nil;
     {
         if (session.state != FBSessionStateCreated) {
             // Create a new, logged out session.
-            NSArray *permissions = [[NSArray alloc] initWithObjects:@"publish_stream", @"publish_action", nil];
-            session = [[FBSession alloc] initWithPermissions:permissions];
-            [permissions release];
+            session = [[FBSession alloc] initWithPermissions:_defaultPermissions];
         }
     
         // if the session isn't open, let's open it now and present the login UX to the user
@@ -85,13 +84,11 @@ static FacebookManager* _sharedInstance = nil;
     }
 }
 
-- (void) initialSession
+- (void) autoLogin
 {
     if (!session.isOpen) {
         // create a fresh session object
-        NSArray *permissions = [[NSArray alloc] initWithObjects:@"publish_stream", @"publish_action", nil];
-        session = [[FBSession alloc] initWithPermissions:permissions];
-        [permissions release];
+        session = [[FBSession alloc] initWithPermissions:_defaultPermissions];
         
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so

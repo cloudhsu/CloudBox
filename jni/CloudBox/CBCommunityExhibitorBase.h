@@ -18,6 +18,7 @@ public:
     CBCommunityExhibitorBase() {}
     virtual ~CBCommunityExhibitorBase() {}
 
+    virtual void autoLogin() = 0;
     virtual void login() = 0;
     virtual void logout() = 0;
     virtual void post(CBAchievementItem* object) = 0;
@@ -29,6 +30,7 @@ public:
     CBCommunityExhibitorSimulator() {}
     virtual ~CBCommunityExhibitorSimulator() {}
     
+    void autoLogin() {}
     void login() {}
     void logout() {}
     void post(CBAchievementItem* object) {}

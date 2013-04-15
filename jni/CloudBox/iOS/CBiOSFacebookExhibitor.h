@@ -23,6 +23,7 @@ public:
     ~CBiOSFacebookExhibitor();
     
     // define function for achievement exhibtion
+    void autoLogin();
     void login();
     void logout();
     void post(CBAchievementItem* object);
