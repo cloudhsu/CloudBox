@@ -35,6 +35,7 @@ public class FacebookManager  {
     private Session.StatusCallback statusCallback = new SessionStatusCallback();
     
     private Activity m_activity = null;
+    boolean m_isInitial;
     
     private static FacebookManager m_instance = new FacebookManager();
     
@@ -46,6 +47,7 @@ public class FacebookManager  {
     public void setMainActivity(Activity activity)
     {
     	m_activity = activity;
+    	m_isInitial = true;
     }
     
     private FacebookManager()
@@ -65,7 +67,7 @@ public class FacebookManager  {
     
     public void autoLogin(Bundle savedInstanceState)
     {
-    	if(m_activity == null)
+    	if(m_activity == null || !m_isInitial)
     	{
     		return;
     	}
@@ -91,7 +93,7 @@ public class FacebookManager  {
     
     public void login()
     {
-    	if(m_activity == null)
+    	if(m_activity == null || !m_isInitial)
     	{
     		return;
     	}
@@ -131,6 +133,8 @@ public class FacebookManager  {
     
     public void postStatus(String msg)
     {
+    	if(!m_isInitial)
+    		return;
     	if (hasPublishPermission())
     	{
             Request request = Request
@@ -146,6 +150,8 @@ public class FacebookManager  {
     
     public void postStatus(String msg, String imageName)
     {
+    	if(!m_isInitial)
+    		return;
     	if (hasPublishPermission())
     	{
             Bitmap image = getBitmapFromAsset(imageName);
@@ -161,6 +167,8 @@ public class FacebookManager  {
     
     public void postFeed(String name,String link, String caption, String description, String msg)
     {
+    	if(!m_isInitial)
+    		return;
     	 Bundle parameters = new Bundle();
          parameters.putString("message", msg);
          parameters.putString("name", name);

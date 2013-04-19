@@ -8,7 +8,8 @@
  */
 
 #include "CBAndroidFacebookExhibitor.h"
-#include "CBLibrary.h"
+#include "../CBLibrary.h"
+#include "def.h"
 
 CBAndroidFacebookExhibitor::CBAndroidFacebookExhibitor()
 {
@@ -52,7 +53,7 @@ void CBAndroidFacebookExhibitor::post(CBAchievementItem* object)
 
 void CBAndroidFacebookExhibitor::postStatus(string msg)
 {
-	jstring _msg = g_env->NewStringUTF(str.c_str());
+	jstring _msg = g_env->NewStringUTF(msg.c_str());
 
 	g_env->CallStaticVoidMethod(m_mainClass, m_postMsg, _msg);
 

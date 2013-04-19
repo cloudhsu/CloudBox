@@ -15,7 +15,7 @@
 #include <string>
 using namespace std;
 
-class CBAndroidFacebookExhibitor : public CBCommunityExhibitor, public CBJNI
+class CBAndroidFacebookExhibitor : public CBCommunityExhibitorBase, public CBJNI
 {
 private:
 	jmethodID m_login;

@@ -42,6 +42,12 @@ LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
                    CBUtility.cpp CBXmlUtility.cpp CBUserDefault.cpp CBLibXMLUtility.cpp \
                    CBFactoryMethod.cpp CBStoreBase.cpp CBDialogManager.cpp \
                    ../CBAppEvent.cpp
+# For community
+LOCAL_SRC_FILES += CBAchievementExhibitor.cpp CBAchievementItem.cpp CBAchievementManager.cpp \
+				   CBAchievements.cpp CBCommunityExhibitor.cpp CBCommunityManager.cpp \
+				   CBDebugExhibitor.cpp CBExhibitorFactory.cpp CBFacebookExhibitor.cpp \
+				   CBScreenExhibitItem.cpp CBScreenExhibitor.cpp CBTwitterExhibitor.cpp \
+				   CBWeiboExhibitor.cpp
 # CloudBox extends function
 # LOCAL_SRC_FILES += Extends/CBLotto.cpp Extends/CBLed.cpp Extends/CBMotion.cpp
 LOCAL_SRC_FILES += Extends/CBMotion.cpp
@@ -50,6 +56,8 @@ LOCAL_SRC_FILES += Android/CBAndroidTextureBuilder.cpp Android/app-android.cpp \
                    Android/CBJNI.cpp Android/CBTextManager.cpp Android/CBAndroidAudioManager.cpp \
                    Android/CBAndroidEffectManager.cpp Android/CBAndroidUtility.cpp \
                    Android/CBAndroidDialog.cpp Android/CBAndroidStoreWrapper.cpp
+# For community in Android
+LOCAL_SRC_FILES += Android/CBAndroidFacebookExhibitor.cpp
 # CloudBox Android Extends Library
 # LOCAL_SRC_FILES += Android/CBMotionAndroid.cpp Android/CBLedAndroid.cpp
 # CloudBox Game Component
