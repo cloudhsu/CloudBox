@@ -44,3 +44,19 @@ void CBCommunityExhibitor::post(CBAchievementItem* object)
         m_implExhibitor->post(object);
     }
 }
+
+void CBCommunityExhibitor::postStatus(string msg)
+{
+    if(m_implExhibitor != NULL)
+        m_implExhibitor->postStatus(msg);
+}
+void CBCommunityExhibitor::postStatus(string msg,string imageName)
+{
+    if(m_implExhibitor != NULL)
+        m_implExhibitor->postStatus(msg, imageName);
+}
+void CBCommunityExhibitor::postFeed(string name,string link, string caption, string description, string msg)
+{
+    if(m_implExhibitor != NULL)
+        m_implExhibitor->postFeed(name, link, caption, description, msg);
+}

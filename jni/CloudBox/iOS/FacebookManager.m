@@ -163,16 +163,16 @@ static FacebookManager* _sharedInstance = nil;
     }];
 }
 
-- (void) postFeed:(NSString*)message andImageName:(NSString*)imageName
+- (void) postFeed:(NSString*) name andLink:(NSString*) link andCaption:(NSString*) caption andDesc:(NSString*) description andMsg:(NSString*) msg
 {
     [self performPublishAction:^{
         
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                       @"Super Baby Pig", @"name",
-                                       @"https://itunes.apple.com/app/id578609436?mt=8", @"link",
-                                       @"Super Baby Pig for iPhone!", @"caption",
-                                       @"Super Baby Pig is a cute game!", @"description",
-                                       @"I am playing Super Baby Pig now!", @"message",
+                                       name, @"name",
+                                       link, @"link",
+                                       caption, @"caption",
+                                       description, @"description",
+                                       msg, @"message",
                                        nil];
         
         [FBRequestConnection startWithGraphPath:@"me/feed"

@@ -12,7 +12,12 @@
 
 CBAndroidFacebookExhibitor::CBAndroidFacebookExhibitor()
 {
-
+	initialJNIClass("com/clouddevelop/cloudbox/CBCommunityUtility");
+	m_login = g_env->GetStaticMethodID(m_mainClass, "loginFB", "()V");
+	m_logout = g_env->GetStaticMethodID(m_mainClass, "logoutFB", "(Ljava/lang/String;)V");
+	m_postMsg = g_env->GetStaticMethodID(m_mainClass, "postStatusToFB", "(Ljava/lang/String;)V");
+	m_postImage = g_env->GetStaticMethodID(m_mainClass, "postStatusToFB", "(Ljava/lang/String;Ljava/lang/String;)V");
+	m_postFeed = g_env->GetStaticMethodID(m_mainClass, "postFeedToFB", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
 }
 
 CBAndroidFacebookExhibitor::~CBAndroidFacebookExhibitor()
@@ -20,20 +25,64 @@ CBAndroidFacebookExhibitor::~CBAndroidFacebookExhibitor()
 
 }
 
+void CBAndroidFacebookExhibitor::autoLogin()
+{
+	// Android auto login function is called by activity
+}
 void CBAndroidFacebookExhibitor::login()
 {
-    DebugLog("call CBDebugExhibitor::login()\n");
+	g_env->CallStaticVoidMethod(m_mainClass, m_login);
 }
 void CBAndroidFacebookExhibitor::logout()
 {
-    DebugLog("call CBDebugExhibitor::logout()\n");
+	g_env->CallStaticVoidMethod(m_mainClass, m_logout);
 }
 
 void CBAndroidFacebookExhibitor::post(CBAchievementItem* object)
 {
-    DebugLog("call CBDebugExhibitor::post()\n");
-    DebugLog("ID:%s [%.2f%%]\n",object->getId().c_str(),object->getPercentage());
-    DebugLog("Current Value:[%.2f], Target Value:[%.2f] \n",object->getCurrentValue(),object->getTargetValue());
-    DebugLog("Complete:[%s] \n", object->getIsComplete() ? "YES": "NO");
-    DebugLog("Description:%s, Image Name:%s \n", object->getDescription().c_str(), object->getImageName().c_str());
+	string str = "You got " + object->getDescription();
+	jstring msg = g_env->NewStringUTF(str.c_str());
+	jstring imageName = g_env->NewStringUTF(object->getImageName().c_str());
+
+	g_env->CallStaticVoidMethod(m_mainClass, m_postImage, msg, imageName);
+
+	g_env->DeleteLocalRef(msg);
+	g_env->DeleteLocalRef(imageName);
+}
+
+void CBAndroidFacebookExhibitor::postStatus(string msg)
+{
+	jstring _msg = g_env->NewStringUTF(str.c_str());
+
+	g_env->CallStaticVoidMethod(m_mainClass, m_postMsg, _msg);
+
+	g_env->DeleteLocalRef(_msg);
+}
+
+void CBAndroidFacebookExhibitor::postStatus(string msg,string imageName)
+{
+	jstring _msg = g_env->NewStringUTF(msg.c_str());
+	jstring _imageName = g_env->NewStringUTF(imageName.c_str());
+
+	g_env->CallStaticVoidMethod(m_mainClass, m_postImage, _msg, _imageName);
+
+	g_env->DeleteLocalRef(_msg);
+	g_env->DeleteLocalRef(_imageName);
+}
+
+void CBAndroidFacebookExhibitor::postFeed(string name,string link, string caption, string description, string msg)
+{
+	jstring _name = g_env->NewStringUTF(name.c_str());
+	jstring _link = g_env->NewStringUTF(link.c_str());
+	jstring _caption = g_env->NewStringUTF(caption.c_str());
+	jstring _description = g_env->NewStringUTF(description.c_str());
+	jstring _msg = g_env->NewStringUTF(msg.c_str());
+
+	g_env->CallStaticVoidMethod(m_mainClass, m_postFeed, _name, _link, _caption, _description, _msg);
+
+	g_env->DeleteLocalRef(_name);
+	g_env->DeleteLocalRef(_link);
+	g_env->DeleteLocalRef(_caption);
+	g_env->DeleteLocalRef(_description);
+	g_env->DeleteLocalRef(_msg);
 }

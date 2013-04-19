@@ -27,6 +27,10 @@ public:
     void login();
     void logout();
     void post(CBAchievementItem* object);
+    
+    void postStatus(string msg);
+    void postStatus(string msg,string imageName);
+    void postFeed(string name,string link, string caption, string description, string msg);
 };
 
 #endif

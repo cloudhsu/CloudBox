@@ -30,7 +30,7 @@
 
 - (void) postStatus:(NSString*)message;
 - (void) postStatus:(NSString*)message andImageName:(NSString*)imageName;
-- (void) postFeed:(NSString*)message andImageName:(NSString*)imageName;
+- (void) postFeed:(NSString*) name andLink:(NSString*) link andCaption:(NSString*) caption andDesc:(NSString*) description andMsg:(NSString*) msg;
 
 @property (nonatomic, readonly) BOOL isLogon;
 @property (nonatomic, assign)  UIViewController* controller;
