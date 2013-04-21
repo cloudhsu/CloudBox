@@ -34,7 +34,7 @@ string CBAndroidUtility::getDocumentPath(const string& fileName)
 
 string CBAndroidUtility::getResourcePath(const string& fileName)
 {
-    string dir("/asset/");
+    string dir("asset/");
     dir.append(fileName);
     return dir;
 }

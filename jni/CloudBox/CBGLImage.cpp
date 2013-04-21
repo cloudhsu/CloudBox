@@ -68,9 +68,9 @@ void CBGLImage::loadImage(const string& fileName, float& width, float& height)
 		width = m_mainTexture->getImageWidth();
 		height = m_mainTexture->getImageHeight();
 	}
-    if(m_mainTexture != NULL)
-	DebugLog("Name:%s,texture id:%d,width:%f,height:%f\n",
-			fileName.c_str(),m_mainTexture->getTextureId(),width,height);
+//    if(m_mainTexture != NULL)
+//	DebugLog("Name:%s,texture id:%d,width:%f,height:%f\n",
+//			fileName.c_str(),m_mainTexture->getTextureId(),width,height);
 }
 
 void CBGLImage::createTextImage(const string& text,float size, float& width, float& height)
@@ -83,7 +83,7 @@ void CBGLImage::createTextImage(const string& text,float size, float& width, flo
 		m_mainTexture = STextureBuilder.buildStringTexture(text,size);
 		width = m_mainTexture->getImageWidth();
 		height = m_mainTexture->getImageHeight();
-		DebugLog("textureID:%d,width:%f,height:%f\n",m_mainTexture->getTextureId(),width,height);
+		//DebugLog("textureID:%d,width:%f,height:%f\n",m_mainTexture->getTextureId(),width,height);
 		STexturePool.registerToPool(textKey.str(),m_mainTexture);
 	}
 	else
@@ -91,5 +91,5 @@ void CBGLImage::createTextImage(const string& text,float size, float& width, flo
 		width = m_mainTexture->getImageWidth();
 		height = m_mainTexture->getImageHeight();
 	}
-	DebugLog("Name:%s,texture id:%d\n",text.c_str(),m_mainTexture->getTextureId());
+	//DebugLog("Name:%s,texture id:%d\n",text.c_str(),m_mainTexture->getTextureId());
 }

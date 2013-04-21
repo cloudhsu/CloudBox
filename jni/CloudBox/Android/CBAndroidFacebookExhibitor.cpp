@@ -13,9 +13,10 @@
 
 CBAndroidFacebookExhibitor::CBAndroidFacebookExhibitor()
 {
+	DebugLog("Create CBAndroidFacebookExhibitor.\n");
 	initialJNIClass("com/clouddevelop/cloudbox/CBCommunityUtility");
 	m_login = g_env->GetStaticMethodID(m_mainClass, "loginFB", "()V");
-	m_logout = g_env->GetStaticMethodID(m_mainClass, "logoutFB", "(Ljava/lang/String;)V");
+	m_logout = g_env->GetStaticMethodID(m_mainClass, "logoutFB", "()V");
 	m_postMsg = g_env->GetStaticMethodID(m_mainClass, "postStatusToFB", "(Ljava/lang/String;)V");
 	m_postImage = g_env->GetStaticMethodID(m_mainClass, "postStatusToFB", "(Ljava/lang/String;Ljava/lang/String;)V");
 	m_postFeed = g_env->GetStaticMethodID(m_mainClass, "postFeedToFB", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
@@ -29,14 +30,17 @@ CBAndroidFacebookExhibitor::~CBAndroidFacebookExhibitor()
 void CBAndroidFacebookExhibitor::autoLogin()
 {
 	// Android auto login function is called by activity
+	DebugLog("Call CBAndroidFacebookExhibitor autoLogin.\n");
 }
 void CBAndroidFacebookExhibitor::login()
 {
 	g_env->CallStaticVoidMethod(m_mainClass, m_login);
+	DebugLog("Call CBAndroidFacebookExhibitor login.\n");
 }
 void CBAndroidFacebookExhibitor::logout()
 {
 	g_env->CallStaticVoidMethod(m_mainClass, m_logout);
+	DebugLog("Call CBAndroidFacebookExhibitor logout.\n");
 }
 
 void CBAndroidFacebookExhibitor::post(CBAchievementItem* object)
@@ -49,6 +53,7 @@ void CBAndroidFacebookExhibitor::post(CBAchievementItem* object)
 
 	g_env->DeleteLocalRef(msg);
 	g_env->DeleteLocalRef(imageName);
+	DebugLog("Call CBAndroidFacebookExhibitor post.\n");
 }
 
 void CBAndroidFacebookExhibitor::postStatus(string msg)
@@ -58,6 +63,7 @@ void CBAndroidFacebookExhibitor::postStatus(string msg)
 	g_env->CallStaticVoidMethod(m_mainClass, m_postMsg, _msg);
 
 	g_env->DeleteLocalRef(_msg);
+	DebugLog("Call CBAndroidFacebookExhibitor postStatus.\n");
 }
 
 void CBAndroidFacebookExhibitor::postStatus(string msg,string imageName)
@@ -69,6 +75,7 @@ void CBAndroidFacebookExhibitor::postStatus(string msg,string imageName)
 
 	g_env->DeleteLocalRef(_msg);
 	g_env->DeleteLocalRef(_imageName);
+	DebugLog("Call CBAndroidFacebookExhibitor postStatus.\n");
 }
 
 void CBAndroidFacebookExhibitor::postFeed(string name,string link, string caption, string description, string msg)
@@ -86,4 +93,5 @@ void CBAndroidFacebookExhibitor::postFeed(string name,string link, string captio
 	g_env->DeleteLocalRef(_caption);
 	g_env->DeleteLocalRef(_description);
 	g_env->DeleteLocalRef(_msg);
+	DebugLog("Call CBAndroidFacebookExhibitor postFeed.\n");
 }

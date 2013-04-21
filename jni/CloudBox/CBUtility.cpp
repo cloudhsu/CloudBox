@@ -54,9 +54,9 @@ void CBUtility::onRateAlertClick(DialogResult result, int clickIndex)
 {
     if(result == DialogResultRateNever || result == DialogResultRateMe)
     {
-    	DebugLog("set rate result.\n");
+    	//DebugLog("set rate result.\n");
         SUserDefault.setValue(RATE_TAG, true);
-        DebugLog("save rate result.\n");
+        //DebugLog("save rate result.\n");
         SUserDefault.save();
     }
     if(result == DialogResultRateMe)

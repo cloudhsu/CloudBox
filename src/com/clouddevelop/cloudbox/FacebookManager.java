@@ -32,7 +32,7 @@ import com.facebook.Settings;
 
 public class FacebookManager  {
 
-    private Session.StatusCallback statusCallback = new SessionStatusCallback();
+    private Session.StatusCallback statusCallback;
     
     private Activity m_activity = null;
     boolean m_isInitial;
@@ -53,6 +53,7 @@ public class FacebookManager  {
     private FacebookManager()
     {
     	// singleton
+    	statusCallback = new SessionStatusCallback();
     }
     
     public void initial()
@@ -84,9 +85,8 @@ public class FacebookManager  {
             Session.setActiveSession(session);
             if (session.getState().equals(SessionState.CREATED_TOKEN_LOADED)) {
             	List<String> permissions = new ArrayList<String>();
-            	permissions.add("publish_stream");
             	permissions.add("publish_actions");
-                session.openForRead(new Session.OpenRequest(m_activity).setCallback(statusCallback).setPermissions(permissions));
+                session.openForPublish(new Session.OpenRequest(m_activity).setCallback(statusCallback).setPermissions(permissions));
             }
         }
     }
@@ -100,9 +100,8 @@ public class FacebookManager  {
     	Session session = Session.getActiveSession();
         if (!session.isOpened() && !session.isClosed()) {
         	List<String> permissions = new ArrayList<String>();
-        	permissions.add("publish_stream");
         	permissions.add("publish_actions");
-            session.openForRead(new Session.OpenRequest(m_activity).setCallback(statusCallback).setPermissions(permissions));
+            session.openForPublish(new Session.OpenRequest(m_activity).setCallback(statusCallback).setPermissions(permissions));
         } else {
             Session.openActiveSession(m_activity, true, statusCallback);
         }
@@ -137,14 +136,21 @@ public class FacebookManager  {
     		return;
     	if (hasPublishPermission())
     	{
-            Request request = Request
-                    .newStatusUpdateRequest(Session.getActiveSession(), msg, new Request.Callback() {
-                        @Override
-                        public void onCompleted(Response response) {
-                        	Log.v("postStatus response ", response.toString());
-                        }
-                    });
-            request.executeAsync();
+    		final String _msg = new String(msg);
+            m_activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                	Request request = Request
+                            .newStatusUpdateRequest(Session.getActiveSession(), _msg, new Request.Callback() {
+                                @Override
+                                public void onCompleted(Response response) {
+                                	Log.v("postStatus response ", response.toString());
+                                }
+                            });
+                    request.executeAsync();
+
+                }
+            });
         }
     }
     
@@ -152,38 +158,58 @@ public class FacebookManager  {
     {
     	if(!m_isInitial)
     		return;
+    	final String _msg = new String(msg);
+    	final String _imageName = new String(imageName);
     	if (hasPublishPermission())
     	{
-            Bitmap image = getBitmapFromAsset(imageName);
-            Request request = Request.newUploadPhotoRequest(Session.getActiveSession(), image, new Request.Callback() {
+            
+            m_activity.runOnUiThread(new Runnable() {
                 @Override
-                public void onCompleted(Response response) {
-                	 Log.v("postStatus response ", response.toString());
+                public void run() {
+                	Bitmap image = getBitmapFromAsset(_imageName);
+                    Request request = Request.newUploadPhotoRequest(Session.getActiveSession(), image, new Request.Callback() {
+                        @Override
+                        public void onCompleted(Response response) {
+                        	 Log.v("postStatus response ", response.toString());
+                        }
+                    });
+                    request.executeAsync();
+
                 }
             });
-            request.executeAsync();
         }
     }
     
-    public void postFeed(String name,String link, String caption, String description, String msg)
+    public void postFeed(final String name,final String link, final String caption, String description, final String msg)
     {
     	if(!m_isInitial)
     		return;
-    	 Bundle parameters = new Bundle();
-         parameters.putString("message", msg);
-         parameters.putString("name", name);
-         parameters.putString("link", link);
-         parameters.putString("caption", caption);
-         parameters.putString("description", description);
-
-         Request request = new Request(Session.getActiveSession(), "me/feed", parameters, 
-                 HttpMethod.POST, new Request.Callback() {
+    	final String _name = new String(name);
+    	final String _link = new String(link);
+    	final String _caption = new String(caption);
+    	final String _description = new String(description);
+    	final String _msg = new String(msg);
+        m_activity.runOnUiThread(new Runnable() {
              @Override
-             public void onCompleted(Response response) {
-             	 Log.v("postFeed response ", response.toString());
+             public void run() {
+            	 Bundle parameters = new Bundle();
+                 parameters.putString("message", _msg);
+                 parameters.putString("name", _name);
+                 parameters.putString("link", _link);
+                 parameters.putString("caption", _caption);
+                 parameters.putString("description", _description);
+
+                 Request request = new Request(Session.getActiveSession(), "me/feed", parameters, 
+                         HttpMethod.POST, new Request.Callback() {
+                     @Override
+                     public void onCompleted(Response response) {
+                     	 Log.v("postFeed response ", response.toString());
+                     }
+                 });
+            	 request.executeAsync();
+
              }
          });
-         request.executeAsync();
         
     }
     

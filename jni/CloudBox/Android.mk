@@ -23,7 +23,7 @@ LOCAL_STATIC_LIBRARIES := libzip libpng libxml2
 LOCAL_CFLAGS := -DANDROID_NDK -Wno-psabi -fno-exceptions -fno-rtti
 # Debug preprocessor declare
 LOCAL_CPPFLAGS += -D__CBANDROID__ 
-#LOCAL_CPPFLAGS += -DDEBUG
+LOCAL_CPPFLAGS += -DDEBUG
 
 LOCAL_MODULE    := cloudbox-app
 # CloudBox Common Library

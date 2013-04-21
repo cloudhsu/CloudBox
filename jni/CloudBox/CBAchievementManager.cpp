@@ -55,6 +55,7 @@ void CBAchievementManager::initialAchievementSystem()
         m_isSupported = false;
         DebugLog("CloudBox Achievement system is not suppored.\n");
         DebugLog("Please check default_achievement.xml exist or not.\n");
+        DebugLog("%s\n",defaultAchievementName().c_str());
     }
 }
 

@@ -100,6 +100,23 @@ void HelloScene::initialize()
     button6->moveTo(310,150);
     button6->addClickEvent(this, &HelloScene::OnClick6);
     addChild(button6);
+    
+    button7 = new CBButton("Post 1",20);
+    button7->moveTo(110,250);
+    button7->addClickEvent(this, &HelloScene::OnClick7);
+    addChild(button7);
+    
+    button8 = new CBButton("Post 2",20);
+    button8->moveTo(210,250);
+    button8->addClickEvent(this, &HelloScene::OnClick8);
+    addChild(button8);
+    
+    button9 = new CBButton("Post 3",20);
+    button9->moveTo(310,250);
+    button9->addClickEvent(this, &HelloScene::OnClick9);
+    addChild(button9);
+    
+    SCommunityManager.autoLogin();
 }
 
 void HelloScene::update()
@@ -148,6 +165,20 @@ void HelloScene::OnClick5( CBView* item,CBEvent* e )
 
 void HelloScene::OnClick6( CBView* item,CBEvent* e )
 {
-    //SAchievementManager.loginFacebook();
     SCommunityManager.loginFacebook();
+}
+
+void HelloScene::OnClick7( CBView* item,CBEvent* e )
+{
+    SCommunityManager.post("Test message from CloudBox.");
+}
+
+void HelloScene::OnClick8( CBView* item,CBEvent* e )
+{
+    SCommunityManager.post("Test message from CloudBox.","achievement4.png");
+}
+
+void HelloScene::OnClick9( CBView* item,CBEvent* e )
+{
+    SCommunityManager.post("Test", "https://play.google.com/store/apps/details?id=com.clouddevelop.superpig", "Super Baby Pig", "CloudBox Test", "Test message.");
 }

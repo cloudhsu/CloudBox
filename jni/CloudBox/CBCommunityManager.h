@@ -23,14 +23,13 @@ class CBCommunityExhibitorBase;
 class CBCommunityManager : public CBSingleton<CBCommunityManager>, public CBSubjectMediator<CBAchievementItem>
 {
 private:
+    vector<CBCommunityExhibitorBase*> m_exhibitors;
     CBCommunityExhibitorBase* m_facebookExhibitor;
     CBCommunityExhibitorBase* m_weiboExhibitor;
     CBCommunityExhibitorBase* m_twitterExhibitor;
 
-    void detachExhibitor(CBAchievementExhibitor* exhibitor);
-    void attachExhibitor(CBAchievementExhibitor* exhibitor);
-    
-    void autoLogin();
+    void detachExhibitor(CBCommunityExhibitorBase* exhibitor);
+    void attachExhibitor(CBCommunityExhibitorBase* exhibitor);
     
     void initialFacebook();
     void initialWeibo();
@@ -39,6 +38,8 @@ private:
 public:
     CBCommunityManager();
     ~CBCommunityManager();
+    
+    void autoLogin();
 
     void loginFacebook();
     void loginWeibo();
@@ -46,7 +47,8 @@ public:
 
     void post(string msg);
     void post(string msg, string imageName);
-    void post(CBFeed* feed);
+    //void post(CBFeed* feed);
+    void post(string name,string link, string caption, string description, string msg);
 };
 
 #define SCommunityManager CBCommunityManager::instance()

@@ -23,14 +23,20 @@ CBCommunityManager::~CBCommunityManager()
 {
 }
 
-void CBCommunityManager::attachExhibitor( CBAchievementExhibitor* exhibitor )
+void CBCommunityManager::attachExhibitor( CBCommunityExhibitorBase* exhibitor )
 {
-    attachObserver(exhibitor);
+    m_exhibitors.push_back(exhibitor);
 }
 
-void CBCommunityManager::detachExhibitor( CBAchievementExhibitor* exhibitor )
+void CBCommunityManager::detachExhibitor( CBCommunityExhibitorBase* exhibitor )
 {
-    detachObserver(exhibitor);
+    for (int i = 0; i < m_exhibitors.size(); i++) {
+        if(m_exhibitors[i]->getId() == exhibitor->getId())
+        {
+            m_exhibitors.erase(m_exhibitors.begin() + i);
+            break;
+        }
+    }
 }
 
 void CBCommunityManager::autoLogin()
@@ -85,15 +91,29 @@ void CBCommunityManager::loginTwitter()
 
 void CBCommunityManager::post( string msg )
 {
-
+    for (int i = 0; i < m_exhibitors.size(); i++)
+    {
+        m_exhibitors[i]->postStatus(msg);
+    }
 }
 
 void CBCommunityManager::post( string msg, string imageName )
 {
-
+    for (int i = 0; i < m_exhibitors.size(); i++)
+    {
+        m_exhibitors[i]->postStatus(msg, imageName);
+    }
 }
 
-void CBCommunityManager::post( CBFeed* feed )
-{
+//void CBCommunityManager::post( CBFeed* feed )
+//{
+//
+//}
 
+void CBCommunityManager::post(string name,string link, string caption, string description, string msg)
+{
+    for (int i = 0; i < m_exhibitors.size(); i++)
+    {
+        m_exhibitors[i]->postFeed(name, link, caption, description, msg);
+    }
 }

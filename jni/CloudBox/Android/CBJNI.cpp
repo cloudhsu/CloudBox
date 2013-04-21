@@ -29,7 +29,7 @@ jobject CBJNI::getInstance(JNIEnv* env, jclass obj_class)
 
 void CBJNI::initialJNIClass(const string& className)
 {
-	DebugLog("CBJNI::initial 1");
+	//DebugLog("CBJNI::initial 1");
 	if(g_env == NULL)
 	{
 		DebugLog("CBJNI::initial error");

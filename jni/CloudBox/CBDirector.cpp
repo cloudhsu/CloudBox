@@ -47,7 +47,7 @@ void CBDirector::changeScene()
 {
 	if(m_isSceneChange)
 	{
-		DebugLog("CBDirector::changeScene\n");
+		//DebugLog("CBDirector::changeScene\n");
 		runWithScene(m_nextScene);
 	}
 }
@@ -60,7 +60,7 @@ void* CBDirector::proxy_function(void* foo_ptr)
 
 void CBDirector::runWithScene(CBScene* scene)
 {
-	DebugLog("CBDirector::runWithScene\n");
+	//DebugLog("CBDirector::runWithScene\n");
 	if(m_currentScene != NULL)
 	{
 		CBDELETE(m_currentScene);
@@ -95,7 +95,7 @@ void CBDirector::runNextScene(CBScene* scene)
 {
 	if(!m_isSceneChange)
 	{
-		DebugLog("CBDirector::runNextScene\n");
+		//DebugLog("CBDirector::runNextScene\n");
 		m_nextScene = scene;
 		m_isSceneChange = true;
 	}

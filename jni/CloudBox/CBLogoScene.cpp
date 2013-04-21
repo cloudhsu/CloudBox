@@ -26,12 +26,12 @@ CBLogoScene::~CBLogoScene()
 
 void CBLogoScene::initialize()
 {
-	DebugLog("initial in logo scene\n");
+	//DebugLog("initial in logo scene\n");
 	bg = new CBImage(LOGO_NAME);
 	float x = (CBEnvironment::getScreenWidth() - bg->getWidth()) / 2;
 	float y = (CBEnvironment::getScreenHeight() - bg->getHeight()) / 2;
-    DebugLog("x=%f,y=%f\n", x,y);
-    DebugLog("width=%f,height=%f\n", bg->getWidth(),bg->getHeight());
+    //DebugLog("x=%f,y=%f\n", x,y);
+    //DebugLog("width=%f,height=%f\n", bg->getWidth(),bg->getHeight());
 	bg->moveToAbsolute(x, y);
 	addChild(bg);
     
@@ -45,7 +45,7 @@ void CBLogoScene::initialize()
 
 void CBLogoScene::finish(CBView* sender)
 {
-	DebugLog("scene change:LogoScene => HelloScene\n");
+	//DebugLog("scene change:LogoScene => HelloScene\n");
 	SDirector.runNextScene(new HelloScene());
 }
 

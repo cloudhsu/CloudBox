@@ -13,7 +13,7 @@
 
 CBiOSFacebookExhibitor::CBiOSFacebookExhibitor()
 {
-
+    DebugLog("Create CBiOSFacebookExhibitor.\n");
 }
 
 CBiOSFacebookExhibitor::~CBiOSFacebookExhibitor()

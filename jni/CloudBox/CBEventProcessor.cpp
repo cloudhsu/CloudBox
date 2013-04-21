@@ -66,7 +66,7 @@ void CBEventProcessor::onSersorChanged(float x, float y, float z)
 
 void CBEventProcessor::onAlertEvent(DialogResult dialogResult, int buttonIndex)
 {
-	DebugLog("CBEventProcessor::onAlertEvent\n");
+	//DebugLog("CBEventProcessor::onAlertEvent\n");
 	SDialogManager.alertEvent(dialogResult, buttonIndex);
 }
 

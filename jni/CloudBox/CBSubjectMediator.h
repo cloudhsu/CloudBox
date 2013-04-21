@@ -20,7 +20,7 @@ class CBSubjectMediator
 {
 public:
     typedef TSubjectObject* TSubjectObjectPtr;
-private:
+protected:
     vector<CBObserver<TSubjectObjectPtr>* > m_observers;
 public:
     CBSubjectMediator() {}

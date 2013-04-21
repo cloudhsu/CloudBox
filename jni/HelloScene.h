@@ -33,6 +33,9 @@ private:
     CBButton* button4;
     CBButton* button5;
     CBButton* button6;
+    CBButton* button7;
+    CBButton* button8;
+    CBButton* button9;
 	CBAnimation* animation[MAX_ANIMATION];
 	CBSprite* sprite;
 	CBImage* dart;
@@ -53,6 +56,9 @@ public:
     void OnClick4(CBView* item,CBEvent* e);
     void OnClick5(CBView* item,CBEvent* e);
     void OnClick6(CBView* item,CBEvent* e);
+    void OnClick7(CBView* item,CBEvent* e);
+    void OnClick8(CBView* item,CBEvent* e);
+    void OnClick9(CBView* item,CBEvent* e);
 	
 	void touchBegan(float x, float y);
 	void touchMoved(float x, float y);

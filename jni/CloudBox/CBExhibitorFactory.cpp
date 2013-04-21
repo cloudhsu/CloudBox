@@ -17,6 +17,7 @@
 #include "CBiOSGameCenterExhibitor.h"
 #include "CBiOSFacebookExhibitor.h"
 #elif __CBANDROID__
+#include "Android/CBAndroidFacebookExhibitor.h"
 #elif WIN32
 #endif
 // --------------------------------------------------
@@ -33,7 +34,7 @@ typedef CBCommunityExhibitorSimulator WEIBO_EXHIBITOR;
 typedef CBiOSGameCenterExhibitor GAMECENTER_EXHIBITOR;
 #elif __CBANDROID__
 // for Android
-typedef CBCommunityExhibitorSimulator FACEBOOK_EXHIBITOR;
+typedef CBAndroidFacebookExhibitor FACEBOOK_EXHIBITOR;
 typedef CBCommunityExhibitorSimulator TWITTER_EXHIBITOR;
 typedef CBCommunityExhibitorSimulator WEIBO_EXHIBITOR;
 typedef CBGameCenterExhibitorSimulator GAMECENTER_EXHIBITOR;
