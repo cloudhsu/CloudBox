@@ -26,6 +26,7 @@ protected:
 	bool m_isEndInitial;
 	bool m_isEndTextureInit;
 	virtual void draw();
+    virtual void drawAfter();
 	virtual void update();
 public:
 	// --- Add public member --- //

@@ -87,8 +87,6 @@ void CBDirector::initialScene()
 {
 	m_currentScene->initialize();
 	m_currentScene->endInitial();
-//	m_nextScene->initialize();
-//	m_nextScene->endInitial();
 }
 
 void CBDirector::runNextScene(CBScene* scene)

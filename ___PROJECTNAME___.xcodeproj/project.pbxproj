@@ -150,6 +150,7 @@
 		4BADDABF16FD6F8300CD96C4 /* CBAchievementItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BADDAB916FD6F8300CD96C4 /* CBAchievementItem.cpp */; };
 		4BADDAC016FD6F8300CD96C4 /* CBAchievementManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BADDABB16FD6F8300CD96C4 /* CBAchievementManager.cpp */; };
 		4BADDAC116FD6F8300CD96C4 /* CBAchievements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BADDABD16FD6F8300CD96C4 /* CBAchievements.cpp */; };
+		4BB40CDE1734DA200068C125 /* CBGLGraphic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB40CDC1734DA200068C125 /* CBGLGraphic.cpp */; };
 		4BC06EEC17107B5100DAB0E1 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC06EE817107B5100DAB0E1 /* FacebookManager.m */; };
 		4BC06EED17107B5100DAB0E1 /* CBiOSFacebookExhibitor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BC06EEB17107B5100DAB0E1 /* CBiOSFacebookExhibitor.mm */; };
 		4BC06EEF1710807D00DAB0E1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC06EEE1710807D00DAB0E1 /* FacebookSDK.framework */; };
@@ -423,6 +424,8 @@
 		4BADDABE16FD6F8300CD96C4 /* CBAchievements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAchievements.h; sourceTree = "<group>"; };
 		4BADDAC216FD6F9100CD96C4 /* CBObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBObserver.h; sourceTree = "<group>"; };
 		4BADDAC316FD6F9100CD96C4 /* CBSubjectMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSubjectMediator.h; sourceTree = "<group>"; };
+		4BB40CDC1734DA200068C125 /* CBGLGraphic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBGLGraphic.cpp; sourceTree = "<group>"; };
+		4BB40CDD1734DA200068C125 /* CBGLGraphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGLGraphic.h; sourceTree = "<group>"; };
 		4BC06EE817107B5100DAB0E1 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
 		4BC06EE917107B5100DAB0E1 /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
 		4BC06EEA17107B5100DAB0E1 /* CBiOSFacebookExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBiOSFacebookExhibitor.h; sourceTree = "<group>"; };
@@ -439,7 +442,7 @@
 		4BF48B7A16C665BD009B193F /* CBGraphic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBGraphic.cpp; sourceTree = "<group>"; };
 		4BF48B7B16C665BD009B193F /* CBGraphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphic.h; sourceTree = "<group>"; };
 		4BF48B7D16C666E4009B193F /* CBGraphicBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBGraphicBase.h; sourceTree = "<group>"; };
-		4BF48B7E16C66810009B193F /* CbGraphicDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CbGraphicDef.h; sourceTree = "<group>"; };
+		4BF48B7E16C66810009B193F /* CBGraphicDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBGraphicDef.h; sourceTree = "<group>"; };
 		4BFC63C8170D590B008A5348 /* CBAchievementExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBAchievementExhibitor.cpp; sourceTree = "<group>"; };
 		4BFC63C9170D590B008A5348 /* CBAchievementExhibitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAchievementExhibitor.h; sourceTree = "<group>"; };
 		4BFC63CA170D590B008A5348 /* CBCommunityExhibitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CBCommunityExhibitor.cpp; sourceTree = "<group>"; };
@@ -962,7 +965,9 @@
 				4BF48B7A16C665BD009B193F /* CBGraphic.cpp */,
 				4BF48B7B16C665BD009B193F /* CBGraphic.h */,
 				4BF48B7D16C666E4009B193F /* CBGraphicBase.h */,
-				4BF48B7E16C66810009B193F /* CbGraphicDef.h */,
+				4BF48B7E16C66810009B193F /* CBGraphicDef.h */,
+				4BB40CDC1734DA200068C125 /* CBGLGraphic.cpp */,
+				4BB40CDD1734DA200068C125 /* CBGLGraphic.h */,
 			);
 			name = Graphic;
 			sourceTree = "<group>";
@@ -1177,6 +1182,7 @@
 				4BC06EED17107B5100DAB0E1 /* CBiOSFacebookExhibitor.mm in Sources */,
 				4BC06EFA17108E6600DAB0E1 /* CloudFBAppDelegate.mm in Sources */,
 				4BCA206C171AB8240075A807 /* CBCommunityManager.cpp in Sources */,
+				4BB40CDE1734DA200068C125 /* CBGLGraphic.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

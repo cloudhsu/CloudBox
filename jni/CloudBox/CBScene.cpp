@@ -51,6 +51,10 @@ void CBScene::draw()
 {
 }
 
+void CBScene::drawAfter()
+{
+}
+
 void CBScene::notify()
 {
     // call update scene
@@ -73,6 +77,7 @@ void CBScene::visit()
 	for (int i = 0; i < m_items.size(); i++) {
 		m_items[i]->visit();
 	}
+    drawAfter();
 }
 
 void CBScene::addChild(CBView* view)

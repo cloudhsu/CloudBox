@@ -28,6 +28,7 @@ public:
     
     // for draw function
     void drawLine(CBPoint& ptStart,CBPoint& ptEnd);
+    //void drawLineLoop(CBPoint& ptStart,CBPoint& ptEnd);
     void drawRect(CBRect& rect);
     void drawCircle(CBPoint& pt, float radius);
     
