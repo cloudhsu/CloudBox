@@ -86,10 +86,6 @@ void CBOpenGL::initialize2D()
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
-void CBOpenGL::render(CBTexture* texture,float x, float y, float width, float height)
-{
-}
-
 void CBOpenGL::render(CBView* view, CBTexture* texture)
 {
 	GLfloat _maxS = texture->getMaxS();

@@ -55,8 +55,6 @@ public:
 	
 	void beforeRender();
 	
-	void render(CBTexture* texture,float x, float y, float width, float height);
-	
 	void fillRect(CBRect rt, CBColor color);
 	
 	void fillScreen(float r, float g, float b);

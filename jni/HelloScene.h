@@ -43,6 +43,7 @@ private:
 	CBSwitch* m_switch;
 protected:
 	void update();
+    void drawAfter();
 public:
 	HelloScene();
 	~HelloScene();

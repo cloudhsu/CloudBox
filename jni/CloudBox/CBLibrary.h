@@ -64,6 +64,7 @@
 #define FPS_30 1/30
 #define FPS_60 1/60
 
+#define DEGREES_TO_RADIANS(x) (3.14159265358979323846 * x / 180.0)
 
 typedef struct _CBAcceleration{
     double x;
@@ -77,6 +78,24 @@ typedef struct _CBColorf
 	float b;
 	float g;
 	float a;
+    _CBColorf()
+    {
+        r = g = b = a = 1.0f;
+    }
+    _CBColorf(float _r, float _g, float _b)
+    {
+        r = _r;
+        g = _g;
+        b = _b;
+        a = 1.0f;
+    }
+    _CBColorf(float _r, float _g, float _b, float _a)
+    {
+        r = _r;
+        g = _g;
+        b = _b;
+        a = _a;
+    }
 }CBColor;
 
 typedef struct _CBRect {
@@ -84,22 +103,61 @@ typedef struct _CBRect {
 	float y;
 	float width;
 	float height;
+    _CBRect()
+    {
+        x = y = width = height = 0.0f;
+    }
+    _CBRect(float _x, float _y, float _width, float _height)
+    {
+        x = _x;
+        y = _y;
+        width = _width;
+        height = _height;
+    }
 }CBRect;
 
 typedef struct _CBPoint {
 	float x;
 	float y;
+    _CBPoint()
+    {
+        x = y = 0.0f;
+    }
+    _CBPoint(float _x, float _y)
+    {
+        x = _x;
+        y = _y;
+    }
 }CBPoint;
 
-typedef struct{
+typedef struct _CBSize{
 	float width;
 	float height;
+    _CBSize()
+    {
+        width = height = 0.0f;
+    }
+    _CBSize(float _width, float _height)
+    {
+        width = _width;
+        height = _height;
+    }
 }CBSize;
 
-typedef struct
+typedef struct _CBCircle
 {
 	CBPoint center;
 	float ratius;
+    _CBCircle()
+    {
+        center.x = center.y = ratius = 0.0f;
+    }
+    _CBCircle(float _x, float _y, float _ratius)
+    {
+        center.x = _x;
+        center.y = _y;
+        ratius = _ratius;
+    }
 }CBCircle;
 
 

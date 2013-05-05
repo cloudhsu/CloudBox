@@ -10,6 +10,7 @@
 #include "CBCommunityManager.h"
 #include "CBAchievementManager.h"
 #include "HelloScene.h"
+#include "CBGraphic.h"
 
 HelloScene::HelloScene()
 {
@@ -121,6 +122,20 @@ void HelloScene::initialize()
 
 void HelloScene::update()
 {
+}
+
+void HelloScene::drawAfter()
+{
+    SGraphic.drawLine(10, 10, 300, 300);
+    CBPoint pt1(200,100);
+    CBPoint pt2(250,100);
+    CBPoint pt3(250,150);
+    CBPoint pt4(200,150);
+    SGraphic.drawLineLoop(pt1, pt2, pt3, pt4);
+    CBRect rect(200,200,50,50);
+    SGraphic.drawRect(rect);
+    CBPoint pt5(400, 200);
+    SGraphic.drawCircle(pt5, 100);
 }
 
 void HelloScene::OnOptionButtonClick(CBView* item,int index)
