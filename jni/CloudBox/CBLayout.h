@@ -16,6 +16,11 @@
 #define DEFALUT_SCALE 1.0
 
 typedef enum {
+    Coordinate_320_480 = 0,
+    Coordinate_Normal = 1
+}CBDrawCoordinate;
+
+typedef enum {
 	iOS_Normal_320_480,
 	iOS_Retina_640_960,
     iOS_Retina_640_1136,
@@ -31,7 +36,9 @@ typedef enum {
 class CBLayout : public CBSingleton<CBLayout>
 {
 private:
+    bool m_enableScaleRetina4;
     bool m_isiPhone5;
+    CBDrawCoordinate m_coordinate;
 	CBLayoutType m_baseLayout;
     CBLayoutType m_currentLayout;
 	float m_scaleWidth;

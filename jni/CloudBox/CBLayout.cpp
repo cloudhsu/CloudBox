@@ -13,7 +13,9 @@
 
 CBLayout::CBLayout():m_isiPhone5(false)
 {
+    m_coordinate = Coordinate_320_480;
 	m_baseLayout = iOS_Retina_640_960;
+    m_enableScaleRetina4 = false;
 	m_defaultWidth = IOS_RETINA_WIDTH;
 	m_defaultHeight = IOS_RETINA_HEIGHT;
 	setOrientation(CBEnvironment::getOrientation());
@@ -53,7 +55,7 @@ void CBLayout::initScale(float screenWidth, float screenHeight)
 void CBLayout::layoutScale(float &width, float &height)
 {
 #ifdef __CBIOS__
-    if(m_isiPhone5)
+    if(m_isiPhone5 && m_enableScaleRetina4)
     {
         width *= m_scaleWidth;
         height *= m_scaleHeight;
@@ -71,7 +73,7 @@ void CBLayout::layoutPosition(float &x, float &y)
 	{
 		x *= 2;
 		y *= 2;
-        if(m_isiPhone5)
+        if(m_isiPhone5 && m_enableScaleRetina4)
         {
             x *= m_scaleWidth;
             y *= m_scaleHeight;
@@ -91,7 +93,7 @@ void CBLayout::scaleX(float& x)
 	if(CBEnvironment::isRetina())
 	{
 		x *= 2;
-        if(m_isiPhone5)
+        if(m_isiPhone5 && m_enableScaleRetina4)
         {
             x *= m_scaleWidth;
         }
@@ -107,7 +109,7 @@ void CBLayout::scaleY(float& y)
 	if(CBEnvironment::isRetina())
 	{
 		y *= 2;
-        if(m_isiPhone5)
+        if(m_isiPhone5 && m_enableScaleRetina4)
         {
             y *= m_scaleHeight;
         }
@@ -124,7 +126,7 @@ float CBLayout::scaleXPosition(float x)
 	if(CBEnvironment::isRetina())
 	{
 		x *= 2;
-        if(m_isiPhone5)
+        if(m_isiPhone5 && m_enableScaleRetina4)
         {
             x *= m_scaleWidth;
         }
@@ -141,7 +143,7 @@ float CBLayout::scaleYPosition(float y)
 	if(CBEnvironment::isRetina())
 	{
 		y *= 2;
-        if(m_isiPhone5)
+        if(m_isiPhone5 && m_enableScaleRetina4)
         {
             y *= m_scaleHeight;
         }
@@ -156,7 +158,7 @@ float CBLayout::scaleYPosition(float y)
 void CBLayout::scaleWidth(float& width)
 {
 #ifdef __CBIOS__
-    if(m_isiPhone5)
+    if(m_isiPhone5 && m_enableScaleRetina4)
     {
         width *= m_scaleWidth;
     }
@@ -167,7 +169,7 @@ void CBLayout::scaleWidth(float& width)
 void CBLayout::scaleHeight(float& height)
 {
 #ifdef __CBIOS__
-    if(m_isiPhone5)
+    if(m_isiPhone5 && m_enableScaleRetina4)
     {
         height *= m_scaleHeight;
     }
@@ -179,7 +181,7 @@ void CBLayout::scaleHeight(float& height)
 float CBLayout::scaleWidthValue(float width)
 {
 #ifdef __CBIOS__
-    if(m_isiPhone5)
+    if(m_isiPhone5 && m_enableScaleRetina4)
     {
         width *= m_scaleWidth;
     }
@@ -191,7 +193,7 @@ float CBLayout::scaleWidthValue(float width)
 float CBLayout::scaleHeightValue(float height)
 {
 #ifdef __CBIOS__
-    if(m_isiPhone5)
+    if(m_isiPhone5 && m_enableScaleRetina4)
     {
         height *= m_scaleHeight;
     }

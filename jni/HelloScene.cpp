@@ -127,15 +127,15 @@ void HelloScene::update()
 void HelloScene::drawAfter()
 {
     SGraphic.drawLine(10, 10, 300, 300);
-    CBPoint pt1(200,100);
-    CBPoint pt2(250,100);
-    CBPoint pt3(250,150);
-    CBPoint pt4(200,150);
+    CBPoint pt1(100,50);
+    CBPoint pt2(125,50);
+    CBPoint pt3(125,75);
+    CBPoint pt4(100,75);
     SGraphic.drawLineLoop(pt1, pt2, pt3, pt4);
-    CBRect rect(200,200,50,50);
+    CBRect rect(100,100,30,30);
     SGraphic.drawRect(rect);
-    CBPoint pt5(400, 200);
-    SGraphic.drawCircle(pt5, 100);
+    CBPoint pt5(200, 100);
+    SGraphic.drawCircle(pt5, 50);
 }
 
 void HelloScene::OnOptionButtonClick(CBView* item,int index)
