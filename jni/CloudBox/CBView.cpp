@@ -114,22 +114,9 @@ bool CBView::isInArea(float x,float y)
 bool CBView::isTrigger(float x,float y)
 {
 #ifdef __CBIOS__
-    float width = m_width;
-    float height = m_height;
-    float startX = m_x;
-    float startY = m_y;
-    if(CBEnvironment::isRetina())
-    {
-        startX /= 2;
-        startY /= 2;
-        width /= 2;
-        height /= 2;
-    }
-    return m_visible && (x >= startX && x <= startX + width) && 
-        (y >= startY && y <= startY + height);
+    return m_visible && isInArea(x, y);
 #else
-    return m_visible && (x >= m_x && x <= m_x + m_width) && 
-        (y >= m_y && y <= m_y + m_height);
+    return m_visible && isInArea(x, y);
 #endif
 }
 

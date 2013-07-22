@@ -28,38 +28,38 @@ void HelloScene::initialize()
 //	bg2 = new CBImage("testbg2.png");
 //	addChild(bg2,0,0);
 	//bg = new CBRingScrollImage("testbg1.png",ScrollY,3 ,0.02);
-	bg = new CBRingScrollImage("testbg11.png",ScrollX,-3 ,0.02);
+	bg = new CBRingScrollImage("testbg11.png",ScrollX,-6 ,0.02);
 	addChild(bg,0,0);
 	bg->startScroll();
 //    CBImage* img = new CBImage("testbg11.png");
 //    addChild(img,0,100);
 	
 	label = new CBLabel("Label", 18);
-	label->moveTo(10,10);
+	label->moveTo(20,20);
 	addChild(label);
 	
 	button1 = new CBButton("Complete",20);
-	button1->moveTo(110,80);
+	button1->moveTo(220,160);
     button1->addClickEvent(this, &HelloScene::OnClick1);
 	addChild(button1);
     
     button2 = new CBButton("Increase",20);
-	button2->moveTo(210,80);
+	button2->moveTo(420,160);
     button2->addClickEvent(this, &HelloScene::OnClick2);
 	addChild(button2);
 
     button3 = new CBButton("Update",20);
-    button3->moveTo(310,80);
+    button3->moveTo(620,160);
     button3->addClickEvent(this, &HelloScene::OnClick3);
     addChild(button3);
     
     
 	
 	dart2 = new CBImage("dart.png");
-	addChild(dart2,210,200);
+	addChild(dart2,420,400);
 	
 	dart = new CBImage("dart.png");
-	addChild(dart,210,120);
+	addChild(dart,420,240);
 	
 	
 	
@@ -70,7 +70,7 @@ void HelloScene::initialize()
 		animation[i] = new CBAnimation(0.1);
 		animation[i]->addFrame("bomb1.png");
 		animation[i]->addFrame("bomb2.png");
-		addChild(animation[i],100,10+(i*40));
+		addChild(animation[i],200,20+(i*80));
 	}
     
     CBSlideBar* bar = new CBSlideBar();
@@ -85,35 +85,35 @@ void HelloScene::initialize()
     bar->setOptionBarDirection(SlideBarUp);
     //bar->setOptionBarDirection(SlideBarDown);
     bar->initial();
-    addChild(bar,200,140);
+    addChild(bar,400,280);
     
     button4 = new CBButton("Show",20);
-    button4->moveTo(110,150);
+    button4->moveTo(220,300);
     button4->addClickEvent(this, &HelloScene::OnClick4);
     addChild(button4);
     
     button5 = new CBButton("Reset",20);
-    button5->moveTo(210,150);
+    button5->moveTo(420,300);
     button5->addClickEvent(this, &HelloScene::OnClick5);
     addChild(button5);
     
     button6 = new CBButton("Facebook",20);
-    button6->moveTo(310,150);
+    button6->moveTo(620,300);
     button6->addClickEvent(this, &HelloScene::OnClick6);
     addChild(button6);
     
     button7 = new CBButton("Post 1",20);
-    button7->moveTo(110,250);
+    button7->moveTo(220,500);
     button7->addClickEvent(this, &HelloScene::OnClick7);
     addChild(button7);
     
     button8 = new CBButton("Post 2",20);
-    button8->moveTo(210,250);
+    button8->moveTo(420,500);
     button8->addClickEvent(this, &HelloScene::OnClick8);
     addChild(button8);
     
     button9 = new CBButton("Post 3",20);
-    button9->moveTo(310,250);
+    button9->moveTo(620,500);
     button9->addClickEvent(this, &HelloScene::OnClick9);
     addChild(button9);
     

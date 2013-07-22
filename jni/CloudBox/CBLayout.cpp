@@ -13,7 +13,7 @@
 
 CBLayout::CBLayout():m_isiPhone5(false)
 {
-    m_coordinate = Coordinate_320_480;
+    m_coordinate = Coordinate_Normal;
 	m_baseLayout = iOS_Retina_640_960;
     m_enableScaleRetina4 = false;
 	m_defaultWidth = IOS_RETINA_WIDTH;
@@ -71,17 +71,31 @@ void CBLayout::layoutPosition(float &x, float &y)
 #ifdef __CBIOS__
 	if(CBEnvironment::isRetina())
 	{
-		x *= 2;
-		y *= 2;
+        if(m_coordinate == Coordinate_320_480)
+        {
+            x *= 2;
+            y *= 2;
+        }
         if(m_isiPhone5 && m_enableScaleRetina4)
         {
             x *= m_scaleWidth;
             y *= m_scaleHeight;
         }
 	}
+    else
+    {
+        if(m_coordinate == Coordinate_Normal)
+        {
+            x /= 2;
+            y /= 2;
+        }
+    }
 #else
-	x *= 2;
-	y *= 2;
+	if(m_coordinate == Coordinate_320_480)
+    {
+        x *= 2;
+        y *= 2;
+    }
 	x *= m_scaleWidth;
 	y *= m_scaleHeight;
 #endif
@@ -92,14 +106,27 @@ void CBLayout::scaleX(float& x)
 #ifdef __CBIOS__
 	if(CBEnvironment::isRetina())
 	{
-		x *= 2;
+        if(m_coordinate == Coordinate_320_480)
+        {
+            x *= 2;
+        }
         if(m_isiPhone5 && m_enableScaleRetina4)
         {
             x *= m_scaleWidth;
         }
 	}
+    else
+    {
+        if(m_coordinate == Coordinate_Normal)
+        {
+            x /= 2;
+        }
+    }
 #else
-	x *= 2;
+	if(m_coordinate == Coordinate_320_480)
+    {
+        x *= 2;
+    }
 	x *= m_scaleWidth;
 #endif
 }
@@ -108,14 +135,27 @@ void CBLayout::scaleY(float& y)
 #ifdef __CBIOS__
 	if(CBEnvironment::isRetina())
 	{
-		y *= 2;
+        if(m_coordinate == Coordinate_320_480)
+        {
+            y *= 2;
+        }
         if(m_isiPhone5 && m_enableScaleRetina4)
         {
             y *= m_scaleHeight;
         }
 	}
+    else
+    {
+        if(m_coordinate == Coordinate_Normal)
+        {
+            y /= 2;
+        }
+    }
 #else
-	y *= 2;
+    if(m_coordinate == Coordinate_320_480)
+    {
+        y *= 2;
+    }
 	y *= m_scaleHeight;
 #endif
 }
@@ -125,14 +165,27 @@ float CBLayout::scaleXPosition(float x)
 #ifdef __CBIOS__
 	if(CBEnvironment::isRetina())
 	{
-		x *= 2;
+        if(m_coordinate == Coordinate_320_480)
+        {
+            x *= 2;
+        }
         if(m_isiPhone5 && m_enableScaleRetina4)
         {
             x *= m_scaleWidth;
         }
 	}
+    else
+    {
+        if(m_coordinate == Coordinate_Normal)
+        {
+            x /= 2;
+        }
+    }
 #else
-	x *= 2;
+    if(m_coordinate == Coordinate_320_480)
+    {
+        x *= 2;
+    }
 	x *= m_scaleWidth;
 #endif
     return x;
@@ -142,14 +195,27 @@ float CBLayout::scaleYPosition(float y)
 #ifdef __CBIOS__
 	if(CBEnvironment::isRetina())
 	{
-		y *= 2;
+        if(m_coordinate == Coordinate_320_480)
+        {
+            y *= 2;
+        }
         if(m_isiPhone5 && m_enableScaleRetina4)
         {
             y *= m_scaleHeight;
         }
 	}
+    else
+    {
+        if(m_coordinate == Coordinate_Normal)
+        {
+            y /= 2;
+        }
+    }
 #else
-	y *= 2;
+    if(m_coordinate == Coordinate_320_480)
+    {
+        y *= 2;
+    }
 	y *= m_scaleHeight;
 #endif
     return y;
