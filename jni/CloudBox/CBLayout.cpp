@@ -32,7 +32,7 @@ void CBLayout::iOSWideScreen()
     m_isiPhone5 = true;
 }
 
-void CBLayout::initScale(float screenWidth, float screenHeight)
+void CBLayout::initial(float screenWidth, float screenHeight)
 {
 	m_screenWidth = screenWidth;
 	m_screenHeight = screenHeight;
@@ -52,7 +52,56 @@ void CBLayout::initScale(float screenWidth, float screenHeight)
     DebugLog("scale height:%f\n",m_scaleHeight);
 }
 
-void CBLayout::layoutScale(float &width, float &height)
+//void CBLayout::layoutScale(float &width, float &height)
+//{
+//#ifdef __CBIOS__
+//    if(m_isiPhone5 && m_enableScaleRetina4)
+//    {
+//        width *= m_scaleWidth;
+//        height *= m_scaleHeight;
+//    }
+//#else
+//	width *= m_scaleWidth;
+//	height *= m_scaleHeight;
+//#endif
+//}
+
+//void CBLayout::layoutPosition(float &x, float &y)
+//{
+//#ifdef __CBIOS__
+//	if(CBEnvironment::isRetina())
+//	{
+//        if(m_coordinate == Coordinate_320_480)
+//        {
+//            x *= 2;
+//            y *= 2;
+//        }
+//        if(m_isiPhone5 && m_enableScaleRetina4)
+//        {
+//            x *= m_scaleWidth;
+//            y *= m_scaleHeight;
+//        }
+//	}
+//    else
+//    {
+//        if(m_coordinate == Coordinate_Normal)
+//        {
+//            x /= 2;
+//            y /= 2;
+//        }
+//    }
+//#else
+//	if(m_coordinate == Coordinate_320_480)
+//    {
+//        x *= 2;
+//        y *= 2;
+//    }
+//	x *= m_scaleWidth;
+//	y *= m_scaleHeight;
+//#endif
+//}
+
+void CBLayout::scaleSize(float &width, float &height)
 {
 #ifdef __CBIOS__
     if(m_isiPhone5 && m_enableScaleRetina4)
@@ -65,8 +114,7 @@ void CBLayout::layoutScale(float &width, float &height)
 	height *= m_scaleHeight;
 #endif
 }
-
-void CBLayout::layoutPosition(float &x, float &y)
+void CBLayout::scalePosition(float &x, float &y)
 {
 #ifdef __CBIOS__
 	if(CBEnvironment::isRetina())
@@ -101,66 +149,66 @@ void CBLayout::layoutPosition(float &x, float &y)
 #endif
 }
 
-void CBLayout::scaleX(float& x)
-{
-#ifdef __CBIOS__
-	if(CBEnvironment::isRetina())
-	{
-        if(m_coordinate == Coordinate_320_480)
-        {
-            x *= 2;
-        }
-        if(m_isiPhone5 && m_enableScaleRetina4)
-        {
-            x *= m_scaleWidth;
-        }
-	}
-    else
-    {
-        if(m_coordinate == Coordinate_Normal)
-        {
-            x /= 2;
-        }
-    }
-#else
-	if(m_coordinate == Coordinate_320_480)
-    {
-        x *= 2;
-    }
-	x *= m_scaleWidth;
-#endif
-}
-void CBLayout::scaleY(float& y)
-{
-#ifdef __CBIOS__
-	if(CBEnvironment::isRetina())
-	{
-        if(m_coordinate == Coordinate_320_480)
-        {
-            y *= 2;
-        }
-        if(m_isiPhone5 && m_enableScaleRetina4)
-        {
-            y *= m_scaleHeight;
-        }
-	}
-    else
-    {
-        if(m_coordinate == Coordinate_Normal)
-        {
-            y /= 2;
-        }
-    }
-#else
-    if(m_coordinate == Coordinate_320_480)
-    {
-        y *= 2;
-    }
-	y *= m_scaleHeight;
-#endif
-}
+//void CBLayout::scaleX(float& x)
+//{
+//#ifdef __CBIOS__
+//	if(CBEnvironment::isRetina())
+//	{
+//        if(m_coordinate == Coordinate_320_480)
+//        {
+//            x *= 2;
+//        }
+//        if(m_isiPhone5 && m_enableScaleRetina4)
+//        {
+//            x *= m_scaleWidth;
+//        }
+//	}
+//    else
+//    {
+//        if(m_coordinate == Coordinate_Normal)
+//        {
+//            x /= 2;
+//        }
+//    }
+//#else
+//	if(m_coordinate == Coordinate_320_480)
+//    {
+//        x *= 2;
+//    }
+//	x *= m_scaleWidth;
+//#endif
+//}
+//void CBLayout::scaleY(float& y)
+//{
+//#ifdef __CBIOS__
+//	if(CBEnvironment::isRetina())
+//	{
+//        if(m_coordinate == Coordinate_320_480)
+//        {
+//            y *= 2;
+//        }
+//        if(m_isiPhone5 && m_enableScaleRetina4)
+//        {
+//            y *= m_scaleHeight;
+//        }
+//	}
+//    else
+//    {
+//        if(m_coordinate == Coordinate_Normal)
+//        {
+//            y /= 2;
+//        }
+//    }
+//#else
+//    if(m_coordinate == Coordinate_320_480)
+//    {
+//        y *= 2;
+//    }
+//	y *= m_scaleHeight;
+//#endif
+//}
 
-float CBLayout::scaleXPosition(float x)
+float CBLayout::scaleX(float x)
 {
 #ifdef __CBIOS__
 	if(CBEnvironment::isRetina())
@@ -190,7 +238,7 @@ float CBLayout::scaleXPosition(float x)
 #endif
     return x;
 }
-float CBLayout::scaleYPosition(float y)
+float CBLayout::scaleY(float y)
 {
 #ifdef __CBIOS__
 	if(CBEnvironment::isRetina())
@@ -221,30 +269,30 @@ float CBLayout::scaleYPosition(float y)
     return y;
 }
 
-void CBLayout::scaleWidth(float& width)
-{
-#ifdef __CBIOS__
-    if(m_isiPhone5 && m_enableScaleRetina4)
-    {
-        width *= m_scaleWidth;
-    }
-#else
-	width *= m_scaleWidth;
-#endif
-}
-void CBLayout::scaleHeight(float& height)
-{
-#ifdef __CBIOS__
-    if(m_isiPhone5 && m_enableScaleRetina4)
-    {
-        height *= m_scaleHeight;
-    }
-#else
-	height *= m_scaleHeight;
-#endif
-}
+//void CBLayout::scaleWidth(float& width)
+//{
+//#ifdef __CBIOS__
+//    if(m_isiPhone5 && m_enableScaleRetina4)
+//    {
+//        width *= m_scaleWidth;
+//    }
+//#else
+//	width *= m_scaleWidth;
+//#endif
+//}
+//void CBLayout::scaleHeight(float& height)
+//{
+//#ifdef __CBIOS__
+//    if(m_isiPhone5 && m_enableScaleRetina4)
+//    {
+//        height *= m_scaleHeight;
+//    }
+//#else
+//	height *= m_scaleHeight;
+//#endif
+//}
 
-float CBLayout::scaleWidthValue(float width)
+float CBLayout::scaleWidth(float width)
 {
 #ifdef __CBIOS__
     if(m_isiPhone5 && m_enableScaleRetina4)
@@ -256,7 +304,7 @@ float CBLayout::scaleWidthValue(float width)
 #endif
     return width;
 }
-float CBLayout::scaleHeightValue(float height)
+float CBLayout::scaleHeight(float height)
 {
 #ifdef __CBIOS__
     if(m_isiPhone5 && m_enableScaleRetina4)

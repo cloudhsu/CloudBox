@@ -45,26 +45,26 @@ void CBView::setColor(float r, float g, float b)
 
 void CBView::moveTo(float x, float y)
 {
-	SLayout.layoutPosition(x,y);
+	SLayout.scalePosition(x,y);
 	m_x = x;
 	m_y = y;
 }
 
 void CBView::move(float dx, float dy)
 {
-	SLayout.layoutPosition(dx,dy);
+	SLayout.scalePosition(dx,dy);
 	m_x += dx;
 	m_y += dy;
 }
 
 void CBView::moveX(float dx)
 {
-    SLayout.scaleX(dx);
+    dx = SLayout.scaleX(dx);
     m_x += dx;
 }
 void CBView::moveY(float dy)
 {
-    SLayout.scaleY(dy);
+    dy = SLayout.scaleY(dy);
     m_y += dy;
 }
 

@@ -44,12 +44,12 @@ void CBImage::loadImage(const string& fileName)
 {
 	m_image = CBImageFactory::CreateImage();
 	m_image->loadImage(fileName, m_width, m_height);
-    SLayout.layoutScale(m_width,m_height);
+    SLayout.scaleSize(m_width,m_height);
 }
 
 void CBImage::createTextImage(const string& text,float size)
 {
 	m_image = CBImageFactory::CreateImage();
 	m_image->createTextImage(text, size, m_width, m_height);
-    SLayout.layoutScale(m_width,m_height);
+    SLayout.scaleSize(m_width,m_height);
 }

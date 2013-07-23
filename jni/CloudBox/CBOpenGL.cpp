@@ -59,7 +59,7 @@ void CBOpenGL::initialize2D()
 	m_screenWidth = CBEnvironment::getScreenWidth();
 	m_screenHeight = CBEnvironment::getScreenHeight();
 	
-	SLayout.initScale(m_screenWidth,m_screenHeight);
+	SLayout.initial(m_screenWidth,m_screenHeight);
 	
 	glViewport(0, 0, m_screenWidth, m_screenHeight);
 	

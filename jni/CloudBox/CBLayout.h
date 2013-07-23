@@ -56,22 +56,25 @@ public:
     
     void iOSWideScreen();
     
-	void initScale(float screenWidth, float screenHeight);
+	void initial(float screenWidth, float screenHeight);
 	void setOrientation(CBOrientation orientation);
-	void layoutScale(float &width, float &height);
-	void layoutPosition(float &x, float &y);
+//	void layoutScale(float &width, float &height);
+//	void layoutPosition(float &x, float &y);
     
-    void scaleX(float& x);
-    void scaleY(float& y);
+    void scaleSize(float &width, float &height);
+	void scalePosition(float &x, float &y);
     
-    float scaleXPosition(float x);
-    float scaleYPosition(float y);
+    //void scaleX(float& x);
+    //void scaleY(float& y);
     
-    float scaleWidthValue(float width);
-    float scaleHeightValue(float height);
+    float scaleX(float x);
+    float scaleY(float y);
     
-    void scaleWidth(float& width);
-    void scaleHeight(float& height);
+    float scaleWidth(float width);
+    float scaleHeight(float height);
+    
+    //void scaleWidth(float& width);
+    //void scaleHeight(float& height);
 };
 
 #define SLayout CBLayout::instance()
