@@ -89,6 +89,10 @@ void CBGLGraphic::drawLine(CBPoint& ptStart, CBPoint& ptEnd, CBColor& color)
 }
 void CBGLGraphic::drawLine(CBPoint& ptStart, CBPoint& ptEnd, CBColor& color, float size)
 {
+    ptStart.x = SLayout.scaleX(ptStart.x);
+    ptStart.y = SLayout.scaleY(ptStart.y);
+    ptEnd.x = SLayout.scaleX(ptEnd.x);
+    ptEnd.y = SLayout.scaleY(ptEnd.y);
     float y1 = m_screenHeight - ptStart.y;
     float y2 = m_screenHeight - ptEnd.y;
     GLfloat line[] =
@@ -124,6 +128,14 @@ void CBGLGraphic::drawLineLoop(CBPoint& p1, CBPoint& p2, CBPoint& p3, CBPoint& p
 }
 void CBGLGraphic::drawLineLoop(CBPoint& p1, CBPoint& p2, CBPoint& p3, CBPoint& p4, CBColor& color, float size)
 {
+    p1.x = SLayout.scaleX(p1.x);
+    p1.y = SLayout.scaleY(p1.y);
+    p2.x = SLayout.scaleX(p2.x);
+    p2.y = SLayout.scaleY(p2.y);
+    p3.x = SLayout.scaleX(p3.x);
+    p3.y = SLayout.scaleY(p3.y);
+    p4.x = SLayout.scaleX(p4.x);
+    p4.y = SLayout.scaleY(p4.y);
     float y1 = m_screenHeight - p1.y;
     float y2 = m_screenHeight - p2.y;
     float y3 = m_screenHeight - p3.y;
@@ -147,6 +159,10 @@ void CBGLGraphic::drawRect(CBRect& rect)
     color.g = 1;
     color.b = 1;
     color.a = 1;
+    rect.x = SLayout.scaleX(rect.x);
+    rect.y = SLayout.scaleY(rect.y);
+    rect.width = SLayout.scaleWidth(rect.width);
+    rect.height = SLayout.scaleHeight(rect.height);
     drawRect(rect, color);
 }
 void CBGLGraphic::drawRect(CBRect& rect,CBColor& color)
