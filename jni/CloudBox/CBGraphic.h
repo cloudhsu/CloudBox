@@ -22,7 +22,7 @@ private:
     CBGraphicBase* m_impl;
 public:
     CBGraphic();
-    virtual ~CBGraphic();
+    ~CBGraphic();
 
     // initial graphic
     void initial2D();

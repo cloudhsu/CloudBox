@@ -30,6 +30,7 @@ private:
     float m_screenWidth;
     float m_screenHeight;
     void drawLines(GLfloat* vtx, CBColor& color, float siz);
+    void drawRect(GLfloat* vtx, CBColor& color);
     void drawLineLoop(GLfloat* vtx, CBColor& color, float siz);
     void drawEllipse(int seg,float w,float h,float px,float py,float pz,bool filled, CBColor& color);
     void render(CBView* view, CBTexture* texture, GLfloat* coordinates,GLfloat* vertices);

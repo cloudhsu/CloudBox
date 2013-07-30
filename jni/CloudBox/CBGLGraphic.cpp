@@ -167,6 +167,11 @@ void CBGLGraphic::drawRect(CBRect& rect)
 }
 void CBGLGraphic::drawRect(CBRect& rect,CBColor& color)
 {
+    rect.x = SLayout.scaleX(rect.x);
+    rect.y = SLayout.scaleY(rect.y);
+    rect.width = SLayout.scaleWidth(rect.width);
+    rect.height = SLayout.scaleHeight(rect.height);
+
     rect.y = m_screenHeight - rect.y;
 	
 	GLfloat vertices[] =
@@ -177,24 +182,29 @@ void CBGLGraphic::drawRect(CBRect& rect,CBColor& color)
 		rect.x + rect.width,  rect.y - rect.height,  0,
 	};
 	
-	glDisable(GL_TEXTURE_2D);
-	glDisableClientState (GL_TEXTURE_COORD_ARRAY);
-	
-	glEnableClientState (GL_VERTEX_ARRAY);
-	glEnableClientState (GL_TEXTURE_COORD_ARRAY);
-	glPushMatrix();
-	
-	glColor4f(color.r, color.g, color.b, 1.0f);
-	
-	glVertexPointer(3, GL_FLOAT, 0, vertices);
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-	
-	glPopMatrix();
-	glDisableClientState (GL_VERTEX_ARRAY);
-	glDisableClientState (GL_TEXTURE_COORD_ARRAY);
-	
-	glEnable(GL_TEXTURE_2D);
-	glEnableClientState (GL_TEXTURE_COORD_ARRAY);
+	drawRect(vertices,color);
+}
+
+void CBGLGraphic::drawRect(GLfloat* vtx, CBColor& color)
+{
+    glDisable(GL_TEXTURE_2D);
+    glDisableClientState (GL_TEXTURE_COORD_ARRAY);
+
+    glEnableClientState (GL_VERTEX_ARRAY);
+    glEnableClientState (GL_TEXTURE_COORD_ARRAY);
+    glPushMatrix();
+
+    glColor4f(color.r, color.g, color.b, 1.0f);
+
+    glVertexPointer(3, GL_FLOAT, 0, vtx);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+    glPopMatrix();
+    glDisableClientState (GL_VERTEX_ARRAY);
+    glDisableClientState (GL_TEXTURE_COORD_ARRAY);
+
+    glEnable(GL_TEXTURE_2D);
+    glEnableClientState (GL_TEXTURE_COORD_ARRAY);
 }
 
 void CBGLGraphic::fillScreen(float r, float g, float b)
@@ -225,7 +235,11 @@ void CBGLGraphic::drawCircle(CBPoint& pt, float radius, CBColor& color)
 
 void CBGLGraphic::drawCircle(CBPoint& pt, float radius, CBColor& color, bool filled)
 {
-    drawEllipse(32, radius, radius, pt.x, pt.y, 0.0, filled, color);
+    pt.x = SLayout.scaleX(pt.x);
+    pt.y = SLayout.scaleY(pt.y);
+    float w = SLayout.scaleWidth(radius);
+    float h = SLayout.scaleHeight(radius);
+    drawEllipse(32, w, h, pt.x, pt.y, 0.0, filled, color);
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // for texture

@@ -13,7 +13,6 @@
 
 CBGraphic::CBGraphic()
 {
-    //m_impl = new CBGraphicSimulator();
     m_impl = new CBGLGraphic();
 }
 
