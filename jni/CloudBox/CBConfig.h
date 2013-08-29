@@ -17,5 +17,7 @@
 // Using CBLedEnable to enable led for compile
 //#define CBLedEnable
 
+// Using CBFacebookEnable to enable facebook function
+//#define CBFacebookEnable
 
 #endif

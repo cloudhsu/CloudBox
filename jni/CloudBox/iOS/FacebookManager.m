@@ -9,6 +9,8 @@
 
 #import "FacebookManager.h"
 
+#ifdef CBFacebookEnable
+
 @implementation FacebookManager
 
 @synthesize isLogon = _isLogon;
@@ -219,3 +221,5 @@ static FacebookManager* _sharedInstance = nil;
 }
 
 @end
+
+#endif

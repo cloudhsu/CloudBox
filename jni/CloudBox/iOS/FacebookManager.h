@@ -7,6 +7,10 @@
  *
  */
 
+#import "CBConfig.h"
+
+#ifdef CBFacebookEnable
+
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
@@ -37,3 +41,5 @@
 @property (nonatomic, readonly) id<FBGraphUser> loggedInUser;
 
 @end
+
+#endif

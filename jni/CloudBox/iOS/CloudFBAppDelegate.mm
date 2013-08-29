@@ -15,6 +15,7 @@
 
 @synthesize viewController;
 
+#ifdef CBFacebookEnable
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
@@ -22,8 +23,9 @@
     // attempt to extract a token from the url
     return [[FacebookManager sharedInstance] handleOpenURL:url];
 }
+#endif
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application 
+- (void)applicationDidFinishLaunching:(UIApplication *)application
 {
 	CGRect t_FullScreenRect = [[UIScreen mainScreen] bounds];
 	
@@ -54,13 +56,17 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [self.viewController startAnimation];
+#ifdef CBFacebookEnable
     [[FacebookManager sharedInstance]handleActive];
+#endif
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [self.viewController stopAnimation];
+#ifdef CBFacebookEnable
     [[FacebookManager sharedInstance]logout];
+#endif
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
