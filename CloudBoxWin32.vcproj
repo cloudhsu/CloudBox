@@ -276,6 +276,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\jni\CloudBox\CBGLGraphic.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\jni\CloudBox\CBGLImage.cpp"
 				>
 			</File>
@@ -554,6 +558,10 @@
 				</File>
 				<File
 					RelativePath=".\jni\CloudBox\CBGameApp.h"
+					>
+				</File>
+				<File
+					RelativePath=".\jni\CloudBox\CBGLGraphic.h"
 					>
 				</File>
 				<File
