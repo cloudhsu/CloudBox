@@ -41,6 +41,7 @@ LOCAL_SRC_FILES := CBAction.cpp CBActionManager.cpp CBAnimation.cpp \
                    CBStoreManager.cpp CBStoreEvent.cpp CBDialog.cpp CBSystemDialog.cpp \
                    CBUtility.cpp CBXmlUtility.cpp CBUserDefault.cpp CBLibXMLUtility.cpp \
                    CBFactoryMethod.cpp CBStoreBase.cpp CBDialogManager.cpp \
+                   CBGraphic.cpp CBGLGraphic.cpp \
                    ../CBAppEvent.cpp
 # For community
 LOCAL_SRC_FILES += CBAchievementExhibitor.cpp CBAchievementItem.cpp CBAchievementManager.cpp \
