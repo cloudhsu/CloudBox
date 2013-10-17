@@ -43,10 +43,11 @@ void CBGameApp::setScreen(GLint screenWidth,GLint screenHeight)
 void CBGameApp::initialize()
 {
 	SOpenGL.initialize2D();
+	DebugLog("Succeed initial OpenGL.");
 #ifdef __CBIOS__
     initialStore();
+    initialArchiment();
 #endif
-    SAchievementManager.initialAchievementSystem();
 	if(!m_isinitialed)
 	{
 		m_isinitialed = true;
@@ -57,6 +58,13 @@ void CBGameApp::initialize()
 void CBGameApp::initialStore()
 {
     SStoreManager.initialStore();
+    DebugLog("Succeed initial Store.");
+}
+
+void CBGameApp::initialArchiment()
+{
+	SAchievementManager.initialAchievementSystem();
+	DebugLog("Succeed initial Achievement System.");
 }
 
 void CBGameApp::start()

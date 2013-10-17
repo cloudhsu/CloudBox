@@ -71,6 +71,7 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInit
   (JNIEnv * env, jclass cls, jstring apkPath, jstring packageName)
 {
 	LOGI("nativeInit");
+	g_env = env;
 	const char* sApkPath;
 	const char* sPackageName;
     jboolean isCopy;
@@ -81,6 +82,7 @@ JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInit
     LOGI("package name:%s",sPackageName);
     loadAPK(sApkPath);
     SGameApp.initialStore();
+    SGameApp.initialArchiment();
 }
 
 JNIEXPORT void JNICALL Java_com_clouddevelop_cloudbox_CloudRenderer_nativeInitGL

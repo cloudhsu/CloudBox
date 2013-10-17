@@ -54,7 +54,13 @@ void CBTextManager::close(jobject textImage)
 GLuint CBTextManager::createText(const char* text, float size,float& rWidth, float& rHeight)
 {
 	/* Ask the PNG manager for a bitmap */
-	jobject textImage = create(text,size);
+	LOGI("Start create text.");
+	//jobject textImage = create(text,size);
+	jstring data = g_env->NewStringUTF(text);
+	jobject textImage = g_env->CallObjectMethod(m_mainObject, m_create, data, size);
+	g_env->DeleteLocalRef(data);
+	g_env->NewLocalRef(textImage);
+	LOGI("Create text image succeed.");
 
 	/* Get image dimensions */
 	int width = getWidth(textImage);
@@ -64,7 +70,8 @@ GLuint CBTextManager::createText(const char* text, float size,float& rWidth, flo
 
 	/* Get pixels */
 	jintArray image_data = g_env->NewIntArray(width * height);
-	g_env->NewGlobalRef(image_data);
+	//g_env->NewGlobalRef(image_data);
+	g_env->NewLocalRef(image_data);
 	g_env->CallVoidMethod(m_mainObject, m_getPixels, textImage, image_data);
 
 	jint *pixels = g_env->GetIntArrayElements(image_data, 0);
@@ -78,10 +85,15 @@ GLuint CBTextManager::createText(const char* text, float size,float& rWidth, flo
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
 	g_env->ReleaseIntArrayElements(image_data, pixels, 0);
-	g_env->DeleteGlobalRef(image_data);
+	//g_env->DeleteGlobalRef(image_data);
+	g_env->DeleteLocalRef(image_data);
 
 	/* Free image */
-	close(textImage);
+	LOGI("Start close text image.");
+	//close(textImage);
+	g_env->CallVoidMethod(m_mainObject, m_close, textImage);
+	g_env->DeleteLocalRef(textImage);
+	LOGI("Close text image succeed.");
 
 	return texture;
 }

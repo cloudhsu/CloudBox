@@ -32,7 +32,7 @@ void CBJNI::initialJNIClass(const string& className)
 	//DebugLog("CBJNI::initial 1");
 	if(g_env == NULL)
 	{
-		DebugLog("CBJNI::initial error");
+		DebugLog("CBJNI::initial error %s",className.c_str());
 		return;
 	}
 	m_className = string(className);

@@ -43,6 +43,7 @@ public:
 	void initialize();
     void initialTimer(double oldTime);
     void initialStore();
+    void initialArchiment();
 	void runWithScene(CBScene* scene);
 	void destory();
 	void mainLoop(double time);
