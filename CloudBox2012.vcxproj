@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BE2DD732-443E-4D45-8B6D-2C52C79D5AED}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CloudBox2012</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)jni\CloudBox;$(ProjectDir)jni\CloudBox\Component;$(ProjectDir)jni\CloudBox\Win32;$(ProjectDir)Win32lib\include;$(ProjectDir)Win32lib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>"$(ProjectDir)win32lib\lib"</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);GlU32.Lib;OpenGL32.Lib;freeglut.lib;glut32.lib;libxml2.lib;iconv.lib;zlib.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="jni\CBAppEvent.cpp" />
+    <ClCompile Include="jni\CloudBox\CBAchievementExhibitor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBAchievementItem.cpp" />
+    <ClCompile Include="jni\CloudBox\CBAchievementManager.cpp" />
+    <ClCompile Include="jni\CloudBox\CBAchievements.cpp" />
+    <ClCompile Include="jni\CloudBox\CBAction.cpp" />
+    <ClCompile Include="jni\CloudBox\CBActionManager.cpp" />
+    <ClCompile Include="jni\CloudBox\CBAnimation.cpp" />
+    <ClCompile Include="jni\CloudBox\CBAudioEngine.cpp" />
+    <ClCompile Include="jni\CloudBox\CBButton.cpp" />
+    <ClCompile Include="jni\CloudBox\CBCmd.cpp" />
+    <ClCompile Include="jni\CloudBox\CBCommunityExhibitor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBCommunityManager.cpp" />
+    <ClCompile Include="jni\CloudBox\CBComposeAction.cpp" />
+    <ClCompile Include="jni\CloudBox\CBDebugExhibitor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBDialog.cpp" />
+    <ClCompile Include="jni\CloudBox\CBDialogManager.cpp" />
+    <ClCompile Include="jni\CloudBox\CBDirector.cpp" />
+    <ClCompile Include="jni\CloudBox\CBEnvironment.cpp" />
+    <ClCompile Include="jni\CloudBox\CBEventDispatcher.cpp" />
+    <ClCompile Include="jni\CloudBox\CBEventProcessor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBExhibitorFactory.cpp" />
+    <ClCompile Include="jni\CloudBox\CBFacebookExhibitor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBFactoryMethod.cpp" />
+    <ClCompile Include="jni\CloudBox\CBGameApp.cpp" />
+    <ClCompile Include="jni\CloudBox\CBGameCenterExhibitor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBGLGraphic.cpp" />
+    <ClCompile Include="jni\CloudBox\CBGLImage.cpp" />
+    <ClCompile Include="jni\CloudBox\CBGraphic.cpp" />
+    <ClCompile Include="jni\CloudBox\CBImage.cpp" />
+    <ClCompile Include="jni\CloudBox\CBLabel.cpp" />
+    <ClCompile Include="jni\CloudBox\CBLayout.cpp" />
+    <ClCompile Include="jni\CloudBox\CBLibrary.cpp" />
+    <ClCompile Include="jni\CloudBox\CBLibXMLUtility.cpp" />
+    <ClCompile Include="jni\CloudBox\CBLogoScene.cpp" />
+    <ClCompile Include="jni\CloudBox\CBNumber.cpp" />
+    <ClCompile Include="jni\CloudBox\CBOpenGL.cpp" />
+    <ClCompile Include="jni\CloudBox\CBProperty.cpp" />
+    <ClCompile Include="jni\CloudBox\CBPropertyAction.cpp" />
+    <ClCompile Include="jni\CloudBox\CBRotateAction.cpp" />
+    <ClCompile Include="jni\CloudBox\CBScene.cpp" />
+    <ClCompile Include="jni\CloudBox\CBScreenExhibitItem.cpp" />
+    <ClCompile Include="jni\CloudBox\CBScreenExhibitor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBSprite.cpp" />
+    <ClCompile Include="jni\CloudBox\CBStoreBase.cpp" />
+    <ClCompile Include="jni\CloudBox\CBStoreEvent.cpp" />
+    <ClCompile Include="jni\CloudBox\CBStoreManager.cpp" />
+    <ClCompile Include="jni\CloudBox\CBString.cpp" />
+    <ClCompile Include="jni\CloudBox\CBSwitch.cpp" />
+    <ClCompile Include="jni\CloudBox\CBSystemDialog.cpp" />
+    <ClCompile Include="jni\CloudBox\CBTexture.cpp" />
+    <ClCompile Include="jni\CloudBox\CBTextureBuilder.cpp" />
+    <ClCompile Include="jni\CloudBox\CBTexturePool.cpp" />
+    <ClCompile Include="jni\CloudBox\CBTimerManager.cpp" />
+    <ClCompile Include="jni\CloudBox\CBTouchManager.cpp" />
+    <ClCompile Include="jni\CloudBox\CBTwitterExhibitor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBUserDefault.cpp" />
+    <ClCompile Include="jni\CloudBox\CBUtility.cpp" />
+    <ClCompile Include="jni\CloudBox\CBView.cpp" />
+    <ClCompile Include="jni\CloudBox\CBWeiboExhibitor.cpp" />
+    <ClCompile Include="jni\CloudBox\CBXmlUtility.cpp" />
+    <ClCompile Include="jni\CloudBox\Component\CBRingScrollImage.cpp" />
+    <ClCompile Include="jni\CloudBox\Component\CBSlideBar.cpp" />
+    <ClCompile Include="jni\CloudBox\Win32\CBWin32Dialog.cpp" />
+    <ClCompile Include="jni\CloudBox\Win32\CBWin32TextureBuilder.cpp" />
+    <ClCompile Include="jni\CloudBox\Win32\CBWin32Utility.cpp" />
+    <ClCompile Include="jni\CloudBox\Win32\mian.cpp" />
+    <ClCompile Include="jni\HelloScene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="jni\CBAppEvent.h" />
+    <ClInclude Include="jni\CloudBox\CBAchievementExhibitor.h" />
+    <ClInclude Include="jni\CloudBox\CBAchievementItem.h" />
+    <ClInclude Include="jni\CloudBox\CBAchievementManager.h" />
+    <ClInclude Include="jni\CloudBox\CBAchievements.h" />
+    <ClInclude Include="jni\CloudBox\CBAction.h" />
+    <ClInclude Include="jni\CloudBox\CBActionManager.h" />
+    <ClInclude Include="jni\CloudBox\CBAnimation.h" />
+    <ClInclude Include="jni\CloudBox\CBAudioBase.h" />
+    <ClInclude Include="jni\CloudBox\CBAudioEngine.h" />
+    <ClInclude Include="jni\CloudBox\CBButton.h" />
+    <ClInclude Include="jni\CloudBox\CBCmd.h" />
+    <ClInclude Include="jni\CloudBox\CBCommunityExhibitor.h" />
+    <ClInclude Include="jni\CloudBox\CBCommunityExhibitorBase.h" />
+    <ClInclude Include="jni\CloudBox\CBCommunityManager.h" />
+    <ClInclude Include="jni\CloudBox\CBComposeAction.h" />
+    <ClInclude Include="jni\CloudBox\CBConfig.h" />
+    <ClInclude Include="jni\CloudBox\CBConvert.h" />
+    <ClInclude Include="jni\CloudBox\CBCore.h" />
+    <ClInclude Include="jni\CloudBox\CBDebugExhibitor.h" />
+    <ClInclude Include="jni\CloudBox\CBDelegate.h" />
+    <ClInclude Include="jni\CloudBox\CBDelegateImpl.h" />
+    <ClInclude Include="jni\CloudBox\CBDevice.h" />
+    <ClInclude Include="jni\CloudBox\CBDialog.h" />
+    <ClInclude Include="jni\CloudBox\CBDialogEnum.h" />
+    <ClInclude Include="jni\CloudBox\CBDialogManager.h" />
+    <ClInclude Include="jni\CloudBox\CBDirector.h" />
+    <ClInclude Include="jni\CloudBox\CBEffectBase.h" />
+    <ClInclude Include="jni\CloudBox\CBEnvironment.h" />
+    <ClInclude Include="jni\CloudBox\CBEvent.h" />
+    <ClInclude Include="jni\CloudBox\CBEventDispatcher.h" />
+    <ClInclude Include="jni\CloudBox\CBEventProcessor.h" />
+    <ClInclude Include="jni\CloudBox\CBExhibitorFactory.h" />
+    <ClInclude Include="jni\CloudBox\CBFacebookExhibitor.h" />
+    <ClInclude Include="jni\CloudBox\CBFactory.h" />
+    <ClInclude Include="jni\CloudBox\CBFactoryMethod.h" />
+    <ClInclude Include="jni\CloudBox\CBGameApp.h" />
+    <ClInclude Include="jni\CloudBox\CBGameCenterExhibitor.h" />
+    <ClInclude Include="jni\CloudBox\CBGameCenterExhibitorBase.h" />
+    <ClInclude Include="jni\CloudBox\CBGLGraphic.h" />
+    <ClInclude Include="jni\CloudBox\CBGLImage.h" />
+    <ClInclude Include="jni\CloudBox\CBGraphic.h" />
+    <ClInclude Include="jni\CloudBox\CBGraphicBase.h" />
+    <ClInclude Include="jni\CloudBox\CBGraphicDef.h" />
+    <ClInclude Include="jni\CloudBox\CBImage.h" />
+    <ClInclude Include="jni\CloudBox\CBImageBase.h" />
+    <ClInclude Include="jni\CloudBox\CBImageFactory.h" />
+    <ClInclude Include="jni\CloudBox\CBLabel.h" />
+    <ClInclude Include="jni\CloudBox\CBLayout.h" />
+    <ClInclude Include="jni\CloudBox\CBLibrary.h" />
+    <ClInclude Include="jni\CloudBox\CBLibXMLUtility.h" />
+    <ClInclude Include="jni\CloudBox\CBLogoScene.h" />
+    <ClInclude Include="jni\CloudBox\CBNumber.h" />
+    <ClInclude Include="jni\CloudBox\CBObserver.h" />
+    <ClInclude Include="jni\CloudBox\CBOpenGL.h" />
+    <ClInclude Include="jni\CloudBox\CBProperty.h" />
+    <ClInclude Include="jni\CloudBox\CBPropertyAction.h" />
+    <ClInclude Include="jni\CloudBox\CBRotateAction.h" />
+    <ClInclude Include="jni\CloudBox\CBScene.h" />
+    <ClInclude Include="jni\CloudBox\CBScreenExhibitItem.h" />
+    <ClInclude Include="jni\CloudBox\CBScreenExhibitor.h" />
+    <ClInclude Include="jni\CloudBox\CBSingleton.h" />
+    <ClInclude Include="jni\CloudBox\CBSprite.h" />
+    <ClInclude Include="jni\CloudBox\CBStoreBase.h" />
+    <ClInclude Include="jni\CloudBox\CBStoreEvent.h" />
+    <ClInclude Include="jni\CloudBox\CBStoreManager.h" />
+    <ClInclude Include="jni\CloudBox\CBString.h" />
+    <ClInclude Include="jni\CloudBox\CBSubjectMediator.h" />
+    <ClInclude Include="jni\CloudBox\CBSwitch.h" />
+    <ClInclude Include="jni\CloudBox\CBSystemDialog.h" />
+    <ClInclude Include="jni\CloudBox\CBTexture.h" />
+    <ClInclude Include="jni\CloudBox\CBTextureBuilder.h" />
+    <ClInclude Include="jni\CloudBox\CBTextureBuilderBase.h" />
+    <ClInclude Include="jni\CloudBox\CBTexturePool.h" />
+    <ClInclude Include="jni\CloudBox\CBTimerManager.h" />
+    <ClInclude Include="jni\CloudBox\CBTouchManager.h" />
+    <ClInclude Include="jni\CloudBox\CBTwitterExhibitor.h" />
+    <ClInclude Include="jni\CloudBox\CBUserDefault.h" />
+    <ClInclude Include="jni\CloudBox\CBUtility.h" />
+    <ClInclude Include="jni\CloudBox\CBUtilityBase.h" />
+    <ClInclude Include="jni\CloudBox\CBView.h" />
+    <ClInclude Include="jni\CloudBox\CBWeiboExhibitor.h" />
+    <ClInclude Include="jni\CloudBox\CBXmlBase.h" />
+    <ClInclude Include="jni\CloudBox\CBXmlUtility.h" />
+    <ClInclude Include="jni\CloudBox\CloudBox.h" />
+    <ClInclude Include="jni\CloudBox\CloudBoxEx.h" />
+    <ClInclude Include="jni\CloudBox\Component\CBRingScrollImage.h" />
+    <ClInclude Include="jni\CloudBox\Component\CBSlideBar.h" />
+    <ClInclude Include="jni\CloudBox\IAction.h" />
+    <ClInclude Include="jni\CloudBox\IClick.h" />
+    <ClInclude Include="jni\CloudBox\IEvent.h" />
+    <ClInclude Include="jni\CloudBox\ITouch.h" />
+    <ClInclude Include="jni\CloudBox\Win32\CBWin32Dialog.h" />
+    <ClInclude Include="jni\CloudBox\Win32\CBWin32TextureBuilder.h" />
+    <ClInclude Include="jni\CloudBox\Win32\CBWin32Utility.h" />
+    <ClInclude Include="jni\HelloScene.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

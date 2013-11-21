@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="原始程式檔">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="標頭檔">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="資源檔">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="標頭檔\CloudBox">
+      <UniqueIdentifier>{bea61bc3-b459-4de7-83c6-8e7c05a6394e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="標頭檔\CloudBox\Win32">
+      <UniqueIdentifier>{d5ccadf4-df4d-428b-a51a-2c4c0641bcd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="標頭檔\CloudBox\Component">
+      <UniqueIdentifier>{898a8971-6667-4e4d-a5ca-b1bc077e53b5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="jni\CloudBox\CBAchievementExhibitor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBAchievementItem.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBAchievementManager.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBAchievements.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBAction.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBActionManager.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBAnimation.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBAudioEngine.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBButton.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBCommunityExhibitor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBCommunityManager.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBComposeAction.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBDebugExhibitor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBDialog.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBDialogManager.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBEnvironment.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBEventDispatcher.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBEventProcessor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBExhibitorFactory.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBFacebookExhibitor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBFactoryMethod.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBGameApp.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBGameCenterExhibitor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBGLGraphic.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBGLImage.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBGraphic.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBImage.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBLabel.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBLayout.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBLibrary.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBLibXMLUtility.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBLogoScene.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBNumber.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBOpenGL.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBProperty.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBPropertyAction.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBRotateAction.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBScene.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBScreenExhibitItem.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBScreenExhibitor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBStoreBase.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBStoreEvent.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBStoreManager.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBString.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBSwitch.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBSystemDialog.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBTexture.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBTextureBuilder.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBTexturePool.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBTimerManager.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBTouchManager.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBTwitterExhibitor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBUserDefault.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBUtility.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBView.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBWeiboExhibitor.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBXmlUtility.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBSprite.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBDirector.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\CBCmd.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\Win32\CBWin32Dialog.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\Win32\CBWin32TextureBuilder.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\Win32\CBWin32Utility.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\Win32\mian.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CBAppEvent.cpp">
+      <Filter>標頭檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\HelloScene.cpp">
+      <Filter>標頭檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\Component\CBSlideBar.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\CloudBox\Component\CBRingScrollImage.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="jni\CloudBox\CBAchievementExhibitor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBAchievementItem.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBAchievementManager.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBAchievements.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBAction.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBActionManager.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBAnimation.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBAudioBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBAudioEngine.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBButton.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBCmd.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBCommunityExhibitor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBCommunityExhibitorBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBCommunityManager.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBComposeAction.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBConfig.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBConvert.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBCore.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBDebugExhibitor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBDelegate.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBDelegateImpl.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBDevice.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBDialog.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBDialogEnum.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBDialogManager.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBDirector.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBEffectBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBEnvironment.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBEvent.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBEventDispatcher.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBEventProcessor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBExhibitorFactory.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBFacebookExhibitor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBFactory.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBFactoryMethod.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBGameApp.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBGameCenterExhibitor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBGameCenterExhibitorBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBGLGraphic.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBGLImage.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBGraphic.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBGraphicBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBGraphicDef.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBImage.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBImageBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBImageFactory.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBLabel.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBLayout.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBLibrary.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBLibXMLUtility.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBLogoScene.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBNumber.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBObserver.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBOpenGL.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBProperty.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBPropertyAction.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBRotateAction.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBScene.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBScreenExhibitItem.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBScreenExhibitor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBSingleton.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBSprite.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBStoreBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBStoreEvent.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBStoreManager.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBString.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBSubjectMediator.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBSwitch.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBSystemDialog.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBTexture.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBTextureBuilder.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBTextureBuilderBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBTexturePool.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBTimerManager.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBTouchManager.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBTwitterExhibitor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBUserDefault.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBUtility.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBUtilityBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBView.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBWeiboExhibitor.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBXmlBase.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CBXmlUtility.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CloudBox.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\CloudBoxEx.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\IAction.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\IClick.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\IEvent.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\ITouch.h">
+      <Filter>標頭檔\CloudBox</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\Win32\CBWin32Dialog.h">
+      <Filter>標頭檔\CloudBox\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\Win32\CBWin32TextureBuilder.h">
+      <Filter>標頭檔\CloudBox\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\Win32\CBWin32Utility.h">
+      <Filter>標頭檔\CloudBox\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CBAppEvent.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\HelloScene.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\Component\CBRingScrollImage.h">
+      <Filter>標頭檔\CloudBox\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="jni\CloudBox\Component\CBSlideBar.h">
+      <Filter>標頭檔\CloudBox\Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
