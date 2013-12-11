@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)&quot;;&quot;$(ProjectDir)jni\CloudBox&quot;;&quot;$(ProjectDir)jni\CloudBox\Component&quot;;&quot;$(ProjectDir)jni\CloudBox\Win32&quot;;&quot;$(ProjectDir)Win32lib&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)&quot;;&quot;$(ProjectDir)jni\CloudBox&quot;;&quot;$(ProjectDir)jni\CloudBox\Component&quot;;&quot;$(ProjectDir)jni\CloudBox\Win32&quot;;&quot;$(ProjectDir)Win32lib&quot;;C:\Develop\Cloud\cloudbox\Win32lib\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
