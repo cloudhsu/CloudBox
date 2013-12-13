@@ -74,6 +74,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
   SGameApp.setScreen(960, 640);
   glutInitWindowSize(960,640);
   glutCreateWindow("CloudBox Demo");
+  const GLubyte* ver = glGetString(GL_VERSION);
+  printf( "OpenGL Version : %s \n",glGetString(GL_VERSION)); 
   //glutFullScreen();  
   if (!glutExtensionSupported("GL_EXT_abgr")) {
     printf("Couldn't find abgr extension.\n");
