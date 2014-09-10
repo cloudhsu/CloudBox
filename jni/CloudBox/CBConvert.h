@@ -22,7 +22,10 @@ public:
     template<class T>
     static T toValueFromCStr(char* s)
     {
-        std::istringstream stream ((std::string(s)));
+        std::stringstream stream;
+        stream.str("");
+        stream.clear();
+        stream<<s;
         T t;
         stream >> t;
         return t;
@@ -31,7 +34,9 @@ public:
     template<class T>
     static std::string toString(const T& t)
     {
-        std::ostringstream stream;
+        std::stringstream stream;
+        stream.str("");
+        stream.clear();
         stream << t;
         return stream.str();
     }
@@ -39,7 +44,10 @@ public:
     template<class T>
     static T toValue(const std::string& s)
     {
-        std::istringstream stream (s);
+        std::stringstream stream;
+        stream.str("");
+        stream.clear();
+        stream<<s;
         T t;
         stream >> t;
         return t;
