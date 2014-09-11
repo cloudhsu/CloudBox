@@ -22,7 +22,15 @@ public:
     template<class T>
     static T toValueFromCStr(char* s)
     {
+#if _MSC_VER
+#if _MSC_VER > 1500
         std::stringstream stream;
+#else
+        static std::stringstream stream;
+#endif
+#else
+        std::stringstream stream;
+#endif
         stream.str("");
         stream.clear();
         stream<<s;
@@ -34,7 +42,15 @@ public:
     template<class T>
     static std::string toString(const T& t)
     {
+#if _MSC_VER
+#if _MSC_VER > 1500
         std::stringstream stream;
+#else
+        static std::stringstream stream;
+#endif
+#else
+        std::stringstream stream;
+#endif
         stream.str("");
         stream.clear();
         stream << t;
@@ -44,7 +60,15 @@ public:
     template<class T>
     static T toValue(const std::string& s)
     {
+#if _MSC_VER
+#if _MSC_VER > 1500
         std::stringstream stream;
+#else
+        static std::stringstream stream;
+#endif
+#else
+        std::stringstream stream;
+#endif
         stream.str("");
         stream.clear();
         stream<<s;
